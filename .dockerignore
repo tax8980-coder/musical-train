@@ -1,0 +1,7 @@
+.git
+__pycache__
+*.pyc
+data/leads.db
+data/leads.db-shm
+data/leads.db-wal
+.DS_Store
