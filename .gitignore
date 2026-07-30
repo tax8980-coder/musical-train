@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# 개인정보가 담긴 리드 DB (배포/버전관리 제외)
+data/leads.db
+data/leads.db-shm
+data/leads.db-wal
+
+# OS
+.DS_Store
+Thumbs.db

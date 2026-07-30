@@ -1,0 +1,11 @@
+# 리드 DB는 배포/버전관리에서 제외 (개인정보)
+leads.db
+leads.db-shm
+leads.db-wal
+*.db
+*.db-shm
+*.db-wal
+
+# posts.json 은 배포에 포함 (홈페이지 칼럼 데이터)
+!posts.json
+!.gitignore

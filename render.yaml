@@ -1,0 +1,26 @@
+# Render 배포 설정 (Blueprint)
+# render.com 에서 이 저장소를 연결하면 자동으로 웹 서비스가 생성됩니다.
+services:
+  - type: web
+    name: jiyul-landing
+    runtime: python
+    plan: free                      # 무료. (주의: 무료는 미접속 시 절전→첫 접속이 느리고, 디스크가 재시작 시 초기화됨)
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python server.py"
+    autoDeploy: true
+    envVars:
+      - key: HOST
+        value: "0.0.0.0"            # 외부 접속 허용 (필수)
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: JIYUL_ADMIN_TOKEN      # 리드 조회용 관리 토큰 (자동 생성)
+        generateValue: true
+      # 리드를 재시작에도 보존하려면 아래 유료 디스크를 켜고 JIYUL_DATA_DIR 을 지정하세요.
+      # - key: JIYUL_DATA_DIR
+      #   value: "/var/data"
+
+    # (선택) 리드 영속 저장용 디스크 — 유료 플랜 필요
+    # disk:
+    #   name: jiyul-data
+    #   mountPath: /var/data
+    #   sizeGB: 1

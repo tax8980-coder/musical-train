@@ -1,0 +1,509 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Jiyul Tax Corp - landing page server (Python standard library only)
+
+- Serves the static landing page (index.html, assets/)
+- POST /api/leads      : stores an inquiry into the server-side SQLite `leads` table
+- GET  /api/leads      : lead list (JSON)  [admin token required]
+- GET  /api/leads.csv  : lead list (CSV, UTF-8 BOM for Excel) [admin token required]
+- PATCH /api/leads/<id>: update status / assignee / memo        [admin token required]
+
+Run:
+    python server.py            # http://127.0.0.1:8080
+    python server.py 9000       # custom port
+
+Admin endpoints:
+    set the JIYUL_ADMIN_TOKEN environment variable, then send it as
+    the X-Admin-Token header (or ?token=... query string).
+
+NOTE: this is a draft. See the disclaimer at the bottom of the landing page
+      before running it as a production service.
+"""
+
+import csv
+import io
+import json
+import os
+import re
+import sqlite3
+import sys
+import threading
+import time
+from datetime import datetime, timezone, timedelta
+from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
+from urllib.parse import urlparse, parse_qs
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+# 리드 DB 저장 위치. 클라우드에서는 재시작에도 남도록 영속 디스크 경로를
+# JIYUL_DATA_DIR 로 지정하세요(예: /var/data). 미지정 시 프로젝트의 data/ 사용.
+LEADS_DIR = os.environ.get("JIYUL_DATA_DIR", DATA_DIR)
+DB_PATH = os.path.join(LEADS_DIR, "leads.db")
+SCHEMA_PATH = os.path.join(BASE_DIR, "schema.sql")
+
+KST = timezone(timedelta(hours=9))
+ADMIN_TOKEN = os.environ.get("JIYUL_ADMIN_TOKEN", "").strip()
+
+MAX_BODY_BYTES = 64 * 1024
+ALLOWED_STATUS = ("신규", "연락완료", "상담진행", "수임", "보류")
+DEFAULT_STATUS = "신규"
+
+# must match the <option value="..."> list in index.html
+ALLOWED_INQUIRY_TYPES = (
+    "법인 세무·기장",
+    "개인 종합소득세·양도소득세",
+    "상속·증여·가업승계",
+    "세액공제·경정청구",
+    "세무조사·조세불복",
+    "강의·집필 문의",
+    "기타",
+)
+
+EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$")
+
+POSTS_PATH = os.path.join(BASE_DIR, "data", "posts.json")
+_posts_cache = {"mtime": None, "data": {"posts": []}}
+
+
+def load_posts():
+    """data/posts.json 을 mtime 기준으로 캐싱해 로드. 없으면 빈 목록."""
+    try:
+        mtime = os.path.getmtime(POSTS_PATH)
+    except OSError:
+        return {"posts": []}
+    if _posts_cache["mtime"] != mtime:
+        try:
+            with open(POSTS_PATH, encoding="utf-8") as fp:
+                _posts_cache["data"] = json.load(fp)
+            _posts_cache["mtime"] = mtime
+        except (OSError, ValueError):
+            return {"posts": []}
+    return _posts_cache["data"]
+
+_receipt_lock = threading.Lock()
+
+# very simple in-memory throttle: max N submissions per IP per window
+_rate_lock = threading.Lock()
+_rate_log = {}
+RATE_LIMIT = 5
+RATE_WINDOW_SEC = 600
+
+
+# ---------------------------------------------------------------- database
+def get_conn():
+    conn = sqlite3.connect(DB_PATH, timeout=10)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA foreign_keys=ON")
+    return conn
+
+
+def init_db():
+    os.makedirs(LEADS_DIR, exist_ok=True)
+    with open(SCHEMA_PATH, "r", encoding="utf-8") as fp:
+        schema = fp.read()
+    conn = get_conn()
+    try:
+        conn.executescript(schema)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def next_receipt_no(conn, now_kst):
+    """YY-MMDD-### : ### is a per-day sequence, zero padded to 3 digits."""
+    prefix = now_kst.strftime("%y-%m%d")
+    row = conn.execute(
+        "SELECT receipt_no FROM leads WHERE receipt_no LIKE ? ORDER BY receipt_no DESC LIMIT 1",
+        (prefix + "-%",),
+    ).fetchone()
+    seq = 1
+    if row:
+        try:
+            seq = int(str(row["receipt_no"]).rsplit("-", 1)[1]) + 1
+        except (ValueError, IndexError):
+            seq = 1
+    return "%s-%03d" % (prefix, seq)
+
+
+def insert_lead(fields):
+    """Insert one lead, returning its receipt number. Retries on receipt collision."""
+    now_kst = datetime.now(KST)
+    created_at = now_kst.isoformat(timespec="seconds")
+
+    with _receipt_lock:
+        conn = get_conn()
+        try:
+            for _ in range(20):
+                receipt_no = next_receipt_no(conn, now_kst)
+                try:
+                    conn.execute(
+                        """
+                        INSERT INTO leads
+                            (created_at, receipt_no, name, company, phone, email,
+                             inquiry_type, message, privacy_agreed, agreed_at,
+                             status, assignee, memo, source)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            created_at,
+                            receipt_no,
+                            fields["name"],
+                            fields["company"],
+                            fields["phone"],
+                            fields["email"],
+                            fields["inquiry_type"],
+                            fields["message"],
+                            1 if fields["privacy_agreed"] else 0,
+                            fields["agreed_at"],
+                            DEFAULT_STATUS,          # status
+                            None,                    # assignee
+                            None,                    # memo
+                            fields["source"],
+                        ),
+                    )
+                    conn.commit()
+                    return receipt_no
+                except sqlite3.IntegrityError:
+                    conn.rollback()
+                    continue
+            raise RuntimeError("receipt number allocation failed")
+        finally:
+            conn.close()
+
+
+# ---------------------------------------------------------------- validation
+def _clean(value, limit):
+    if value is None:
+        return ""
+    if not isinstance(value, str):
+        value = str(value)
+    value = value.replace("\x00", "").strip()
+    return value[:limit]
+
+
+def validate_payload(payload):
+    """Server side validation. Returns (fields, errors)."""
+    errors = {}
+
+    name = _clean(payload.get("name"), 80)
+    company = _clean(payload.get("company"), 120)
+    phone_raw = _clean(payload.get("phone"), 20)
+    email = _clean(payload.get("email"), 190)
+    inquiry_type = _clean(payload.get("inquiry_type"), 60)
+    message = _clean(payload.get("message"), 1000)
+    agreed = payload.get("privacy_agreed")
+    agreed_at = _clean(payload.get("agreed_at"), 40)
+    source = _clean(payload.get("source"), 60) or "website-landing"
+
+    digits = re.sub(r"\D", "", phone_raw)
+
+    if len(name) < 2:
+        errors["name"] = "name_too_short"
+    if not (9 <= len(digits) <= 11):
+        errors["phone"] = "phone_invalid"
+    if not EMAIL_RE.match(email):
+        errors["email"] = "email_invalid"
+    if inquiry_type not in ALLOWED_INQUIRY_TYPES:
+        errors["inquiry_type"] = "inquiry_type_invalid"
+    if not (10 <= len(message) <= 1000):
+        errors["message"] = "message_length_invalid"
+    if agreed is not True and str(agreed).lower() not in ("true", "1", "on", "yes"):
+        errors["privacy_agreed"] = "privacy_not_agreed"
+
+    if not agreed_at:
+        agreed_at = datetime.now(KST).isoformat(timespec="seconds")
+
+    fields = {
+        "name": name,
+        "company": company or None,
+        "phone": phone_raw,
+        "email": email,
+        "inquiry_type": inquiry_type,
+        "message": message,
+        "privacy_agreed": True,
+        "agreed_at": agreed_at,
+        "source": source,
+    }
+    return fields, errors
+
+
+def rate_limited(ip):
+    now = time.time()
+    with _rate_lock:
+        hits = [t for t in _rate_log.get(ip, []) if now - t < RATE_WINDOW_SEC]
+        if len(hits) >= RATE_LIMIT:
+            _rate_log[ip] = hits
+            return True
+        hits.append(now)
+        _rate_log[ip] = hits
+        # opportunistic cleanup
+        if len(_rate_log) > 2000:
+            for key in list(_rate_log.keys()):
+                if all(now - t >= RATE_WINDOW_SEC for t in _rate_log[key]):
+                    _rate_log.pop(key, None)
+    return False
+
+
+# ---------------------------------------------------------------- handler
+class Handler(SimpleHTTPRequestHandler):
+    server_version = "JiyulLanding/1.0"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=BASE_DIR, **kwargs)
+
+    # ---- helpers
+    def _send_json(self, status, obj):
+        body = json.dumps(obj, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(body)
+
+    def _read_json(self):
+        try:
+            length = int(self.headers.get("Content-Length") or 0)
+        except ValueError:
+            return None, "bad_length"
+        if length <= 0:
+            return None, "empty_body"
+        if length > MAX_BODY_BYTES:
+            return None, "body_too_large"
+        raw = self.rfile.read(length)
+        try:
+            # utf-8-sig: tolerate a leading BOM from some clients
+            data = json.loads(raw.decode("utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            return None, "invalid_json"
+        if not isinstance(data, dict):
+            return None, "invalid_json"
+        return data, None
+
+    def _is_admin(self, query):
+        if not ADMIN_TOKEN:
+            return False
+        header_token = (self.headers.get("X-Admin-Token") or "").strip()
+        query_token = (query.get("token", [""])[0] or "").strip()
+        return header_token == ADMIN_TOKEN or query_token == ADMIN_TOKEN
+
+    def _client_ip(self):
+        return self.client_address[0] if self.client_address else "unknown"
+
+    def end_headers(self):
+        # light hardening for the static responses as well
+        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        super().end_headers()
+
+    # ---- routes
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        if parsed.path != "/api/leads":
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+
+        if rate_limited(self._client_ip()):
+            self._send_json(429, {"ok": False, "error": "rate_limited"})
+            return
+
+        payload, err = self._read_json()
+        if err:
+            self._send_json(400, {"ok": False, "error": err})
+            return
+
+        fields, errors = validate_payload(payload)
+        if errors:
+            self._send_json(422, {"ok": False, "error": "validation_failed", "fields": errors})
+            return
+
+        try:
+            receipt_no = insert_lead(fields)
+        except Exception as exc:  # noqa: BLE001 - surface as a generic 500
+            self.log_error("insert_lead failed: %s", exc)
+            self._send_json(500, {"ok": False, "error": "storage_failed"})
+            return
+
+        self._send_json(201, {"ok": True, "receipt_no": receipt_no})
+
+    def do_PATCH(self):
+        parsed = urlparse(self.path)
+        query = parse_qs(parsed.query)
+        match = re.match(r"^/api/leads/(\d+)$", parsed.path)
+        if not match:
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+        if not self._is_admin(query):
+            self._send_json(401, {"ok": False, "error": "unauthorized"})
+            return
+
+        payload, err = self._read_json()
+        if err:
+            self._send_json(400, {"ok": False, "error": err})
+            return
+
+        sets, values = [], []
+        if "status" in payload:
+            status = _clean(payload.get("status"), 20)
+            if status not in ALLOWED_STATUS:
+                self._send_json(422, {"ok": False, "error": "status_invalid"})
+                return
+            sets.append("status = ?")
+            values.append(status)
+        if "assignee" in payload:
+            sets.append("assignee = ?")
+            values.append(_clean(payload.get("assignee"), 80) or None)
+        if "memo" in payload:
+            sets.append("memo = ?")
+            values.append(_clean(payload.get("memo"), 2000) or None)
+
+        if not sets:
+            self._send_json(422, {"ok": False, "error": "nothing_to_update"})
+            return
+
+        values.append(int(match.group(1)))
+        conn = get_conn()
+        try:
+            cur = conn.execute("UPDATE leads SET " + ", ".join(sets) + " WHERE id = ?", values)
+            conn.commit()
+        finally:
+            conn.close()
+
+        if cur.rowcount == 0:
+            self._send_json(404, {"ok": False, "error": "lead_not_found"})
+            return
+        self._send_json(200, {"ok": True})
+
+    def do_GET(self):
+        parsed = urlparse(self.path)
+        query = parse_qs(parsed.query)
+
+        if parsed.path in ("/api/leads", "/api/leads.csv"):
+            if not self._is_admin(query):
+                self._send_json(401, {"ok": False, "error": "unauthorized"})
+                return
+            rows = self._fetch_leads(query)
+            if parsed.path == "/api/leads":
+                self._send_json(200, {"ok": True, "count": len(rows), "leads": rows})
+            else:
+                self._send_csv(rows)
+            return
+
+        # ---- 세무칼럼 (공개) ----
+        if parsed.path == "/api/posts":
+            data = load_posts()
+            try:
+                limit = int(query.get("limit", ["0"])[0])
+            except ValueError:
+                limit = 0
+            tag = (query.get("tag", [""])[0] or "").strip()
+            items = data.get("posts", [])
+            if tag:
+                items = [p for p in items if tag in p.get("tags", [])]
+            # 목록에서는 본문 HTML 제외 (가벼운 응답)
+            listed = [{k: v for k, v in p.items() if k != "content_html"} for p in items]
+            if limit > 0:
+                listed = listed[:limit]
+            self._send_json(200, {"ok": True, "count": len(listed), "posts": listed})
+            return
+
+        m_post = re.match(r"^/api/posts/([A-Za-z0-9\-_]+)$", parsed.path)
+        if m_post:
+            data = load_posts()
+            slug = m_post.group(1)
+            for p in data.get("posts", []):
+                if p.get("slug") == slug:
+                    self._send_json(200, {"ok": True, "post": p})
+                    return
+            self._send_json(404, {"ok": False, "error": "post_not_found"})
+            return
+
+        if parsed.path.startswith("/api/"):
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+
+        super().do_GET()
+
+    def _fetch_leads(self, query):
+        status = (query.get("status", [""])[0] or "").strip()
+        try:
+            limit = min(max(int(query.get("limit", ["200"])[0]), 1), 1000)
+        except ValueError:
+            limit = 200
+
+        sql = "SELECT * FROM leads"
+        args = []
+        if status:
+            sql += " WHERE status = ?"
+            args.append(status)
+        sql += " ORDER BY id DESC LIMIT ?"
+        args.append(limit)
+
+        conn = get_conn()
+        try:
+            return [dict(r) for r in conn.execute(sql, args).fetchall()]
+        finally:
+            conn.close()
+
+    def _send_csv(self, rows):
+        cols = [
+            "id", "created_at", "receipt_no", "name", "company", "phone", "email",
+            "inquiry_type", "message", "privacy_agreed", "agreed_at",
+            "status", "assignee", "memo", "source",
+        ]
+        buf = io.StringIO()
+        writer = csv.DictWriter(buf, fieldnames=cols, extrasaction="ignore", lineterminator="\r\n")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+        body = ("﻿" + buf.getvalue()).encode("utf-8")
+
+        self.send_response(200)
+        self.send_header("Content-Type", "text/csv; charset=utf-8")
+        self.send_header("Content-Disposition", 'attachment; filename="leads.csv"')
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, fmt, *args):
+        # ASCII only, so a cp949 console cannot break logging
+        sys.stderr.write("[%s] %s\n" % (self.log_date_time_string(), fmt % args))
+
+
+def main():
+    # 로컬 기본은 127.0.0.1(안전). 클라우드 배포 시 HOST=0.0.0.0, PORT 는 플랫폼이 주입.
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "8080"))
+    if len(sys.argv) > 1:
+        try:
+            port = int(sys.argv[1])
+        except ValueError:
+            print("usage: python server.py [port]")
+            return 1
+
+    init_db()
+    httpd = ThreadingHTTPServer((host, port), Handler)
+    print("Jiyul landing server running")
+    print("  bind  : %s:%d" % (host, port))
+    print("  page  : http://%s:%d/" % (host, port))
+    print("  db    : %s" % DB_PATH)
+    if ADMIN_TOKEN:
+        print("  admin : /api/leads?token=*** (enabled)")
+    else:
+        print("  admin : disabled (set JIYUL_ADMIN_TOKEN to enable /api/leads)")
+    print("  stop  : Ctrl+C")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nstopped")
+    finally:
+        httpd.server_close()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
