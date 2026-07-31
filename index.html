@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=12" />
+<link rel="stylesheet" href="assets/styles.css?v=13" />
 </head>
 <body class="page-sub">
 <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -102,10 +102,18 @@
 
   <section class="section">
     <div class="container">
+      <div class="blog-search">
+        <svg class="blog-search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input class="blog-search__input" type="search" id="blogSearch" placeholder="칼럼 검색 (제목·요약·세목)"
+               autocomplete="off" aria-label="칼럼 검색" />
+      </div>
+
       <div class="blog-toolbar" id="tagFilter" hidden>
         <span class="blog-toolbar__label">세목</span>
         <div class="blog-toolbar__tags" id="tagList"></div>
       </div>
+
+      <p class="blog-result" id="blogCount" aria-live="polite"></p>
 
       <p class="column-disclaimer">본 칼럼은 세무법인 지율 손창용 세무사가 작성한 참고용 일반정보로, 법적 책임의 증빙자료로 사용될 수 없으며, 실제 세무관련 의사결정 시에는 반드시 관련 세법·국세청 해석 등 공식 자료를 추가로 확인하여야 하며, 본 칼럼 내용만을 근거로 한 조치에 대해 작성자 및 세무법인은 책임지지 않습니다.</p>
 
@@ -113,13 +121,14 @@
         <li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>
       </ul>
       <p class="post-grid__empty" id="blogEmpty" hidden>아직 등록된 칼럼이 없습니다.</p>
+      <nav class="pager" id="blogPager" aria-label="칼럼 페이지" hidden></nav>
     </div>
   </section>
 </main>
 
 <div data-site-footer hidden></div>
 
-<script src="assets/blog.js?v=4"></script>
+<script src="assets/blog.js?v=5"></script>
 <script src="assets/site-footer.js?v=3"></script>
 </body>
 </html>

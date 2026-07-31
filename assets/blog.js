@@ -34,23 +34,86 @@
   /* ---------------- 목록 페이지 ---------------- */
   var listEl = $('#blogList');
   if (listEl) {
+    var PER_PAGE = 9;                 // 한 페이지당 칼럼 수 (3열 × 3행)
     var emptyEl = $('#blogEmpty');
     var tagFilter = $('#tagFilter');
     var tagListEl = $('#tagList');
+    var searchEl = $('#blogSearch');
+    var countEl = $('#blogCount');
+    var pagerEl = $('#blogPager');
     var allPosts = [];
     var activeTag = '';
+    var query = '';
+    var page = 1;
 
-    function render() {
-      var posts = activeTag
-        ? allPosts.filter(function (p) { return (p.tags || []).indexOf(activeTag) !== -1; })
-        : allPosts;
-      if (!posts.length) {
+    function filtered() {
+      var q = query.trim().toLowerCase();
+      return allPosts.filter(function (p) {
+        if (activeTag && (p.tags || []).indexOf(activeTag) === -1) return false;
+        if (!q) return true;
+        var hay = ((p.title || '') + ' ' + (p.summary || '') + ' ' + (p.tags || []).join(' ')).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+    }
+
+    function pageWindow(cur, pages) {
+      var out = [], i;
+      if (pages <= 7) {
+        for (i = 1; i <= pages; i++) out.push(i);
+        return out;
+      }
+      var set = { 1: 1, 2: 1 };
+      set[pages] = 1; set[pages - 1] = 1;
+      set[cur] = 1; set[cur - 1] = 1; set[cur + 1] = 1;
+      var nums = Object.keys(set).map(Number).filter(function (n) { return n >= 1 && n <= pages; }).sort(function (a, b) { return a - b; });
+      var prev = 0;
+      nums.forEach(function (n) {
+        if (n - prev > 1) out.push('…');
+        out.push(n);
+        prev = n;
+      });
+      return out;
+    }
+
+    function renderPager(cur, pages) {
+      if (!pagerEl) return;
+      if (pages <= 1) { pagerEl.hidden = true; pagerEl.innerHTML = ''; return; }
+      pagerEl.hidden = false;
+      var html = [];
+      html.push('<button type="button" class="pager__btn" data-page="' + (cur - 1) + '"' + (cur === 1 ? ' disabled' : '') + ' aria-label="이전 페이지">‹ 이전</button>');
+      pageWindow(cur, pages).forEach(function (n) {
+        if (n === '…') { html.push('<span class="pager__gap" aria-hidden="true">…</span>'); return; }
+        html.push('<button type="button" class="pager__num' + (n === cur ? ' is-active" aria-current="page"' : '"') + ' data-page="' + n + '">' + n + '</button>');
+      });
+      html.push('<button type="button" class="pager__btn" data-page="' + (cur + 1) + '"' + (cur === pages ? ' disabled' : '') + ' aria-label="다음 페이지">다음 ›</button>');
+      pagerEl.innerHTML = html.join('');
+    }
+
+    function render(keepScroll) {
+      var posts = filtered();
+      var total = posts.length;
+      var pages = Math.max(1, Math.ceil(total / PER_PAGE));
+      if (page > pages) page = pages;
+      if (page < 1) page = 1;
+
+      if (countEl) countEl.textContent = total ? ('총 ' + total + '편' + (query || activeTag ? ' (검색 결과)' : '')) : '';
+
+      if (!total) {
         listEl.innerHTML = '';
-        if (emptyEl) emptyEl.hidden = false;
+        if (emptyEl) {
+          emptyEl.hidden = false;
+          emptyEl.textContent = (query || activeTag) ? '검색 결과가 없습니다.' : '아직 등록된 칼럼이 없습니다.';
+        }
+        renderPager(1, 1);
         return;
       }
       if (emptyEl) emptyEl.hidden = true;
-      listEl.innerHTML = posts.map(card).join('');
+      var start = (page - 1) * PER_PAGE;
+      listEl.innerHTML = posts.slice(start, start + PER_PAGE).map(card).join('');
+      renderPager(page, pages);
+      if (!keepScroll && listEl.scrollIntoView) {
+        listEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     function buildTags() {
@@ -68,10 +131,27 @@
         var btn = e.target.closest('.chip');
         if (!btn) return;
         activeTag = btn.getAttribute('data-tag') || '';
+        page = 1;
         Array.prototype.forEach.call(tagListEl.querySelectorAll('.chip'), function (c) {
           c.classList.toggle('is-active', c === btn);
         });
-        render();
+        render(true);
+      });
+    }
+
+    if (searchEl) {
+      searchEl.addEventListener('input', function () {
+        query = searchEl.value || '';
+        page = 1;
+        render(true);
+      });
+    }
+    if (pagerEl) {
+      pagerEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-page]');
+        if (!btn || btn.disabled) return;
+        var n = parseInt(btn.getAttribute('data-page'), 10);
+        if (!isNaN(n)) { page = n; render(); }
       });
     }
 
@@ -81,7 +161,7 @@
         allPosts = (data && data.posts) || [];
         if (!allPosts.length) { listEl.innerHTML = ''; if (emptyEl) emptyEl.hidden = false; return; }
         buildTags();
-        render();
+        render(true);
       })
       .catch(function () {
         listEl.innerHTML = '';

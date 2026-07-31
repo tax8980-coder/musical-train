@@ -1394,6 +1394,40 @@ body.is-locked { overflow: hidden; }
   .profile-intro__text { font-size: 15px; }
 }
 
+/* 칼럼 검색창 */
+.blog-search { position: relative; margin-bottom: 20px; max-width: 460px; }
+.blog-search__icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  width: 20px; height: 20px; fill: none; stroke: var(--text-sub);
+  stroke-width: 2; stroke-linecap: round; pointer-events: none;
+}
+.blog-search__input {
+  width: 100%; height: 48px; padding: 0 18px 0 46px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--white);
+  font-size: 15px; color: var(--text); font-family: inherit;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.blog-search__input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+.blog-search__input::placeholder { color: #9AA6B2; }
+
+/* 검색 결과 건수 */
+.blog-result { margin: 0 0 18px; font-size: 14px; color: var(--text-sub); font-weight: 600; }
+.blog-result:empty { display: none; }
+
+/* 페이지네이션 */
+.pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 44px; }
+.pager__btn, .pager__num {
+  min-width: 42px; min-height: 42px; padding: 0 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--white);
+  font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer;
+  font-family: inherit; transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.pager__btn:hover:not([disabled]), .pager__num:hover { border-color: var(--blue); color: var(--blue); }
+.pager__num.is-active { background: var(--blue); border-color: var(--blue); color: #fff; cursor: default; }
+.pager__btn[disabled] { opacity: .45; cursor: default; }
+.pager__gap { min-width: 24px; text-align: center; color: var(--text-sub); }
+
 .blog-toolbar {
   display: flex; align-items: center; gap: 14px;
   margin-bottom: 32px; flex-wrap: wrap;
@@ -1546,6 +1580,8 @@ body.is-locked { overflow: hidden; }
 }
 @media (max-width: 767px) {
   .post-grid { grid-template-columns: minmax(0, 1fr); }
+  .blog-search { max-width: none; }
+  .pager__btn, .pager__num { min-width: 40px; min-height: 40px; padding: 0 10px; font-size: 13px; }
   .sub-hero { padding: 44px 0; }
   .sub-hero__title { font-size: 30px; line-height: 1.4; }
   .sub-hero__lead { font-size: 16px; }
