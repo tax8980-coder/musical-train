@@ -38,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=2" />
+<link rel="stylesheet" href="assets/styles.css?v=6" />
 
 <script type="application/ld+json">
 {
@@ -205,7 +205,10 @@
                  onload="this.classList.add('is-loaded')"
                  onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='assets/images/profile.png';}else{this.style.display='none';}" />
           </div>
-          <p class="about__caption">
+        </div>
+
+        <div class="about__body reveal">
+          <p class="about__caption about__caption--lead">
             <strong>손창용</strong>
             <span>대표 세무사 · 세무학 박사</span>
           </p>
@@ -214,21 +217,45 @@
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>세법 실무교재 집필</li>
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>20년 이상 세법 강의</li>
           </ul>
-        </div>
-
-        <div class="about__body reveal">
           <p class="about__text">세무법인 지율은 법령·예규·판례에 근거한 세무 자문을 원칙으로 합니다. 대표 손창용 세무사는 1998년 세무사 자격 취득 이후 현재까지 실무를 담당해 왔으며, 세무학 박사 학위를 취득하고 법인세·소득세·부가가치세·상속증여세·조세특례제한법 실무교재를 집필하고 있습니다. 또한 국세청 직원, 세무사, 기업 회계부서 실무자를 대상으로 20년 이상 세법 강의를 진행하고 있습니다.</p>
 
-          <ul class="about__books">
-            <li>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5.5A1.5 1.5 0 0 1 4 16.5Z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H14a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h4.5A1.5 1.5 0 0 0 20 16.5Z"/></svg>
-              <span>대표 저서 『핵심 세액공제감면의 정석』 『핵심 연말정산 실무』 『법인세신고 실무』</span>
-            </li>
-            <li>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-              <span>법인세·소득세·부가가치세·연말정산·조세특례제한법 및 세무사랑Prog 활용레시피 실무교재 집필</span>
-            </li>
-          </ul>
+          <div class="about__career">
+            <div class="career-group">
+              <h4 class="career-group__title">세무 실무 경력</h4>
+              <ul>
+                <li>세무사 · 세무학 박사</li>
+                <li>강남대학교 일반대학원 세무학전공(세무학 박사) · 성균관대학교 경영대학원 세무학전공(경영학 석사)</li>
+                <li>(현) 세무법인 지율 삼성지사 대표</li>
+                <li>(현) 한국세무사회 세무연수원 교수</li>
+                <li>(현) 한국세무사회 기업회계 자격시험 출제위원회 위원</li>
+                <li>(현) 서울지방세무사회 연수위원회 위원</li>
+                <li>(현) 대한상공회의소 세법강사</li>
+                <li>(전) 국세법령해석심의위원회 위원</li>
+                <li>(전) 한국세무사회 연수원 부원장</li>
+                <li>(전) 삼성세무서 납세자보호위원회 위원 등 다수</li>
+              </ul>
+            </div>
+            <div class="career-group">
+              <h4 class="career-group__title">세법 강의 경력</h4>
+              <ul>
+                <li>한국세무사회 회원·직원교육(법인세, 세무사랑Pro 활용레시피 등)</li>
+                <li>서울지방세무사회 직원교육(연말정산, 법인세, 소득세 등)</li>
+                <li>대한상공회의소 세법강의(연말정산, 부가가치세, 법인세 등)</li>
+                <li>건국대학교·강남대학교·한양대학교 등 세법강의</li>
+              </ul>
+            </div>
+            <div class="career-group">
+              <h4 class="career-group__title">집필 실무교재</h4>
+              <ul>
+                <li>원천징수제도에 관한 연구(박사학위 논문)</li>
+                <li>세무사랑Pro 활용레시피(회계·연말정산·법인세·소득세)</li>
+                <li>기업결산 및 세무조정 Ⅰ·Ⅱ</li>
+                <li>법인세신고실무 · 세액공제감면실무 · 연말정산실무</li>
+                <li>핵심 통합고용증대세액공제 및 통합투자세액공제</li>
+                <li>법인결산과 세무조정실무</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -250,22 +277,6 @@
           <p class="value-card__desc">사후 대응이 아닌 거래 구조 설계 단계부터 세부담을 검토합니다.</p>
         </li>
       </ul>
-
-      <!-- 신뢰 지표 스트립 -->
-      <div class="stat-strip reveal">
-        <div class="stat-strip__item">
-          <span class="stat-strip__label">세무 실무 경력</span>
-          <strong class="stat-strip__value">20년 이상</strong>
-        </div>
-        <div class="stat-strip__item">
-          <span class="stat-strip__label">세법 강의 경력</span>
-          <strong class="stat-strip__value">20년 이상</strong>
-        </div>
-        <div class="stat-strip__item">
-          <span class="stat-strip__label">집필 실무교재</span>
-          <strong class="stat-strip__value">[권수 입력]종</strong>
-        </div>
-      </div>
 
       <!-- 업무분야 (소개와 통합) -->
       <div class="services-block" id="services">
@@ -336,6 +347,7 @@
     <div class="footer__grid">
       <div class="footer__col">
         <p class="footer__logo">
+          <span class="footer__logo-brand">세무법인</span>
           <img class="footer__logo-img" src="assets/images/logo-brand.png?v=2" alt="세무법인 지율"
                onload="this.closest('.footer__logo').classList.add('has-img')" />
           <span class="footer__logo-fallback">
@@ -364,8 +376,8 @@
       <div class="footer__col">
         <h2 class="footer__title">오시는 길</h2>
         <p class="footer__line">[서울시 강남구 선릉로86길 37 덕우빌딩 3층 303호]</p>
-        <p class="footer__line">지하철 [지하철 노선·역·출구 입력]</p>
-        <p class="footer__line">주차 [주차 안내 입력]</p>
+        <p class="footer__line">지하철 2호선·분당선 선릉역 1번 출구</p>
+        <p class="footer__line">주차 사무실 주차는 어려우며, 롯데록드로즈2차 오피스텔 지하주차장 이용 가능(유료)</p>
         <a class="footer__link-arrow" href="[지도 링크 입력]" target="_blank" rel="noopener noreferrer">
           지도 보기
           <svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
@@ -518,6 +530,6 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=2"></script>
+<script src="assets/app.js?v=3"></script>
 </body>
 </html>

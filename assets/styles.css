@@ -461,9 +461,19 @@ button { font: inherit; color: inherit; }
 .about__caption span { font-size: 15px; color: var(--text-sub); }
 
 /* 대표 세무사 프로필 아래 신뢰 배지 (히어로에서 이동) */
-.about__badges { margin-top: 16px; display: grid; gap: 9px; }
+.about__badges { margin: 14px 0 4px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .about__badges li { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--navy); }
 .about__badges .ico { color: var(--blue); flex: none; }
+
+/* 대표 세무사 약력 · 강의 · 저서 */
+.about__caption--lead { margin-top: 0; }
+.about__caption--lead strong { font-size: 22px; }
+.about__career { margin-top: 24px; display: grid; gap: 14px; }
+.career-group { background: #F8FAFC; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+.career-group__title { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: .03em; margin: 0 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.about__career ul { display: grid; gap: 7px; padding: 0; margin: 0; list-style: none; }
+.about__career li { position: relative; padding-left: 14px; font-size: 14.5px; line-height: 1.6; color: var(--text-sub); }
+.about__career li::before { content: ""; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; border-radius: 50%; background: var(--blue); }
 
 .about__text { font-size: 17px; line-height: 1.85; color: var(--text); }
 .about__books {
@@ -855,20 +865,35 @@ button { font: inherit; color: inherit; }
   color: #fff;
   margin-bottom: 14px;
 }
+/* 푸터 로고 옆 회사명 (헤더와 동일 조합, 어두운 배경이라 흰색) */
+.footer__logo-brand {
+  display: none;
+  font-family: "Nanum Brush Script", "Pretendard Variable", Pretendard, cursive;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  -webkit-text-stroke: 0.5px #fff;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+.footer__logo.has-img .footer__logo-brand { display: inline-block; }
+
 .footer__logo-mark { display: inline-flex; width: 30px; height: 30px; flex: none; }
 .footer__logo-mark svg { width: 100%; height: 100%; display: block; }
 /* 실제 로고 이미지 (있을 때만 표시, 다크 배경이라 흰 배경 칩 처리) */
 .footer__logo-img { display: none; }
 .footer__logo.has-img .footer__logo-img {
   display: block;
-  height: 52px;
+  height: 46px;
   width: auto;
   max-width: 240px;
-  background: #fff;
-  padding: 6px 12px;
-  border-radius: 8px;
+  background: transparent;
+  padding: 0;
+  /* 어두운 푸터 배경과 어우러지도록 로고를 흰색으로 */
+  filter: brightness(0) invert(1);
 }
-.footer__logo.has-img { gap: 0; }
+.footer__logo.has-img { gap: 16px; }
 .footer__logo.has-img .footer__logo-fallback { display: none; }
 .footer__logo-fallback { display: inline-flex; align-items: center; gap: 10px; }
 .footer__title {
@@ -1036,10 +1061,10 @@ body.is-locked { overflow: hidden; }
   .hero__media-caption { text-align: left; font-size: 22px; }
   .hero__lead { max-width: none; }
 
-  .about__grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .about__grid { grid-template-columns: 220px minmax(0, 1fr); gap: 36px; }
   .about__media { max-width: 260px; }
 
-  .value-cards { grid-template-columns: minmax(0, 1fr); }
+  .value-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .contact__grid { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .contact__guide { max-width: none; }
@@ -1113,10 +1138,11 @@ body.is-locked { overflow: hidden; }
   .logo__mark { width: 30px; height: 30px; }
   .logo.has-img .logo__img { height: 40px; max-width: 200px; padding: 4px 8px; }
 
-  .about__media { max-width: 200px; }
+  .about__grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .about__media { max-width: 180px; }
   .about__text { font-size: 16px; }
   .about__books li { font-size: 15px; }
-  .value-cards { margin-top: 44px; gap: 14px; }
+  .value-cards { grid-template-columns: minmax(0, 1fr); margin-top: 44px; gap: 14px; }
   .value-card { padding: 26px 22px; }
 
   .stat-strip { grid-template-columns: minmax(0, 1fr); }
