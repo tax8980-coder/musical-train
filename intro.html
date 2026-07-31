@@ -38,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css" />
+<link rel="stylesheet" href="assets/styles.css?v=2" />
 
 <script type="application/ld+json">
 {
@@ -160,12 +160,11 @@
 
     <nav class="gnb" id="gnb" aria-label="주요 메뉴">
       <ul class="gnb__list">
-        <li><a href="#about">소개·업무분야</a></li>
         <li><a href="index.html">세무칼럼</a></li>
-        <li><a href="#faq">자주 묻는 질문</a></li>
-        <li><a href="#location">오시는 길</a></li>
+        <li><a href="#about">세무법인 지율 업무</a></li>
+        <li><a href="faq.html">자주 묻는 질문</a></li>
       </ul>
-      <a class="btn btn--primary btn--sm gnb__cta" href="#contact">상담 문의</a>
+      <a class="btn btn--primary btn--sm gnb__cta" href="contact.html">상담 문의</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
@@ -188,7 +187,7 @@
         <h1 class="hero__title" id="heroTitle">세법을 가르치는 세무사가<br />직접 검토합니다</h1>
         <p class="hero__lead">1998년부터 이어온 실무 경험과 국세청 직원·세무사 대상 강의로 축적한 세법 해석 역량으로, 법인세·상속증여·조세특례 문제를 근거 있게 풀어냅니다.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#contact">무료 상담 신청하기</a>
+          <a class="btn btn--primary" href="contact.html">무료 상담 신청하기</a>
           <a class="btn btn--outline-light" href="#services">업무분야 보기</a>
         </div>
         <ul class="hero__badges">
@@ -318,7 +317,7 @@
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>법인세 결산 및 세무조정</li>
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>대표이사 가지급금·가수금 정리</li>
           </ul>
-          <a class="service-card__link" href="#contact" data-inquiry-type="법인 세무·기장">상담 문의 <span aria-hidden="true">→</span></a>
+          <a class="service-card__link" href="contact.html" data-inquiry-type="법인 세무·기장">상담 문의 <span aria-hidden="true">→</span></a>
         </li>
 
         <li class="card service-card reveal">
@@ -330,7 +329,7 @@
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>사전증여 및 지분이전 설계</li>
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>유언대용신탁 등 승계구조 검토</li>
           </ul>
-          <a class="service-card__link" href="#contact" data-inquiry-type="상속·증여·가업승계">상담 문의 <span aria-hidden="true">→</span></a>
+          <a class="service-card__link" href="contact.html" data-inquiry-type="상속·증여·가업승계">상담 문의 <span aria-hidden="true">→</span></a>
         </li>
 
         <li class="card service-card reveal">
@@ -342,7 +341,7 @@
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>연구·인력개발비 세액공제</li>
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>기 신고분 경정청구</li>
           </ul>
-          <a class="service-card__link" href="#contact" data-inquiry-type="세액공제·경정청구">상담 문의 <span aria-hidden="true">→</span></a>
+          <a class="service-card__link" href="contact.html" data-inquiry-type="세액공제·경정청구">상담 문의 <span aria-hidden="true">→</span></a>
         </li>
 
         <li class="card service-card reveal">
@@ -354,228 +353,14 @@
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>과세전적부심사</li>
             <li><svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>이의신청·심사·심판청구</li>
           </ul>
-          <a class="service-card__link" href="#contact" data-inquiry-type="세무조사·조세불복">상담 문의 <span aria-hidden="true">→</span></a>
+          <a class="service-card__link" href="contact.html" data-inquiry-type="세무조사·조세불복">상담 문의 <span aria-hidden="true">→</span></a>
         </li>
       </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ 5. 자주 묻는 질문 ============ -->
-  <section class="section section--soft" id="faq" aria-labelledby="faqTitle">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="section__eyebrow">FAQ</p>
-        <h2 class="section__title" id="faqTitle">자주 묻는 질문</h2>
-      </div>
-
-      <div class="accordion reveal" id="accordion">
-        <div class="accordion__item">
-          <h3 class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="faq1-t" aria-expanded="true" aria-controls="faq1-p">
-              <span>상담 비용이 발생하나요?</span>
-              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="accordion__panel" id="faq1-p" role="region" aria-labelledby="faq1-t">
-            <div class="accordion__content"><p>최초 상담은 무료로 진행하며, 사안 검토에 별도의 자료 분석이나 의견서 작성이 필요한 경우에만 사전에 비용을 안내드립니다.</p></div>
-          </div>
-        </div>
-
-        <div class="accordion__item">
-          <h3 class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="faq2-t" aria-expanded="false" aria-controls="faq2-p">
-              <span>기장 대리 비용은 어떻게 산정되나요?</span>
-              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="accordion__panel" id="faq2-p" role="region" aria-labelledby="faq2-t" hidden>
-            <div class="accordion__content"><p>업종, 매출 규모, 증빙 건수, 임직원 수에 따라 달라집니다. 문의 시 개략적인 규모를 알려주시면 기준을 안내해 드립니다.</p></div>
-          </div>
-        </div>
-
-        <div class="accordion__item">
-          <h3 class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="faq3-t" aria-expanded="false" aria-controls="faq3-p">
-              <span>다른 세무사무소에서 이전할 수 있나요?</span>
-              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="accordion__panel" id="faq3-p" role="region" aria-labelledby="faq3-t" hidden>
-            <div class="accordion__content"><p>가능합니다. 기존 신고서와 재무제표를 검토한 후 인수인계 절차를 안내드리며, 진행 중인 신고 일정에 맞춰 이전 시점을 조정합니다.</p></div>
-          </div>
-        </div>
-
-        <div class="accordion__item">
-          <h3 class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="faq4-t" aria-expanded="false" aria-controls="faq4-p">
-              <span>이미 신고한 세금도 돌려받을 수 있나요?</span>
-              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="accordion__panel" id="faq4-p" role="region" aria-labelledby="faq4-t" hidden>
-            <div class="accordion__content"><p>법정신고기한이 지난 후 5년 이내라면 경정청구를 통해 과다 납부한 세액의 환급을 청구할 수 있습니다(국세기본법 제45조의2). 다만 사안별 요건 충족 여부를 검토해야 합니다.</p></div>
-          </div>
-        </div>
-
-        <div class="accordion__item">
-          <h3 class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="faq5-t" aria-expanded="false" aria-controls="faq5-p">
-              <span>상속세 상담은 언제 받는 것이 좋습니까?</span>
-              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            </button>
-          </h3>
-          <div class="accordion__panel" id="faq5-p" role="region" aria-labelledby="faq5-t" hidden>
-            <div class="accordion__content"><p>상속개시 후에는 선택할 수 있는 방안이 제한됩니다. 자산 구조 조정이 가능한 시점, 즉 상속개시 이전에 상담받으시는 것이 유리합니다.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 5.5 세무 칼럼 ============ -->
-  <section class="section section--line" id="column" aria-labelledby="columnTitle">
-    <div class="container">
-      <div class="section__head section__head--row reveal">
-        <div>
-          <p class="section__eyebrow">세무 칼럼</p>
-          <h2 class="section__title" id="columnTitle">근거로 풀어 쓴 세무 이야기</h2>
-          <p class="section__desc">실제 상담에서 다룬 주제를 고객 식별정보를 제거하고 일반 독자가 이해할 수 있도록 정리했습니다.</p>
-        </div>
-        <a class="btn btn--outline btn--sm column__more-top" href="index.html">칼럼 전체보기</a>
-      </div>
-
-      <ul class="post-grid reveal" id="postGrid" aria-live="polite">
-        <li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>
-      </ul>
-
-      <p class="post-grid__empty" id="postEmpty" hidden>아직 등록된 칼럼이 없습니다. 곧 새로운 글로 찾아뵙겠습니다.</p>
-    </div>
-  </section>
-
-  <!-- ============ 6. 고객 문의 폼 ============ -->
-  <section class="section" id="contact" aria-labelledby="contactTitle">
-    <div class="container contact__grid">
-      <div class="contact__aside reveal">
-        <p class="section__eyebrow">상담 문의</p>
-        <h2 class="section__title" id="contactTitle">상담 신청</h2>
-        <p class="contact__guide">상담 신청서를 남겨주시면 영업일 기준 1일 이내에 담당자가 연락드립니다. 급하신 경우 대표전화로 연락 주십시오.</p>
-
-        <ul class="contact__info">
-          <li>
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.8 4.2-2 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-2L20 15.5V19a1.5 1.5 0 0 1-1.7 1.5A15.5 15.5 0 0 1 3.5 5.7A1.5 1.5 0 0 1 5 4Z"/></svg>
-            <span><span class="contact__info-label">대표전화</span><a href="tel:02-552-6436">[02-552-6436]</a></span>
-          </li>
-          <li>
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
-            <span><span class="contact__info-label">이메일</span><a href="mailto:asd8980@hanmail.net">[asd8980@hanmail.net]</a></span>
-          </li>
-          <li>
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            <span><span class="contact__info-label">주소</span>[서울시 강남구 선릉로86길 37 덕우빌딩 3층 303호]</span>
-          </li>
-          <li>
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
-            <span><span class="contact__info-label">상담시간</span>평일 09:30~17:30 (점심 11:30~13:00)</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="contact__panel reveal">
-        <!-- 폼 -->
-        <form class="card form-card" id="leadForm" novalidate>
-          <div class="field">
-            <label class="field__label" for="name">성함 <span class="req" aria-hidden="true">*</span><span class="sr-only">필수</span></label>
-            <input class="field__input" type="text" id="name" name="name" autocomplete="name"
-                   required minlength="2" aria-describedby="name-error" />
-            <p class="field__error" id="name-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="company">회사명/상호 <span class="field__optional">(선택)</span></label>
-            <input class="field__input" type="text" id="company" name="company" autocomplete="organization"
-                   aria-describedby="company-error" />
-            <p class="field__error" id="company-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="phone">연락처 <span class="req" aria-hidden="true">*</span><span class="sr-only">필수</span></label>
-            <input class="field__input" type="tel" id="phone" name="phone" inputmode="numeric"
-                   autocomplete="tel" placeholder="010-0000-0000" maxlength="14"
-                   required aria-describedby="phone-help phone-error" />
-            <p class="field__help" id="phone-help">숫자만 입력하시면 하이픈이 자동 입력됩니다.</p>
-            <p class="field__error" id="phone-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="email">이메일 <span class="req" aria-hidden="true">*</span><span class="sr-only">필수</span></label>
-            <input class="field__input" type="email" id="email" name="email" autocomplete="email"
-                   placeholder="name@example.com" required aria-describedby="email-error" />
-            <p class="field__error" id="email-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="inquiryType">문의 유형 <span class="req" aria-hidden="true">*</span><span class="sr-only">필수</span></label>
-            <div class="select-wrap">
-              <select class="field__input field__select" id="inquiryType" name="inquiry_type" required aria-describedby="inquiryType-error">
-                <option value="">선택해 주세요</option>
-                <option value="법인 세무·기장">법인 세무·기장</option>
-                <option value="개인 종합소득세·양도소득세">개인 종합소득세·양도소득세</option>
-                <option value="상속·증여·가업승계">상속·증여·가업승계</option>
-                <option value="세액공제·경정청구">세액공제·경정청구</option>
-                <option value="세무조사·조세불복">세무조사·조세불복</option>
-                <option value="강의·집필 문의">강의·집필 문의</option>
-                <option value="기타">기타</option>
-              </select>
-              <svg class="select-wrap__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-            <p class="field__error" id="inquiryType-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="message">문의 내용 <span class="req" aria-hidden="true">*</span><span class="sr-only">필수</span></label>
-            <textarea class="field__input field__textarea" id="message" name="message" rows="6"
-                      required minlength="10" maxlength="1000"
-                      placeholder="사안의 개요, 관련 시기, 확인하고 싶은 사항을 적어주시면 검토에 도움이 됩니다."
-                      aria-describedby="message-counter message-error"></textarea>
-            <p class="field__counter" id="message-counter"><span id="messageCount">0</span> / 1,000자</p>
-            <p class="field__error" id="message-error" aria-live="polite"></p>
-          </div>
-
-          <div class="field field--consent">
-            <label class="checkbox" for="privacyAgreed">
-              <input type="checkbox" id="privacyAgreed" name="privacy_agreed" required aria-describedby="privacyAgreed-error" />
-              <span class="checkbox__box" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-              </span>
-              <span class="checkbox__text"><strong>(필수)</strong> 개인정보 수집·이용에 동의합니다.</span>
-            </label>
-            <button class="link-toggle" type="button" id="consentToggle" aria-expanded="false" aria-controls="consentFull">전문보기</button>
-            <div class="consent-full" id="consentFull" hidden>
-              <p>(필수) 상담 접수 및 회신을 위해 성함, 연락처, 이메일, 문의 내용을 수집합니다. 수집된 정보는 상담 목적으로만 이용하며, 상담 종료일로부터 [보유기간 입력] 경과 후 지체 없이 파기합니다. 동의를 거부하실 수 있으나, 이 경우 상담 접수가 제한됩니다.</p>
-            </div>
-            <p class="field__error" id="privacyAgreed-error" aria-live="polite"></p>
-          </div>
-
-          <button class="btn btn--primary btn--block" type="submit" id="submitBtn">상담 신청하기</button>
-          <p class="form-card__note">본 페이지의 상담 신청은 세무 자문 계약의 체결을 의미하지 않으며, 접수 내용 검토 후 회신드립니다.</p>
-          <p class="form-alert" id="formAlert" role="alert" aria-live="assertive" hidden></p>
-        </form>
-
-        <!-- 완료 카드 -->
-        <div class="card success-card" id="successCard" hidden role="status" aria-live="polite" tabindex="-1">
-          <span class="success-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-          </span>
-          <h3 class="success-card__title">상담 신청이 접수되었습니다.</h3>
-          <p class="success-card__desc">영업일 기준 1일 이내에 남겨주신 연락처로 회신드리겠습니다.</p>
-          <p class="success-card__receipt">접수번호: <strong id="receiptNo">—</strong></p>
-          <button class="btn btn--outline" type="button" id="resetFormBtn">추가 문의하기</button>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+  </main>
 
 <!-- ============ 7. 푸터 ============ -->
 <footer class="site-footer" id="location">
@@ -647,7 +432,7 @@
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.8 4.2-2 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-2L20 15.5V19a1.5 1.5 0 0 1-1.7 1.5A15.5 15.5 0 0 1 3.5 5.7A1.5 1.5 0 0 1 5 4Z"/></svg>
     전화 상담
   </a>
-  <a class="mobile-callbar__cta" href="#contact">상담 신청</a>
+  <a class="mobile-callbar__cta" href="contact.html">상담 신청</a>
 </div>
 
 <!-- ============ 개인정보 처리방침 모달 ============ -->
@@ -765,6 +550,6 @@
   </div>
 </div>
 
-<script src="assets/app.js"></script>
+<script src="assets/app.js?v=2"></script>
 </body>
 </html>

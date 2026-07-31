@@ -1306,6 +1306,10 @@ body.is-locked { overflow: hidden; }
 
 .container--narrow { max-width: 760px; }
 
+/* FAQ 페이지 하단 CTA */
+.faq-cta { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); text-align: center; }
+.faq-cta p { margin-bottom: 14px; font-size: 16px; color: var(--text-sub); }
+
 /* 대표 세무사 소개 밴드 (사진 좌 / 소개글 우) */
 .profile-intro { background: var(--white); padding: 52px 0 36px; border-bottom: 1px solid var(--line); }
 /* 소개 밴드 바로 아래 칼럼 섹션은 위 여백을 줄여 붙임 */

@@ -63,30 +63,32 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  function setNav(open) {
-    gnb.classList.toggle('is-open', open);
-    header.classList.toggle('is-nav-open', open);
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    navToggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
-    navBackdrop.hidden = !open;
+  // 햄버거 메뉴는 해당 요소가 있는 페이지(intro 등)에서만 동작
+  if (navToggle && gnb && navBackdrop) {
+    var setNav = function (open) {
+      gnb.classList.toggle('is-open', open);
+      header.classList.toggle('is-nav-open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+      navBackdrop.hidden = !open;
+    };
+    navToggle.addEventListener('click', function () {
+      setNav(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    navBackdrop.addEventListener('click', function () { setNav(false); });
+    $$('#gnb a').forEach(function (a) {
+      a.addEventListener('click', function () { setNav(false); });
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        setNav(false);
+        navToggle.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1023) setNav(false);
+    });
   }
-  navToggle.addEventListener('click', function () {
-    setNav(navToggle.getAttribute('aria-expanded') !== 'true');
-  });
-  navBackdrop.addEventListener('click', function () { setNav(false); });
-  $$('#gnb a').forEach(function (a) {
-    a.addEventListener('click', function () { setNav(false); });
-  });
-  window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-      setNav(false);
-      navToggle.focus();
-    }
-  });
-  // 데스크톱 폭으로 돌아오면 모바일 메뉴 상태 초기화
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 1023) setNav(false);
-  });
 
   /* =======================================================
      2. 스크롤 진입 fade-up (0.5s, 1회)
@@ -149,12 +151,14 @@
      ======================================================= */
   var consentToggle = $('#consentToggle');
   var consentFull = $('#consentFull');
-  consentToggle.addEventListener('click', function () {
-    var open = consentToggle.getAttribute('aria-expanded') === 'true';
-    consentToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
-    consentToggle.textContent = open ? '전문보기' : '접기';
-    consentFull.hidden = open;
-  });
+  if (consentToggle && consentFull) {
+    consentToggle.addEventListener('click', function () {
+      var open = consentToggle.getAttribute('aria-expanded') === 'true';
+      consentToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      consentToggle.textContent = open ? '전문보기' : '접기';
+      consentFull.hidden = open;
+    });
+  }
 
   /* =======================================================
      6. 문의 폼
@@ -173,6 +177,9 @@
 
   var MESSAGE_MIN = 10;
   var MESSAGE_MAX = 1000;
+
+  // 상담 폼이 있는 페이지(contact 등)에서만 폼 로직 실행
+  if (form) {
 
   /* --- 글자수 카운터 --- */
   function updateCounter() {
@@ -359,6 +366,8 @@
       submitBtn.textContent = originalLabel;
     }
   });
+
+  } // end if (form)
 
   /* =======================================================
      7. 모달 (개인정보 처리방침 / 이용약관)

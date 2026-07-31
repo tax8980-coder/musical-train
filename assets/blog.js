@@ -131,7 +131,7 @@
           '<div class="article__body prose">' + (p.content_html || '') + '</div>' +
           '<footer class="article__foot">' +
           (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '') +
-          '<a class="btn btn--primary btn--sm" href="intro.html#contact">상담 문의하기</a>' +
+          '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>' +
           '</footer>';
         window.scrollTo(0, 0);
       })
