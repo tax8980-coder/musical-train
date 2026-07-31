@@ -1338,7 +1338,7 @@ body.is-locked { overflow: hidden; }
   font-size: 14px; font-weight: 600; letter-spacing: .08em;
   text-transform: uppercase; color: #A8C4EC; margin-bottom: 12px;
 }
-.sub-hero__title { font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.35; }
+.sub-hero__title { font-size: 44px; font-weight: 700; letter-spacing: -.025em; line-height: 1.35; }
 .sub-hero__lead { margin-top: 16px; max-width: 46em; font-size: 17px; line-height: 1.75; color: rgba(255,255,255,.82); }
 .sub-hero__actions { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
 @media (max-width: 767px) {
@@ -1546,7 +1546,7 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 767px) {
   .post-grid { grid-template-columns: minmax(0, 1fr); }
   .sub-hero { padding: 44px 0; }
-  .sub-hero__title { font-size: 26px; }
+  .sub-hero__title { font-size: 30px; line-height: 1.4; }
   .sub-hero__lead { font-size: 16px; }
   .article__title { font-size: 24px; }
   .prose { font-size: 16px; }
