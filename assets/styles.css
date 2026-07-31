@@ -1557,6 +1557,7 @@ body.is-locked { overflow: hidden; }
   .site-header.is-static .logo { flex: 1 1 auto; }
   .site-header.is-static .gnb-sub { width: 100%; flex-wrap: wrap; gap: 8px 14px; }
   .gnb-sub a:not(.btn) { display: inline-flex; font-size: 14px; min-height: 40px; }
+  .gnb-sub a[href="faq.html"] { display: none; } /* 모바일에서는 자주 묻는 질문 숨김 */
   .gnb-sub a[aria-current="page"] { padding: 0 14px; }
   .section__head--row { gap: 16px; }
 }
