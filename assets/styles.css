@@ -1629,3 +1629,39 @@ body.is-locked { overflow: hidden; }
   .gnb-sub a[aria-current="page"] { padding: 0 14px; }
   .section__head--row { gap: 16px; }
 }
+
+/* =========================================================
+   워터마크 & 인쇄 (개별 칼럼 PDF 저장)
+   ========================================================= */
+.print-watermark { display: none; }
+
+@media print {
+  /* 화면 전용 요소 숨김 */
+  .site-header, .sub-footer, .site-footer, .mobile-callbar, .skip-link,
+  .article__back, .article__foot, [data-site-footer], .modal { display: none !important; }
+
+  html, body { background: #fff !important; }
+  .article, .container, .container--narrow {
+    max-width: none !important; width: auto !important;
+    margin: 0 !important; padding: 0 !important;
+  }
+  .article__title { font-size: 21pt; line-height: 1.35; }
+  .article__meta { color: #333; }
+  .prose { font-size: 11pt; color: #000; }
+  .prose h2 { font-size: 15pt; }
+  .prose h3 { font-size: 13pt; }
+
+  /* 링크 뒤 URL 자동표기 제거 */
+  a[href]::after { content: "" !important; }
+
+  /* 로고 워터마크 — 페이지마다 반복(고정 배치) */
+  .print-watermark {
+    display: block !important;
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-24deg);
+    z-index: 9999; pointer-events: none;
+  }
+  .print-watermark__logo { width: 320px; height: auto; opacity: 0.08; filter: grayscale(1); }
+
+  @page { margin: 18mm 15mm; }
+}
