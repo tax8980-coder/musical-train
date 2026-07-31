@@ -1307,7 +1307,9 @@ body.is-locked { overflow: hidden; }
 .container--narrow { max-width: 760px; }
 
 /* 대표 세무사 소개 밴드 (사진 좌 / 소개글 우) */
-.profile-intro { background: var(--white); padding: 52px 0; border-bottom: 1px solid var(--line); }
+.profile-intro { background: var(--white); padding: 52px 0 36px; border-bottom: 1px solid var(--line); }
+/* 소개 밴드 바로 아래 칼럼 섹션은 위 여백을 줄여 붙임 */
+.profile-intro + .section { padding-top: 36px; }
 .profile-intro__inner {
   display: grid;
   grid-template-columns: 170px minmax(0, 1fr);
@@ -1350,6 +1352,17 @@ body.is-locked { overflow: hidden; }
   margin-bottom: 32px; flex-wrap: wrap;
 }
 .blog-toolbar__label { font-size: 14px; font-weight: 600; color: var(--text-sub); }
+/* 세목 아래 면책 안내 (빨간색 작은 글씨) */
+.column-disclaimer {
+  margin: -8px 0 26px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #DC2626;
+  max-width: 60em;
+}
+@media (max-width: 767px) {
+  .column-disclaimer { font-size: 12px; margin: 0 0 20px; }
+}
 .blog-toolbar__tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   min-height: 38px;
