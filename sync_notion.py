@@ -4,9 +4,11 @@
 노션 '세무법인 지율 · 세무칼럼' → 홈페이지 세무칼럼 자동 미러링
 (Python 표준 라이브러리만 사용)
 
-'세무칼럼' 페이지 아래의 모든 하위 글을 조건 없이(무조건) 가져와
-content/*.md 로 저장하고 data/posts.json 을 다시 생성합니다.
-→ 홈페이지(루트)의 세무 칼럼이 노션과 동일해집니다.
+'세무칼럼' 페이지 아래 하위 글 중 '아직 홈페이지에 없는 글'만
+'작성(생성) 순(오래된 것부터)'으로 한 번에 최대 3편(NOTION_MAX_POSTS)까지
+content/*.md 로 추가하고 data/posts.json 을 다시 생성합니다.
+→ 기존 칼럼은 삭제하지 않고 계속 '누적'됩니다(add-only).
+  이미 올라간 글은 다시 덮어쓰지 않으므로, 손으로 다듬은 글도 보존됩니다.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ■ 최초 1회 설정 (토큰)
@@ -20,14 +22,20 @@ content/*.md 로 저장하고 data/posts.json 을 다시 생성합니다.
 ■ 수동 실행
      python sync_notion.py
 
-■ 자동 실행 (권장)
-     install_sync_task.ps1 을 실행하면 Windows 작업 스케줄러에
-     30분마다 도는 작업이 등록됩니다. 이후 노션에 글을 올리면
-     자동으로 홈페이지에 반영됩니다.
+■ 자동 실행 (권장: 서버측)
+     Render 등 배포 서버에 환경변수 NOTION_TOKEN 을 등록하면,
+     server.py 가 '매주 월요일 05:00(KST)' 자동으로 sync() 를 호출해
+     새 칼럼을 최대 3편씩 누적 반영합니다(PC·git 불필요).
+     (PC에서 돌리려면 install_sync_task.ps1 로 작업 스케줄러 등록도 가능)
+
+■ 발행 개수/순서
+     한 번에 오래된 순으로 최대 NOTION_MAX_POSTS(기본 3)편 추가.
+     다음 실행 때 그다음 순번의 미발행 글을 또 최대 3편 추가.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-주의: content/ 폴더는 이 스크립트가 관리합니다(노션 미러). 직접 손으로
-      편집한 .md 는 다음 동기화 때 노션 내용으로 대체될 수 있습니다.
+참고: 이미 올라간 글(같은 slug의 .md)은 다시 덮어쓰지 않습니다.
+      노션에서 기존 글을 수정해도 홈페이지 글은 자동 갱신되지 않으니,
+      수정 반영이 필요하면 해당 content/*.md 를 지운 뒤 다시 동기화하세요.
 """
 import glob
 import json
@@ -255,6 +263,25 @@ def choose_slug(title, page_id):
     return SLUG_MAP.get(key) or slugify(title, page_id)
 
 
+def existing_keys():
+    """이미 발행된 글의 slug·notion_id 집합(파일명이 아니라 frontmatter 기준)."""
+    slugs, nids = set(), set()
+    for path in glob.glob(os.path.join(CONTENT_DIR, "*.md")):
+        if os.path.basename(path).startswith("_"):
+            continue
+        try:
+            head = open(path, encoding="utf-8").read(2000)
+        except OSError:
+            continue
+        m = re.search(r"(?m)^slug:\s*(.+)$", head)
+        if m:
+            slugs.add(m.group(1).strip())
+        m = re.search(r"(?m)^notion_id:\s*(.+)$", head)
+        if m:
+            nids.add(m.group(1).strip().replace("-", "").lower())
+    return slugs, nids
+
+
 # ---------------- 동기화 (server.py에서도 import 하여 호출) ----------------
 def sync():
     """노션 세무칼럼 → content/*.md → posts.json. 성공 시 글 수(int) 반환.
@@ -278,73 +305,68 @@ def sync():
         raise RuntimeError("네트워크 오류: %s" % e)
 
     child_pages = [b for b in top if b.get("type") == "child_page"]
+    if not child_pages:
+        raise RuntimeError(
+            "하위 글을 찾지 못했습니다. 안전을 위해 기존 content 를 변경하지 않고 종료합니다. "
+            "→ '세무칼럼' 페이지에 하위 글이 있는지, 통합 공유가 되었는지 확인하세요."
+        )
     print("하위 글 %d건 발견" % len(child_pages))
 
-    # 먼저 메모리에 전부 변환 (실패 시 기존 content 보존)
-    posts = []
+    # 누적(add-only): 이미 발행된 글(같은 slug의 .md 존재)은 건너뛰고,
+    # 아직 안 올라간 글만 '작성(생성) 순(오래된 것부터)'으로 최대 MAX_POSTS 개 추가.
+    os.makedirs(CONTENT_DIR, exist_ok=True)
+    pub_slugs, pub_nids = existing_keys()
+    candidates = []
     for b in child_pages:
         page_id = b["id"]
         title = b["child_page"].get("title", "제목 없음")
+        slug = choose_slug(title, page_id)
+        key = page_id.replace("-", "").lower()
+        if slug in pub_slugs or key in pub_nids:
+            continue  # 이미 발행됨 → 유지(덮어쓰지 않음)
+        candidates.append((b.get("created_time", "") or "", b, page_id, title, slug))
+
+    candidates.sort(key=lambda x: x[0])                    # 작성 순 오름차순
+    if MAX_POSTS > 0:
+        candidates = candidates[:MAX_POSTS]
+
+    if not candidates:
+        print("추가할 새 칼럼이 없습니다(모두 발행됨). 기존 글은 그대로 유지합니다.")
+        return 0
+
+    written = 0
+    for created, b, page_id, title, slug in candidates:
         try:
             body_blocks = get_children(page_id)
-        except urllib.error.HTTPError as e:
+        except urllib.error.HTTPError:
             print("  · 건너뜀(조회 실패) %s" % title[:36])
             continue
         md = blocks_to_md(body_blocks)
         if "참고용 일반정보" not in md:
             md = DISCLAIMER + "\n" + md
-        posts.append({
-            "slug": choose_slug(title, page_id),
-            "notion_id": page_id,
-            "title": title,
-            "summary": derive_summary(body_blocks),
-            "tags": derive_tags(title, body_blocks),
-            "date": (b.get("created_time", "") or "")[:10],
-            "source": DEFAULT_SOURCE,
-            "md": md,
-        })
-        print("  · OK  %s" % title[:40])
-
-    if not posts:
-        raise RuntimeError(
-            "하위 글을 찾지 못했습니다. 안전을 위해 기존 content 를 변경하지 않고 종료합니다. "
-            "→ '세무칼럼' 페이지에 하위 글이 있는지, 통합 공유가 되었는지 확인하세요."
-        )
-
-    # 최신순 정렬 후 최대 MAX_POSTS 개만 발행
-    posts.sort(key=lambda p: p.get("date", ""), reverse=True)
-    if MAX_POSTS > 0 and len(posts) > MAX_POSTS:
-        print("  · 최신 %d건만 발행(전체 %d건 중)" % (MAX_POSTS, len(posts)))
-        posts = posts[:MAX_POSTS]
-
-    # 노션 미러: 기존 .md 제거 후 재생성
-    os.makedirs(CONTENT_DIR, exist_ok=True)
-    for old in glob.glob(os.path.join(CONTENT_DIR, "*.md")):
-        if os.path.basename(old).startswith("_"):
-            continue  # 템플릿 등 밑줄 파일은 보존
-        os.remove(old)
-
-    for p in posts:
         front = [
             "---",
-            "slug: %s" % p["slug"],
-            "notion_id: %s" % p["notion_id"],
-            "title: %s" % p["title"],
-            "summary: %s" % p["summary"],
-            "tags: %s" % ", ".join(p["tags"]),
-            "date: %s" % p["date"],
-            "source: %s" % p["source"],
+            "slug: %s" % slug,
+            "notion_id: %s" % page_id,
+            "title: %s" % title,
+            "summary: %s" % derive_summary(body_blocks),
+            "tags: %s" % ", ".join(derive_tags(title, body_blocks)),
+            "date: %s" % created[:10],
+            "source: %s" % DEFAULT_SOURCE,
             "---",
         ]
-        with open(os.path.join(CONTENT_DIR, p["slug"] + ".md"), "w", encoding="utf-8") as fp:
-            fp.write("\n".join(front) + "\n" + p["md"] + "\n")
+        with open(os.path.join(CONTENT_DIR, slug + ".md"), "w", encoding="utf-8") as fp:
+            fp.write("\n".join(front) + "\n" + md + "\n")
+        written += 1
+        print("  · 추가  %s" % title[:40])
 
-    print("content/ 재생성 완료 (%d건)." % len(posts))
+    if written == 0:
+        return 0
 
     import build_posts
     build_posts.build()
-    print("동기화 완료 — 홈페이지 새로고침 시 반영됩니다.")
-    return len(posts)
+    print("동기화 완료 — 새 칼럼 %d건 추가(누적). 홈페이지 새로고침 시 반영됩니다." % written)
+    return written
 
 
 def main():
