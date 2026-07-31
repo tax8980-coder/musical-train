@@ -167,11 +167,11 @@ button { font: inherit; color: inherit; }
 .logo__img { display: none; }
 .logo.has-img .logo__img {
   display: block;
-  height: 48px;
+  height: 54px;
   width: auto;
-  max-width: 260px;
+  max-width: 300px;
   background: #fff;
-  padding: 5px 10px;
+  padding: 6px;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(21, 44, 72, .12);
 }
@@ -1251,6 +1251,11 @@ body.is-locked { overflow: hidden; }
    ========================================================= */
 .site-header.is-static { position: static; }
 .page-sub { padding-bottom: 0; }
+
+/* 서브 페이지 헤더: 로고와 메뉴 항목 간격을 균일하게, 상담 문의 버튼은 우측 끝 */
+.site-header.is-static .site-header__inner { justify-content: flex-start; gap: 30px; }
+.site-header.is-static .gnb-sub { flex: 1; gap: 30px; }
+.site-header.is-static .gnb-sub .btn { margin-left: auto; }
 
 .gnb-sub { display: flex; align-items: center; gap: 24px; }
 .gnb-sub a {
