@@ -245,7 +245,8 @@
         }).join('');
 
         box.innerHTML =
-          '<nav class="article__back"><a href="index.html">← 칼럼 목록</a></nav>' +
+          '<nav class="article__back"><a href="index.html">← 칼럼 목록</a>' +
+          '<button class="btn btn--outline btn--sm" type="button" id="printArticleTop">🖨 인쇄 / PDF 저장</button></nav>' +
           '<header class="article__head">' +
           (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
           '<h1 class="article__title">' + esc(p.title) + '</h1>' +
@@ -259,8 +260,8 @@
           (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '') +
           '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>' +
           '</footer>';
-        var pbtn = document.getElementById('printArticle');
-        if (pbtn) pbtn.addEventListener('click', function () { window.print(); });
+        [document.getElementById('printArticle'), document.getElementById('printArticleTop')]
+          .forEach(function (b) { if (b) b.addEventListener('click', function () { window.print(); }); });
         window.scrollTo(0, 0);
       })
       .catch(function (err) {

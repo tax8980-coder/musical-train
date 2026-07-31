@@ -1512,7 +1512,7 @@ body.is-locked { overflow: hidden; }
    ========================================================= */
 .article { padding: 56px 0 72px; }
 .article__loading, .article__error { padding: 60px 0; text-align: center; color: var(--text-sub); }
-.article__back { margin-bottom: 20px; }
+.article__back { margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .article__back a { font-size: 15px; font-weight: 600; color: var(--blue); }
 .article__back a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .article__head { padding-bottom: 26px; margin-bottom: 32px; border-bottom: 1px solid var(--line); }
