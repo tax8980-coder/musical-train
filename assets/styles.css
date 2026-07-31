@@ -1637,15 +1637,8 @@ body.is-locked { overflow: hidden; }
 .print-footer { display: none; }
 
 @media print {
-  /* 인쇄 페이지마다 하단 연락처 푸터 (고정 → 각 페이지 반복)
-     밑줄(위) 아래로 텍스트를 내려 페이지번호와 비슷한 높이에 배치, 글자 확대 */
-  .print-footer {
-    display: block !important;
-    position: fixed; left: 0; right: 0; bottom: 0;
-    text-align: center; font-size: 10.5pt; color: #333;
-    padding: 13px 8px 5px; border-top: 1px solid #ccc; background: #fff;
-    z-index: 9999;
-  }
+  /* 연락처 푸터는 아래 @page 여백영역(@bottom-*)으로 처리하므로 고정 푸터는 숨김 */
+  .print-footer { display: none !important; }
 
   /* 화면 전용 요소 숨김 */
   .site-header, .sub-footer, .site-footer, .mobile-callbar, .skip-link,
@@ -1656,8 +1649,7 @@ body.is-locked { overflow: hidden; }
     max-width: none !important; width: auto !important;
     margin: 0 !important; padding: 0 !important;
   }
-  /* 본문 끝과 하단 푸터 사이 간격 확보 */
-  .article { max-width: none !important; width: auto !important; margin: 0 !important; padding: 0 0 18mm !important; }
+  .article { max-width: none !important; width: auto !important; margin: 0 !important; padding: 0 0 6mm !important; }
   .article__title { font-size: 21pt; line-height: 1.35; }
   .article__meta { color: #333; }
   .prose { font-size: 11pt; color: #000; }
@@ -1677,8 +1669,11 @@ body.is-locked { overflow: hidden; }
   .print-watermark__logo { width: 320px; height: auto; opacity: 0.08; filter: grayscale(1); }
 
   /* 페이지 번호(n / 전체) — CSS 표준. 크롬은 미지원, 파이어폭스 등에서 표시됨 */
+  /* 하단 한 줄: (좌)회사명·세무사  (가운데)전화·이메일  (우)페이지번호 — 같은 높이 */
   @page {
-    margin: 16mm 15mm 6mm;    /* 하단 여백 더 축소 → 연락처가 페이지번호 쪽으로 더 내려감 */
-    @bottom-right { content: counter(page) " / " counter(pages); font-size: 9pt; color: #444; }
+    margin: 16mm 15mm 15mm;
+    @bottom-left   { content: "세무법인 지율 · 손창용 세무사"; font-size: 10pt; color: #333; }
+    @bottom-center { content: "02-552-6436 · asd8980@hanmail.net"; font-size: 10pt; color: #333; }
+    @bottom-right  { content: counter(page) " / " counter(pages); font-size: 10pt; color: #333; }
   }
 }
