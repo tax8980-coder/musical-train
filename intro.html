@@ -129,7 +129,7 @@
 <a class="skip-link" href="#main">본문으로 바로가기</a>
 
 <!-- ============ 1. 고정 헤더 ============ -->
-<header class="site-header" id="siteHeader">
+<header class="site-header is-scrolled is-static" id="siteHeader">
   <div class="container site-header__inner">
     <a class="logo" href="#top" aria-label="세무법인 지율 홈">
       <!-- 실제 로고 이미지: assets/images/logo-brand.png (투명 PNG 권장).
@@ -158,23 +158,14 @@
       <span class="logo__brand">세무법인</span>
     </a>
 
-    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
-      <ul class="gnb__list">
-        <li><a href="index.html">세무칼럼</a></li>
-        <li><a href="#about">세무법인 지율 업무</a></li>
-        <li><a href="faq.html">자주 묻는 질문</a></li>
-      </ul>
-      <a class="btn btn--primary btn--sm gnb__cta" href="contact.html">상담 문의</a>
+    <nav class="gnb-sub" aria-label="바로가기">
+      <a href="index.html">세무칼럼</a>
+      <a href="intro.html">세무법인 지율 업무</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a class="btn btn--primary btn--sm" href="contact.html">상담 문의</a>
     </nav>
-
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-    </button>
   </div>
 </header>
-<div class="nav-backdrop" id="navBackdrop" hidden></div>
 
 <main id="main">
   <span id="top" class="anchor-target" aria-hidden="true"></span>

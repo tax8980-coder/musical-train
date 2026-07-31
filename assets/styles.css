@@ -265,7 +265,7 @@ button { font: inherit; color: inherit; }
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
   color: #fff;
-  padding: calc(var(--header-h) + 96px) 0 100px;
+  padding: 72px 0 90px;
 }
 .hero__inner {
   display: grid;
@@ -1025,7 +1025,7 @@ body.is-locked { overflow: hidden; }
    반응형 — 768 ~ 1023px
    ========================================================= */
 @media (max-width: 1023px) {
-  .hero { padding: calc(var(--header-h) + 64px) 0 72px; }
+  .hero { padding: 48px 0 64px; }
   .hero__inner { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .hero__media { max-width: 560px; width: 100%; }
   .hero__media-caption { text-align: left; font-size: 22px; }
@@ -1087,7 +1087,7 @@ body.is-locked { overflow: hidden; }
   body { font-size: 16px; padding-bottom: 76px; } /* 고정 바 공간 */
   .container { padding: 0 20px; }
 
-  .hero { padding: calc(var(--header-h) + 44px) 0 60px; }
+  .hero { padding: 40px 0 52px; }
   .hero__title { font-size: 30px; line-height: 1.4; }
   .hero__lead { font-size: 16px; }
   .hero__eyebrow { font-size: 14px; margin-bottom: 14px; }
