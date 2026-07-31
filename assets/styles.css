@@ -469,6 +469,7 @@ button { font: inherit; color: inherit; }
 .about__caption--lead { margin-top: 0; }
 .about__caption--lead strong { font-size: 22px; }
 .about__career { margin-top: 24px; display: grid; gap: 14px; }
+.about__career--full { margin-top: 44px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
 .career-group { background: #F8FAFC; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
 .career-group__title { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: .03em; margin: 0 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 .about__career ul { display: grid; gap: 7px; padding: 0; margin: 0; list-style: none; }
@@ -1063,6 +1064,7 @@ body.is-locked { overflow: hidden; }
 
   .about__grid { grid-template-columns: 220px minmax(0, 1fr); gap: 36px; }
   .about__media { max-width: 260px; }
+  .about__career--full { grid-template-columns: minmax(0, 1fr); gap: 14px; }
 
   .value-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
