@@ -849,12 +849,12 @@ button { font: inherit; color: inherit; }
 .site-footer {
   background: var(--navy-deep);
   color: rgba(255, 255, 255, .78);
-  padding: 72px 0 40px;
+  padding: 36px 0 40px;
   font-size: 15px;
 }
 .footer__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: 40px;
 }
 .footer__logo {
@@ -905,6 +905,7 @@ button { font: inherit; color: inherit; }
   letter-spacing: .01em;
 }
 .footer__line { line-height: 1.8; }
+.footer__line--gap { margin-top: 16px; }
 .footer__line--muted { color: rgba(255, 255, 255, .55); }
 .footer__line a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 .footer__link-arrow {
@@ -1182,7 +1183,7 @@ body.is-locked { overflow: hidden; }
   .success-card__title { font-size: 20px; }
   .success-card .btn { width: 100%; }
 
-  .site-footer { padding: 52px 0 32px; }
+  .site-footer { padding: 26px 0 32px; }
   .footer__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .footer__bottom { margin-top: 38px; flex-direction: column; align-items: flex-start; gap: 6px; }
 
