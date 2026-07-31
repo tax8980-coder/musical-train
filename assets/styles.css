@@ -1286,6 +1286,15 @@ body.is-locked { overflow: hidden; }
 }
 .gnb-sub a:hover { color: var(--blue); }
 .gnb-sub .btn { color: #fff; }
+/* 현재 페이지 메뉴 = 파란 박스 (상담 문의 버튼과 동일한 느낌) */
+.gnb-sub a[aria-current="page"] {
+  background: var(--blue);
+  color: #fff;
+  padding: 0 20px;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+}
+.gnb-sub a[aria-current="page"]:hover { color: #fff; background: #2F6FE0; }
 
 .sub-hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
