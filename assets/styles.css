@@ -1425,21 +1425,22 @@ body.is-locked { overflow: hidden; }
 .quick-list__arrow { flex: none; color: var(--text-sub); opacity: 0; transition: opacity .15s; }
 .quick-list__link:hover .quick-list__arrow { opacity: 1; color: var(--blue); }
 
-/* 칼럼 검색창 */
-.blog-search { position: relative; margin-bottom: 20px; max-width: 460px; }
+/* 칼럼 검색창 — 폭은 칼럼 목록과 동일(전체 폭), 파란 틴트로 눈에 띄게 */
+.blog-search { position: relative; margin-bottom: 20px; max-width: none; }
 .blog-search__icon {
   position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-  width: 20px; height: 20px; fill: none; stroke: var(--text-sub);
-  stroke-width: 2; stroke-linecap: round; pointer-events: none;
+  width: 20px; height: 20px; fill: none; stroke: var(--blue);
+  stroke-width: 2.2; stroke-linecap: round; pointer-events: none;
 }
 .blog-search__input {
-  width: 100%; height: 48px; padding: 0 18px 0 46px;
-  border: 1px solid var(--line); border-radius: 12px; background: var(--white);
+  width: 100%; height: 52px; padding: 0 18px 0 48px; box-sizing: border-box;
+  border: 1.5px solid #9CC0F5; border-radius: 12px; background: #EFF5FF;
   font-size: 15px; color: var(--text); font-family: inherit;
-  transition: border-color .15s ease, box-shadow .15s ease;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.blog-search__input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
-.blog-search__input::placeholder { color: #9AA6B2; }
+.blog-search__input:hover { border-color: #6FA3EE; }
+.blog-search__input:focus { outline: none; border-color: var(--blue); background: var(--white); box-shadow: 0 0 0 3px rgba(59,130,246,.2); }
+.blog-search__input::placeholder { color: #5B7BA8; }
 
 /* 검색 결과 건수 */
 .blog-result { margin: 0 0 18px; font-size: 14px; color: var(--text-sub); font-weight: 600; }
