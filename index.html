@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=13" />
+<link rel="stylesheet" href="assets/styles.css?v=14" />
 </head>
 <body class="page-sub">
 <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -102,6 +102,18 @@
 
   <section class="section">
     <div class="container">
+      <div class="quick-list" id="quickList" hidden>
+        <div class="quick-list__head">
+          <h2 class="quick-list__title">칼럼 목록</h2>
+          <div class="quick-list__nav" id="quickNav" hidden>
+            <button type="button" class="quick-list__btn" data-q="prev" aria-label="이전 5개">‹</button>
+            <span class="quick-list__page" id="quickPage"></span>
+            <button type="button" class="quick-list__btn" data-q="next" aria-label="다음 5개">›</button>
+          </div>
+        </div>
+        <ol class="quick-list__items" id="quickTitles"></ol>
+      </div>
+
       <div class="blog-search">
         <svg class="blog-search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
         <input class="blog-search__input" type="search" id="blogSearch" placeholder="칼럼 검색 (제목·요약·세목)"
@@ -128,7 +140,7 @@
 
 <div data-site-footer hidden></div>
 
-<script src="assets/blog.js?v=5"></script>
+<script src="assets/blog.js?v=6"></script>
 <script src="assets/site-footer.js?v=3"></script>
 </body>
 </html>

@@ -41,10 +41,45 @@
     var searchEl = $('#blogSearch');
     var countEl = $('#blogCount');
     var pagerEl = $('#blogPager');
+    var quickWrap = $('#quickList');
+    var quickEl = $('#quickTitles');
+    var quickNav = $('#quickNav');
+    var quickPageEl = $('#quickPage');
+    var Q_PER = 5;
+    var qPage = 1;
     var allPosts = [];
     var activeTag = '';
     var query = '';
     var page = 1;
+
+    function renderQuick() {
+      if (!quickEl) return;
+      var total = allPosts.length;
+      if (!total) { if (quickWrap) quickWrap.hidden = true; return; }
+      if (quickWrap) quickWrap.hidden = false;
+      var qPages = Math.max(1, Math.ceil(total / Q_PER));
+      if (qPage > qPages) qPage = qPages;
+      if (qPage < 1) qPage = 1;
+      var start = (qPage - 1) * Q_PER;
+      quickEl.innerHTML = allPosts.slice(start, start + Q_PER).map(function (p, i) {
+        var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+        return '<li class="quick-list__item"><a class="quick-list__link" href="' + href + '">' +
+          '<span class="quick-list__no">' + (start + i + 1) + '</span>' +
+          '<span class="quick-list__text">' + esc(p.title) + '</span>' +
+          '<span class="quick-list__arrow" aria-hidden="true">→</span></a></li>';
+      }).join('');
+      if (quickNav) {
+        if (qPages <= 1) { quickNav.hidden = true; }
+        else {
+          quickNav.hidden = false;
+          if (quickPageEl) quickPageEl.textContent = qPage + ' / ' + qPages;
+          var prev = quickNav.querySelector('[data-q="prev"]');
+          var next = quickNav.querySelector('[data-q="next"]');
+          if (prev) prev.disabled = qPage === 1;
+          if (next) next.disabled = qPage === qPages;
+        }
+      }
+    }
 
     function filtered() {
       var q = query.trim().toLowerCase();
@@ -154,6 +189,14 @@
         if (!isNaN(n)) { page = n; render(); }
       });
     }
+    if (quickNav) {
+      quickNav.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-q]');
+        if (!b || b.disabled) return;
+        qPage += (b.getAttribute('data-q') === 'next' ? 1 : -1);
+        renderQuick();
+      });
+    }
 
     fetch('/api/posts')
       .then(function (r) { return r.json(); })
@@ -161,6 +204,7 @@
         allPosts = (data && data.posts) || [];
         if (!allPosts.length) { listEl.innerHTML = ''; if (emptyEl) emptyEl.hidden = false; return; }
         buildTags();
+        renderQuick();
         render(true);
       })
       .catch(function () {
