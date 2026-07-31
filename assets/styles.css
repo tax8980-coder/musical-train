@@ -1637,12 +1637,13 @@ body.is-locked { overflow: hidden; }
 .print-footer { display: none; }
 
 @media print {
-  /* 인쇄 페이지마다 하단 연락처 푸터 (고정 → 각 페이지 반복) */
+  /* 인쇄 페이지마다 하단 연락처 푸터 (고정 → 각 페이지 반복)
+     밑줄(위) 아래로 텍스트를 내려 페이지번호와 비슷한 높이에 배치, 글자 확대 */
   .print-footer {
     display: block !important;
     position: fixed; left: 0; right: 0; bottom: 0;
-    text-align: center; font-size: 9pt; color: #444;
-    padding: 6px 8px; border-top: 1px solid #ccc; background: #fff;
+    text-align: center; font-size: 10.5pt; color: #333;
+    padding: 13px 8px 5px; border-top: 1px solid #ccc; background: #fff;
     z-index: 9999;
   }
 
@@ -1677,7 +1678,7 @@ body.is-locked { overflow: hidden; }
 
   /* 페이지 번호(n / 전체) — CSS 표준. 크롬은 미지원, 파이어폭스 등에서 표시됨 */
   @page {
-    margin: 16mm 15mm 18mm;
+    margin: 16mm 15mm 12mm;   /* 하단 여백 축소 → 연락처가 페이지번호에 더 가깝게 */
     @bottom-right { content: counter(page) " / " counter(pages); font-size: 9pt; color: #444; }
   }
 }
