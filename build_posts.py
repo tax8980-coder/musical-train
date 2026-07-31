@@ -11,7 +11,14 @@ content/*.md (세무칼럼 원고) → data/posts.json 빌드.
 """
 import json
 import os
+import sys
 import glob
+
+# Windows 콘솔(cp949)에서 em대시(—) 등 출력 시 UnicodeEncodeError 방지
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 from notion_md import convert, make_excerpt
 
@@ -23,6 +30,9 @@ OUT = os.path.join(BASE, "data", "posts.json")
 def build():
     posts = []
     for path in sorted(glob.glob(os.path.join(CONTENT_DIR, "*.md"))):
+        # 밑줄(_)로 시작하는 파일은 템플릿·초안 등으로 보고 발행에서 제외
+        if os.path.basename(path).startswith("_"):
+            continue
         raw = open(path, encoding="utf-8").read()
         meta, content_html = convert(raw)
         slug = meta.get("slug") or os.path.splitext(os.path.basename(path))[0]
