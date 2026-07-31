@@ -47,6 +47,29 @@ COLUMN_PAGE_ID = os.environ.get(
 DEFAULT_SOURCE = os.environ.get("NOTION_DEFAULT_SOURCE", "https://blog.naver.com/taxin4u")
 API = "https://api.notion.com/v1"
 
+# 한 번에 발행하는 칼럼 최대 개수(최신순). 0 이하면 제한 없음.
+MAX_POSTS = int(os.environ.get("NOTION_MAX_POSTS", "3"))
+
+# 기존 글의 주소(slug)를 안정적으로 유지: 노션 page id(대시 제거·소문자) → slug
+# (매핑에 없는 새 글은 제목 기반 slug 자동 생성)
+SLUG_MAP = {
+    "3ad868d0d82c8189ab22efebcabcdcb1": "employment-credit-fulltime-worker-2026",
+    "3ad868d0d82c81c2b5def9a0a4af2961": "e-filing-tax-credit-agent-2026",
+    "3ad868d0d82c8115b73df48a8eeba63c": "tax-credit-carryover-merger-conversion",
+    "3ad868d0d82c8145a458c87ba7ae13a0": "bad-debt-vat-credit-2year",
+    "3ae868d0d82c8156a519f86bb4dfd099": "temp-2house-3house-sell-one-2024du55426",
+    "3ae868d0d82c813884f8d42743be9587": "presale-right-acquisition-date-2024du54560",
+}
+
+# 모든 칼럼 상단에 넣는 공통 안내 콜아웃(노션 글에 없으면 자동 삽입)
+DISCLAIMER = (
+    '<callout icon="ℹ️" color="gray_bg">\n'
+    '본 글은 세무법인 지율 손창용 세무사가 작성한 **참고용 일반정보**입니다. '
+    '실제 의사결정 시에는 반드시 관련 세법·국세청 해석 등 공식 자료를 추가로 확인하시기 바라며, '
+    '본 글만을 근거로 한 조치에 대해 작성자 및 세무법인은 책임지지 않습니다.\n'
+    '</callout>'
+)
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 CONTENT_DIR = os.path.join(BASE, "content")
 
@@ -226,13 +249,20 @@ def slugify(title, page_id):
     return (base[:40] or "post") + "-" + page_id.replace("-", "")[:8]
 
 
-# ---------------- 메인 ----------------
-def main():
+def choose_slug(title, page_id):
+    """기존 글은 고정 slug 유지, 새 글은 자동 생성."""
+    key = page_id.replace("-", "").lower()
+    return SLUG_MAP.get(key) or slugify(title, page_id)
+
+
+# ---------------- 동기화 (server.py에서도 import 하여 호출) ----------------
+def sync():
+    """노션 세무칼럼 → content/*.md → posts.json. 성공 시 글 수(int) 반환.
+    문제 시 RuntimeError 를 던지며, 이 경우 기존 content 는 그대로 보존됩니다."""
     if not NOTION_TOKEN:
-        raise SystemExit(
-            "환경변수 NOTION_TOKEN 이 설정되지 않았습니다.\n"
-            "  setx NOTION_TOKEN \"secret_xxxx\" 로 저장 후 창을 새로 열어 실행하세요.\n"
-            "  (자세한 설정은 이 파일 상단 주석 참고)"
+        raise RuntimeError(
+            "환경변수 NOTION_TOKEN 이 설정되지 않았습니다. "
+            "(로컬: setx NOTION_TOKEN \"...\" / Render: 환경변수 NOTION_TOKEN 등록)"
         )
 
     print("세무칼럼 페이지 하위 글 수집: %s" % COLUMN_PAGE_ID)
@@ -240,12 +270,12 @@ def main():
         top = get_children(COLUMN_PAGE_ID)
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "replace")
-        raise SystemExit(
-            "노션 API 오류 %s: %s\n"
+        raise RuntimeError(
+            "노션 API 오류 %s: %s "
             "→ 통합 토큰이 맞는지, '세무칼럼' 페이지를 통합과 '연결(공유)'했는지 확인하세요." % (e.code, detail)
         )
     except urllib.error.URLError as e:
-        raise SystemExit("네트워크 오류: %s" % e)
+        raise RuntimeError("네트워크 오류: %s" % e)
 
     child_pages = [b for b in top if b.get("type") == "child_page"]
     print("하위 글 %d건 발견" % len(child_pages))
@@ -261,8 +291,10 @@ def main():
             print("  · 건너뜀(조회 실패) %s" % title[:36])
             continue
         md = blocks_to_md(body_blocks)
+        if "참고용 일반정보" not in md:
+            md = DISCLAIMER + "\n" + md
         posts.append({
-            "slug": slugify(title, page_id),
+            "slug": choose_slug(title, page_id),
             "notion_id": page_id,
             "title": title,
             "summary": derive_summary(body_blocks),
@@ -274,14 +306,22 @@ def main():
         print("  · OK  %s" % title[:40])
 
     if not posts:
-        raise SystemExit(
-            "하위 글을 찾지 못했습니다. 안전을 위해 기존 content 를 변경하지 않고 종료합니다.\n"
+        raise RuntimeError(
+            "하위 글을 찾지 못했습니다. 안전을 위해 기존 content 를 변경하지 않고 종료합니다. "
             "→ '세무칼럼' 페이지에 하위 글이 있는지, 통합 공유가 되었는지 확인하세요."
         )
+
+    # 최신순 정렬 후 최대 MAX_POSTS 개만 발행
+    posts.sort(key=lambda p: p.get("date", ""), reverse=True)
+    if MAX_POSTS > 0 and len(posts) > MAX_POSTS:
+        print("  · 최신 %d건만 발행(전체 %d건 중)" % (MAX_POSTS, len(posts)))
+        posts = posts[:MAX_POSTS]
 
     # 노션 미러: 기존 .md 제거 후 재생성
     os.makedirs(CONTENT_DIR, exist_ok=True)
     for old in glob.glob(os.path.join(CONTENT_DIR, "*.md")):
+        if os.path.basename(old).startswith("_"):
+            continue  # 템플릿 등 밑줄 파일은 보존
         os.remove(old)
 
     for p in posts:
@@ -304,6 +344,14 @@ def main():
     import build_posts
     build_posts.build()
     print("동기화 완료 — 홈페이지 새로고침 시 반영됩니다.")
+    return len(posts)
+
+
+def main():
+    try:
+        sync()
+    except RuntimeError as e:
+        raise SystemExit(str(e))
 
 
 if __name__ == "__main__":

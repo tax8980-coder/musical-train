@@ -474,7 +474,45 @@ class Handler(SimpleHTTPRequestHandler):
         sys.stderr.write("[%s] %s\n" % (self.log_date_time_string(), fmt % args))
 
 
+# ---------------- 노션 자동 동기화 (매주 월요일 05:00 KST) ----------------
+def _seconds_until_monday_5am():
+    now = datetime.now(KST)
+    days_ahead = (0 - now.weekday()) % 7          # 월요일 = 0
+    target = now.replace(hour=5, minute=0, second=0, microsecond=0) + timedelta(days=days_ahead)
+    if target <= now:
+        target += timedelta(days=7)
+    return (target - now).total_seconds()
+
+
+def _notion_sync_loop():
+    import sync_notion
+    while True:
+        wait = _seconds_until_monday_5am()
+        print("[notion-sync] 다음 동기화까지 %d시간 대기" % int(wait // 3600), flush=True)
+        time.sleep(wait)
+        try:
+            n = sync_notion.sync()
+            print("[notion-sync] 완료: 칼럼 %d건 반영" % n, flush=True)
+        except Exception as e:                      # 실패해도 서버·기존 글 유지
+            print("[notion-sync] 실패(기존 글 유지): %s" % e, flush=True)
+        time.sleep(120)                             # 같은 시각 중복 발화 방지
+
+
+def start_notion_sync():
+    """NOTION_TOKEN 이 있으면 매주 월요일 05:00(KST) 동기화 스레드 시작."""
+    if not os.environ.get("NOTION_TOKEN", "").strip():
+        print("  sync  : disabled (NOTION_TOKEN 미설정 — 노션 자동 동기화 꺼짐)")
+        return
+    threading.Thread(target=_notion_sync_loop, daemon=True).start()
+    print("  sync  : 매주 월요일 05:00(KST) 노션 자동 동기화 활성화")
+
+
 def main():
+    # Windows 콘솔(cp949)에서도 한글 로그가 깨지지 않도록
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     # 로컬 기본은 127.0.0.1(안전). 클라우드 배포 시 HOST=0.0.0.0, PORT 는 플랫폼이 주입.
     host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "8080"))
@@ -495,6 +533,7 @@ def main():
         print("  admin : /api/leads?token=*** (enabled)")
     else:
         print("  admin : disabled (set JIYUL_ADMIN_TOKEN to enable /api/leads)")
+    start_notion_sync()
     print("  stop  : Ctrl+C")
     try:
         httpd.serve_forever()
