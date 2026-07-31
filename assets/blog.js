@@ -34,7 +34,7 @@
   /* ---------------- 목록 페이지 ---------------- */
   var listEl = $('#blogList');
   if (listEl) {
-    var PER_PAGE = 9;                 // 한 페이지당 칼럼 수 (3열 × 3행)
+    var PER_PAGE = 4;                 // 한 페이지당 칼럼 수 (2열 × 2행)
     var emptyEl = $('#blogEmpty');
     var tagFilter = $('#tagFilter');
     var tagListEl = $('#tagList');
