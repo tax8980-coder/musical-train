@@ -36,14 +36,14 @@
             '<p class="footer__line">[서울시 강남구 선릉로86길 37 덕우빌딩 3층 303호]</p>' +
             '<p class="footer__line">지하철 2호선·분당선 선릉역 1번 출구</p>' +
             '<p class="footer__line">주차 사무실 주차는 어려우며, 롯데록드로즈2차 오피스텔 지하주차장 이용 가능(유료)</p>' +
-            '<a class="footer__link-arrow" href="[지도 링크 입력]" target="_blank" rel="noopener noreferrer">지도 보기 <svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>' +
+            '<a class="footer__link-arrow" href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EC%84%A0%EB%A6%89%EB%A1%9C86%EA%B8%B8%2037%20%EB%8D%95%EC%9A%B0%EB%B9%8C%EB%94%A9" target="_blank" rel="noopener noreferrer">지도 보기 <svg class="ico ico--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>' +
           '</div>' +
         '</div>' +
         '<div class="footer__bottom">' +
           '<ul class="footer__policy">' +
             '<li><button class="footer__policy-btn" type="button" id="openPrivacy">개인정보 처리방침</button></li>' +
             '<li><button class="footer__policy-btn" type="button" id="openTerms">이용약관</button></li>' +
-            '<li><a href="[https://blog.naver.com/taxin4u]" target="_blank" rel="noopener noreferrer">네이버 블로그</a></li>' +
+            '<li><a href="https://blog.naver.com/taxin4u" target="_blank" rel="noopener noreferrer">네이버 블로그</a></li>' +
           '</ul>' +
           '<p class="footer__copy">© 2026 세무법인 지율</p>' +
         '</div>' +
