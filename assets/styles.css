@@ -194,6 +194,19 @@ button { font: inherit; color: inherit; }
 }
 .logo__text b { font-weight: 800; }
 
+/* 로고 옆 회사명 (붓글씨풍) — 이미지가 있을 때만 표시 */
+.logo__brand {
+  display: none;
+  font-family: "Nanum Brush Script", "Pretendard Variable", Pretendard, cursive;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: .01em;
+  color: currentColor;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+.logo.has-img .logo__brand { display: inline-block; }
+
 .gnb { display: flex; align-items: center; gap: 32px; }
 .gnb__list { display: flex; align-items: center; gap: 30px; }
 .gnb__list a {
@@ -1085,6 +1098,7 @@ body.is-locked { overflow: hidden; }
   .section__title { font-size: 24px; }
   .section__desc { font-size: 16px; }
   .logo__text { font-size: 18px; }
+  .logo__brand { font-size: 24px; }
   .logo__mark { width: 30px; height: 30px; }
   .logo.has-img .logo__img { height: 40px; max-width: 200px; padding: 4px 8px; }
 
@@ -1252,10 +1266,9 @@ body.is-locked { overflow: hidden; }
 .site-header.is-static { position: static; }
 .page-sub { padding-bottom: 0; }
 
-/* 서브 페이지 헤더: 로고와 메뉴 항목 간격을 균일하게, 상담 문의 버튼은 우측 끝 */
+/* 서브 페이지 헤더: 로고~상담문의까지 모두 균등 간격 */
 .site-header.is-static .site-header__inner { justify-content: flex-start; gap: 30px; }
-.site-header.is-static .gnb-sub { flex: 1; gap: 30px; }
-.site-header.is-static .gnb-sub .btn { margin-left: auto; }
+.site-header.is-static .gnb-sub { gap: 30px; }
 
 .gnb-sub { display: flex; align-items: center; gap: 24px; }
 .gnb-sub a {
