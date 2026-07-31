@@ -1634,8 +1634,18 @@ body.is-locked { overflow: hidden; }
    워터마크 & 인쇄 (개별 칼럼 PDF 저장)
    ========================================================= */
 .print-watermark { display: none; }
+.print-footer { display: none; }
 
 @media print {
+  /* 인쇄 페이지마다 하단 연락처 푸터 (고정 → 각 페이지 반복) */
+  .print-footer {
+    display: block !important;
+    position: fixed; left: 0; right: 0; bottom: 0;
+    text-align: center; font-size: 9pt; color: #444;
+    padding: 5px 8px; border-top: 1px solid #ccc; background: #fff;
+    z-index: 9999;
+  }
+
   /* 화면 전용 요소 숨김 */
   .site-header, .sub-footer, .site-footer, .mobile-callbar, .skip-link,
   .article__back, .article__foot, [data-site-footer], .modal { display: none !important; }
@@ -1663,5 +1673,5 @@ body.is-locked { overflow: hidden; }
   }
   .print-watermark__logo { width: 320px; height: auto; opacity: 0.08; filter: grayscale(1); }
 
-  @page { margin: 18mm 15mm; }
+  @page { margin: 16mm 15mm 22mm; }   /* 하단은 푸터 공간 확보 */
 }
