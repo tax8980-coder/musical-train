@@ -1552,7 +1552,11 @@ body.is-locked { overflow: hidden; }
   .article__title { font-size: 24px; }
   .prose { font-size: 16px; }
   .prose h2 { font-size: 20px; }
-  .gnb-sub { gap: 14px; }
-  .gnb-sub a:not(.btn) { display: none; }
+  /* 모바일 서브 헤더: 로고 아래 줄에 메뉴 전체 노출 (숨김 대신 줄바꿈) */
+  .site-header.is-static .site-header__inner { flex-wrap: wrap; height: auto; padding: 12px 0; row-gap: 12px; }
+  .site-header.is-static .logo { flex: 1 1 auto; }
+  .site-header.is-static .gnb-sub { width: 100%; flex-wrap: wrap; gap: 8px 14px; }
+  .gnb-sub a:not(.btn) { display: inline-flex; font-size: 14px; min-height: 40px; }
+  .gnb-sub a[aria-current="page"] { padding: 0 14px; }
   .section__head--row { gap: 16px; }
 }
