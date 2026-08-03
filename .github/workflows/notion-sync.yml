@@ -44,7 +44,32 @@ jobs:
             git add -A
             git commit -m "노션 세무칼럼 자동 동기화 (GitHub Actions)"
             git push
-            echo "새 칼럼을 반영했습니다. Render가 자동 배포합니다."
+            echo "새 칼럼을 반영했습니다. 이어서 Cloudtype 재배포로 홈페이지에 반영합니다."
           else
             echo "추가할 새 칼럼이 없습니다(변경 없음)."
           fi
+
+      # 봇 커밋(GITHUB_TOKEN) 푸시는 deploy 워크플로를 자동 트리거하지 않으므로
+      # 여기서 직접 Cloudtype 재배포를 호출한다.
+      - name: Cloudtype 배포 키 연결
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Cloudtype 재배포(새 칼럼 반영)
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: tax8980/musical-train
+          stage: main
+          yaml: |
+            name: musical-train
+            app: dockerfile
+            options:
+              ports: "8080"
+              env: []
+              args: []
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}

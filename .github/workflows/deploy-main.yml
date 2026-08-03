@@ -1,0 +1,37 @@
+name: Deploy to cloudtype
+
+# main 에 push 될 때마다 Cloudtype(국내 서버)로 자동 배포.
+# 필요한 시크릿: CLOUDTYPE_TOKEN(Cloudtype 스페이스 설정>인증), GHP_TOKEN(GitHub PAT: repo, workflow, admin:public_key)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: tax8980/musical-train
+          stage: main
+          yaml: |
+            name: musical-train
+            app: dockerfile
+            options:
+              ports: "8080"
+              env: []
+              args: []
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
