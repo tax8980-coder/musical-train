@@ -32,7 +32,7 @@ import threading
 import time
 from datetime import datetime, timezone, timedelta
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, quote, unquote
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -75,6 +75,48 @@ EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$")
 
 POSTS_PATH = os.path.join(BASE_DIR, "data", "posts.json")
 _posts_cache = {"mtime": None, "data": {"posts": []}}
+
+# 자료실: 세무 서식 등 다운로드 파일 폴더 (git 저장소에 포함 → 영구 보존)
+FILES_DIR = os.path.join(BASE_DIR, "files")
+
+
+def _human_size(num):
+    num = float(num)
+    for unit in ("B", "KB", "MB", "GB"):
+        if num < 1024.0 or unit == "GB":
+            return "%d B" % int(num) if unit == "B" else "%.1f %s" % (num, unit)
+        num /= 1024.0
+    return "%.1f GB" % num
+
+
+def list_files():
+    """files/ 폴더의 다운로드 파일 목록. 숨김(.)·시스템(_) 파일 및 README 제외."""
+    out = []
+    try:
+        names = os.listdir(FILES_DIR)
+    except OSError:
+        return out
+    for name in names:
+        if name.startswith(".") or name.startswith("_") or name.upper().startswith("README"):
+            continue
+        path = os.path.join(FILES_DIR, name)
+        if not os.path.isfile(path):
+            continue
+        try:
+            st = os.stat(path)
+        except OSError:
+            continue
+        base, ext = os.path.splitext(name)
+        out.append({
+            "name": name,
+            "title": base,
+            "ext": ext.lstrip(".").lower(),
+            "size": st.st_size,
+            "size_text": _human_size(st.st_size),
+            "modified": datetime.fromtimestamp(st.st_mtime, KST).isoformat(timespec="seconds"),
+        })
+    out.sort(key=lambda f: f["name"].lower())
+    return out
 
 
 def load_posts():
@@ -541,11 +583,48 @@ class Handler(SimpleHTTPRequestHandler):
             self._send_json(404, {"ok": False, "error": "post_not_found"})
             return
 
+        # ---- 자료실 파일 목록 (공개) ----
+        if parsed.path == "/api/files":
+            self._send_json(200, {"ok": True, "files": list_files()})
+            return
+
         if parsed.path.startswith("/api/"):
             self._send_json(404, {"ok": False, "error": "not_found"})
             return
 
+        # ---- 자료실 다운로드 (공개, 첨부 강제 · 경로조작 차단, 목록 노출 금지) ----
+        if parsed.path in ("/files", "/files/"):
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+        if parsed.path.startswith("/files/"):
+            self._serve_download(unquote(parsed.path[len("/files/"):]))
+            return
+
         super().do_GET()
+
+    def _serve_download(self, name):
+        """files/ 폴더의 파일을 첨부(다운로드)로 전송. 경로 조작 차단."""
+        safe = os.path.basename(name)
+        if (not safe) or safe != name or safe.startswith(".") or safe.startswith("_"):
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+        real = os.path.realpath(os.path.join(FILES_DIR, safe))
+        root = os.path.realpath(FILES_DIR)
+        if os.path.commonpath([real, root]) != root or not os.path.isfile(real):
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+        try:
+            with open(real, "rb") as fp:
+                data = fp.read()
+        except OSError:
+            self._send_json(404, {"ok": False, "error": "not_found"})
+            return
+        self.send_response(200)
+        self.send_header("Content-Type", "application/octet-stream")
+        self.send_header("Content-Disposition", "attachment; filename*=UTF-8''%s" % quote(safe))
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
 
     def _fetch_leads(self, query):
         status = (query.get("status", [""])[0] or "").strip()

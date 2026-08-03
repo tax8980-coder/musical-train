@@ -1359,6 +1359,36 @@ body.is-locked { overflow: hidden; }
 .faq-cta { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); text-align: center; }
 .faq-cta p { margin-bottom: 14px; font-size: 16px; color: var(--text-sub); }
 
+/* 자료실 (resources.html) */
+.file-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; }
+.file-list__state { padding: 28px 4px; text-align: center; color: var(--text-sub); }
+.file-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 18px; background: var(--white);
+  border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.file-item:hover { border-color: #C7D5E8; box-shadow: 0 2px 10px rgba(21, 44, 72, .06); }
+.file-item__ext {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 10px;
+  background: var(--blue-tint, #EAF1FB); color: var(--blue);
+  font-size: 12px; font-weight: 700; letter-spacing: .01em;
+}
+.file-item__body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.file-item__title {
+  font-size: 16px; font-weight: 600; color: var(--navy);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.file-item__meta { font-size: 13px; color: var(--text-sub); }
+.file-item__dl { flex: none; white-space: nowrap; }
+@media (max-width: 767px) {
+  .file-item { gap: 12px; padding: 14px; }
+  .file-item__ext { width: 42px; height: 42px; }
+  .file-item__title { font-size: 15px; white-space: normal; }
+  .file-item__dl { padding: 0 14px; }
+}
+
 /* 대표 세무사 소개 밴드 (사진 좌 / 소개글 우) */
 .profile-intro { background: var(--white); padding: 52px 0 36px; border-bottom: 1px solid var(--line); }
 /* 소개 밴드 바로 아래 칼럼 섹션은 위 여백을 줄여 붙임 */

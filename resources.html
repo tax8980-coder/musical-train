@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>자료실 | 세무법인 지율 - 손창용 세무사</title>
+<meta name="description" content="세무법인 지율 자료실. 세무 관련 서식과 안내 자료를 내려받으실 수 있습니다." />
+<link rel="canonical" href="https://taxin4u.com/resources.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="세무법인 지율" />
+<meta property="og:title" content="자료실 | 세무법인 지율" />
+<meta property="og:description" content="세무 관련 서식·안내 자료를 내려받으실 수 있습니다." />
+<meta property="og:url" content="https://taxin4u.com/resources.html" />
+<meta property="og:image" content="https://taxin4u.com/assets/images/og.png?v=3" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="자료실 | 세무법인 지율" />
+<meta name="twitter:description" content="세무 관련 서식·안내 자료 다운로드." />
+<meta name="twitter:image" content="https://taxin4u.com/assets/images/og.png?v=3" />
+<link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2" />
+<meta name="theme-color" content="#1E3A5F" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
+<link rel="stylesheet" href="assets/styles.css?v=27" />
+</head>
+<body class="page-sub">
+<a class="skip-link" href="#main">본문으로 바로가기</a>
+
+<header class="site-header is-scrolled is-static" id="siteHeader">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="세무법인 지율 홈">
+      <img class="logo__img" src="assets/images/logo-brand.png?v=2" alt="세무법인 지율"
+           onload="this.closest('.logo').classList.add('has-img')" />
+      <span class="logo__fallback">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="hdrLogoG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1E3A5F"/><stop offset=".55" stop-color="#2A5A9A"/><stop offset="1" stop-color="#3B82F6"/>
+            </linearGradient></defs>
+            <rect width="40" height="40" rx="11" fill="url(#hdrLogoG)"/>
+            <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 13.5 H29"/><path d="M20 13.5 V19"/><path d="M20 19 L12 27.5"/><path d="M20 19 L28 27.5"/>
+            </g>
+          </svg>
+        </span>
+        <span class="logo__text">세무법인 <b>지율</b></span>
+      </span>
+      <span class="logo__brand">세무법인</span>
+    </a>
+    <nav class="gnb-sub" aria-label="바로가기">
+      <a href="index.html">세무칼럼</a>
+      <a href="intro.html">업무분야</a>
+      <a href="resources.html" aria-current="page">자료실</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a class="btn btn--primary btn--sm" href="contact.html">상담 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="sub-hero">
+    <div class="container">
+      <h1 class="sub-hero__title">자료실</h1>
+      <p class="sub-hero__lead">세무 관련 서식과 안내 자료를 내려받으실 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <ul class="file-list" id="fileList" aria-live="polite">
+        <li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>
+      </ul>
+      <p class="file-list__state" id="fileEmpty" hidden>등록된 자료가 없습니다.</p>
+
+      <div class="faq-cta">
+        <p>필요하신 서식이 있으신가요?</p>
+        <a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer hidden></div>
+<script src="assets/site-footer.js?v=3"></script>
+
+<script>
+(function () {
+  'use strict';
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var m = String(iso).match(/(\d{4})-(\d{2})-(\d{2})/);
+    return m ? (m[1] + '.' + m[2] + '.' + m[3] + '.') : esc(iso);
+  }
+  var listEl = document.getElementById('fileList');
+  var loadingEl = document.getElementById('fileLoading');
+  var emptyEl = document.getElementById('fileEmpty');
+
+  function item(f) {
+    var ext = (f.ext || '').toUpperCase() || 'FILE';
+    var href = '/files/' + encodeURIComponent(f.name);
+    var meta = [ext, f.size_text, fmtDate(f.modified)].filter(Boolean).join(' · ');
+    return '<li class="file-item">' +
+      '<span class="file-item__ext" aria-hidden="true">' + esc(ext) + '</span>' +
+      '<div class="file-item__body">' +
+      '<span class="file-item__title">' + esc(f.title) + '</span>' +
+      '<span class="file-item__meta">' + esc(meta) + '</span>' +
+      '</div>' +
+      '<a class="btn btn--primary btn--sm file-item__dl" href="' + href + '" download>다운로드</a>' +
+      '</li>';
+  }
+
+  fetch('/api/files')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var files = (data && data.files) || [];
+      if (!files.length) {
+        listEl.innerHTML = '';
+        if (emptyEl) emptyEl.hidden = false;
+        return;
+      }
+      listEl.innerHTML = files.map(item).join('');
+    })
+    .catch(function () {
+      listEl.innerHTML = '';
+      if (loadingEl) loadingEl.hidden = true;
+      if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = '자료를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'; }
+    });
+})();
+</script>
+</body>
+</html>
