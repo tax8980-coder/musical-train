@@ -1299,6 +1299,12 @@ body.is-locked { overflow: hidden; }
   color: var(--text-sub);
 }
 .post-card__go { font-weight: 600; color: var(--blue); }
+.post-card__meta-left { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.post-card__views { position: relative; padding-left: 15px; white-space: nowrap; }
+.post-card__views::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 3px; border-radius: 50%; background: #B6C2D4;
+}
 
 /* =========================================================
    서브 페이지 (blog.html / post.html)
@@ -1529,6 +1535,11 @@ body.is-locked { overflow: hidden; }
   content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
   width: 3px; height: 3px; border-radius: 50%; background: #B6C2D4;
 }
+.article__views { position: relative; padding-left: 17px; }
+.article__views::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 3px; border-radius: 50%; background: #B6C2D4;
+}
 .article__foot {
   margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line);
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -1620,13 +1631,16 @@ body.is-locked { overflow: hidden; }
   .article__title { font-size: 24px; }
   .prose { font-size: 16px; }
   .prose h2 { font-size: 20px; }
-  /* 모바일 서브 헤더: 로고 아래 줄에 메뉴 전체 노출 (숨김 대신 줄바꿈) */
-  .site-header.is-static .site-header__inner { flex-wrap: wrap; height: auto; padding: 12px 0; row-gap: 12px; }
-  .site-header.is-static .logo { flex: 1 1 auto; }
-  .site-header.is-static .gnb-sub { width: 100%; flex-wrap: wrap; gap: 8px 14px; }
-  .gnb-sub a:not(.btn) { display: inline-flex; font-size: 14px; min-height: 40px; }
+  /* 모바일 서브 헤더: 로고와 메뉴를 한 줄에 컴팩트하게 배치 */
+  .site-header.is-static .site-header__inner { flex-wrap: nowrap; height: auto; padding: 10px 0; gap: 8px; }
+  .site-header.is-static .logo { flex: 0 1 auto; min-width: 0; gap: 6px; }
+  .site-header.is-static .logo.has-img .logo__img { height: 32px; max-width: 120px; padding: 3px 6px; }
+  .site-header.is-static .logo__brand { font-size: 19px; }
+  .site-header.is-static .gnb-sub { width: auto; flex: 0 0 auto; flex-wrap: nowrap; gap: 8px; }
+  .gnb-sub a:not(.btn) { display: inline-flex; font-size: 13px; min-height: 36px; white-space: nowrap; }
   .gnb-sub a[href="faq.html"] { display: none; } /* 모바일에서는 자주 묻는 질문 숨김 */
-  .gnb-sub a[aria-current="page"] { padding: 0 14px; }
+  .gnb-sub a[aria-current="page"] { padding: 0 10px; }
+  .gnb-sub .btn.btn--sm { padding: 0 12px; white-space: nowrap; }
   .section__head--row { gap: 16px; }
 }
 

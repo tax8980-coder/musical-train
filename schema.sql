@@ -29,3 +29,12 @@ CREATE TABLE IF NOT EXISTS leads (
 CREATE INDEX IF NOT EXISTS idx_leads_created_at ON leads (created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_leads_status     ON leads (status);
 CREATE INDEX IF NOT EXISTS idx_leads_receipt_no ON leads (receipt_no);
+
+-- =========================================================
+-- 세무칼럼 조회수 (slug별 누적)
+-- =========================================================
+CREATE TABLE IF NOT EXISTS post_views (
+  slug        TEXT    PRIMARY KEY,                 -- posts.json 의 slug
+  views       INTEGER NOT NULL DEFAULT 0,          -- 누적 조회수
+  updated_at  TEXT                                 -- 마지막 조회 시각 (KST, ISO 8601)
+);

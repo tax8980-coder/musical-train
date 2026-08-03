@@ -18,6 +18,11 @@
     var m = String(iso).match(/(\d{4})-(\d{2})-(\d{2})/);
     return m ? (m[1] + '.' + m[2] + '.' + m[3] + '.') : esc(iso);
   }
+  function fmtViews(n) {
+    n = parseInt(n, 10);
+    if (isNaN(n) || n < 0) n = 0;
+    try { return n.toLocaleString('ko-KR'); } catch (e) { return String(n); }
+  }
   function card(p) {
     var tags = (p.tags || []).map(function (t) {
       return '<span class="post-card__tag">' + esc(t) + '</span>';
@@ -27,7 +32,9 @@
       (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
       '<h3 class="post-card__title">' + esc(p.title) + '</h3>' +
       '<p class="post-card__summary">' + esc(p.summary) + '</p>' +
-      '<div class="post-card__meta"><time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
+      '<div class="post-card__meta"><span class="post-card__meta-left">' +
+      '<time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
+      '<span class="post-card__views" title="조회수">조회 ' + fmtViews(p.views) + '</span></span>' +
       '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>';
   }
 
@@ -251,7 +258,8 @@
           (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
           '<h1 class="article__title">' + esc(p.title) + '</h1>' +
           '<div class="article__meta"><time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
-          '<span class="article__author">세무법인 지율 · 손창용 세무사</span></div>' +
+          '<span class="article__author">세무법인 지율 · 손창용 세무사</span>' +
+          '<span class="article__views" id="articleViews" title="조회수">조회 ' + fmtViews(p.views) + '</span></div>' +
           '</header>' +
           '<div class="article__body prose">' + (p.content_html || '') + '</div>' +
           '<footer class="article__foot">' +
@@ -263,6 +271,17 @@
         [document.getElementById('printArticle'), document.getElementById('printArticleTop')]
           .forEach(function (b) { if (b) b.addEventListener('click', function () { window.print(); }); });
         window.scrollTo(0, 0);
+
+        // 조회수 +1 기록 후 표시 갱신 (실패해도 본문에는 영향 없음)
+        fetch('/api/posts/' + encodeURIComponent(slug) + '/view', { method: 'POST' })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && typeof d.views === 'number') {
+              var el = document.getElementById('articleViews');
+              if (el) el.textContent = '조회 ' + fmtViews(d.views);
+            }
+          })
+          .catch(function () {});
       })
       .catch(function (err) {
         if (String(err.message) === 'not_found') fail('요청하신 칼럼을 찾을 수 없습니다.');

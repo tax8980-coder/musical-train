@@ -100,6 +100,11 @@ _rate_log = {}
 RATE_LIMIT = 5
 RATE_WINDOW_SEC = 600
 
+# 세무칼럼 조회수 중복 집계 방지: 같은 IP+slug는 이 시간(초) 안에서 1회만 카운트
+_view_lock = threading.Lock()
+_view_seen = {}
+VIEW_DEDUP_SEC = 3600
+
 
 # ---------------------------------------------------------------- database
 def get_conn():
@@ -257,6 +262,75 @@ def rate_limited(ip):
     return False
 
 
+# ---------------------------------------------------------------- 조회수
+def _slug_exists(slug):
+    """posts.json 에 존재하는 slug 인지 검증(임의 slug 로 테이블 오염 방지)."""
+    for p in load_posts().get("posts", []):
+        if p.get("slug") == slug:
+            return True
+    return False
+
+
+def get_views_map():
+    """{slug: views} 전체 맵. DB 오류 시 빈 dict."""
+    try:
+        conn = get_conn()
+        try:
+            return {r["slug"]: r["views"] for r in conn.execute("SELECT slug, views FROM post_views")}
+        finally:
+            conn.close()
+    except Exception:
+        return {}
+
+
+def get_post_views(slug):
+    """slug 하나의 조회수. 없거나 오류면 0."""
+    try:
+        conn = get_conn()
+        try:
+            row = conn.execute("SELECT views FROM post_views WHERE slug = ?", (slug,)).fetchone()
+            return int(row["views"]) if row else 0
+        finally:
+            conn.close()
+    except Exception:
+        return 0
+
+
+def bump_post_views(slug):
+    """조회수 +1 후 새 값을 반환. 실패 시 현재값(또는 0)."""
+    now = datetime.now(KST).isoformat(timespec="seconds")
+    try:
+        conn = get_conn()
+        try:
+            conn.execute(
+                "INSERT INTO post_views (slug, views, updated_at) VALUES (?, 1, ?) "
+                "ON CONFLICT(slug) DO UPDATE SET views = views + 1, updated_at = excluded.updated_at",
+                (slug, now),
+            )
+            conn.commit()
+            row = conn.execute("SELECT views FROM post_views WHERE slug = ?", (slug,)).fetchone()
+            return int(row["views"]) if row else 0
+        finally:
+            conn.close()
+    except Exception:
+        return get_post_views(slug)
+
+
+def view_recently_counted(ip, slug):
+    """최근 창 안에서 이미 집계했으면 True(이번엔 카운트 생략). 오래된 항목은 정리."""
+    key = (ip or "unknown") + "|" + slug
+    now = time.time()
+    with _view_lock:
+        last = _view_seen.get(key, 0)
+        if now - last < VIEW_DEDUP_SEC:
+            return True
+        _view_seen[key] = now
+        if len(_view_seen) > 5000:
+            for k in [k for k, t in list(_view_seen.items()) if now - t >= VIEW_DEDUP_SEC]:
+                _view_seen.pop(k, None)
+    return False
+
+
 # ---------------------------------------------------------------- handler
 class Handler(SimpleHTTPRequestHandler):
     server_version = "JiyulLanding/1.0"
@@ -326,6 +400,21 @@ class Handler(SimpleHTTPRequestHandler):
         if self._canonical_redirect():
             return
         parsed = urlparse(self.path)
+
+        # ---- 세무칼럼 조회수 +1 (공개) ----
+        m_view = re.match(r"^/api/posts/([A-Za-z0-9\-_]+)/view$", parsed.path)
+        if m_view:
+            slug = m_view.group(1)
+            if not _slug_exists(slug):
+                self._send_json(404, {"ok": False, "error": "post_not_found"})
+                return
+            if view_recently_counted(self._client_ip(), slug):
+                # 최근에 이미 집계 — 현재값만 돌려주고 증가시키지 않음
+                self._send_json(200, {"ok": True, "slug": slug, "views": get_post_views(slug), "counted": False})
+                return
+            self._send_json(200, {"ok": True, "slug": slug, "views": bump_post_views(slug), "counted": True})
+            return
+
         if parsed.path != "/api/leads":
             self._send_json(404, {"ok": False, "error": "not_found"})
             return
@@ -433,6 +522,9 @@ class Handler(SimpleHTTPRequestHandler):
             listed = [{k: v for k, v in p.items() if k != "content_html"} for p in items]
             if limit > 0:
                 listed = listed[:limit]
+            views = get_views_map()
+            for p in listed:
+                p["views"] = int(views.get(p.get("slug"), 0))
             self._send_json(200, {"ok": True, "count": len(listed), "posts": listed})
             return
 
@@ -442,7 +534,9 @@ class Handler(SimpleHTTPRequestHandler):
             slug = m_post.group(1)
             for p in data.get("posts", []):
                 if p.get("slug") == slug:
-                    self._send_json(200, {"ok": True, "post": p})
+                    post = dict(p)  # 캐시 원본 보존
+                    post["views"] = get_post_views(slug)
+                    self._send_json(200, {"ok": True, "post": post})
                     return
             self._send_json(404, {"ok": False, "error": "post_not_found"})
             return
