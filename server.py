@@ -47,11 +47,11 @@ ADMIN_TOKEN = os.environ.get("JIYUL_ADMIN_TOKEN", "").strip()
 
 # 대표 도메인 정규화: 아래 호스트로 접속하면 CANONICAL_URL 로 301 리다이렉트.
 # (여기에 없는 호스트 — 예: onrender.com, localhost, taxin4u.com 자신 — 은 그대로 서비스)
-CANONICAL_URL = os.environ.get("JIYUL_CANONICAL_URL", "https://taxin4u.com").rstrip("/")
+CANONICAL_URL = os.environ.get("JIYUL_CANONICAL_URL", "https://www.taxin4u.com").rstrip("/")
 REDIRECT_HOSTS = {
     h.strip().lower()
     for h in os.environ.get(
-        "JIYUL_REDIRECT_HOSTS", "www.taxin4u.com,taxin4u.co.kr,www.taxin4u.co.kr"
+        "JIYUL_REDIRECT_HOSTS", "taxin4u.com,taxin4u.co.kr,www.taxin4u.co.kr"
     ).split(",")
     if h.strip()
 }
