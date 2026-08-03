@@ -545,7 +545,10 @@ def main():
         pass
     # 로컬 기본은 127.0.0.1(안전). 클라우드 배포 시 HOST=0.0.0.0, PORT 는 플랫폼이 주입.
     host = os.environ.get("HOST", "127.0.0.1")
-    port = int(os.environ.get("PORT", "8080"))
+    # PORT 가 비어있거나 숫자가 아니면 8080 으로 안전하게 대체
+    # (일부 플랫폼이 PORT 를 빈 값으로 주입하면 int() 에서 크래시 → 컨테이너 재시작 루프)
+    _port_env = (os.environ.get("PORT") or "").strip()
+    port = int(_port_env) if _port_env.isdigit() else 8080
     if len(sys.argv) > 1:
         try:
             port = int(sys.argv[1])
