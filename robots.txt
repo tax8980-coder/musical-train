@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.taxin4u.com/sitemap.xml
+Sitemap: https://taxin4u.com/sitemap.xml
