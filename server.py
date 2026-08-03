@@ -556,7 +556,11 @@ def main():
             print("usage: python server.py [port]")
             return 1
 
-    init_db()
+    try:
+        init_db()
+    except Exception as e:
+        # DB 초기화 실패해도 사이트(정적/칼럼)는 정상 서비스. 상담 접수만 제한됨.
+        print("  warn  : DB 초기화 실패(상담 접수 기능 제한) — %s" % e, flush=True)
     httpd = ThreadingHTTPServer((host, port), Handler)
     print("Jiyul landing server running")
     print("  bind  : %s:%d" % (host, port))
