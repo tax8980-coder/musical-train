@@ -45,6 +45,17 @@ SCHEMA_PATH = os.path.join(BASE_DIR, "schema.sql")
 KST = timezone(timedelta(hours=9))
 ADMIN_TOKEN = os.environ.get("JIYUL_ADMIN_TOKEN", "").strip()
 
+# 대표 도메인 정규화: 아래 호스트로 접속하면 CANONICAL_URL 로 301 리다이렉트.
+# (여기에 없는 호스트 — 예: onrender.com, localhost, taxin4u.com 자신 — 은 그대로 서비스)
+CANONICAL_URL = os.environ.get("JIYUL_CANONICAL_URL", "https://taxin4u.com").rstrip("/")
+REDIRECT_HOSTS = {
+    h.strip().lower()
+    for h in os.environ.get(
+        "JIYUL_REDIRECT_HOSTS", "www.taxin4u.com,taxin4u.co.kr,www.taxin4u.co.kr"
+    ).split(",")
+    if h.strip()
+}
+
 MAX_BODY_BYTES = 64 * 1024
 ALLOWED_STATUS = ("신규", "연락완료", "상담진행", "수임", "보류")
 DEFAULT_STATUS = "신규"
@@ -294,6 +305,17 @@ class Handler(SimpleHTTPRequestHandler):
     def _client_ip(self):
         return self.client_address[0] if self.client_address else "unknown"
 
+    def _canonical_redirect(self):
+        """www / .co.kr 등 비대표 호스트 → 대표 도메인으로 301. 처리 시 True."""
+        host = (self.headers.get("Host") or "").split(":")[0].strip().lower()
+        if host in REDIRECT_HOSTS:
+            self.send_response(301)
+            self.send_header("Location", CANONICAL_URL + self.path)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return True
+        return False
+
     def end_headers(self):
         # light hardening for the static responses as well
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
@@ -301,6 +323,8 @@ class Handler(SimpleHTTPRequestHandler):
 
     # ---- routes
     def do_POST(self):
+        if self._canonical_redirect():
+            return
         parsed = urlparse(self.path)
         if parsed.path != "/api/leads":
             self._send_json(404, {"ok": False, "error": "not_found"})
@@ -378,6 +402,8 @@ class Handler(SimpleHTTPRequestHandler):
         self._send_json(200, {"ok": True})
 
     def do_GET(self):
+        if self._canonical_redirect():
+            return
         parsed = urlparse(self.path)
         query = parse_qs(parsed.query)
 
