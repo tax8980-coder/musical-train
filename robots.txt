@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://musical-train-youe.onrender.com/sitemap.xml
+Sitemap: https://taxin4u.com/sitemap.xml
