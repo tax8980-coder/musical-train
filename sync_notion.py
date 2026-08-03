@@ -67,6 +67,8 @@ SLUG_MAP = {
     "3ad868d0d82c8145a458c87ba7ae13a0": "bad-debt-vat-credit-2year",
     "3ae868d0d82c8156a519f86bb4dfd099": "temp-2house-3house-sell-one-2024du55426",
     "3ae868d0d82c813884f8d42743be9587": "presale-right-acquisition-date-2024du54560",
+    "3b0868d0d82c81c08384ee484c9802e5": "company-car-purchase-method-2026",
+    "3b0868d0d82c81069018fdf85696e6ab": "testamentary-trust-not-tax-saving",
 }
 
 # 모든 칼럼 상단에 넣는 공통 안내 콜아웃(노션 글에 없으면 자동 삽입)

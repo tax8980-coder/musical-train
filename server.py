@@ -499,12 +499,16 @@ def _notion_sync_loop():
 
 
 def start_notion_sync():
-    """NOTION_TOKEN 이 있으면 매주 월요일 05:00(KST) 동기화 스레드 시작."""
+    """서버측 주간 동기화. 무료 플랜은 서버 절전·디스크 초기화로 불안정하므로 기본 비활성.
+    노션 동기화는 GitHub Actions(주간 크론)가 담당한다. JIYUL_SERVER_SYNC=1 이면 활성화."""
+    if os.environ.get("JIYUL_SERVER_SYNC", "").strip() != "1":
+        print("  sync  : 서버측 동기화 비활성(기본) — 노션 동기화는 GitHub Actions가 처리")
+        return
     if not os.environ.get("NOTION_TOKEN", "").strip():
-        print("  sync  : disabled (NOTION_TOKEN 미설정 — 노션 자동 동기화 꺼짐)")
+        print("  sync  : disabled (NOTION_TOKEN 미설정)")
         return
     threading.Thread(target=_notion_sync_loop, daemon=True).start()
-    print("  sync  : 매주 월요일 05:00(KST) 노션 자동 동기화 활성화")
+    print("  sync  : 서버측 주간 동기화 활성화 (JIYUL_SERVER_SYNC=1)")
 
 
 def main():

@@ -1,0 +1,50 @@
+name: 노션 세무칼럼 자동 동기화
+
+# 매주 월요일 05:00(KST) = 일요일 20:00(UTC) 실행 + 수동 실행(Run workflow) 가능.
+# GitHub 서버에서 돌기 때문에 홈페이지 서버(Render)의 절전 여부와 무관하게 항상 실행됩니다.
+on:
+  schedule:
+    - cron: "0 20 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notion-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 노션 → content/*.md, data/posts.json 동기화
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::error::NOTION_TOKEN 시크릿이 없습니다. Settings → Secrets and variables → Actions 에 추가하세요."
+            exit 1
+          fi
+          python sync_notion.py
+
+      - name: 변경분 커밋 & 푸시 (있을 때만)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "노션 세무칼럼 자동 동기화 (GitHub Actions)"
+            git push
+            echo "새 칼럼을 반영했습니다. Render가 자동 배포합니다."
+          else
+            echo "추가할 새 칼럼이 없습니다(변경 없음)."
+          fi
