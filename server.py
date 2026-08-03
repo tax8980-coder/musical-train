@@ -90,7 +90,7 @@ def _human_size(num):
 
 
 def list_files():
-    """files/ 폴더의 다운로드 파일 목록. 숨김(.)·시스템(_) 파일 및 README 제외."""
+    """files/ 폴더의 다운로드 파일 목록(가나다/이름순). 숨김(.)·시스템(_) 파일 및 README 제외."""
     out = []
     try:
         names = os.listdir(FILES_DIR)

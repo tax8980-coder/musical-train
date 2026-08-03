@@ -1359,9 +1359,9 @@ body.is-locked { overflow: hidden; }
 .faq-cta { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); text-align: center; }
 .faq-cta p { margin-bottom: 14px; font-size: 16px; color: var(--text-sub); }
 
-/* 자료실 (resources.html) */
-.file-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; }
-.file-list__state { padding: 28px 4px; text-align: center; color: var(--text-sub); }
+/* 자료실 (resources.html) — 한 줄에 2개(2열 그리드) */
+.file-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; padding: 0; }
+.file-list__state { grid-column: 1 / -1; padding: 28px 4px; text-align: center; color: var(--text-sub); }
 .file-item {
   display: flex; align-items: center; gap: 16px;
   padding: 16px 18px; background: var(--white);
@@ -1383,6 +1383,7 @@ body.is-locked { overflow: hidden; }
 .file-item__meta { font-size: 13px; color: var(--text-sub); }
 .file-item__dl { flex: none; white-space: nowrap; }
 @media (max-width: 767px) {
+  .file-list { grid-template-columns: 1fr; }
   .file-item { gap: 12px; padding: 14px; }
   .file-item__ext { width: 42px; height: 42px; }
   .file-item__title { font-size: 15px; white-space: normal; }
