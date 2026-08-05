@@ -1359,9 +1359,22 @@ body.is-locked { overflow: hidden; }
 .sub-hero__title { font-size: 44px; font-weight: 700; letter-spacing: -.025em; line-height: 1.35; }
 .sub-hero__lead { margin-top: 16px; max-width: 46em; font-size: 17px; line-height: 1.75; color: rgba(255,255,255,.82); }
 .sub-hero__actions { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+.sub-hero__note {
+  margin-top: 20px;
+  max-width: 46em;
+  padding: 14px 16px;
+  background: rgba(255,255,255,.10);
+  border-left: 3px solid #A8C4EC;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.92);
+}
+.sub-hero__note strong { color: #fff; font-weight: 700; }
 @media (max-width: 767px) {
   .sub-hero__actions { flex-direction: column; align-items: stretch; }
   .sub-hero__actions .btn { width: 100%; }
+  .sub-hero__note { font-size: 14px; }
 }
 
 .container--narrow { max-width: 760px; }
