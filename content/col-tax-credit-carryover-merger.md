@@ -75,8 +75,4 @@ source: https://blog.naver.com/taxin4u
 <tr><td>사전-2021-법령해석법인-0432</td><td>2021.5.11</td><td>§32 법인전환 시 상시근로자수 미감소 조건으로 고용증대세액공제 승계 적용 가능</td></tr>
 </table>
 ---
-# ✍️ 맺음말
-<callout icon="✍️" color="blue_bg">
-세무법인 지율 손창용 세무사입니다. 통합·법인전환 시 세액공제 승계는 세액공제 종류별로 결론이 갈리므로, 개별 사안은 반드시 문서번호로 예규 원문을 확인하고 필요 시 사전답변을 활용하시기 바랍니다.
-더 많은 실무 자료는 [blog.naver.com/taxin4u](https://blog.naver.com/taxin4u) 에서 보실 수 있습니다.
 </callout>
