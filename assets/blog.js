@@ -247,6 +247,36 @@
         var metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc && p.summary) metaDesc.setAttribute('content', p.summary);
 
+        // SEO: 칼럼별 canonical·OG·Article 구조화데이터 갱신
+        var canonicalUrl = 'https://taxin4u.com/post.html?slug=' + encodeURIComponent(slug);
+        var descText = p.summary || '세무법인 지율 손창용 세무사의 세무 칼럼.';
+        function setAttr(id, attr, val) {
+          var el = document.getElementById(id);
+          if (el) el.setAttribute(attr, val);
+        }
+        setAttr('canonicalLink', 'href', canonicalUrl);
+        setAttr('ogUrl', 'content', canonicalUrl);
+        setAttr('ogTitle', 'content', p.title + ' | 세무법인 지율');
+        setAttr('ogDesc', 'content', descText);
+        try {
+          var ld = {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: p.title,
+            description: descText,
+            author: { '@type': 'Person', name: '손창용', jobTitle: '대표 세무사' },
+            publisher: { '@type': 'Organization', name: '세무법인 지율' },
+            datePublished: p.date || undefined,
+            mainEntityOfPage: canonicalUrl,
+            url: canonicalUrl,
+            image: 'https://taxin4u.com/assets/images/og.png?v=3'
+          };
+          var s = document.createElement('script');
+          s.type = 'application/ld+json';
+          s.textContent = JSON.stringify(ld);
+          document.head.appendChild(s);
+        } catch (e) { /* 구조화데이터 실패는 본문에 영향 없음 */ }
+
         var tags = (p.tags || []).map(function (t) {
           return '<a class="post-card__tag" href="index.html">' + esc(t) + '</a>';
         }).join('');
