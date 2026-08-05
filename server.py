@@ -373,6 +373,163 @@ def view_recently_counted(ip, slug):
     return False
 
 
+# ------------------------------------------------ SSR (크롤러 대비 서버 렌더링)
+# 홈(index.html)의 칼럼 목록과 본문(post.html)은 원래 자바스크립트로 그려져,
+# JS를 실행하지 않는 크롤러(특히 네이버 Yeti)는 빈 페이지로 인식한다.
+# 아래 함수들은 posts.json 내용을 HTML에 미리 심어 크롤러도 읽게 한다.
+# (브라우저에서는 blog.js가 같은 내용을 다시 그려 검색·필터 기능이 그대로 동작한다.)
+INDEX_PATH = os.path.join(BASE_DIR, "index.html")
+POST_TEMPLATE_PATH = os.path.join(BASE_DIR, "post.html")
+SITE_ORIGIN = CANONICAL_URL
+
+
+def _read_text(path):
+    with open(path, encoding="utf-8") as fp:
+        return fp.read()
+
+
+def _esc_html(s):
+    return (
+        str("" if s is None else s)
+        .replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        .replace('"', "&quot;").replace("'", "&#39;")
+    )
+
+
+def _fmt_date(iso):
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", str(iso or ""))
+    return (m.group(1) + "." + m.group(2) + "." + m.group(3) + ".") if m else _esc_html(iso)
+
+
+def _render_post_cards(posts, views):
+    out = []
+    for p in posts:
+        slug = p.get("slug", "")
+        href = "post.html?slug=" + quote(slug, safe="")
+        tags = "".join(
+            '<span class="post-card__tag">' + _esc_html(t) + "</span>"
+            for t in (p.get("tags") or [])
+        )
+        v = int(views.get(slug, 0) or 0)
+        out.append(
+            '<li class="post-card"><a class="post-card__link" href="' + href + '">'
+            + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
+            + '<h3 class="post-card__title">' + _esc_html(p.get("title")) + "</h3>"
+            + '<p class="post-card__summary">' + _esc_html(p.get("summary")) + "</p>"
+            + '<div class="post-card__meta"><span class="post-card__meta-left">'
+            + '<time datetime="' + _esc_html(p.get("date")) + '">' + _fmt_date(p.get("date")) + "</time>"
+            + '<span class="post-card__views" title="조회수">조회 ' + format(v, ",d") + "</span></span>"
+            + '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>'
+        )
+    return "".join(out)
+
+
+def _render_index_html():
+    """홈 HTML의 '불러오는 중' 자리표시자를 실제 칼럼 카드로 치환해 반환."""
+    html = _read_text(INDEX_PATH)
+    posts = load_posts().get("posts", [])
+    if not posts:
+        return html
+    views = get_views_map()
+    cards = _render_post_cards(posts, views)
+    marker = '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>'
+    return html.replace(marker, cards, 1)
+
+
+def _render_article(p):
+    slug_source = p.get("source")
+    tags = "".join(
+        '<a class="post-card__tag" href="index.html">' + _esc_html(t) + "</a>"
+        for t in (p.get("tags") or [])
+    )
+    date = p.get("date")
+    return (
+        '<nav class="article__back"><a href="index.html">← 칼럼 목록</a></nav>'
+        + '<header class="article__head">'
+        + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
+        + '<h1 class="article__title">' + _esc_html(p.get("title")) + "</h1>"
+        + '<div class="article__meta"><time datetime="' + _esc_html(date) + '">' + _fmt_date(date) + "</time>"
+        + '<span class="article__author">세무법인 지율 · 손창용 세무사</span></div>'
+        + "</header>"
+        + '<div class="article__body prose">' + (p.get("content_html") or "") + "</div>"
+        + '<footer class="article__foot">'
+        + '<a class="btn btn--outline btn--sm" href="index.html">← 칼럼 목록으로 바로 가기</a> '
+        + (
+            (
+                '<a class="btn btn--outline btn--sm" href="' + _esc_html(slug_source)
+                + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> '
+            )
+            if slug_source
+            else ""
+        )
+        + '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>'
+        + "</footer>"
+    )
+
+
+def _render_post_html(slug):
+    """post.html 템플릿에 해당 칼럼의 제목·메타·본문·구조화데이터를 심어 반환."""
+    html = _read_text(POST_TEMPLATE_PATH)
+    post = None
+    for p in load_posts().get("posts", []):
+        if p.get("slug") == slug:
+            post = p
+            break
+    if not post:
+        return html  # 알 수 없는 slug: 템플릿 그대로(브라우저 JS가 안내 메시지 표시)
+
+    title = post.get("title") or "세무 칼럼"
+    summary = post.get("summary") or "세무법인 지율 손창용 세무사의 세무 칼럼."
+    canonical = SITE_ORIGIN + "/post.html?slug=" + quote(slug, safe="")
+    desc = _esc_html(summary)
+    full_title = _esc_html(title) + " | 세무 칼럼 · 세무법인 지율"
+
+    replacements = [
+        ("<title>세무 칼럼 | 세무법인 지율</title>", "<title>" + full_title + "</title>"),
+        (
+            '<meta name="description" content="세무법인 지율 손창용 세무사의 세무 칼럼." />',
+            '<meta name="description" content="' + desc + '" />',
+        ),
+        (
+            '<link rel="canonical" href="https://taxin4u.com/index.html" id="canonicalLink" />',
+            '<link rel="canonical" href="' + canonical + '" id="canonicalLink" />',
+        ),
+        (
+            '<meta property="og:title" content="세무 칼럼 | 세무법인 지율" id="ogTitle" />',
+            '<meta property="og:title" content="' + _esc_html(title) + ' | 세무법인 지율" id="ogTitle" />',
+        ),
+        (
+            '<meta property="og:description" content="세무법인 지율 손창용 세무사의 세무 칼럼." id="ogDesc" />',
+            '<meta property="og:description" content="' + desc + '" id="ogDesc" />',
+        ),
+        (
+            '<meta property="og:url" content="https://taxin4u.com/index.html" id="ogUrl" />',
+            '<meta property="og:url" content="' + canonical + '" id="ogUrl" />',
+        ),
+    ]
+    for old, new in replacements:
+        html = html.replace(old, new, 1)
+
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": summary,
+        "author": {"@type": "Person", "name": "손창용", "jobTitle": "대표 세무사"},
+        "publisher": {"@type": "Organization", "name": "세무법인 지율"},
+        "mainEntityOfPage": canonical,
+        "url": canonical,
+        "image": SITE_ORIGIN + "/assets/images/og.png?v=3",
+    }
+    if post.get("date"):
+        ld["datePublished"] = post["date"]
+    ld_tag = '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>\n</head>"
+    html = html.replace("</head>", ld_tag, 1)
+
+    marker = '<p class="article__loading" id="articleLoading">칼럼을 불러오는 중입니다…</p>'
+    return html.replace(marker, _render_article(post), 1)
+
+
 # ---------------------------------------------------------------- handler
 class Handler(SimpleHTTPRequestHandler):
     server_version = "JiyulLanding/1.0"
@@ -387,6 +544,17 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(body)
+
+    def _send_html(self, html, status=200):
+        body = html.encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-cache")
         self.send_header("X-Content-Type-Options", "nosniff")
         self.end_headers()
         if self.command != "HEAD":
@@ -599,6 +767,23 @@ class Handler(SimpleHTTPRequestHandler):
         if parsed.path.startswith("/files/"):
             self._serve_download(unquote(parsed.path[len("/files/"):]))
             return
+
+        # ---- 크롤러 대비 서버 렌더링(SSR): 홈 칼럼 목록·칼럼 본문을 HTML에 미리 심어 응답 ----
+        # 실패 시에는 정적 파일을 그대로 서빙(브라우저 JS가 렌더)하여 사이트가 끊기지 않게 한다.
+        if parsed.path in ("/", "/index.html"):
+            try:
+                self._send_html(_render_index_html())
+                return
+            except Exception as exc:  # noqa: BLE001
+                self.log_error("SSR index failed: %s", exc)
+        if parsed.path == "/post.html":
+            slug = (query.get("slug", [""])[0] or "").strip()
+            if slug:
+                try:
+                    self._send_html(_render_post_html(slug))
+                    return
+                except Exception as exc:  # noqa: BLE001
+                    self.log_error("SSR post failed: %s", exc)
 
         super().do_GET()
 
