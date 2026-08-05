@@ -1051,6 +1051,16 @@ button { font: inherit; color: inherit; }
   background: var(--blue);
 }
 .legal p + p { margin-top: 10px; }
+.legal__note {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--blue-light);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--navy);
+}
 
 body.is-locked { overflow: hidden; }
 
