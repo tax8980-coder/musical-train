@@ -158,7 +158,7 @@ button { font: inherit; color: inherit; }
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
   color: #fff;
   transition: color .25s ease;
   padding: 6px 0;
@@ -895,7 +895,7 @@ button { font: inherit; color: inherit; }
   /* 어두운 푸터 배경과 어우러지도록 로고를 흰색으로 */
   filter: brightness(0) invert(1);
 }
-.footer__logo.has-img { gap: 8px; }
+.footer__logo.has-img { gap: 4px; }
 .footer__logo.has-img .footer__logo-fallback { display: none; }
 .footer__logo-fallback { display: inline-flex; align-items: center; gap: 10px; }
 .footer__title {
@@ -1685,7 +1685,7 @@ body.is-locked { overflow: hidden; }
   .prose h2 { font-size: 20px; }
   /* 모바일 서브 헤더: 로고와 메뉴를 한 줄에 컴팩트하게 배치 */
   .site-header.is-static .site-header__inner { flex-wrap: nowrap; height: auto; padding: 10px 0; gap: 8px; }
-  .site-header.is-static .logo { flex: 0 1 auto; min-width: 0; gap: 3px; }
+  .site-header.is-static .logo { flex: 0 1 auto; min-width: 0; gap: 1px; }
   .site-header.is-static .logo.has-img .logo__img { height: 32px; max-width: 120px; padding: 3px 6px; }
   .site-header.is-static .logo__brand { font-size: 19px; }
   .site-header.is-static .gnb-sub { width: auto; flex: 0 0 auto; flex-wrap: nowrap; gap: 8px; }
