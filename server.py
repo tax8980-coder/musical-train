@@ -503,6 +503,54 @@ def _render_resources_html():
     return html
 
 
+def _file_lastmod(path):
+    """파일 수정일(YYYY-MM-DD, KST). 없으면 None."""
+    try:
+        return datetime.fromtimestamp(os.path.getmtime(path), KST).strftime("%Y-%m-%d")
+    except OSError:
+        return None
+
+
+def _render_sitemap_xml():
+    """posts.json 기준으로 sitemap.xml 을 매번 생성(새 칼럼 자동 포함)."""
+    o = SITE_ORIGIN
+    posts = load_posts().get("posts", [])
+    post_dates = [p.get("date") for p in posts if p.get("date")]
+    home_mod = max(post_dates) if post_dates else _file_lastmod(INDEX_PATH)
+
+    # 고정 페이지 (loc, changefreq, priority, lastmod)
+    entries = [
+        (o + "/", "weekly", "1.0", home_mod),
+        (o + "/intro.html", "monthly", "0.9", _file_lastmod(os.path.join(BASE_DIR, "intro.html"))),
+        (o + "/resources.html", "monthly", "0.7", _file_lastmod(RESOURCES_PATH)),
+        (o + "/faq.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "faq.html"))),
+        (o + "/contact.html", "monthly", "0.8", _file_lastmod(os.path.join(BASE_DIR, "contact.html"))),
+    ]
+    # 칼럼(동적)
+    for p in posts:
+        slug = p.get("slug", "")
+        if not slug:
+            continue
+        entries.append(
+            (o + "/post.html?slug=" + quote(slug, safe=""), "yearly", "0.6", p.get("date"))
+        )
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for loc, freq, pri, mod in entries:
+        lines.append("  <url>")
+        lines.append("    <loc>" + _esc_html(loc) + "</loc>")
+        if mod:
+            lines.append("    <lastmod>" + _esc_html(mod) + "</lastmod>")
+        lines.append("    <changefreq>" + freq + "</changefreq>")
+        lines.append("    <priority>" + pri + "</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    return "\n".join(lines) + "\n"
+
+
 def _render_article(p):
     slug_source = p.get("source")
     tags = "".join(
@@ -620,6 +668,17 @@ class Handler(SimpleHTTPRequestHandler):
         body = html.encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-cache")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(body)
+
+    def _send_xml(self, xml, status=200):
+        body = xml.encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/xml; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-cache")
         self.send_header("X-Content-Type-Options", "nosniff")
@@ -857,6 +916,13 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR resources failed: %s", exc)
+        if parsed.path == "/sitemap.xml":
+            try:
+                self._send_xml(_render_sitemap_xml())
+                return
+            except Exception as exc:  # noqa: BLE001
+                self.log_error("sitemap generation failed: %s", exc)
+                # 실패 시 정적 sitemap.xml 파일로 폴백
 
         super().do_GET()
 
