@@ -1350,7 +1350,7 @@ body.is-locked { overflow: hidden; }
 .sub-hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
   color: #fff;
-  padding: 64px 0;
+  padding: 32px 0;
 }
 .sub-hero__eyebrow {
   font-size: 14px; font-weight: 600; letter-spacing: .08em;
@@ -1700,7 +1700,7 @@ body.is-locked { overflow: hidden; }
   .post-grid { grid-template-columns: minmax(0, 1fr); }
   .blog-search { max-width: none; }
   .pager__btn, .pager__num { min-width: 40px; min-height: 40px; padding: 0 10px; font-size: 13px; }
-  .sub-hero { padding: 44px 0; }
+  .sub-hero { padding: 22px 0; }
   .sub-hero__title { font-size: 30px; line-height: 1.4; }
   .sub-hero__lead { font-size: 16px; }
   .article__title { font-size: 24px; }
