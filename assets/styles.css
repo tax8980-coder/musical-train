@@ -1359,6 +1359,26 @@ body.is-locked { overflow: hidden; }
 .faq-cta { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); text-align: center; }
 .faq-cta p { margin-bottom: 14px; font-size: 16px; color: var(--text-sub); }
 
+/* 상담: 구글 폼 간편신청 카드 (contact.html) */
+.gform-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 18px; margin-bottom: 16px;
+  border: 1px solid var(--blue); border-radius: 12px;
+  background: var(--blue-tint, #EAF1FB); color: var(--navy); text-decoration: none;
+  transition: box-shadow .15s ease, transform .1s ease;
+}
+.gform-card:hover { box-shadow: 0 3px 12px rgba(21, 44, 72, .1); }
+.gform-card:active { transform: translateY(1px); }
+.gform-card__main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gform-card__main strong { font-size: 16px; }
+.gform-card__main span { font-size: 13px; color: var(--text-sub); }
+.gform-card__arrow { flex: none; font-size: 20px; font-weight: 700; color: var(--blue); }
+.gform-or {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 16px; color: var(--text-sub); font-size: 13px;
+}
+.gform-or::before, .gform-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
 /* 자료실 (resources.html) — 한 줄에 2개(2열 그리드) */
 .file-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; padding: 0; }
 .file-list__state { grid-column: 1 / -1; padding: 28px 4px; text-align: center; color: var(--text-sub); }
