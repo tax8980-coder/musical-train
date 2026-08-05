@@ -380,6 +380,7 @@ def view_recently_counted(ip, slug):
 # (브라우저에서는 blog.js가 같은 내용을 다시 그려 검색·필터 기능이 그대로 동작한다.)
 INDEX_PATH = os.path.join(BASE_DIR, "index.html")
 POST_TEMPLATE_PATH = os.path.join(BASE_DIR, "post.html")
+RESOURCES_PATH = os.path.join(BASE_DIR, "resources.html")
 SITE_ORIGIN = CANONICAL_URL
 
 
@@ -424,16 +425,82 @@ def _render_post_cards(posts, views):
     return "".join(out)
 
 
+def _render_quick_items(posts):
+    """제목+상세링크만 담은 깔끔한 순서목록(크롤러가 목록으로 명확히 추출하도록)."""
+    out = []
+    for i, p in enumerate(posts, 1):
+        href = "post.html?slug=" + quote(p.get("slug", ""), safe="")
+        out.append(
+            '<li class="quick-list__item"><a class="quick-list__link" href="' + href + '">'
+            + '<span class="quick-list__no">' + str(i) + "</span>"
+            + '<span class="quick-list__text">' + _esc_html(p.get("title")) + "</span>"
+            + '<span class="quick-list__arrow" aria-hidden="true">→</span></a></li>'
+        )
+    return "".join(out)
+
+
 def _render_index_html():
-    """홈 HTML의 '불러오는 중' 자리표시자를 실제 칼럼 카드로 치환해 반환."""
+    """홈 HTML의 자리표시자를 실제 칼럼 목록으로 치환해 반환."""
     html = _read_text(INDEX_PATH)
     posts = load_posts().get("posts", [])
     if not posts:
         return html
     views = get_views_map()
-    cards = _render_post_cards(posts, views)
-    marker = '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>'
-    return html.replace(marker, cards, 1)
+    # 1) 메인 카드 그리드
+    html = html.replace(
+        '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>',
+        _render_post_cards(posts, views),
+        1,
+    )
+    # 2) 제목+링크 목록(퀵리스트)을 채우고 노출(hidden 제거) — 크롤러의 명확한 목록 추출용
+    html = html.replace(
+        '<div class="quick-list" id="quickList" hidden>',
+        '<div class="quick-list" id="quickList">',
+        1,
+    )
+    html = html.replace(
+        '<ol class="quick-list__items" id="quickTitles"></ol>',
+        '<ol class="quick-list__items" id="quickTitles">' + _render_quick_items(posts) + "</ol>",
+        1,
+    )
+    # 3) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
+    #    (hidden 속성만으로는 텍스트 크롤러가 본문으로 읽어감. 칼럼이 있으므로 비운다)
+    html = html.replace(">아직 등록된 칼럼이 없습니다.</p>", "></p>", 1)
+    return html
+
+
+def _render_file_items(files):
+    out = []
+    for f in files:
+        ext = (f.get("ext") or "").upper() or "FILE"
+        href = "/files/" + quote(f.get("name", ""), safe="")
+        meta = " · ".join(x for x in [ext, f.get("size_text"), _fmt_date(f.get("modified"))] if x)
+        out.append(
+            '<li class="file-item">'
+            + '<span class="file-item__ext" aria-hidden="true">' + _esc_html(ext) + "</span>"
+            + '<div class="file-item__body">'
+            + '<span class="file-item__title">' + _esc_html(f.get("title")) + "</span>"
+            + '<span class="file-item__meta">' + _esc_html(meta) + "</span>"
+            + "</div>"
+            + '<a class="btn btn--primary btn--sm file-item__dl" href="' + href + '" download>다운로드</a>'
+            + "</li>"
+        )
+    return "".join(out)
+
+
+def _render_resources_html():
+    """자료실 HTML의 자리표시자를 실제 파일 목록으로 치환해 반환."""
+    html = _read_text(RESOURCES_PATH)
+    files = list_files()
+    if not files:
+        return html
+    html = html.replace(
+        '<li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>',
+        _render_file_items(files),
+        1,
+    )
+    html = html.replace(">등록된 자료가 없습니다.</p>", "></p>", 1)
+    return html
 
 
 def _render_article(p):
@@ -784,6 +851,12 @@ class Handler(SimpleHTTPRequestHandler):
                     return
                 except Exception as exc:  # noqa: BLE001
                     self.log_error("SSR post failed: %s", exc)
+        if parsed.path == "/resources.html":
+            try:
+                self._send_html(_render_resources_html())
+                return
+            except Exception as exc:  # noqa: BLE001
+                self.log_error("SSR resources failed: %s", exc)
 
         super().do_GET()
 
