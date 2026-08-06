@@ -1,0 +1,43 @@
+name: 조회수 스냅샷 백업
+
+# 라이브 조회수(/api/views)를 주기적으로 data/views.json 에 저장(커밋)한다.
+# 컨테이너 임시 DB는 재배포 때 초기화되지만, 서버는 부팅 시 이 파일로 조회수를 복원한다.
+# 봇(GITHUB_TOKEN) 커밋은 다른 워크플로(배포)를 트리거하지 않으므로 재배포를 유발하지 않는다.
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # 6시간마다(UTC). 필요하면 주기 조정.
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: views-backup
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 라이브 조회수 스냅샷 병합
+        run: python snapshot_views.py
+
+      - name: 변경분 커밋 & 푸시 (있을 때만)
+        run: |
+          if [ -n "$(git status --porcelain data/views.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/views.json
+            git commit -m "조회수 스냅샷 백업 (GitHub Actions)"
+            git push
+          else
+            echo "조회수 변경 없음"
+          fi

@@ -76,6 +76,10 @@ EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$")
 POSTS_PATH = os.path.join(BASE_DIR, "data", "posts.json")
 _posts_cache = {"mtime": None, "data": {"posts": []}}
 
+# 조회수 스냅샷: 저장소에 커밋되는 파일. 컨테이너 임시 DB가 재배포로 초기화돼도
+# 부팅 시 이 값으로 조회수를 복원한다. (스케줄 워크플로가 주기적으로 갱신·커밋)
+VIEWS_JSON_PATH = os.path.join(BASE_DIR, "data", "views.json")
+
 # 자료실: 세무 서식 등 다운로드 파일 폴더 (git 저장소에 포함 → 영구 보존)
 FILES_DIR = os.path.join(BASE_DIR, "files")
 
@@ -157,6 +161,33 @@ def get_conn():
     return conn
 
 
+def _seed_views_from_snapshot(conn):
+    """재배포로 DB가 초기화돼도 저장소의 data/views.json 값으로 조회수를 복원.
+    기존 값보다 큰 경우에만 반영해, 살아있는(더 최신) 카운트를 낮추지 않는다."""
+    try:
+        with open(VIEWS_JSON_PATH, encoding="utf-8") as fp:
+            snap = json.load(fp)
+    except (OSError, ValueError):
+        return
+    if not isinstance(snap, dict):
+        return
+    now = datetime.now(KST).isoformat(timespec="seconds")
+    for slug, views in snap.items():
+        try:
+            v = int(views)
+        except (TypeError, ValueError):
+            continue
+        if v <= 0:
+            continue
+        conn.execute(
+            "INSERT INTO post_views (slug, views, updated_at) VALUES (?, ?, ?) "
+            "ON CONFLICT(slug) DO UPDATE SET "
+            "views = MAX(post_views.views, excluded.views), updated_at = excluded.updated_at",
+            (slug, v, now),
+        )
+    conn.commit()
+
+
 def init_db():
     os.makedirs(LEADS_DIR, exist_ok=True)
     with open(SCHEMA_PATH, "r", encoding="utf-8") as fp:
@@ -165,6 +196,7 @@ def init_db():
     try:
         conn.executescript(schema)
         conn.commit()
+        _seed_views_from_snapshot(conn)
     finally:
         conn.close()
 
@@ -880,6 +912,11 @@ class Handler(SimpleHTTPRequestHandler):
         # ---- 자료실 파일 목록 (공개) ----
         if parsed.path == "/api/files":
             self._send_json(200, {"ok": True, "files": list_files()})
+            return
+
+        # ---- 조회수 내보내기 (공개, 이미 카드에 노출되는 비민감 데이터) : 스냅샷 백업용 ----
+        if parsed.path == "/api/views":
+            self._send_json(200, {"ok": True, "views": get_views_map()})
             return
 
         if parsed.path.startswith("/api/"):

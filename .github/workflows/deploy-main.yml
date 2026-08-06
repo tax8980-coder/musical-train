@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      # 조회수 스냅샷만 바뀐 커밋은 재배포하지 않음(불필요한 재시작·조회수 초기화 방지)
+      - 'data/views.json'
 
 jobs:
   deploy:
