@@ -302,16 +302,9 @@
           .forEach(function (b) { if (b) b.addEventListener('click', function () { window.print(); }); });
         window.scrollTo(0, 0);
 
-        // 조회수 +1 기록 후 표시 갱신 (실패해도 본문에는 영향 없음)
-        fetch('/api/posts/' + encodeURIComponent(slug) + '/view', { method: 'POST' })
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            if (d && typeof d.views === 'number') {
-              var el = document.getElementById('articleViews');
-              if (el) el.textContent = '조회 ' + fmtViews(d.views);
-            }
-          })
-          .catch(function () {});
+        // 조회수 +1 은 기록만 하고, 화면 숫자는 목록과 동일하게(열기 전 값) 유지한다.
+        // (증가분은 다음 방문부터 반영 → 목록·상세 표시 불일치 방지)
+        fetch('/api/posts/' + encodeURIComponent(slug) + '/view', { method: 'POST' }).catch(function () {});
       })
       .catch(function (err) {
         if (String(err.message) === 'not_found') fail('요청하신 칼럼을 찾을 수 없습니다.');
