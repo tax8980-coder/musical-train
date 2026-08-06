@@ -38,3 +38,25 @@ CREATE TABLE IF NOT EXISTS post_views (
   views       INTEGER NOT NULL DEFAULT 0,          -- 누적 조회수
   updated_at  TEXT                                 -- 마지막 조회 시각 (KST, ISO 8601)
 );
+
+-- =========================================================
+-- 방문 통계 (일자별 집계) — 관리자 통계용
+-- category: 'pv'(사람 페이지뷰 합계, name='total'), 'page'(경로별 name=path),
+--           'visitor'(순방문 추정 name='unique'), 'ai'(AI 크롤러 name=봇),
+--           'search'(검색 크롤러 name=봇), 'bot'(기타 봇 name=봇)
+-- =========================================================
+CREATE TABLE IF NOT EXISTS stat_counts (
+  day       TEXT    NOT NULL,                       -- YYYY-MM-DD (KST)
+  category  TEXT    NOT NULL,
+  name      TEXT    NOT NULL,                       -- 경로/봇이름/'total'/'unique'/'__total__'
+  hits      INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (day, category, name)
+);
+CREATE INDEX IF NOT EXISTS idx_stat_counts_day ON stat_counts (day DESC);
+
+-- 순 방문자(추정) 중복 제거용 (당일 IP 해시). 스냅샷 대상 아님(재배포 시 초기화 허용).
+CREATE TABLE IF NOT EXISTS visitor_seen (
+  day    TEXT NOT NULL,
+  vhash  TEXT NOT NULL,
+  PRIMARY KEY (day, vhash)
+);

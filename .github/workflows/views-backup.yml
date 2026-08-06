@@ -30,14 +30,19 @@ jobs:
       - name: 라이브 조회수 스냅샷 병합
         run: python snapshot_views.py
 
+      - name: 라이브 방문통계 스냅샷 병합 (토큰 있을 때만)
+        env:
+          JIYUL_ADMIN_TOKEN: ${{ secrets.JIYUL_ADMIN_TOKEN }}
+        run: python snapshot_stats.py
+
       - name: 변경분 커밋 & 푸시 (있을 때만)
         run: |
-          if [ -n "$(git status --porcelain data/views.json)" ]; then
+          if [ -n "$(git status --porcelain data/views.json data/stats.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/views.json
-            git commit -m "조회수 스냅샷 백업 (GitHub Actions)"
+            git add data/views.json data/stats.json
+            git commit -m "조회수·방문통계 스냅샷 백업 (GitHub Actions)"
             git push
           else
-            echo "조회수 변경 없음"
+            echo "변경 없음"
           fi

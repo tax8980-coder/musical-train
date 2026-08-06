@@ -22,6 +22,7 @@ NOTE: this is a draft. See the disclaimer at the bottom of the landing page
 """
 
 import csv
+import hashlib
 import io
 import json
 import os
@@ -79,6 +80,232 @@ _posts_cache = {"mtime": None, "data": {"posts": []}}
 # 조회수 스냅샷: 저장소에 커밋되는 파일. 컨테이너 임시 DB가 재배포로 초기화돼도
 # 부팅 시 이 값으로 조회수를 복원한다. (스케줄 워크플로가 주기적으로 갱신·커밋)
 VIEWS_JSON_PATH = os.path.join(BASE_DIR, "data", "views.json")
+
+# 방문 통계 스냅샷(집계값). 조회수와 동일하게 재배포에도 보존.
+STATS_JSON_PATH = os.path.join(BASE_DIR, "data", "stats.json")
+STATS_SALT = os.environ.get("JIYUL_STATS_SALT", "jiyul-stats-2026")
+
+# User-Agent 분류 시그니처(소문자 부분일치). AI를 먼저 검사(예: applebot-extended → AI).
+_AI_BOT_SIGS = [
+    ("gptbot", "GPTBot"), ("chatgpt-user", "ChatGPT-User"), ("oai-searchbot", "OAI-SearchBot"),
+    ("claudebot", "ClaudeBot"), ("claude-web", "Claude-Web"), ("anthropic-ai", "anthropic-ai"),
+    ("perplexity", "PerplexityBot"), ("google-extended", "Google-Extended"),
+    ("bytespider", "Bytespider"), ("ccbot", "CCBot"), ("amazonbot", "Amazonbot"),
+    ("applebot-extended", "Applebot-Extended"), ("meta-external", "Meta-ExternalAgent"),
+    ("cohere", "cohere-ai"), ("diffbot", "Diffbot"), ("youbot", "YouBot"),
+    ("imagesift", "ImagesiftBot"), ("timpibot", "Timpibot"), ("omgili", "omgili"),
+    ("petalbot", "PetalBot"), ("gemini", "Google-Gemini"),
+]
+_SEARCH_BOT_SIGS = [
+    ("googlebot", "Googlebot"), ("bingbot", "Bingbot"), ("yeti", "Naver-Yeti"),
+    ("daum", "Daum"), ("yandex", "YandexBot"), ("duckduckbot", "DuckDuckBot"),
+    ("applebot", "Applebot"), ("seznambot", "SeznamBot"), ("baiduspider", "Baiduspider"),
+    ("facebookexternalhit", "facebook"), ("twitterbot", "Twitterbot"),
+    ("slackbot", "Slackbot"), ("kakao", "Kakao"), ("naver", "Naver"),
+]
+_GENERIC_BOT_KEYS = ("bot", "crawler", "spider", "slurp", "python-requests",
+                     "curl", "wget", "scan", "http-client", "go-http", "okhttp", "headless")
+
+
+def classify_ua(ua):
+    """User-Agent → (category, name). category: 'ai'|'search'|'bot'|'human'."""
+    u = (ua or "").lower()
+    if not u:
+        return ("bot", "empty-ua")
+    for sig, name in _AI_BOT_SIGS:
+        if sig in u:
+            return ("ai", name)
+    for sig, name in _SEARCH_BOT_SIGS:
+        if sig in u:
+            return ("search", name)
+    for k in _GENERIC_BOT_KEYS:
+        if k in u:
+            return ("bot", "generic")
+    return ("human", None)
+
+
+def record_visit(path, ip, ua):
+    """컨텐츠 페이지 GET 1건을 일자별 집계에 반영. 실패는 조용히 무시(서비스 영향 없음)."""
+    try:
+        day = datetime.now(KST).strftime("%Y-%m-%d")
+        cat, bot = classify_ua(ua)
+        conn = get_conn()
+        try:
+            def bump(category, name, n=1):
+                conn.execute(
+                    "INSERT INTO stat_counts (day, category, name, hits) VALUES (?,?,?,?) "
+                    "ON CONFLICT(day,category,name) DO UPDATE SET hits = hits + ?",
+                    (day, category, name, n, n),
+                )
+            if cat == "human":
+                bump("pv", "total")
+                bump("page", path[:120])
+                vhash = hashlib.sha256(
+                    (STATS_SALT + "|" + day + "|" + (ip or "")).encode("utf-8")
+                ).hexdigest()[:16]
+                cur = conn.execute(
+                    "INSERT OR IGNORE INTO visitor_seen (day, vhash) VALUES (?,?)", (day, vhash)
+                )
+                if cur.rowcount:
+                    bump("visitor", "unique")
+            elif cat == "ai":
+                bump("ai", bot)
+                bump("ai", "__total__")
+            elif cat == "search":
+                bump("search", bot)
+                bump("search", "__total__")
+            else:
+                bump("bot", bot or "unknown")
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:  # noqa: BLE001
+        pass
+
+
+def _seed_stats_from_snapshot(conn):
+    """재배포로 DB가 초기화돼도 data/stats.json 집계로 방문 통계를 복원(값별 MAX)."""
+    try:
+        with open(STATS_JSON_PATH, encoding="utf-8") as fp:
+            snap = json.load(fp)
+    except (OSError, ValueError):
+        return
+    rows = snap.get("rows") if isinstance(snap, dict) else None
+    if not isinstance(rows, list):
+        return
+    for r in rows:
+        try:
+            day, cat, name, hits = r["day"], r["category"], r["name"], int(r["hits"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        conn.execute(
+            "INSERT INTO stat_counts (day, category, name, hits) VALUES (?,?,?,?) "
+            "ON CONFLICT(day,category,name) DO UPDATE SET hits = MAX(stat_counts.hits, excluded.hits)",
+            (day, cat, name, hits),
+        )
+    conn.commit()
+
+
+def export_stats():
+    """전체 집계를 리스트로 내보내기(스냅샷 백업용)."""
+    try:
+        conn = get_conn()
+        try:
+            rows = [
+                {"day": r["day"], "category": r["category"], "name": r["name"], "hits": int(r["hits"])}
+                for r in conn.execute("SELECT day, category, name, hits FROM stat_counts")
+            ]
+            return {"rows": rows}
+        finally:
+            conn.close()
+    except Exception:  # noqa: BLE001
+        return {"rows": []}
+
+
+def build_stats(days=30):
+    """관리자 대시보드용 집계 요약. 최근 N일."""
+    since = (datetime.now(KST) - timedelta(days=days - 1)).strftime("%Y-%m-%d")
+    out = {
+        "days": days, "since": since,
+        "pv": 0, "visitors": 0, "ai": 0, "search": 0, "bot": 0,
+        "ai_by_bot": [], "search_by_bot": [], "top_pages": [], "daily": [],
+    }
+    try:
+        conn = get_conn()
+    except Exception:  # noqa: BLE001
+        return out
+    try:
+        def q(sql, args=()):
+            return conn.execute(sql, args).fetchall()
+
+        out["pv"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='pv' AND day>=?", (since,))[0]["s"])
+        out["visitors"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='visitor' AND day>=?", (since,))[0]["s"])
+        out["ai"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='ai' AND name='__total__' AND day>=?", (since,))[0]["s"])
+        out["search"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='search' AND name='__total__' AND day>=?", (since,))[0]["s"])
+        out["bot"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='bot' AND day>=?", (since,))[0]["s"])
+        out["ai_by_bot"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='ai' AND name!='__total__' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
+        out["search_by_bot"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='search' AND name!='__total__' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
+        out["top_pages"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
+        daily = {}
+        for r in q("SELECT day, category, name, hits FROM stat_counts WHERE day>=?", (since,)):
+            d = daily.setdefault(r["day"], {"pv": 0, "visitor": 0, "ai": 0, "search": 0})
+            if r["category"] == "pv":
+                d["pv"] += r["hits"]
+            elif r["category"] == "visitor":
+                d["visitor"] += r["hits"]
+            elif r["category"] == "ai" and r["name"] == "__total__":
+                d["ai"] += r["hits"]
+            elif r["category"] == "search" and r["name"] == "__total__":
+                d["search"] += r["hits"]
+        out["daily"] = sorted(([day] + [v["pv"], v["visitor"], v["ai"], v["search"]] for day, v in daily.items()), reverse=True)[:14]
+    finally:
+        conn.close()
+    return out
+
+
+def render_stats_html(s):
+    """관리자 통계 대시보드(자체 완결 HTML)."""
+    def rows_html(pairs, empty="데이터 없음"):
+        if not pairs:
+            return '<tr><td colspan="2" class="empty">' + empty + "</td></tr>"
+        return "".join(
+            "<tr><td>" + _esc_html(n) + '</td><td class="num">' + format(int(h), ",d") + "</td></tr>"
+            for n, h in pairs
+        )
+
+    daily_rows = "".join(
+        "<tr><td>" + _esc_html(r[0]) + "</td>"
+        + '<td class="num">' + format(int(r[1]), ",d") + "</td>"
+        + '<td class="num">' + format(int(r[2]), ",d") + "</td>"
+        + '<td class="num">' + format(int(r[3]), ",d") + "</td>"
+        + '<td class="num">' + format(int(r[4]), ",d") + "</td></tr>"
+        for r in s["daily"]
+    ) or '<tr><td colspan="5" class="empty">데이터 없음</td></tr>'
+
+    return (
+        "<!doctype html><html lang=ko><head><meta charset=utf-8>"
+        "<meta name=viewport content='width=device-width, initial-scale=1'>"
+        "<meta name=robots content='noindex, nofollow'>"
+        "<title>방문 통계 · 세무법인 지율</title><style>"
+        ":root{--navy:#1E3A5F;--blue:#3B82F6;--line:#E2E8F0;--sub:#5B6B7F}"
+        "*{box-sizing:border-box}body{margin:0;font-family:Pretendard,system-ui,sans-serif;background:#F7F9FC;color:#1F2937;padding:20px}"
+        ".wrap{max-width:960px;margin:0 auto}h1{font-size:20px;margin:0 0 4px}.meta{color:var(--sub);font-size:13px;margin-bottom:18px}"
+        ".cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}"
+        "@media(max-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}"
+        ".card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}"
+        ".card .k{color:var(--sub);font-size:13px}.card .v{font-size:26px;font-weight:800;color:var(--navy);margin-top:4px}"
+        ".card.ai .v{color:var(--blue)}"
+        "section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}"
+        "h2{font-size:15px;margin:0 0 10px;color:var(--navy)}"
+        "table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}"
+        "th{color:var(--sub);font-weight:600;font-size:12px}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}"
+        ".empty{color:var(--sub);text-align:center;padding:14px}.note{color:var(--sub);font-size:12px;line-height:1.7}"
+        "</style></head><body><div class=wrap>"
+        "<h1>방문 통계 <span style='font-weight:500;color:var(--sub);font-size:14px'>· 세무법인 지율</span></h1>"
+        "<p class=meta>최근 " + str(s["days"]) + "일 (" + _esc_html(s["since"]) + " ~) · 서버 기준 집계</p>"
+        "<div class=cards>"
+        "<div class=card><div class=k>페이지뷰(사람)</div><div class=v>" + format(int(s["pv"]), ",d") + "</div></div>"
+        "<div class=card><div class=k>순 방문자(추정)</div><div class=v>" + format(int(s["visitors"]), ",d") + "</div></div>"
+        "<div class='card ai'><div class=k>AI 크롤러 조회</div><div class=v>" + format(int(s["ai"]), ",d") + "</div></div>"
+        "<div class=card><div class=k>검색 크롤러 조회</div><div class=v>" + format(int(s["search"]), ",d") + "</div></div>"
+        "</div>"
+        "<section><h2>AI 크롤러별 조회 (GPTBot·ClaudeBot·PerplexityBot 등)</h2>"
+        "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["ai_by_bot"], "아직 AI 크롤러 방문 없음") + "</tbody></table></section>"
+        "<section><h2>검색 크롤러별 조회 (Googlebot·Naver Yeti·Bingbot 등)</h2>"
+        "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["search_by_bot"]) + "</tbody></table></section>"
+        "<section><h2>인기 페이지 (사람 방문)</h2>"
+        "<table><thead><tr><th>경로</th><th class=num>페이지뷰</th></tr></thead><tbody>" + rows_html(s["top_pages"]) + "</tbody></table></section>"
+        "<section><h2>일자별 추이 (최근 14일)</h2>"
+        "<table><thead><tr><th>날짜</th><th class=num>페이지뷰</th><th class=num>순방문</th><th class=num>AI</th><th class=num>검색</th></tr></thead><tbody>" + daily_rows + "</tbody></table></section>"
+        "<p class=note>· 페이지뷰/순방문은 사람(브라우저) 방문 기준, AI·검색은 크롤러 User-Agent 기준입니다.<br>"
+        "· AI 크롤러 조회는 서버에서만 집계됩니다(구글 애널리틱스 등 JS 분석은 크롤러를 못 잡음).<br>"
+        "· 순 방문자는 당일 IP 해시로 추정하며, IP 원문은 저장하지 않습니다. 재배포 후 당일 순방문은 일시적으로 과다 집계될 수 있습니다.<br>"
+        "· 데이터는 스냅샷(data/stats.json)으로 재배포에도 보존됩니다.</p>"
+        "</div></body></html>"
+    )
 
 # 자료실: 세무 서식 등 다운로드 파일 폴더 (git 저장소에 포함 → 영구 보존)
 FILES_DIR = os.path.join(BASE_DIR, "files")
@@ -197,6 +424,7 @@ def init_db():
         conn.executescript(schema)
         conn.commit()
         _seed_views_from_snapshot(conn)
+        _seed_stats_from_snapshot(conn)
     finally:
         conn.close()
 
@@ -720,7 +948,19 @@ class Handler(SimpleHTTPRequestHandler):
         return header_token == ADMIN_TOKEN or query_token == ADMIN_TOKEN
 
     def _client_ip(self):
+        # 프록시(Cloudflare/Cloudtype) 뒤에서는 원 IP가 헤더에 온다.
+        for h in ("CF-Connecting-IP", "X-Forwarded-For", "X-Real-IP"):
+            v = self.headers.get(h)
+            if v:
+                return v.split(",")[0].strip()
         return self.client_address[0] if self.client_address else "unknown"
+
+    def _track_visit(self, parsed):
+        """컨텐츠 페이지(/, *.html) GET만 방문 통계에 집계."""
+        p = parsed.path
+        if p != "/" and not p.endswith(".html"):
+            return
+        record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""))
 
     def _canonical_redirect(self):
         """www / .co.kr 등 비대표 호스트 → 대표 도메인으로 301. 처리 시 True."""
@@ -838,6 +1078,36 @@ class Handler(SimpleHTTPRequestHandler):
             return
         parsed = urlparse(self.path)
         query = parse_qs(parsed.query)
+
+        # 방문 통계 집계(컨텐츠 페이지 GET). 서비스에 영향 없이 조용히 기록.
+        self._track_visit(parsed)
+
+        # ---- 관리자 방문 통계 (토큰 필요) ----
+        if parsed.path == "/admin/stats":
+            if not ADMIN_TOKEN:
+                self._send_html(
+                    "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
+                    "<h2>통계 대시보드 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>",
+                    status=503,
+                )
+                return
+            if not self._is_admin(query):
+                self._send_html(
+                    "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
+                    "<h2>접근 권한 없음</h2><p>주소 뒤에 <code>?token=관리자토큰</code> 을 붙여 접속하세요.</p></body>",
+                    status=401,
+                )
+                return
+            self._send_html(render_stats_html(build_stats(30)))
+            return
+
+        # ---- 방문 통계 내보내기 (토큰 필요, 스냅샷 백업용) ----
+        if parsed.path == "/api/stats":
+            if not self._is_admin(query):
+                self._send_json(401, {"ok": False, "error": "unauthorized"})
+                return
+            self._send_json(200, {"ok": True, "stats": export_stats()})
+            return
 
         if parsed.path in ("/api/leads", "/api/leads.csv"):
             if not self._is_admin(query):
