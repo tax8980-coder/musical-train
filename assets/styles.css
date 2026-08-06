@@ -883,17 +883,17 @@ button { font: inherit; color: inherit; }
 
 .footer__logo-mark { display: inline-flex; width: 30px; height: 30px; flex: none; }
 .footer__logo-mark svg { width: 100%; height: 100%; display: block; }
-/* 실제 로고 이미지 (있을 때만 표시, 다크 배경이라 흰 배경 칩 처리) */
+/* 실제 로고 이미지 (있을 때만 표시). 배경색이 달라져도 항상 보이도록 흰색 칩 위에 원본 색으로 표시 */
 .footer__logo-img { display: none; }
 .footer__logo.has-img .footer__logo-img {
   display: block;
-  height: 46px;
+  height: 40px;
   width: auto;
-  max-width: 240px;
-  background: transparent;
-  padding: 0;
-  /* 어두운 푸터 배경과 어우러지도록 로고를 흰색으로 */
-  filter: brightness(0) invert(1);
+  max-width: 220px;
+  background: #fff;
+  padding: 5px 11px;
+  border-radius: 8px;
+  filter: none;
 }
 .footer__logo.has-img { gap: 4px; }
 .footer__logo.has-img .footer__logo-fallback { display: none; }
