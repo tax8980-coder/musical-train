@@ -638,7 +638,7 @@ def _render_post_html(slug):
             '<meta name="description" content="' + desc + '" />',
         ),
         (
-            '<link rel="canonical" href="https://taxin4u.com/index.html" id="canonicalLink" />',
+            '<link rel="canonical" href="https://taxin4u.com/post.html" id="canonicalLink" />',
             '<link rel="canonical" href="' + canonical + '" id="canonicalLink" />',
         ),
         (
@@ -650,7 +650,7 @@ def _render_post_html(slug):
             '<meta property="og:description" content="' + desc + '" id="ogDesc" />',
         ),
         (
-            '<meta property="og:url" content="https://taxin4u.com/index.html" id="ogUrl" />',
+            '<meta property="og:url" content="https://taxin4u.com/post.html" id="ogUrl" />',
             '<meta property="og:url" content="' + canonical + '" id="ogUrl" />',
         ),
     ]
