@@ -1084,18 +1084,17 @@ class Handler(SimpleHTTPRequestHandler):
 
         # ---- 관리자 방문 통계 (토큰 필요) ----
         if parsed.path == "/admin/stats":
+            # 안내 HTML은 200으로 반환(Cloudtype가 4xx/5xx를 자체 에러페이지로 가로채는 것 회피)
             if not ADMIN_TOKEN:
                 self._send_html(
                     "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
-                    "<h2>통계 대시보드 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>",
-                    status=503,
+                    "<h2>통계 대시보드 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>"
                 )
                 return
             if not self._is_admin(query):
                 self._send_html(
                     "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
-                    "<h2>접근 권한 없음</h2><p>주소 뒤에 <code>?token=관리자토큰</code> 을 붙여 접속하세요.</p></body>",
-                    status=401,
+                    "<h2>접근 권한 없음</h2><p>주소 뒤에 <code>?token=관리자토큰</code> 을 붙여 접속하세요.</p></body>"
                 )
                 return
             self._send_html(render_stats_html(build_stats(30)))
