@@ -1346,6 +1346,12 @@ body.is-locked { overflow: hidden; }
   font-weight: 600;
 }
 .gnb-sub a[aria-current="page"]:hover { color: #fff; background: #2F6FE0; }
+/* 네비 라벨: 데스크톱은 '세무사/업무소개', 모바일(≤767px)은 '업무분야' */
+.gnb-sub .nav-label--narrow { display: none; }
+@media (max-width: 767px) {
+  .gnb-sub .nav-label--wide { display: none; }
+  .gnb-sub .nav-label--narrow { display: inline; }
+}
 
 .sub-hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
