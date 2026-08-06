@@ -75,7 +75,7 @@
       <ul class="file-list" id="fileList" aria-live="polite">
         <li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>
       </ul>
-      <p class="file-list__state" id="fileEmpty" hidden>등록된 자료가 없습니다.</p>
+      <p class="file-list__state" id="fileEmpty" hidden></p>
 
       <div class="faq-cta">
         <p>필요하신 서식이 있으신가요?</p>
@@ -125,7 +125,7 @@
       var files = (data && data.files) || [];
       if (!files.length) {
         listEl.innerHTML = '';
-        if (emptyEl) emptyEl.hidden = false;
+        if (emptyEl) { emptyEl.textContent = '등록된 자료가 없습니다.'; emptyEl.hidden = false; }
         return;
       }
       listEl.innerHTML = files.map(item).join('');
