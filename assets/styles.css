@@ -1471,7 +1471,7 @@ body.is-locked { overflow: hidden; }
   letter-spacing: -.01em;
 }
 .profile-intro__slogan { margin-top: 14px; font-size: 19px; font-weight: 700; color: var(--navy); }
-.profile-intro__text { margin-top: 12px; font-size: 16px; line-height: 1.85; color: var(--text); max-width: 46em; }
+.profile-intro__text { margin-top: 12px; font-size: 17px; line-height: 1.85; color: var(--text); max-width: 46em; }
 .profile-intro__contact { margin-top: 18px; display: grid; gap: 8px; }
 .profile-intro__contact li { display: flex; align-items: center; gap: 9px; font-size: 15px; color: var(--text-sub); }
 .profile-intro__contact .ico { color: var(--blue); flex: none; }
@@ -1485,7 +1485,7 @@ body.is-locked { overflow: hidden; }
   .profile-intro__photo { width: 150px; }
   .profile-intro__name { font-size: 22px; }
   .profile-intro__slogan { font-size: 17px; }
-  .profile-intro__text { font-size: 15px; }
+  .profile-intro__text { font-size: 16px; }
 }
 
 /* 칼럼 빠른 목록 (제목만, 5개씩) */
