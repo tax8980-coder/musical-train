@@ -1457,6 +1457,19 @@ body.is-locked { overflow: hidden; }
 }
 .profile-intro__name { font-size: 26px; font-weight: 700; color: var(--navy); letter-spacing: -.02em; }
 .profile-intro__name span { margin-left: 8px; font-size: 16px; font-weight: 600; color: var(--text-sub); }
+.profile-intro__creds { grid-column: 1 / -1; margin-top: 8px; display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; padding: 0; list-style: none; }
+.profile-intro__creds li {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  padding: 6px 11px;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+}
 .profile-intro__slogan { margin-top: 14px; font-size: 19px; font-weight: 700; color: var(--navy); }
 .profile-intro__text { margin-top: 12px; font-size: 16px; line-height: 1.85; color: var(--text); max-width: 46em; }
 .profile-intro__contact { margin-top: 18px; display: grid; gap: 8px; }
