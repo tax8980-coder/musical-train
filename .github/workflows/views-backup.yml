@@ -5,7 +5,7 @@ name: 조회수 스냅샷 백업
 # 봇(GITHUB_TOKEN) 커밋은 다른 워크플로(배포)를 트리거하지 않으므로 재배포를 유발하지 않는다.
 on:
   schedule:
-    - cron: "0 */6 * * *"   # 6시간마다(UTC). 필요하면 주기 조정.
+    - cron: "0 * * * *"   # 매시 정각(1시간마다). 필요하면 주기 조정.
   workflow_dispatch: {}
 
 permissions:
