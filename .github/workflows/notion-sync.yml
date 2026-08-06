@@ -67,7 +67,9 @@ jobs:
             app: dockerfile
             options:
               ports: "8080"
-              env: []
+              env:
+                - name: JIYUL_ADMIN_TOKEN
+                  value: ${{ secrets.JIYUL_ADMIN_TOKEN }}
               args: []
             context:
               git:
