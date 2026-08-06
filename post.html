@@ -19,7 +19,8 @@
 <script>
 /* 크롤러 대비: slug 기반 canonical·og:url을 파싱 즉시 설정(스크립트 로딩 전) */
 (function () {
-  var u = 'https://taxin4u.com/post.html' + (location.search || '');
+  var m = location.pathname.match(/^\/column\/([^\/?#]+)/);
+  var u = m ? ('https://taxin4u.com/column/' + m[1]) : ('https://taxin4u.com/post.html' + (location.search || ''));
   var c = document.getElementById('canonicalLink'); if (c) c.setAttribute('href', u);
   var o = document.getElementById('ogUrl'); if (o) o.setAttribute('content', u);
 })();
@@ -82,7 +83,7 @@
 
 <div data-site-footer hidden></div>
 
-<script src="assets/blog.js?v=12"></script>
+<script src="assets/blog.js?v=13"></script>
 <script src="assets/site-footer.js?v=8"></script>
 </body>
 </html>

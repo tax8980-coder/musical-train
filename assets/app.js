@@ -436,7 +436,7 @@
       var tags = (p.tags || []).map(function (t) {
         return '<span class="post-card__tag">' + escapeHtml(t) + '</span>';
       }).join('');
-      var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+      var href = '/column/' + encodeURIComponent(p.slug);
       return '' +
         '<li class="post-card">' +
         '<a class="post-card__link" href="' + href + '">' +

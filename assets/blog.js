@@ -27,7 +27,7 @@
     var tags = (p.tags || []).map(function (t) {
       return '<span class="post-card__tag">' + esc(t) + '</span>';
     }).join('');
-    var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+    var href = '/column/' + encodeURIComponent(p.slug);
     return '<li class="post-card"><a class="post-card__link" href="' + href + '">' +
       (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
       '<h3 class="post-card__title">' + esc(p.title) + '</h3>' +
@@ -69,7 +69,7 @@
       if (qPage < 1) qPage = 1;
       var start = (qPage - 1) * Q_PER;
       quickEl.innerHTML = allPosts.slice(start, start + Q_PER).map(function (p, i) {
-        var href = 'post.html?slug=' + encodeURIComponent(p.slug);
+        var href = '/column/' + encodeURIComponent(p.slug);
         return '<li class="quick-list__item"><a class="quick-list__link" href="' + href + '">' +
           '<span class="quick-list__no">' + (start + i + 1) + '</span>' +
           '<span class="quick-list__text">' + esc(p.title) + '</span>' +
@@ -223,8 +223,8 @@
   /* ---------------- 본문 페이지 ---------------- */
   var articleEl = $('#article');
   if (articleEl && !listEl) {
-    var params = new URLSearchParams(location.search);
-    var slug = params.get('slug') || '';
+    var pathMatch = location.pathname.match(/^\/column\/([^\/?#]+)$/);
+    var slug = pathMatch ? decodeURIComponent(pathMatch[1]) : (new URLSearchParams(location.search).get('slug') || '');
     var box = $('.container', articleEl);
 
     function fail(msg) {
@@ -248,7 +248,7 @@
         if (metaDesc && p.summary) metaDesc.setAttribute('content', p.summary);
 
         // SEO: 칼럼별 canonical·OG·Article 구조화데이터 갱신
-        var canonicalUrl = 'https://taxin4u.com/post.html?slug=' + encodeURIComponent(slug);
+        var canonicalUrl = 'https://taxin4u.com/column/' + encodeURIComponent(slug);
         var descText = p.summary || '세무법인 지율 손창용 세무사의 세무 칼럼.';
         function setAttr(id, attr, val) {
           var el = document.getElementById(id);

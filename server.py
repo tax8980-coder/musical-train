@@ -666,7 +666,7 @@ def _render_post_cards(posts, views):
     out = []
     for p in posts:
         slug = p.get("slug", "")
-        href = "post.html?slug=" + quote(slug, safe="")
+        href = "/column/" + quote(slug, safe="")
         tags = "".join(
             '<span class="post-card__tag">' + _esc_html(t) + "</span>"
             for t in (p.get("tags") or [])
@@ -767,7 +767,7 @@ def _render_sitemap_xml():
         if not slug:
             continue
         entries.append(
-            (o + "/post.html?slug=" + quote(slug, safe=""), "yearly", "0.6", p.get("date"))
+            (o + "/column/" + quote(slug, safe=""), "yearly", "0.6", p.get("date"))
         )
 
     lines = [
@@ -830,7 +830,7 @@ def _render_post_html(slug):
 
     title = post.get("title") or "세무 칼럼"
     summary = post.get("summary") or "세무법인 지율 손창용 세무사의 세무 칼럼."
-    canonical = SITE_ORIGIN + "/post.html?slug=" + quote(slug, safe="")
+    canonical = SITE_ORIGIN + "/column/" + quote(slug, safe="")
     desc = _esc_html(summary)
     full_title = _esc_html(title) + " | 세무 칼럼 · 세무법인 지율"
 
@@ -956,9 +956,9 @@ class Handler(SimpleHTTPRequestHandler):
         return self.client_address[0] if self.client_address else "unknown"
 
     def _track_visit(self, parsed):
-        """컨텐츠 페이지(/, *.html) GET만 방문 통계에 집계."""
+        """컨텐츠 페이지(/, *.html, /column/<slug>) GET만 방문 통계에 집계."""
         p = parsed.path
-        if p != "/" and not p.endswith(".html"):
+        if p != "/" and not p.endswith(".html") and not p.startswith("/column/"):
             return
         record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""))
 
@@ -1183,14 +1183,23 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR index failed: %s", exc)
+        # ---- 칼럼 본문: 경로형 /column/<slug> (대표 주소) ----
+        m_col = re.match(r"^/column/([A-Za-z0-9\-_]+)$", parsed.path)
+        if m_col:
+            try:
+                self._send_html(_render_post_html(m_col.group(1)))
+                return
+            except Exception as exc:  # noqa: BLE001
+                self.log_error("SSR column failed: %s", exc)
+        # ---- 옛 주소 /post.html?slug=X → /column/X 301 (기존 색인·링크 보존) ----
         if parsed.path == "/post.html":
             slug = (query.get("slug", [""])[0] or "").strip()
-            if slug:
-                try:
-                    self._send_html(_render_post_html(slug))
-                    return
-                except Exception as exc:  # noqa: BLE001
-                    self.log_error("SSR post failed: %s", exc)
+            target = ("/column/" + quote(slug, safe="")) if re.match(r"^[A-Za-z0-9\-_]+$", slug) else "/"
+            self.send_response(301)
+            self.send_header("Location", target)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         if parsed.path == "/resources.html":
             try:
                 self._send_html(_render_resources_html())
