@@ -457,20 +457,6 @@ def _render_post_cards(posts, views):
     return "".join(out)
 
 
-def _render_quick_items(posts):
-    """제목+상세링크만 담은 깔끔한 순서목록(크롤러가 목록으로 명확히 추출하도록)."""
-    out = []
-    for i, p in enumerate(posts, 1):
-        href = "post.html?slug=" + quote(p.get("slug", ""), safe="")
-        out.append(
-            '<li class="quick-list__item"><a class="quick-list__link" href="' + href + '">'
-            + '<span class="quick-list__no">' + str(i) + "</span>"
-            + '<span class="quick-list__text">' + _esc_html(p.get("title")) + "</span>"
-            + '<span class="quick-list__arrow" aria-hidden="true">→</span></a></li>'
-        )
-    return "".join(out)
-
-
 def _render_index_html():
     """홈 HTML의 자리표시자를 실제 칼럼 목록으로 치환해 반환."""
     html = _read_text(INDEX_PATH)
@@ -484,18 +470,7 @@ def _render_index_html():
         _render_post_cards(posts, views),
         1,
     )
-    # 2) 제목+링크 목록(퀵리스트)을 채우고 노출(hidden 제거) — 크롤러의 명확한 목록 추출용
-    html = html.replace(
-        '<div class="quick-list" id="quickList" hidden>',
-        '<div class="quick-list" id="quickList">',
-        1,
-    )
-    html = html.replace(
-        '<ol class="quick-list__items" id="quickTitles"></ol>',
-        '<ol class="quick-list__items" id="quickTitles">' + _render_quick_items(posts) + "</ol>",
-        1,
-    )
-    # 3) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
+    # 2) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
     #    (hidden 속성만으로는 텍스트 크롤러가 본문으로 읽어감. 칼럼이 있으므로 비운다)
     html = html.replace(">아직 등록된 칼럼이 없습니다.</p>", "></p>", 1)
     return html
