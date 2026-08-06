@@ -10,6 +10,7 @@ on:
       # 스냅샷만 바뀐 커밋은 재배포하지 않음(불필요한 재시작·통계 초기화 방지)
       - 'data/views.json'
       - 'data/stats.json'
+  workflow_dispatch: {}   # Actions 탭에서 수동 배포 가능(Run workflow)
 
 jobs:
   deploy:
