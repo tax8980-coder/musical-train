@@ -229,7 +229,7 @@
 
     function fail(msg) {
       box.innerHTML = '<p class="article__error">' + esc(msg) + '</p>' +
-        '<p><a class="btn btn--outline btn--sm" href="index.html">← 칼럼 목록으로</a></p>';
+        '<p><a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로</a></p>';
     }
 
     if (!slug) { fail('잘못된 접근입니다. 칼럼 목록에서 글을 선택해 주세요.'); return; }
@@ -278,11 +278,11 @@
         } catch (e) { /* 구조화데이터 실패는 본문에 영향 없음 */ }
 
         var tags = (p.tags || []).map(function (t) {
-          return '<a class="post-card__tag" href="index.html">' + esc(t) + '</a>';
+          return '<a class="post-card__tag" href="/">' + esc(t) + '</a>';
         }).join('');
 
         box.innerHTML =
-          '<nav class="article__back"><a href="index.html">← 칼럼 목록</a>' +
+          '<nav class="article__back"><a href="/">← 칼럼 목록</a>' +
           '<button class="btn btn--outline btn--sm" type="button" id="printArticleTop">🖨 인쇄 / PDF 저장</button></nav>' +
           '<header class="article__head">' +
           (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
@@ -293,7 +293,7 @@
           '</header>' +
           '<div class="article__body prose">' + (p.content_html || '') + '</div>' +
           '<footer class="article__foot">' +
-          '<a class="btn btn--outline btn--sm" href="index.html">← 칼럼 목록으로 바로 가기</a> ' +
+          '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> ' +
           '<button class="btn btn--outline btn--sm" type="button" id="printArticle">🖨 인쇄 / PDF 저장</button> ' +
           (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '') +
           '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>' +

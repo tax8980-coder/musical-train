@@ -789,12 +789,12 @@ def _render_sitemap_xml():
 def _render_article(p):
     slug_source = p.get("source")
     tags = "".join(
-        '<a class="post-card__tag" href="index.html">' + _esc_html(t) + "</a>"
+        '<a class="post-card__tag" href="/">' + _esc_html(t) + "</a>"
         for t in (p.get("tags") or [])
     )
     date = p.get("date")
     return (
-        '<nav class="article__back"><a href="index.html">← 칼럼 목록</a></nav>'
+        '<nav class="article__back"><a href="/">← 칼럼 목록</a></nav>'
         + '<header class="article__head">'
         + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
         + '<h1 class="article__title">' + _esc_html(p.get("title")) + "</h1>"
@@ -803,7 +803,7 @@ def _render_article(p):
         + "</header>"
         + '<div class="article__body prose">' + (p.get("content_html") or "") + "</div>"
         + '<footer class="article__foot">'
-        + '<a class="btn btn--outline btn--sm" href="index.html">← 칼럼 목록으로 바로 가기</a> '
+        + '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> '
         + (
             (
                 '<a class="btn btn--outline btn--sm" href="' + _esc_html(slug_source)

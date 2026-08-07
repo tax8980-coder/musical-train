@@ -12,7 +12,7 @@
           '<div class="footer__col">' +
             '<p class="footer__logo">' +
               '<span class="footer__logo-brand">세무법인</span>' +
-              '<img class="footer__logo-img" src="assets/images/logo-brand.png?v=2" alt="세무법인 지율" onload="this.closest(\'.footer__logo\').classList.add(\'has-img\')" />' +
+              '<img class="footer__logo-img" src="/assets/images/logo-brand.png?v=2" alt="세무법인 지율" onload="this.closest(\'.footer__logo\').classList.add(\'has-img\')" />' +
               '<span class="footer__logo-fallback">' +
                 '<span class="footer__logo-mark" aria-hidden="true">' +
                   '<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">' +
