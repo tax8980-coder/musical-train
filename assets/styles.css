@@ -1352,6 +1352,12 @@ body.is-locked { overflow: hidden; }
   .gnb-sub .nav-label--wide { display: none; }
   .gnb-sub .nav-label--narrow { display: inline; }
 }
+/* 범용 PC/모바일 텍스트 스왑(버튼 등) */
+.only-mo { display: none; }
+@media (max-width: 767px) {
+  .only-pc { display: none; }
+  .only-mo { display: inline; }
+}
 
 .sub-hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);

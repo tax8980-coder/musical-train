@@ -812,7 +812,7 @@ def _render_article(p):
             if slug_source
             else ""
         )
-        + '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>'
+        + '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>'
         + "</footer>"
     )
 

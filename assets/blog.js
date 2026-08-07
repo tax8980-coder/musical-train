@@ -296,7 +296,7 @@
           '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> ' +
           '<button class="btn btn--outline btn--sm" type="button" id="printArticle">🖨 인쇄 / PDF 저장</button> ' +
           (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '') +
-          '<a class="btn btn--primary btn--sm" href="contact.html">상담 문의하기</a>' +
+          '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>' +
           '</footer>';
         [document.getElementById('printArticle'), document.getElementById('printArticleTop')]
           .forEach(function (b) { if (b) b.addEventListener('click', function () { window.print(); }); });
