@@ -1,3 +1,178 @@
 {
-  "rows": []
+  "rows": [
+    {
+      "day": "2026-08-07",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 12
+    },
+    {
+      "day": "2026-08-07",
+      "category": "ai",
+      "name": "ClaudeBot",
+      "hits": 17
+    },
+    {
+      "day": "2026-08-07",
+      "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 13
+    },
+    {
+      "day": "2026-08-07",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 42
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/assets/blog.js",
+      "hits": 19
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/assets/images/logo-brand.png",
+      "hits": 15
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/assets/site-footer.js",
+      "hits": 19
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/assets/styles.css",
+      "hits": 20
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/company-car-purchase-method-2026",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/faq.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/column/testamentary-trust-not-tax-saving",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-07",
+      "category": "page",
+      "name": "/post.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-07",
+      "category": "pv",
+      "name": "total",
+      "hits": 117
+    },
+    {
+      "day": "2026-08-07",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-07",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 24
+    },
+    {
+      "day": "2026-08-07",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 14
+    },
+    {
+      "day": "2026-08-07",
+      "category": "search",
+      "name": "__total__",
+      "hits": 45
+    },
+    {
+      "day": "2026-08-07",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 19
+    }
+  ]
 }
