@@ -238,13 +238,13 @@
       "day": "2026-08-08",
       "category": "bot",
       "name": "generic",
-      "hits": 4
+      "hits": 9
     },
     {
       "day": "2026-08-08",
       "category": "page",
       "name": "/",
-      "hits": 47
+      "hits": 59
     },
     {
       "day": "2026-08-08",
@@ -310,13 +310,13 @@
       "day": "2026-08-08",
       "category": "pv",
       "name": "total",
-      "hits": 63
+      "hits": 75
     },
     {
       "day": "2026-08-08",
       "category": "search",
       "name": "Applebot",
-      "hits": 2
+      "hits": 6
     },
     {
       "day": "2026-08-08",
@@ -328,19 +328,19 @@
       "day": "2026-08-08",
       "category": "search",
       "name": "Googlebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-08",
       "category": "search",
       "name": "__total__",
-      "hits": 8
+      "hits": 13
     },
     {
       "day": "2026-08-08",
       "category": "visitor",
       "name": "unique",
-      "hits": 31
+      "hits": 42
     }
   ]
 }
