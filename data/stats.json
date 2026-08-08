@@ -244,13 +244,13 @@
       "day": "2026-08-08",
       "category": "bot",
       "name": "generic",
-      "hits": 12
+      "hits": 13
     },
     {
       "day": "2026-08-08",
       "category": "page",
       "name": "/",
-      "hits": 86
+      "hits": 91
     },
     {
       "day": "2026-08-08",
@@ -304,7 +304,7 @@
       "day": "2026-08-08",
       "category": "page",
       "name": "/contact.html",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-08",
@@ -322,7 +322,7 @@
       "day": "2026-08-08",
       "category": "page",
       "name": "/intro.html",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-08",
@@ -334,19 +334,19 @@
       "day": "2026-08-08",
       "category": "pv",
       "name": "total",
-      "hits": 118
+      "hits": 125
     },
     {
       "day": "2026-08-08",
       "category": "search",
       "name": "Applebot",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-08",
       "category": "search",
       "name": "Bingbot",
-      "hits": 16
+      "hits": 25
     },
     {
       "day": "2026-08-08",
@@ -358,13 +358,13 @@
       "day": "2026-08-08",
       "category": "search",
       "name": "__total__",
-      "hits": 25
+      "hits": 36
     },
     {
       "day": "2026-08-08",
       "category": "visitor",
       "name": "unique",
-      "hits": 65
+      "hits": 71
     }
   ]
 }
