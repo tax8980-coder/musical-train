@@ -226,13 +226,19 @@
       "day": "2026-08-08",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 17
+    },
+    {
+      "day": "2026-08-08",
+      "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 2
     },
     {
       "day": "2026-08-08",
       "category": "ai",
       "name": "__total__",
-      "hits": 3
+      "hits": 19
     },
     {
       "day": "2026-08-08",
@@ -244,7 +250,7 @@
       "day": "2026-08-08",
       "category": "page",
       "name": "/",
-      "hits": 59
+      "hits": 68
     },
     {
       "day": "2026-08-08",
@@ -298,7 +304,7 @@
       "day": "2026-08-08",
       "category": "page",
       "name": "/intro.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-08",
@@ -310,7 +316,7 @@
       "day": "2026-08-08",
       "category": "pv",
       "name": "total",
-      "hits": 75
+      "hits": 85
     },
     {
       "day": "2026-08-08",
@@ -322,7 +328,7 @@
       "day": "2026-08-08",
       "category": "search",
       "name": "Bingbot",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-08",
@@ -334,13 +340,13 @@
       "day": "2026-08-08",
       "category": "search",
       "name": "__total__",
-      "hits": 13
+      "hits": 15
     },
     {
       "day": "2026-08-08",
       "category": "visitor",
       "name": "unique",
-      "hits": 42
+      "hits": 49
     }
   ]
 }
