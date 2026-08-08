@@ -368,15 +368,27 @@
     },
     {
       "day": "2026-08-09",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-09",
       "category": "page",
       "name": "/",
-      "hits": 9
+      "hits": 18
     },
     {
       "day": "2026-08-09",
       "category": "pv",
       "name": "total",
-      "hits": 9
+      "hits": 18
+    },
+    {
+      "day": "2026-08-09",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 2
     },
     {
       "day": "2026-08-09",
@@ -394,13 +406,13 @@
       "day": "2026-08-09",
       "category": "search",
       "name": "__total__",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-09",
       "category": "visitor",
       "name": "unique",
-      "hits": 7
+      "hits": 10
     }
   ]
 }
