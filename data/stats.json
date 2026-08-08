@@ -368,6 +368,18 @@
     },
     {
       "day": "2026-08-09",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-09",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-09",
       "category": "bot",
       "name": "generic",
       "hits": 1
@@ -376,7 +388,7 @@
       "day": "2026-08-09",
       "category": "page",
       "name": "/",
-      "hits": 25
+      "hits": 28
     },
     {
       "day": "2026-08-09",
@@ -394,7 +406,7 @@
       "day": "2026-08-09",
       "category": "pv",
       "name": "total",
-      "hits": 27
+      "hits": 30
     },
     {
       "day": "2026-08-09",
@@ -406,7 +418,7 @@
       "day": "2026-08-09",
       "category": "search",
       "name": "Bingbot",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-09",
@@ -418,7 +430,7 @@
       "day": "2026-08-09",
       "category": "search",
       "name": "__total__",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-09",
