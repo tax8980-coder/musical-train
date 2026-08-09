@@ -272,7 +272,7 @@
             datePublished: p.date || undefined,
             mainEntityOfPage: canonicalUrl,
             url: canonicalUrl,
-            image: 'https://taxin4u.com/assets/images/og.png?v=3'
+            image: 'https://taxin4u.com/assets/images/og.png?v=4'
           };
           var s = document.createElement('script');
           s.type = 'application/ld+json';

@@ -1003,7 +1003,7 @@ def _render_post_html(slug):
         "publisher": {"@type": "Organization", "name": "세무법인 지율"},
         "mainEntityOfPage": canonical,
         "url": canonical,
-        "image": SITE_ORIGIN + "/assets/images/og.png?v=3",
+        "image": SITE_ORIGIN + "/assets/images/og.png?v=4",
     }
     if post.get("date"):
         ld["datePublished"] = post["date"]
