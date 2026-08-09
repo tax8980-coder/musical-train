@@ -471,6 +471,12 @@
     {
       "day": "2026-08-10",
       "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 20
+    },
+    {
+      "day": "2026-08-10",
+      "category": "ai",
       "name": "ClaudeBot",
       "hits": 1
     },
@@ -478,30 +484,66 @@
       "day": "2026-08-10",
       "category": "ai",
       "name": "__total__",
-      "hits": 1
+      "hits": 21
     },
     {
       "day": "2026-08-10",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-10",
       "category": "page",
       "name": "/",
-      "hits": 12
+      "hits": 19
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
+      "hits": 1
     },
     {
       "day": "2026-08-10",
       "category": "page",
       "name": "/column/worker-succession-headcount-2022du53921",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-10",
       "category": "page",
       "name": "/contact.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/corporate-tax",
       "hits": 2
     },
     {
@@ -513,14 +555,20 @@
     {
       "day": "2026-08-10",
       "category": "page",
+      "name": "/income-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
       "name": "/index.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-10",
       "category": "page",
       "name": "/intro.html",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-10",
@@ -530,9 +578,27 @@
     },
     {
       "day": "2026-08-10",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/transfer-inheritance-gift",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/vat",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
       "category": "pv",
       "name": "total",
-      "hits": 27
+      "hits": 50
     },
     {
       "day": "2026-08-10",
@@ -544,7 +610,7 @@
       "day": "2026-08-10",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 22
+      "hits": 28
     },
     {
       "day": "2026-08-10",
@@ -556,7 +622,7 @@
       "day": "2026-08-10",
       "category": "reftype",
       "name": "직접",
-      "hits": 22
+      "hits": 28
     },
     {
       "day": "2026-08-10",
@@ -586,7 +652,7 @@
       "day": "2026-08-10",
       "category": "visitor",
       "name": "unique",
-      "hits": 24
+      "hits": 29
     }
   ]
 }
