@@ -388,7 +388,7 @@
       "day": "2026-08-09",
       "category": "page",
       "name": "/",
-      "hits": 42
+      "hits": 54
     },
     {
       "day": "2026-08-09",
@@ -412,7 +412,7 @@
       "day": "2026-08-09",
       "category": "pv",
       "name": "total",
-      "hits": 45
+      "hits": 57
     },
     {
       "day": "2026-08-09",
@@ -442,7 +442,7 @@
       "day": "2026-08-09",
       "category": "visitor",
       "name": "unique",
-      "hits": 25
+      "hits": 31
     }
   ]
 }
