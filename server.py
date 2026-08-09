@@ -314,6 +314,77 @@ SLUG_REDIRECTS = {
     "2-127-10-3b6868d0": "two-workplaces-separate-accounting-127-10",
 }
 
+# ---------------- 세목별 허브(대표) 페이지 ----------------
+# 하이브리드(C): 각 허브는 대표 태그로 자동 채우되, include로 특정 칼럼을 강제 포함,
+# exclude로 태그가 걸려도 제외할 수 있다. posts.json 은 최신순 정렬이라 그 순서를 유지.
+HUBS = [
+    {
+        "slug": "corporate-tax",
+        "title": "법인세 이야기",
+        "lead": "법인세 신고·세무조정, 적격합병·이월결손금·세액공제 승계 등 법인 세무의 실무 쟁점을 법령과 판례에 근거해 풀어 쓴 칼럼을 모았습니다.",
+        "desc": "법인세 신고·세무조정·적격합병·세액공제 등 법인 세무 실무를 법령과 판례로 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
+        "tags": ["법인세"], "include": [], "exclude": [],
+    },
+    {
+        "slug": "tax-credit",
+        "title": "세액공제·감면 이야기",
+        "lead": "통합고용세액공제·통합투자세액공제·연구인력개발비(R&D)·창업중소기업감면·중소기업특별세액감면 등 조세특례제한법상 세액공제·감면을 다룬 칼럼을 모았습니다.",
+        "desc": "통합고용·통합투자·R&D·창업중소기업감면 등 조세특례제한법 세액공제·감면을 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
+        "tags": ["조세특례제한법"], "include": [], "exclude": [],
+    },
+    {
+        "slug": "inheritance-gift",
+        "title": "상속·증여세 이야기",
+        "lead": "상속세·증여세 신고와 절세, 가업승계·유류분·신탁 등 상속·증여 관련 실무를 법령과 예규로 정리한 칼럼을 모았습니다.",
+        "desc": "상속세·증여세 신고와 절세, 가업승계·유류분·신탁 등 상속·증여 실무를 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
+        "tags": ["상속세", "증여세"], "include": [], "exclude": [],
+    },
+    {
+        "slug": "capital-gains",
+        "title": "양도소득세 이야기",
+        "lead": "양도소득세 비과세·중과·취득시기, 1세대 다주택 등 부동산·주식 양도의 쟁점을 판례와 예규로 풀어 쓴 칼럼을 모았습니다.",
+        "desc": "양도소득세 비과세·중과·취득시기·1세대 다주택 등 양도 쟁점을 판례로 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
+        "tags": ["양도소득세"], "include": [], "exclude": [],
+    },
+]
+HUB_BY_SLUG = {h["slug"]: h for h in HUBS}
+
+
+def _post_in_hub(post, hub):
+    slug = post.get("slug", "")
+    if slug in hub.get("exclude", []):
+        return False
+    if slug in hub.get("include", []):
+        return True
+    return bool(set(hub.get("tags", [])) & set(post.get("tags") or []))
+
+
+def _hub_posts(hub, posts):
+    return [p for p in posts if _post_in_hub(p, hub)]
+
+
+def _primary_hub_for(post):
+    for h in HUBS:
+        if _post_in_hub(post, h):
+            return h
+    return None
+
+
+# 허브 칩·브레드크럼·홈 섹션 공용 스타일(styles.css 버전과 무관하게 인라인 주입).
+HUB_INLINE_CSS = (
+    "<style>"
+    ".hub-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}"
+    ".hub-chip{display:inline-block;padding:7px 14px;border-radius:999px;font-size:.92rem;font-weight:600;"
+    "color:#1E3A5F;background:#EAF1FA;border:1px solid #D3E0F0;text-decoration:none;transition:background .15s,border-color .15s}"
+    ".hub-chip:hover{background:#D8E6F7;border-color:#B9D0EC}"
+    ".hub-chip.is-active{background:#1E3A5F;color:#fff;border-color:#1E3A5F}"
+    ".hub-breadcrumb{font-size:.9rem;color:#5b6b7f;margin:0 0 12px}"
+    ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
+    ".hub-home{margin:2px 0 20px}"
+    ".hub-home__title{font-size:1rem;font-weight:700;color:#1E3A5F;margin:0 0 10px}"
+    "</style>"
+)
+
 
 def _page_label(path, title_map):
     """방문 통계 경로 → 사람이 읽는 한글 라벨."""
@@ -322,6 +393,9 @@ def _page_label(path, title_map):
     m = re.match(r"^/column/([A-Za-z0-9\-_]+)$", path)
     if m:
         return title_map.get(m.group(1), path)
+    hp = path.strip("/")
+    if hp in HUB_BY_SLUG:
+        return "세목별 · " + HUB_BY_SLUG[hp]["title"]
     return path
 
 
@@ -827,6 +901,23 @@ def _render_post_cards(posts, views):
     return "".join(out)
 
 
+def _render_hub_chips(active_slug=None):
+    """세목별 허브로 이동하는 칩 내비게이션."""
+    parts = ['<nav class="hub-chips" aria-label="세목별 대표 페이지">']
+    for h in HUBS:
+        active = (h["slug"] == active_slug)
+        parts.append(
+            '<a class="hub-chip%s" href="/%s"%s>%s</a>' % (
+                " is-active" if active else "",
+                h["slug"],
+                ' aria-current="page"' if active else "",
+                _esc_html(h["title"]),
+            )
+        )
+    parts.append("</nav>")
+    return "".join(parts)
+
+
 def _render_index_html():
     """홈 HTML의 자리표시자를 실제 칼럼 목록으로 치환해 반환."""
     html = _read_text(INDEX_PATH)
@@ -843,6 +934,17 @@ def _render_index_html():
     # 2) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
     #    (hidden 속성만으로는 텍스트 크롤러가 본문으로 읽어감. 칼럼이 있으므로 비운다)
     html = html.replace(">아직 등록된 칼럼이 없습니다.</p>", "></p>", 1)
+    # 3) 세목별 허브 칩 + 공용 스타일 삽입(칼럼 목록 위, 크롤러 내부링크 제공)
+    home_hub = (
+        '<div class="hub-home"><p class="hub-home__title">세목별로 모아 보기</p>'
+        + _render_hub_chips(None) + "</div>"
+    )
+    html = html.replace(
+        '<ul class="post-grid" id="blogList"',
+        home_hub + '<ul class="post-grid" id="blogList"',
+        1,
+    )
+    html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
     return html
 
 
@@ -888,6 +990,63 @@ def _file_lastmod(path):
         return None
 
 
+HUB_TEMPLATE_PATH = os.path.join(BASE_DIR, "hub.html")
+
+
+def _render_hub_html(hub_slug):
+    """세목별 허브 페이지: 소개문 + 해당 칼럼 카드 목록 + 고유 SEO 메타·구조화데이터."""
+    hub = HUB_BY_SLUG.get(hub_slug)
+    if not hub:
+        raise KeyError(hub_slug)
+    html = _read_text(HUB_TEMPLATE_PATH)
+    posts = load_posts().get("posts", [])
+    members = _hub_posts(hub, posts)
+    views = get_views_map()
+    canonical = SITE_ORIGIN + "/" + hub_slug
+    full_title = _esc_html(hub["title"]) + " | 세무 칼럼 · 세무법인 지율"
+    desc = _esc_html(hub["desc"])
+    cards = _render_post_cards(members, views)
+    if not members:
+        cards = '<li class="post-grid__empty" style="list-style:none;color:#5b6b7f">이 주제의 칼럼을 준비 중입니다.</li>'
+
+    ld_collection = {
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "name": hub["title"], "description": hub["desc"], "url": canonical,
+        "isPartOf": {"@type": "WebSite", "name": "세무법인 지율", "url": SITE_ORIGIN + "/"},
+        "hasPart": [
+            {"@type": "Article", "headline": p.get("title"),
+             "url": SITE_ORIGIN + "/column/" + quote(p.get("slug", ""), safe="")}
+            for p in members
+        ],
+    }
+    ld_bc = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "세무칼럼", "item": SITE_ORIGIN + "/"},
+            {"@type": "ListItem", "position": 2, "name": hub["title"], "item": canonical},
+        ],
+    }
+    jsonld = (
+        '<script type="application/ld+json">' + json.dumps(ld_collection, ensure_ascii=False) + "</script>"
+        + '<script type="application/ld+json">' + json.dumps(ld_bc, ensure_ascii=False) + "</script>"
+    )
+
+    for token, value in (
+        ("{{HUB_FULL_TITLE}}", full_title),
+        ("{{HUB_DESC}}", desc),
+        ("{{HUB_CANONICAL}}", _esc_html(canonical)),
+        ("{{HUB_TITLE}}", _esc_html(hub["title"])),
+        ("{{HUB_LEAD}}", _esc_html(hub["lead"])),
+        ("{{HUB_COUNT}}", str(len(members))),
+        ("{{HUB_CHIPS}}", _render_hub_chips(hub_slug)),
+        ("{{HUB_CARDS}}", cards),
+        ("{{HUB_CSS}}", HUB_INLINE_CSS),
+        ("{{HUB_JSONLD}}", jsonld),
+    ):
+        html = html.replace(token, value)
+    return html
+
+
 def _render_sitemap_xml():
     """posts.json 기준으로 sitemap.xml 을 매번 생성(새 칼럼 자동 포함)."""
     o = SITE_ORIGIN
@@ -903,6 +1062,9 @@ def _render_sitemap_xml():
         (o + "/faq.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "faq.html"))),
         (o + "/contact.html", "monthly", "0.8", _file_lastmod(os.path.join(BASE_DIR, "contact.html"))),
     ]
+    # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
+    for h in HUBS:
+        entries.append((o + "/" + h["slug"], "weekly", "0.8", home_mod))
     # 칼럼(동적)
     for p in posts:
         slug = p.get("slug", "")
@@ -935,8 +1097,14 @@ def _render_article(p):
         for t in (p.get("tags") or [])
     )
     date = p.get("date")
+    hub = _primary_hub_for(p)
+    breadcrumb = (
+        '<nav class="hub-breadcrumb" aria-label="위치"><a href="/">세무칼럼</a> › '
+        '<a href="/' + hub["slug"] + '">' + _esc_html(hub["title"]) + "</a></nav>"
+    ) if hub else ""
     return (
         '<nav class="article__back"><a href="/">← 칼럼 목록</a></nav>'
+        + breadcrumb
         + '<header class="article__head">'
         + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
         + '<h1 class="article__title">' + _esc_html(p.get("title")) + "</h1>"
@@ -1017,6 +1185,8 @@ def _render_post_html(slug):
         ld["datePublished"] = post["date"]
     ld_tag = '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>\n</head>"
     html = html.replace("</head>", ld_tag, 1)
+    # 브레드크럼 스타일(허브 공용 CSS) 주입
+    html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
 
     marker = '<p class="article__loading" id="articleLoading">칼럼을 불러오는 중입니다…</p>'
     return html.replace(marker, _render_article(post), 1)
@@ -1134,7 +1304,8 @@ class Handler(SimpleHTTPRequestHandler):
     def _track_visit(self, parsed):
         """컨텐츠 페이지(/, *.html, /column/<slug>) GET만 방문 통계에 집계."""
         p = parsed.path
-        is_page = (p == "/" or p.endswith(".html") or re.match(r"^/column/[A-Za-z0-9\-_]+$", p))
+        is_page = (p == "/" or p.endswith(".html") or re.match(r"^/column/[A-Za-z0-9\-_]+$", p)
+                   or p.strip("/") in HUB_BY_SLUG)
         if not is_page:
             return
         record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""),
@@ -1425,6 +1596,14 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR resources failed: %s", exc)
+        # ---- 세목별 허브(대표) 페이지: /corporate-tax, /tax-credit 등 ----
+        m_hub = re.match(r"^/([a-z0-9-]+)$", parsed.path)
+        if m_hub and m_hub.group(1) in HUB_BY_SLUG:
+            try:
+                self._send_html(_render_hub_html(m_hub.group(1)))
+                return
+            except Exception as exc:  # noqa: BLE001
+                self.log_error("SSR hub failed: %s", exc)
         if parsed.path == "/sitemap.xml":
             try:
                 self._send_xml(_render_sitemap_xml())
