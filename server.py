@@ -234,6 +234,27 @@ def export_stats():
         return {"rows": []}
 
 
+_STATIC_PAGE_LABELS = {
+    "/": "홈 · 세무칼럼 목록",
+    "/index.html": "홈 · 세무칼럼 목록",
+    "/intro.html": "업무분야(세무사·업무소개)",
+    "/resources.html": "자료실",
+    "/faq.html": "자주 묻는 질문",
+    "/contact.html": "상담 문의",
+    "/post.html": "칼럼(구 주소)",
+}
+
+
+def _page_label(path, title_map):
+    """방문 통계 경로 → 사람이 읽는 한글 라벨."""
+    if path in _STATIC_PAGE_LABELS:
+        return _STATIC_PAGE_LABELS[path]
+    m = re.match(r"^/column/([A-Za-z0-9\-_]+)$", path)
+    if m:
+        return title_map.get(m.group(1), path)
+    return path
+
+
 def build_stats(days=30):
     """관리자 대시보드용 집계 요약. 최근 N일."""
     since = (datetime.now(KST) - timedelta(days=days - 1)).strftime("%Y-%m-%d")
@@ -259,7 +280,8 @@ def build_stats(days=30):
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='ai' AND name!='__total__' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
         out["search_by_bot"] = [(r["name"], r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='search' AND name!='__total__' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
-        out["top_pages"] = [(r["name"], r["s"]) for r in q(
+        title_map = {p.get("slug"): p.get("title") for p in load_posts().get("posts", [])}
+        out["top_pages"] = [(_page_label(r["name"], title_map), r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
         daily = {}
         for r in q("SELECT day, category, name, hits FROM stat_counts WHERE day>=?", (since,)):
@@ -333,7 +355,7 @@ def render_stats_html(s):
         "<section><h2>검색 크롤러별 조회 (Googlebot·Naver Yeti·Bingbot 등)</h2>"
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["search_by_bot"]) + "</tbody></table></section>"
         "<section><h2>인기 페이지 (사람 방문)</h2>"
-        "<table><thead><tr><th>경로</th><th class=num>페이지뷰</th></tr></thead><tbody>" + rows_html(s["top_pages"]) + "</tbody></table></section>"
+        "<table><thead><tr><th>페이지</th><th class=num>페이지뷰</th></tr></thead><tbody>" + rows_html(s["top_pages"]) + "</tbody></table></section>"
         "<section><h2>일자별 추이 (최근 14일)</h2>"
         "<table><thead><tr><th>날짜</th><th class=num>페이지뷰</th><th class=num>순방문</th><th class=num>AI</th><th class=num>검색</th></tr></thead><tbody>" + daily_rows + "</tbody></table></section>"
         "<p class=note>· 페이지뷰/순방문은 사람(브라우저) 방문 기준, AI·검색은 크롤러 User-Agent 기준입니다.<br>"
