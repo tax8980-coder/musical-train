@@ -69,6 +69,10 @@ SLUG_MAP = {
     "3ae868d0d82c813884f8d42743be9587": "presale-right-acquisition-date-2024du54560",
     "3b0868d0d82c81c08384ee484c9802e5": "company-car-purchase-method-2026",
     "3b0868d0d82c81069018fdf85696e6ab": "testamentary-trust-not-tax-saving",
+    "3b2868d0d82c81c29fbdeb16fde2c167": "worker-succession-headcount-2022du53921",
+    "3b5868d0d82c81378b19d0f2e1915146": "inclusive-wage-fixed-ot-2026",
+    "3b6868d0d82c81c79128d93c9b04dceb": "financial-income-comprehensive-tax-refund",
+    "3b6868d0d82c81ab8d34f934e59ee368": "two-workplaces-separate-accounting-127-10",
 }
 
 # 모든 칼럼 상단에 넣는 공통 안내 콜아웃(노션 글에 없으면 자동 삽입)

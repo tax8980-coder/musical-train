@@ -306,6 +306,14 @@ _STATIC_PAGE_LABELS = {
     "/post.html": "칼럼(구 주소)",
 }
 
+# 옛 자동생성 slug → 정리된 slug. /column/<옛slug> 요청은 새 주소로 301 이동한다.
+# (자동동기화가 SLUG_MAP 없이 만든 임시 slug를 사람이 읽기 좋은 주소로 정리한 뒤 링크·색인 보존)
+SLUG_REDIRECTS = {
+    "ot-2026-2026-4-9-3b5868d0": "inclusive-wage-fixed-ot-2026",
+    "post-3b6868d0": "financial-income-comprehensive-tax-refund",
+    "2-127-10-3b6868d0": "two-workplaces-separate-accounting-127-10",
+}
+
 
 def _page_label(path, title_map):
     """방문 통계 경로 → 사람이 읽는 한글 라벨."""
@@ -1386,6 +1394,14 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR index failed: %s", exc)
+        # ---- 옛 자동생성 slug → 정리된 slug 301 (링크·색인 보존) ----
+        m_alias = re.match(r"^/column/([A-Za-z0-9\-_]+)$", parsed.path)
+        if m_alias and m_alias.group(1) in SLUG_REDIRECTS:
+            self.send_response(301)
+            self.send_header("Location", "/column/" + quote(SLUG_REDIRECTS[m_alias.group(1)], safe=""))
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         # ---- 칼럼 본문: 경로형 /column/<slug> (대표 주소) ----
         m_col = re.match(r"^/column/([A-Za-z0-9\-_]+)$", parsed.path)
         if m_col:
