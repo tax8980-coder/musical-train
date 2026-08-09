@@ -45,6 +45,17 @@ DB_PATH = os.path.join(LEADS_DIR, "leads.db")
 SCHEMA_PATH = os.path.join(BASE_DIR, "schema.sql")
 
 KST = timezone(timedelta(hours=9))
+
+# 공개 조회수 노출 시작일(KST). 이 시점 전까지는 서버에서 조회수를 계속 누적만 하고
+# 화면(칼럼 카드·본문)에는 숨긴다. 이후 자동으로 노출된다. blog.js에도 동일 기준 존재.
+PUBLIC_VIEWS_START = datetime(2026, 11, 1, tzinfo=KST)
+
+
+def public_views_visible():
+    """공개 화면에 조회수를 표시할지 여부(2026-11-01 KST부터 True)."""
+    return datetime.now(KST) >= PUBLIC_VIEWS_START
+
+
 ADMIN_TOKEN = os.environ.get("JIYUL_ADMIN_TOKEN", "").strip()
 
 # 대표 도메인 정규화: 아래 호스트로 접속하면 CANONICAL_URL 로 301 리다이렉트.
@@ -802,7 +813,7 @@ def _render_post_cards(posts, views):
             + '<p class="post-card__summary">' + _esc_html(p.get("summary")) + "</p>"
             + '<div class="post-card__meta"><span class="post-card__meta-left">'
             + '<time datetime="' + _esc_html(p.get("date")) + '">' + _fmt_date(p.get("date")) + "</time>"
-            + '<span class="post-card__views" title="조회수">조회 ' + format(v, ",d") + "</span></span>"
+            + (('<span class="post-card__views" title="조회수">조회 ' + format(v, ",d") + "</span>") if public_views_visible() else "") + "</span>"
             + '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>'
         )
     return "".join(out)

@@ -23,6 +23,9 @@
     if (isNaN(n) || n < 0) n = 0;
     try { return n.toLocaleString('ko-KR'); } catch (e) { return String(n); }
   }
+  // 공개 조회수 노출 시작일: 2026-11-01. 그 전까지는 화면에 조회수를 숨긴다
+  // (서버는 계속 누적). 이 날짜가 지나면 자동으로 표시된다. (월 인덱스 10 = 11월)
+  var SHOW_VIEWS = new Date() >= new Date(2026, 10, 1);
   function card(p) {
     var tags = (p.tags || []).map(function (t) {
       return '<span class="post-card__tag">' + esc(t) + '</span>';
@@ -34,7 +37,7 @@
       '<p class="post-card__summary">' + esc(p.summary) + '</p>' +
       '<div class="post-card__meta"><span class="post-card__meta-left">' +
       '<time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
-      '<span class="post-card__views" title="조회수">조회 ' + fmtViews(p.views) + '</span></span>' +
+      (SHOW_VIEWS ? '<span class="post-card__views" title="조회수">조회 ' + fmtViews(p.views) + '</span>' : '') + '</span>' +
       '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>';
   }
 
@@ -289,7 +292,7 @@
           '<h1 class="article__title">' + esc(p.title) + '</h1>' +
           '<div class="article__meta"><time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
           '<span class="article__author">세무법인 지율 · 손창용 세무사</span>' +
-          '<span class="article__views" id="articleViews" title="조회수">조회 ' + fmtViews(p.views) + '</span></div>' +
+          (SHOW_VIEWS ? '<span class="article__views" id="articleViews" title="조회수">조회 ' + fmtViews(p.views) + '</span>' : '') + '</div>' +
           '</header>' +
           '<div class="article__body prose">' + (p.content_html || '') + '</div>' +
           '<footer class="article__foot">' +
