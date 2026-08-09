@@ -139,6 +139,49 @@ def render_login_html(error=False):
     )
 
 
+_REF_SEARCH = [  # (host 부분일치, 라벨)  — 검색엔진
+    ("google", "구글"), ("search.naver", "네이버"), ("m.search.naver", "네이버"),
+    ("bing", "빙"), ("search.daum", "다음"), ("yahoo", "야후"),
+    ("duckduckgo", "DuckDuckGo"), ("yandex", "Yandex"), ("zum.", "ZUM"),
+]
+_REF_SNS = [  # SNS·외부 매체
+    ("blog.naver", "네이버블로그"), ("cafe.naver", "네이버카페"), ("m.blog.naver", "네이버블로그"),
+    ("facebook", "페이스북"), ("instagram", "인스타그램"), ("threads", "스레드"),
+    ("youtube", "유튜브"), ("youtu.be", "유튜브"), ("t.co", "X(트위터)"), ("twitter", "X(트위터)"),
+    ("x.com", "X(트위터)"), ("kakao", "카카오"), ("band.us", "밴드"), ("t.me", "텔레그램"),
+    ("linkedin", "링크드인"),
+]
+_REF_QUERY_KEYS = ("q", "query", "wd", "keyword", "kw", "p", "text")
+
+
+def classify_ref(ref):
+    """Referer → (type, site, keyword). type: '검색'|'SNS'|'직접'|'기타'|'내부'."""
+    if not ref:
+        return ("직접", "직접 유입/앱/북마크", None)
+    try:
+        u = urlparse(ref)
+        host = (u.hostname or "").lower()
+        qs = parse_qs(u.query)
+    except Exception:  # noqa: BLE001
+        return ("기타", "기타", None)
+    if not host:
+        return ("기타", "기타", None)
+    if "taxin4u" in host:
+        return ("내부", None, None)  # 내부 이동은 집계 제외
+    for key, label in _REF_SNS:
+        if key in host:
+            return ("SNS", label, None)
+    for key, label in _REF_SEARCH:
+        if key in host:
+            kw = None
+            for qk in _REF_QUERY_KEYS:
+                if qk in qs and qs[qk][0].strip():
+                    kw = qs[qk][0].strip()[:80]
+                    break
+            return ("검색", label, kw)
+    return ("기타", host[:60], None)
+
+
 def classify_ua(ua):
     """User-Agent → (category, name). category: 'ai'|'search'|'bot'|'human'."""
     u = (ua or "").lower()
@@ -156,7 +199,7 @@ def classify_ua(ua):
     return ("human", None)
 
 
-def record_visit(path, ip, ua):
+def record_visit(path, ip, ua, ref=""):
     """컨텐츠 페이지 GET 1건을 일자별 집계에 반영. 실패는 조용히 무시(서비스 영향 없음)."""
     try:
         day = datetime.now(KST).strftime("%Y-%m-%d")
@@ -180,6 +223,14 @@ def record_visit(path, ip, ua):
                 )
                 if cur.rowcount:
                     bump("visitor", "unique")
+                # 유입 경로/검색어 (사람 방문만)
+                rtype, rsite, kw = classify_ref(ref)
+                if rtype != "내부":
+                    bump("reftype", rtype)
+                    if rsite:
+                        bump("refsite", rtype + " · " + rsite)
+                    if kw:
+                        bump("kw", kw)
             elif cat == "ai":
                 bump("ai", bot)
                 bump("ai", "__total__")
@@ -262,6 +313,7 @@ def build_stats(days=30):
         "days": days, "since": since,
         "pv": 0, "visitors": 0, "ai": 0, "search": 0, "bot": 0,
         "ai_by_bot": [], "search_by_bot": [], "top_pages": [], "daily": [],
+        "ref_types": [], "ref_sites": [], "keywords": [],
     }
     try:
         conn = get_conn()
@@ -283,6 +335,12 @@ def build_stats(days=30):
         title_map = {p.get("slug"): p.get("title") for p in load_posts().get("posts", [])}
         out["top_pages"] = [(_page_label(r["name"], title_map), r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
+        out["ref_types"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='reftype' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
+        out["ref_sites"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='refsite' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
+        out["keywords"] = [(r["name"], r["s"]) for r in q(
+            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='kw' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 20", (since,))]
         daily = {}
         for r in q("SELECT day, category, name, hits FROM stat_counts WHERE day>=?", (since,)):
             d = daily.setdefault(r["day"], {"pv": 0, "visitor": 0, "ai": 0, "search": 0})
@@ -356,6 +414,13 @@ def render_stats_html(s):
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["search_by_bot"]) + "</tbody></table></section>"
         "<section><h2>인기 페이지 (사람 방문)</h2>"
         "<table><thead><tr><th>페이지</th><th class=num>페이지뷰</th></tr></thead><tbody>" + rows_html(s["top_pages"]) + "</tbody></table></section>"
+        "<section><h2>유입 경로 (사람 방문)</h2>"
+        "<table><thead><tr><th>구분</th><th class=num>방문</th></tr></thead><tbody>" + rows_html(s["ref_types"]) + "</tbody></table></section>"
+        "<section><h2>유입 매체별 (검색엔진·SNS)</h2>"
+        "<table><thead><tr><th>매체</th><th class=num>방문</th></tr></thead><tbody>" + rows_html(s["ref_sites"]) + "</tbody></table></section>"
+        "<section><h2>검색어 (유입 키워드)</h2>"
+        "<table><thead><tr><th>검색어</th><th class=num>유입</th></tr></thead><tbody>" + rows_html(s["keywords"], "집계된 검색어 없음") + "</tbody></table>"
+        "<p class=note style='margin-top:10px'>※ 구글·네이버는 개인정보 보호로 검색어를 사이트에 넘기지 않아, 여기엔 일부(빙·다음 등)만 잡힙니다. <b>전체 검색어</b>는 구글 서치콘솔(실적→검색어)·네이버 서치어드바이저(리포트→검색어)에서 확인하세요.</p></section>"
         "<section><h2>일자별 추이 (최근 14일)</h2>"
         "<table><thead><tr><th>날짜</th><th class=num>페이지뷰</th><th class=num>순방문</th><th class=num>AI</th><th class=num>검색</th></tr></thead><tbody>" + daily_rows + "</tbody></table></section>"
         "<p class=note>· 페이지뷰/순방문은 사람(브라우저) 방문 기준, AI·검색은 크롤러 User-Agent 기준입니다.<br>"
@@ -1053,7 +1118,8 @@ class Handler(SimpleHTTPRequestHandler):
         is_page = (p == "/" or p.endswith(".html") or re.match(r"^/column/[A-Za-z0-9\-_]+$", p))
         if not is_page:
             return
-        record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""))
+        record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""),
+                     self.headers.get("Referer", ""))
 
     def _canonical_redirect(self):
         """www / .co.kr 등 비대표 호스트 → 대표 도메인으로 301. 처리 시 True."""
