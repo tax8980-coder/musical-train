@@ -23,6 +23,7 @@ NOTE: this is a draft. See the disclaimer at the bottom of the landing page
 
 import csv
 import hashlib
+import http.cookies
 import io
 import json
 import os
@@ -105,6 +106,37 @@ _SEARCH_BOT_SIGS = [
 ]
 _GENERIC_BOT_KEYS = ("bot", "crawler", "spider", "slurp", "python-requests",
                      "curl", "wget", "scan", "http-client", "go-http", "okhttp", "headless")
+
+ADMIN_COOKIE = "jiyul_admin"
+
+
+def _admin_cookie_value():
+    """관리자 로그인 쿠키 값(토큰 원문 대신 해시). 토큰 변경 시 기존 로그인 무효화."""
+    return hashlib.sha256(("admin-auth|" + ADMIN_TOKEN + "|" + STATS_SALT).encode("utf-8")).hexdigest()
+
+
+def render_login_html(error=False):
+    """관리자 로그인 페이지."""
+    err = ('<p class="err">비밀번호가 올바르지 않습니다.</p>' if error else "")
+    return (
+        "<!doctype html><html lang=ko><head><meta charset=utf-8>"
+        "<meta name=viewport content='width=device-width, initial-scale=1'>"
+        "<meta name=robots content='noindex, nofollow'><title>관리자 로그인 · 세무법인 지율</title><style>"
+        "body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;"
+        "font-family:Pretendard,system-ui,sans-serif;background:#F7F9FC;color:#1F2937;padding:20px}"
+        ".box{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:28px 26px;width:100%;max-width:360px;box-shadow:0 6px 24px rgba(30,58,95,.06)}"
+        "h1{font-size:18px;margin:0 0 4px;color:#1E3A5F}.sub{color:#5B6B7F;font-size:13px;margin:0 0 18px}"
+        "label{display:block;font-size:13px;color:#5B6B7F;margin-bottom:6px}"
+        "input{width:100%;box-sizing:border-box;padding:11px 12px;font-size:15px;border:1px solid #CBD5E1;border-radius:9px;margin-bottom:14px}"
+        "input:focus{outline:none;border-color:#3B82F6;box-shadow:0 0 0 3px rgba(59,130,246,.15)}"
+        "button{width:100%;padding:11px;font-size:15px;font-weight:700;color:#fff;background:#3B82F6;border:0;border-radius:9px;cursor:pointer}"
+        "button:hover{background:#2F6FE0}.err{color:#dc2626;font-size:13px;margin:0 0 12px}"
+        "</style></head><body><form class=box method=post action='/admin/login'>"
+        "<h1>관리자 로그인</h1><p class=sub>세무법인 지율 · 방문 통계</p>" + err +
+        "<label for=pw>비밀번호</label>"
+        "<input id=pw type=password name=password autocomplete=current-password autofocus required>"
+        "<button type=submit>로그인</button></form></body></html>"
+    )
 
 
 def classify_ua(ua):
@@ -283,8 +315,12 @@ def render_stats_html(s):
         "table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}"
         "th{color:var(--sub);font-weight:600;font-size:12px}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}"
         ".empty{color:var(--sub);text-align:center;padding:14px}.note{color:var(--sub);font-size:12px;line-height:1.7}"
+        "a.logout{font-size:13px;color:var(--sub);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:8px}"
+        "a.logout:hover{background:#fff}"
         "</style></head><body><div class=wrap>"
+        "<div style='display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap'>"
         "<h1>방문 통계 <span style='font-weight:500;color:var(--sub);font-size:14px'>· 세무법인 지율</span></h1>"
+        "<a class=logout href='/admin/logout'>로그아웃</a></div>"
         "<p class=meta>최근 " + str(s["days"]) + "일 (" + _esc_html(s["since"]) + " ~) · 서버 기준 집계</p>"
         "<div class=cards>"
         "<div class=card><div class=k>페이지뷰(사람)</div><div class=v>" + format(int(s["pv"]), ",d") + "</div></div>"
@@ -947,6 +983,40 @@ class Handler(SimpleHTTPRequestHandler):
         query_token = (query.get("token", [""])[0] or "").strip()
         return header_token == ADMIN_TOKEN or query_token == ADMIN_TOKEN
 
+    def _is_admin_session(self):
+        """로그인 쿠키로 관리자 인증."""
+        if not ADMIN_TOKEN:
+            return False
+        raw = self.headers.get("Cookie", "")
+        if not raw:
+            return False
+        try:
+            jar = http.cookies.SimpleCookie()
+            jar.load(raw)
+            m = jar.get(ADMIN_COOKIE)
+            return bool(m) and m.value == _admin_cookie_value()
+        except Exception:  # noqa: BLE001
+            return False
+
+    def _https(self):
+        return (self.headers.get("X-Forwarded-Proto", "").lower() == "https")
+
+    def _send_redirect(self, location, set_cookie=None):
+        self.send_response(303)
+        self.send_header("Location", location)
+        if set_cookie:
+            self.send_header("Set-Cookie", set_cookie)
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
+    def _admin_cookie_header(self, logout=False):
+        attrs = "; HttpOnly; SameSite=Lax; Path=/"
+        if self._https():
+            attrs += "; Secure"
+        if logout:
+            return ADMIN_COOKIE + "=; Max-Age=0" + attrs
+        return ADMIN_COOKIE + "=" + _admin_cookie_value() + "; Max-Age=2592000" + attrs
+
     def _client_ip(self):
         # 프록시(Cloudflare/Cloudtype) 뒤에서는 원 IP가 헤더에 온다.
         for h in ("CF-Connecting-IP", "X-Forwarded-For", "X-Real-IP"):
@@ -958,7 +1028,8 @@ class Handler(SimpleHTTPRequestHandler):
     def _track_visit(self, parsed):
         """컨텐츠 페이지(/, *.html, /column/<slug>) GET만 방문 통계에 집계."""
         p = parsed.path
-        if p != "/" and not p.endswith(".html") and not p.startswith("/column/"):
+        is_page = (p == "/" or p.endswith(".html") or re.match(r"^/column/[A-Za-z0-9\-_]+$", p))
+        if not is_page:
             return
         record_visit(p, self._client_ip(), self.headers.get("User-Agent", ""))
 
@@ -983,6 +1054,25 @@ class Handler(SimpleHTTPRequestHandler):
         if self._canonical_redirect():
             return
         parsed = urlparse(self.path)
+
+        # ---- 관리자 로그인 (비밀번호 → 쿠키) ----
+        if parsed.path == "/admin/login":
+            if not ADMIN_TOKEN:
+                self._send_redirect("/admin")
+                return
+            pw = ""
+            try:
+                length = int(self.headers.get("Content-Length") or 0)
+                if 0 < length <= 4096:
+                    body = self.rfile.read(length).decode("utf-8", "replace")
+                    pw = (parse_qs(body).get("password", [""])[0] or "").strip()
+            except Exception:  # noqa: BLE001
+                pw = ""
+            if pw and pw == ADMIN_TOKEN:
+                self._send_redirect("/admin/stats", set_cookie=self._admin_cookie_header())
+            else:
+                self._send_redirect("/admin?e=1")
+            return
 
         # ---- 세무칼럼 조회수 +1 (공개) ----
         m_view = re.match(r"^/api/posts/([A-Za-z0-9\-_]+)/view$", parsed.path)
@@ -1082,20 +1172,34 @@ class Handler(SimpleHTTPRequestHandler):
         # 방문 통계 집계(컨텐츠 페이지 GET). 서비스에 영향 없이 조용히 기록.
         self._track_visit(parsed)
 
-        # ---- 관리자 방문 통계 (토큰 필요) ----
-        if parsed.path == "/admin/stats":
-            # 안내 HTML은 200으로 반환(Cloudtype가 4xx/5xx를 자체 에러페이지로 가로채는 것 회피)
+        # ---- 관리자: 로그인 페이지 / 로그아웃 / 대시보드 ----
+        if parsed.path in ("/admin", "/admin/", "/admin/login"):
             if not ADMIN_TOKEN:
                 self._send_html(
                     "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
-                    "<h2>통계 대시보드 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>"
+                    "<h2>관리자 페이지 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>"
                 )
                 return
-            if not self._is_admin(query):
+            if self._is_admin_session() or self._is_admin(query):
+                self._send_redirect("/admin/stats")
+                return
+            self._send_html(render_login_html(error=(query.get("e", [""])[0] == "1")))
+            return
+
+        if parsed.path == "/admin/logout":
+            self._send_redirect("/admin", set_cookie=self._admin_cookie_header(logout=True))
+            return
+
+        if parsed.path == "/admin/stats":
+            if not ADMIN_TOKEN:
                 self._send_html(
                     "<!doctype html><meta charset=utf-8><body style='font-family:sans-serif;padding:24px;color:#1F2937'>"
-                    "<h2>접근 권한 없음</h2><p>주소 뒤에 <code>?token=관리자토큰</code> 을 붙여 접속하세요.</p></body>"
+                    "<h2>관리자 페이지 비활성</h2><p>서버에 <code>JIYUL_ADMIN_TOKEN</code> 환경변수를 설정하면 활성화됩니다.</p></body>"
                 )
+                return
+            # 세션 쿠키 또는 ?token= (기존 방식 호환)
+            if not (self._is_admin_session() or self._is_admin(query)):
+                self._send_redirect("/admin")
                 return
             self._send_html(render_stats_html(build_stats(30)))
             return
