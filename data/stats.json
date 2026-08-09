@@ -382,13 +382,13 @@
       "day": "2026-08-09",
       "category": "bot",
       "name": "generic",
-      "hits": 17
+      "hits": 18
     },
     {
       "day": "2026-08-09",
       "category": "page",
       "name": "/",
-      "hits": 54
+      "hits": 58
     },
     {
       "day": "2026-08-09",
@@ -412,7 +412,7 @@
       "day": "2026-08-09",
       "category": "pv",
       "name": "total",
-      "hits": 57
+      "hits": 61
     },
     {
       "day": "2026-08-09",
@@ -424,7 +424,7 @@
       "day": "2026-08-09",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-09",
@@ -436,13 +436,13 @@
       "day": "2026-08-09",
       "category": "search",
       "name": "__total__",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-09",
       "category": "visitor",
       "name": "unique",
-      "hits": 31
+      "hits": 35
     }
   ]
 }
