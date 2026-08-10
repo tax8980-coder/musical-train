@@ -398,6 +398,8 @@ HUB_INLINE_CSS = (
     "color:#1E3A5F;background:#EAF1FA;border:1px solid #D3E0F0;text-decoration:none;transition:background .15s,border-color .15s}"
     ".hub-chip:hover{background:#D8E6F7;border-color:#B9D0EC}"
     ".hub-chip.is-active{background:#1E3A5F;color:#fff;border-color:#1E3A5F}"
+    ".hub-chip__n{opacity:.6;font-weight:700;margin-left:3px}"
+    ".hub-chip.is-active .hub-chip__n{opacity:.9}"
     ".hub-breadcrumb{font-size:.9rem;color:#5b6b7f;margin:0 0 12px}"
     ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
     ".hub-home{margin:2px 0 20px}"
@@ -921,17 +923,30 @@ def _render_post_cards(posts, views):
     return "".join(out)
 
 
-def _render_hub_chips(active_slug=None):
-    """세목별 허브로 이동하는 칩 내비게이션."""
+def _render_hub_chips(active_slug=None, posts=None):
+    """세목별 허브로 이동하는 칩 내비게이션(각 칩에 칼럼 수 표기).
+    맨 앞 '전체 세무이야기' 칩은 홈 전체 목록(/)으로 연결한다."""
+    if posts is None:
+        posts = load_posts().get("posts", [])
     parts = ['<nav class="hub-chips" aria-label="세목별 대표 페이지">']
+    # 전체 세무이야기(홈 전체 목록). 홈(active_slug=None)에서는 활성 표시.
+    all_active = active_slug is None
+    parts.append(
+        '<a class="hub-chip%s" href="/"%s>전체 세무이야기 <span class="hub-chip__n">%d</span></a>' % (
+            " is-active" if all_active else "",
+            ' aria-current="page"' if all_active else "",
+            len(posts),
+        )
+    )
     for h in HUBS:
         active = (h["slug"] == active_slug)
         parts.append(
-            '<a class="hub-chip%s" href="/%s"%s>%s</a>' % (
+            '<a class="hub-chip%s" href="/%s"%s>%s <span class="hub-chip__n">%d</span></a>' % (
                 " is-active" if active else "",
                 h["slug"],
                 ' aria-current="page"' if active else "",
                 _esc_html(h["title"]),
+                len(_hub_posts(h, posts)),
             )
         )
     parts.append("</nav>")
@@ -957,7 +972,7 @@ def _render_index_html():
     # 3) 세목별 허브 칩 + 공용 스타일 삽입(칼럼 목록 위, 크롤러 내부링크 제공)
     home_hub = (
         '<div class="hub-home"><p class="hub-home__title">세목별로 모아 보기</p>'
-        + _render_hub_chips(None) + "</div>"
+        + _render_hub_chips(None, posts) + "</div>"
     )
     html = html.replace(
         '<ul class="post-grid" id="blogList"',
@@ -1058,7 +1073,7 @@ def _render_hub_html(hub_slug):
         ("{{HUB_TITLE}}", _esc_html(hub["title"])),
         ("{{HUB_LEAD}}", _esc_html(hub["lead"])),
         ("{{HUB_COUNT}}", str(len(members))),
-        ("{{HUB_CHIPS}}", _render_hub_chips(hub_slug)),
+        ("{{HUB_CHIPS}}", _render_hub_chips(hub_slug, posts)),
         ("{{HUB_CARDS}}", cards),
         ("{{HUB_CSS}}", HUB_INLINE_CSS),
         ("{{HUB_JSONLD}}", jsonld),
