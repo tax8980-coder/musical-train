@@ -484,7 +484,7 @@
       "day": "2026-08-10",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 40
+      "hits": 42
     },
     {
       "day": "2026-08-10",
@@ -520,19 +520,19 @@
       "day": "2026-08-10",
       "category": "ai",
       "name": "__total__",
-      "hits": 80
+      "hits": 82
     },
     {
       "day": "2026-08-10",
       "category": "bot",
       "name": "generic",
-      "hits": 28
+      "hits": 33
     },
     {
       "day": "2026-08-10",
       "category": "page",
       "name": "/",
-      "hits": 72
+      "hits": 102
     },
     {
       "day": "2026-08-10",
@@ -544,6 +544,12 @@
       "day": "2026-08-10",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-10",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
       "hits": 1
     },
     {
@@ -622,7 +628,7 @@
       "day": "2026-08-10",
       "category": "page",
       "name": "/post.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-10",
@@ -652,7 +658,7 @@
       "day": "2026-08-10",
       "category": "pv",
       "name": "total",
-      "hits": 201
+      "hits": 233
     },
     {
       "day": "2026-08-10",
@@ -664,6 +670,12 @@
       "day": "2026-08-10",
       "category": "refsite",
       "name": "검색 · 빙",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-10",
+      "category": "refsite",
+      "name": "기타 · 34.8.247.175",
       "hits": 2
     },
     {
@@ -682,7 +694,7 @@
       "day": "2026-08-10",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 76
+      "hits": 98
     },
     {
       "day": "2026-08-10",
@@ -694,13 +706,13 @@
       "day": "2026-08-10",
       "category": "reftype",
       "name": "기타",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-10",
       "category": "reftype",
       "name": "직접",
-      "hits": 76
+      "hits": 98
     },
     {
       "day": "2026-08-10",
@@ -712,13 +724,13 @@
       "day": "2026-08-10",
       "category": "search",
       "name": "Bingbot",
-      "hits": 20
+      "hits": 22
     },
     {
       "day": "2026-08-10",
       "category": "search",
       "name": "Googlebot",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-10",
@@ -742,7 +754,7 @@
       "day": "2026-08-10",
       "category": "search",
       "name": "__total__",
-      "hits": 43
+      "hits": 46
     },
     {
       "day": "2026-08-10",
@@ -754,7 +766,7 @@
       "day": "2026-08-10",
       "category": "visitor",
       "name": "unique",
-      "hits": 66
+      "hits": 92
     }
   ]
 }
