@@ -26,25 +26,28 @@
   // 공개 조회수 노출 시작일: 2026-11-01. 그 전까지는 화면에 조회수를 숨긴다
   // (서버는 계속 누적). 이 날짜가 지나면 자동으로 표시된다. (월 인덱스 10 = 11월)
   var SHOW_VIEWS = new Date() >= new Date(2026, 10, 1);
+  // 세목(첫 태그) → 제목 앞 이모지. server.py POST_TAG_EMOJI 와 동일하게 유지할 것.
+  var TAG_EMOJI = { '법인세': '🏢', '소득세': '💰', '부가가치세': '🧾', '조세특례제한법': '🎯', '양도소득세': '🏠', '상속세': '👪', '증여세': '🎁', '취득세': '🏗️', '원천세': '💵', '연말정산': '🧮', '노동법': '👷', '지방세': '🏛️', '국세기본법': '⚖️', '4대보험': '🛡️' };
+  function postEmoji(p) {
+    var ts = p.tags || [];
+    for (var i = 0; i < ts.length; i++) { if (TAG_EMOJI[ts[i]]) return TAG_EMOJI[ts[i]]; }
+    return '📄';
+  }
   function card(p) {
-    var tags = (p.tags || []).map(function (t) {
-      return '<span class="post-card__tag">' + esc(t) + '</span>';
-    }).join('');
     var href = '/column/' + encodeURIComponent(p.slug);
-    return '<li class="post-card"><a class="post-card__link" href="' + href + '">' +
-      (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
-      '<h3 class="post-card__title">' + esc(p.title) + '</h3>' +
-      '<p class="post-card__summary">' + esc(p.summary) + '</p>' +
-      '<div class="post-card__meta"><span class="post-card__meta-left">' +
-      '<time datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
-      (SHOW_VIEWS ? '<span class="post-card__views" title="조회수">조회 ' + fmtViews(p.views) + '</span>' : '') + '</span>' +
-      '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>';
+    var tagtxt = (p.tags || []).join(' · ');
+    return '<li class="post-row"><a class="post-row__link" href="' + href + '">' +
+      '<span class="post-row__title"><span class="post-row__emoji" aria-hidden="true">' + postEmoji(p) + '</span>' + esc(p.title) + '</span>' +
+      '<span class="post-row__meta">' +
+      (tagtxt ? '<span class="post-row__tags">' + esc(tagtxt) + '</span>' : '') +
+      '<time class="post-row__date" datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
+      '</span></a></li>';
   }
 
   /* ---------------- 목록 페이지 ---------------- */
   var listEl = $('#blogList');
   if (listEl) {
-    var PER_PAGE = 4;                 // 한 페이지당 칼럼 수 (2열 × 2행)
+    var PER_PAGE = 10;                // 한 페이지당 칼럼 수 (리스트형 10개씩)
     var emptyEl = $('#blogEmpty');
     var tagFilter = $('#tagFilter');
     var tagListEl = $('#tagList');

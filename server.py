@@ -417,6 +417,17 @@ HUB_INLINE_CSS = (
     ".related__blog a{color:#2A5A9A;font-weight:600;text-decoration:none}"
     ".related__blog a:hover{text-decoration:underline}"
     "@media print{.related{display:none !important}}"
+    ".post-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}"
+    ".post-row{border-top:1px solid #eef1f5}"
+    ".post-row:last-child{border-bottom:1px solid #eef1f5}"
+    ".post-row__link{display:block;padding:15px 4px;text-decoration:none}"
+    ".post-row__title{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:18px;font-weight:700;line-height:1.45;color:#1E3A5F}"
+    ".post-row__link:hover .post-row__title{color:#2A5A9A}"
+    ".post-row__emoji{margin-right:7px}"
+    ".post-row__meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:7px;font-size:.86rem}"
+    ".post-row__tags{color:#2A5A9A;font-weight:600}"
+    ".post-row__date{color:#5b6b7f}"
+    "@media (max-width:767px){.post-row__title{font-size:16px}.post-row__link{padding:14px 2px}}"
     "</style>"
 )
 
@@ -913,25 +924,36 @@ def _fmt_date(iso):
     return (m.group(1) + "." + m.group(2) + "." + m.group(3) + ".") if m else _esc_html(iso)
 
 
-def _render_post_cards(posts, views):
+# 세목(첫 태그) → 제목 앞 이모지. blog.js 의 TAG_EMOJI 와 동일하게 유지할 것.
+POST_TAG_EMOJI = {
+    "법인세": "🏢", "소득세": "💰", "부가가치세": "🧾", "조세특례제한법": "🎯",
+    "양도소득세": "🏠", "상속세": "👪", "증여세": "🎁", "취득세": "🏗️",
+    "원천세": "💵", "연말정산": "🧮", "노동법": "👷", "지방세": "🏛️",
+    "국세기본법": "⚖️", "4대보험": "🛡️",
+}
+
+
+def _post_emoji(post):
+    for t in (post.get("tags") or []):
+        if t in POST_TAG_EMOJI:
+            return POST_TAG_EMOJI[t]
+    return "📄"
+
+
+def _render_post_cards(posts, views=None):
+    """홈·허브 칼럼 목록(리스트형): 이모지+제목(2~3줄) · 세목 · 작성일자."""
     out = []
     for p in posts:
-        slug = p.get("slug", "")
-        href = "/column/" + quote(slug, safe="")
-        tags = "".join(
-            '<span class="post-card__tag">' + _esc_html(t) + "</span>"
-            for t in (p.get("tags") or [])
-        )
-        v = int(views.get(slug, 0) or 0)
+        href = "/column/" + quote(p.get("slug", ""), safe="")
+        tagtxt = " · ".join(p.get("tags") or [])
         out.append(
-            '<li class="post-card"><a class="post-card__link" href="' + href + '">'
-            + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
-            + '<h3 class="post-card__title">' + _esc_html(p.get("title")) + "</h3>"
-            + '<p class="post-card__summary">' + _esc_html(p.get("summary")) + "</p>"
-            + '<div class="post-card__meta"><span class="post-card__meta-left">'
-            + '<time datetime="' + _esc_html(p.get("date")) + '">' + _fmt_date(p.get("date")) + "</time>"
-            + (('<span class="post-card__views" title="조회수">조회 ' + format(v, ",d") + "</span>") if public_views_visible() else "") + "</span>"
-            + '<span class="post-card__go">읽기 <span aria-hidden="true">→</span></span></div></a></li>'
+            '<li class="post-row"><a class="post-row__link" href="' + href + '">'
+            + '<span class="post-row__title"><span class="post-row__emoji" aria-hidden="true">'
+            + _post_emoji(p) + "</span>" + _esc_html(p.get("title")) + "</span>"
+            + '<span class="post-row__meta">'
+            + (('<span class="post-row__tags">' + _esc_html(tagtxt) + "</span>") if tagtxt else "")
+            + '<time class="post-row__date" datetime="' + _esc_html(p.get("date")) + '">'
+            + _fmt_date(p.get("date")) + "</time></span></a></li>"
         )
     return "".join(out)
 
@@ -988,8 +1010,8 @@ def _render_index_html():
         + _render_hub_chips(None, posts) + "</div>"
     )
     html = html.replace(
-        '<ul class="post-grid" id="blogList"',
-        home_hub + '<ul class="post-grid" id="blogList"',
+        '<ul class="post-list" id="blogList"',
+        home_hub + '<ul class="post-list" id="blogList"',
         1,
     )
     html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
