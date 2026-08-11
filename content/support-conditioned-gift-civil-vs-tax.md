@@ -1,5 +1,5 @@
 ---
-slug: post-3b8868d0
+slug: support-conditioned-gift-civil-vs-tax
 notion_id: 3b8868d0-d82c-810c-a02d-e431dc9cf291
 title: 부양을 조건으로 증여한 재산, 되돌릴 수 있을까? — 민법상 부담부증여와 세법상 부담부증여
 summary: 부모가 자녀나 배우자에게 주택이나 토지를 넘겨주면서 이런 약속을 받는 경우가 많습니다.

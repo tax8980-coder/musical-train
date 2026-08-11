@@ -312,6 +312,8 @@ SLUG_REDIRECTS = {
     "ot-2026-2026-4-9-3b5868d0": "inclusive-wage-fixed-ot-2026",
     "post-3b6868d0": "financial-income-comprehensive-tax-refund",
     "2-127-10-3b6868d0": "two-workplaces-separate-accounting-127-10",
+    "2024-67238-3b8868d0": "onerous-gift-acquisition-tax-2024du67238",
+    "post-3b8868d0": "support-conditioned-gift-civil-vs-tax",
 }
 
 # ---------------- 세목별 허브(대표) 페이지 ----------------

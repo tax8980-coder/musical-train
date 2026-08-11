@@ -73,6 +73,8 @@ SLUG_MAP = {
     "3b5868d0d82c81378b19d0f2e1915146": "inclusive-wage-fixed-ot-2026",
     "3b6868d0d82c81c79128d93c9b04dceb": "financial-income-comprehensive-tax-refund",
     "3b6868d0d82c81ab8d34f934e59ee368": "two-workplaces-separate-accounting-127-10",
+    "3b8868d0d82c819cb8d5dd0272992972": "onerous-gift-acquisition-tax-2024du67238",
+    "3b8868d0d82c810ca02de431dc9cf291": "support-conditioned-gift-civil-vs-tax",
 }
 
 # 모든 칼럼 상단에 넣는 공통 안내 콜아웃(노션 글에 없으면 자동 삽입)
