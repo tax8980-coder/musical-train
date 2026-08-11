@@ -635,7 +635,8 @@ def load_media():
         vid = _youtube_id(m.get("url", ""))
         item = dict(m)
         item["youtube_id"] = vid
-        item["thumb"] = ("https://img.youtube.com/vi/" + vid + "/hqdefault.jpg") if vid else ""
+        # 지정 thumb(비유튜브: KBS 등 og:image) 우선, 없으면 유튜브 ID로 자동 생성
+        item["thumb"] = m.get("thumb") or (("https://img.youtube.com/vi/" + vid + "/hqdefault.jpg") if vid else "")
         out.append(item)
     return out
 
