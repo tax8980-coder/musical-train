@@ -416,6 +416,7 @@ HUB_INLINE_CSS = (
     ".related__blog{margin-top:6px}"
     ".related__blog a{color:#2A5A9A;font-weight:600;text-decoration:none}"
     ".related__blog a:hover{text-decoration:underline}"
+    "@media print{.related{display:none !important}}"
     "</style>"
 )
 
