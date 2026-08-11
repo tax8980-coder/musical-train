@@ -993,14 +993,14 @@ def _render_post_cards(posts, views=None):
 
 def _render_hub_chips(active_slug=None, posts=None):
     """세목별 허브로 이동하는 칩 내비게이션(각 칩에 칼럼 수 표기).
-    맨 앞 '전체 세무칼럼노트' 칩은 홈 전체 목록(/)으로 연결한다."""
+    맨 앞 '전체 세무칼럼 노트' 칩은 홈 전체 목록(/)으로 연결한다."""
     if posts is None:
         posts = load_posts().get("posts", [])
     parts = ['<nav class="hub-chips" aria-label="세목별 대표 페이지">']
-    # 전체 세무칼럼노트(홈 전체 목록). 홈(active_slug=None)에서는 활성 표시.
+    # 전체 세무칼럼 노트(홈 전체 목록). 홈(active_slug=None)에서는 활성 표시.
     all_active = active_slug is None
     parts.append(
-        '<a class="hub-chip%s" href="/"%s>전체 세무칼럼노트 <span class="hub-chip__n">%d</span></a>' % (
+        '<a class="hub-chip%s" href="/"%s>전체 세무칼럼 노트 <span class="hub-chip__n">%d</span></a>' % (
             " is-active" if all_active else "",
             ' aria-current="page"' if all_active else "",
             len(posts),
@@ -1245,7 +1245,7 @@ def _render_article(p, posts=None):
         more_btn = ""
     related = _render_related(p, posts) if posts else ""
     return (
-        '<nav class="article__back"><a href="/">← 칼럼 목록</a>' + hub_top + "</nav>"
+        '<nav class="article__back"><a href="/">← 전체 세무칼럼 노트</a>' + hub_top + "</nav>"
         + '<header class="article__head">'
         + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
         + '<h1 class="article__title">' + _esc_html(p.get("title")) + "</h1>"
@@ -1255,7 +1255,7 @@ def _render_article(p, posts=None):
         + '<div class="article__body prose">' + (p.get("content_html") or "") + "</div>"
         + related
         + '<footer class="article__foot">'
-        + '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> '
+        + '<a class="btn btn--outline btn--sm" href="/">← 전체 세무칼럼 노트로 바로 가기</a> '
         + more_btn
         + '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>'
         + "</footer>"
