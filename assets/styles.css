@@ -1351,6 +1351,8 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 767px) {
   .gnb-sub .nav-label--wide { display: none; }
   .gnb-sub .nav-label--narrow { display: inline; }
+  /* 모바일: 상단 '상담 문의' 버튼 숨김(하단 고정 상담바와 중복) */
+  .gnb-sub .btn--primary { display: none; }
 }
 /* 범용 PC/모바일 텍스트 스왑(버튼 등) */
 .only-mo { display: none; }
