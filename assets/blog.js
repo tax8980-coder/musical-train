@@ -327,8 +327,9 @@
             var sec = document.createElement('section');
             sec.className = 'related';
             sec.setAttribute('aria-label', '함께 읽으면 좋은 칼럼');
-            sec.innerHTML = '<h2 class="related__title">함께 읽으면 좋은 칼럼</h2><ul class="related__list">' + items + '</ul>';
-            box.appendChild(sec);
+            sec.innerHTML = '<h2 class="related__title">📚 함께 읽으면 좋은 칼럼</h2><ul class="related__list">' + items + '</ul>';
+            var foot = box.querySelector('.article__foot');
+            if (foot) box.insertBefore(sec, foot); else box.appendChild(sec);
           })
           .catch(function () {});
 

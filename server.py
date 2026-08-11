@@ -407,7 +407,8 @@ HUB_INLINE_CSS = (
     ".hub-home{margin:2px 0 20px}"
     ".hub-home__title{font-size:1rem;font-weight:700;color:#1E3A5F;margin:0 0 10px}"
     ".related{margin:34px 0 6px;padding-top:22px;border-top:1px solid #e5e7eb}"
-    ".related__title{font-size:1.05rem;font-weight:700;color:#1E3A5F;margin:0 0 12px}"
+    ".related__title{font-size:23px;font-weight:700;line-height:1.4;letter-spacing:-.01em;color:#1E3A5F;margin:0 0 14px}"
+    "@media (max-width:767px){.related__title{font-size:20px}}"
     ".related__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}"
     ".related__link{color:#1E3A5F;font-weight:600;text-decoration:none}"
     ".related__link:hover{text-decoration:underline}"
@@ -1163,7 +1164,7 @@ def _render_related(p, posts):
     )
     return (
         '<section class="related" aria-label="함께 읽으면 좋은 칼럼">'
-        '<h2 class="related__title">함께 읽으면 좋은 칼럼</h2>'
+        '<h2 class="related__title">📚 함께 읽으면 좋은 칼럼</h2>'
         '<ul class="related__list">' + items + "</ul></section>"
     )
 
@@ -1191,6 +1192,7 @@ def _render_article(p, posts=None):
         + '<span class="article__author">세무법인 지율 · 손창용 세무사</span></div>'
         + "</header>"
         + '<div class="article__body prose">' + (p.get("content_html") or "") + "</div>"
+        + related
         + '<footer class="article__foot">'
         + '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> '
         + (
@@ -1203,7 +1205,6 @@ def _render_article(p, posts=None):
         )
         + '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>'
         + "</footer>"
-        + related
     )
 
 
