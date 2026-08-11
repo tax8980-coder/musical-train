@@ -287,8 +287,14 @@
           return '<a class="post-card__tag" href="/">' + esc(t) + '</a>';
         }).join('');
 
+        // 세목 허브(예: 법인세 이야기) 링크: 상단(칼럼 목록 옆) + 하단('…에서 더 보기')
+        var hubTop = p.primary_hub ? ' <a class="article__back-hub" href="/' + encodeURIComponent(p.primary_hub.slug) + '">' + esc(p.primary_hub.title) + '</a>' : '';
+        var moreBtn = p.primary_hub
+          ? '<a class="btn btn--outline btn--sm" href="/' + encodeURIComponent(p.primary_hub.slug) + '">' + esc(p.primary_hub.title) + '에서 더 보기</a> '
+          : (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '');
+
         box.innerHTML =
-          '<nav class="article__back"><a href="/">← 칼럼 목록</a>' +
+          '<nav class="article__back"><a href="/">← 칼럼 목록</a>' + hubTop +
           '<button class="btn btn--outline btn--sm" type="button" id="printArticleTop">🖨 인쇄 / PDF 저장</button></nav>' +
           '<header class="article__head">' +
           (tags ? '<div class="post-card__tags">' + tags + '</div>' : '') +
@@ -301,7 +307,7 @@
           '<footer class="article__foot">' +
           '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> ' +
           '<button class="btn btn--outline btn--sm" type="button" id="printArticle">🖨 인쇄 / PDF 저장</button> ' +
-          (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '') +
+          moreBtn +
           '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>' +
           '</footer>';
         [document.getElementById('printArticle'), document.getElementById('printArticleTop')]

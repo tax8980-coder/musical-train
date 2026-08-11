@@ -402,6 +402,9 @@ HUB_INLINE_CSS = (
     ".hub-chip.is-active{background:#1E3A5F;color:#fff;border-color:#1E3A5F}"
     ".hub-chip__n{opacity:.6;font-weight:700;margin-left:3px}"
     ".hub-chip.is-active .hub-chip__n{opacity:.9}"
+    ".article__back-hub{margin-left:12px;padding-left:12px;border-left:1px solid #d3ddea;color:#2A5A9A;font-weight:600;text-decoration:none}"
+    '.article__back-hub::before{content:"📂 ";font-weight:400}'
+    ".article__back-hub:hover{text-decoration:underline}"
     ".hub-breadcrumb{font-size:.9rem;color:#5b6b7f;margin:0 0 12px}"
     ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
     ".hub-home{margin:2px 0 20px}"
@@ -1231,14 +1234,18 @@ def _render_article(p, posts=None):
     )
     date = p.get("date")
     hub = _primary_hub_for(p)
-    breadcrumb = (
-        '<nav class="hub-breadcrumb" aria-label="위치"><a href="/">세무칼럼</a> › '
-        '<a href="/' + hub["slug"] + '">' + _esc_html(hub["title"]) + "</a></nav>"
-    ) if hub else ""
+    hub_top = (' <a class="article__back-hub" href="/' + hub["slug"] + '">' + _esc_html(hub["title"]) + "</a>") if hub else ""
+    if hub:
+        more_btn = ('<a class="btn btn--outline btn--sm" href="/' + hub["slug"] + '">'
+                    + _esc_html(hub["title"]) + "에서 더 보기</a> ")
+    elif slug_source:
+        more_btn = ('<a class="btn btn--outline btn--sm" href="' + _esc_html(slug_source)
+                    + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ')
+    else:
+        more_btn = ""
     related = _render_related(p, posts) if posts else ""
     return (
-        '<nav class="article__back"><a href="/">← 칼럼 목록</a></nav>'
-        + breadcrumb
+        '<nav class="article__back"><a href="/">← 칼럼 목록</a>' + hub_top + "</nav>"
         + '<header class="article__head">'
         + (('<div class="post-card__tags">' + tags + "</div>") if tags else "")
         + '<h1 class="article__title">' + _esc_html(p.get("title")) + "</h1>"
@@ -1249,14 +1256,7 @@ def _render_article(p, posts=None):
         + related
         + '<footer class="article__foot">'
         + '<a class="btn btn--outline btn--sm" href="/">← 칼럼 목록으로 바로 가기</a> '
-        + (
-            (
-                '<a class="btn btn--outline btn--sm" href="' + _esc_html(slug_source)
-                + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> '
-            )
-            if slug_source
-            else ""
-        )
+        + more_btn
         + '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>'
         + "</footer>"
     )
@@ -1666,6 +1666,8 @@ class Handler(SimpleHTTPRequestHandler):
                 if p.get("slug") == slug:
                     post = dict(p)  # 캐시 원본 보존
                     post["views"] = get_post_views(slug)
+                    h = _primary_hub_for(p)   # 세목 허브(상단·하단 '세목별 목록' 링크용)
+                    post["primary_hub"] = {"slug": h["slug"], "title": h["title"]} if h else None
                     self._send_json(200, {"ok": True, "post": post})
                     return
             self._send_json(404, {"ok": False, "error": "post_not_found"})
