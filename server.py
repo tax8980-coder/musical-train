@@ -406,6 +406,15 @@ HUB_INLINE_CSS = (
     ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
     ".hub-home{margin:2px 0 20px}"
     ".hub-home__title{font-size:1rem;font-weight:700;color:#1E3A5F;margin:0 0 10px}"
+    ".related{margin:34px 0 6px;padding-top:22px;border-top:1px solid #e5e7eb}"
+    ".related__title{font-size:1.05rem;font-weight:700;color:#1E3A5F;margin:0 0 12px}"
+    ".related__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}"
+    ".related__link{color:#1E3A5F;font-weight:600;text-decoration:none}"
+    ".related__link:hover{text-decoration:underline}"
+    ".related__tags{display:block;margin-top:3px;font-size:.85rem;color:#5b6b7f}"
+    ".related__blog{margin-top:6px}"
+    ".related__blog a{color:#2A5A9A;font-weight:600;text-decoration:none}"
+    ".related__blog a:hover{text-decoration:underline}"
     "</style>"
 )
 
@@ -1127,7 +1136,39 @@ def _render_sitemap_xml():
     return "\n".join(lines) + "\n"
 
 
-def _render_article(p):
+def _related_posts(post, posts, n=2):
+    """태그 공유가 많은 순으로 관련 칼럼 n편(동점·부족 시 최신순)."""
+    cur = set(post.get("tags") or [])
+    cur_slug = post.get("slug")
+    others = [q for q in posts if q.get("slug") != cur_slug]
+    others.sort(key=lambda q: (len(cur & set(q.get("tags") or [])), q.get("date", "")), reverse=True)
+    return others[:n]
+
+
+def _render_related(p, posts):
+    """칼럼 하단 '함께 읽으면 좋은 칼럼': 관련 칼럼 2편(제목+세목태그) + 네이버 블로그 링크."""
+    items = ""
+    for r in _related_posts(p, posts, 2):
+        rtags = " · ".join(r.get("tags") or [])
+        items += (
+            '<li class="related__item"><a class="related__link" href="/column/'
+            + quote(r.get("slug", ""), safe="") + '">' + _esc_html(r.get("title")) + "</a>"
+            + (('<span class="related__tags">' + _esc_html(rtags) + "</span>") if rtags else "")
+            + "</li>"
+        )
+    naver = p.get("source") or "https://blog.naver.com/taxin4u"
+    items += (
+        '<li class="related__blog"><a href="' + _esc_html(naver)
+        + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 많은 세무 칼럼 보기 →</a></li>'
+    )
+    return (
+        '<section class="related" aria-label="함께 읽으면 좋은 칼럼">'
+        '<h2 class="related__title">함께 읽으면 좋은 칼럼</h2>'
+        '<ul class="related__list">' + items + "</ul></section>"
+    )
+
+
+def _render_article(p, posts=None):
     slug_source = p.get("source")
     tags = "".join(
         '<a class="post-card__tag" href="/">' + _esc_html(t) + "</a>"
@@ -1139,6 +1180,7 @@ def _render_article(p):
         '<nav class="hub-breadcrumb" aria-label="위치"><a href="/">세무칼럼</a> › '
         '<a href="/' + hub["slug"] + '">' + _esc_html(hub["title"]) + "</a></nav>"
     ) if hub else ""
+    related = _render_related(p, posts) if posts else ""
     return (
         '<nav class="article__back"><a href="/">← 칼럼 목록</a></nav>'
         + breadcrumb
@@ -1161,14 +1203,16 @@ def _render_article(p):
         )
         + '<a class="btn btn--primary btn--sm" href="/contact.html"><span class="only-pc">강의요청 및 상담문의하기</span><span class="only-mo">상담 문의하기</span></a>'
         + "</footer>"
+        + related
     )
 
 
 def _render_post_html(slug):
     """post.html 템플릿에 해당 칼럼의 제목·메타·본문·구조화데이터를 심어 반환."""
     html = _read_text(POST_TEMPLATE_PATH)
+    all_posts = load_posts().get("posts", [])
     post = None
-    for p in load_posts().get("posts", []):
+    for p in all_posts:
         if p.get("slug") == slug:
             post = p
             break
@@ -1226,7 +1270,7 @@ def _render_post_html(slug):
     html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
 
     marker = '<p class="article__loading" id="articleLoading">칼럼을 불러오는 중입니다…</p>'
-    return html.replace(marker, _render_article(post), 1)
+    return html.replace(marker, _render_article(post, all_posts), 1)
 
 
 # ---------------------------------------------------------------- handler
