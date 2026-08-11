@@ -1054,19 +1054,37 @@
       "day": "2026-08-12",
       "category": "bot",
       "name": "generic",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-08-12",
       "category": "page",
       "name": "/",
-      "hits": 15
+      "hits": 25
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-08-12",
       "category": "pv",
       "name": "total",
-      "hits": 15
+      "hits": 28
     },
     {
       "day": "2026-08-12",
@@ -1078,7 +1096,7 @@
       "day": "2026-08-12",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 10
+      "hits": 17
     },
     {
       "day": "2026-08-12",
@@ -1090,7 +1108,13 @@
       "day": "2026-08-12",
       "category": "reftype",
       "name": "직접",
-      "hits": 10
+      "hits": 17
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 4
     },
     {
       "day": "2026-08-12",
@@ -1102,19 +1126,31 @@
       "day": "2026-08-12",
       "category": "search",
       "name": "Kakao",
-      "hits": 11
+      "hits": 13
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "__total__",
-      "hits": 12
+      "hits": 21
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-08-12",
       "category": "visitor",
       "name": "unique",
-      "hits": 12
+      "hits": 16
     }
   ]
 }
