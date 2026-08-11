@@ -612,6 +612,34 @@ def list_files():
     return out
 
 
+MEDIA_JSON = os.path.join(BASE_DIR, "data", "media.json")
+
+
+def _youtube_id(url):
+    """유튜브 URL에서 11자리 영상 ID 추출(watch/youtu.be/embed/shorts)."""
+    m = re.search(r"(?:v=|youtu\.be/|embed/|shorts/|/live/)([A-Za-z0-9_-]{11})", url or "")
+    return m.group(1) if m else ""
+
+
+def load_media():
+    """data/media.json → 언론·강의 영상 목록(유튜브 썸네일 자동 생성). 없으면 빈 목록."""
+    try:
+        with open(MEDIA_JSON, encoding="utf-8") as fp:
+            data = json.load(fp)
+    except (OSError, ValueError):
+        return []
+    out = []
+    for m in (data.get("media") or []):
+        if not m.get("url") or not m.get("title"):
+            continue
+        vid = _youtube_id(m.get("url", ""))
+        item = dict(m)
+        item["youtube_id"] = vid
+        item["thumb"] = ("https://img.youtube.com/vi/" + vid + "/hqdefault.jpg") if vid else ""
+        out.append(item)
+    return out
+
+
 def load_posts():
     """data/posts.json 을 mtime 기준으로 캐싱해 로드. 없으면 빈 목록."""
     try:
@@ -1131,6 +1159,7 @@ def _render_sitemap_xml():
         (o + "/resources.html", "monthly", "0.7", _file_lastmod(RESOURCES_PATH)),
         (o + "/faq.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "faq.html"))),
         (o + "/contact.html", "monthly", "0.8", _file_lastmod(os.path.join(BASE_DIR, "contact.html"))),
+        (o + "/media.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "media.html"))),
     ]
     # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
     for h in HUBS:
@@ -1643,6 +1672,11 @@ class Handler(SimpleHTTPRequestHandler):
         # ---- 자료실 파일 목록 (공개) ----
         if parsed.path == "/api/files":
             self._send_json(200, {"ok": True, "files": list_files()})
+            return
+
+        # ---- 언론·강의 영상 목록 (공개) ----
+        if parsed.path == "/api/media":
+            self._send_json(200, {"ok": True, "media": load_media()})
             return
 
         # ---- 조회수 내보내기 (공개, 이미 카드에 노출되는 비민감 데이터) : 스냅샷 백업용 ----
