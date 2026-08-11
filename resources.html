@@ -27,6 +27,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
 <link rel="stylesheet" href="assets/styles.css?v=39" />
+<style>
+  /* 자료실: 상단 안내와 검색·목록 사이 여백을 기존 100px→50px(모바일 60→30px)로 50% 축소 */
+  .sub-hero + .section { padding-top: 50px; }
+  @media (max-width: 767px) { .sub-hero + .section { padding-top: 30px; } }
+</style>
 </head>
 <body class="page-sub">
 <a class="skip-link" href="#main">본문으로 바로가기</a>
