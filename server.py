@@ -638,6 +638,7 @@ def load_media():
         # 지정 thumb(비유튜브: KBS 등 og:image) 우선, 없으면 유튜브 ID로 자동 생성
         item["thumb"] = m.get("thumb") or (("https://img.youtube.com/vi/" + vid + "/hqdefault.jpg") if vid else "")
         out.append(item)
+    out.sort(key=lambda x: x.get("date") or "", reverse=True)   # 최신순(날짜 없는 항목은 뒤로)
     return out
 
 
