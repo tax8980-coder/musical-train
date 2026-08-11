@@ -1040,33 +1040,81 @@
     },
     {
       "day": "2026-08-12",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
       "category": "page",
       "name": "/",
-      "hits": 2
+      "hits": 15
     },
     {
       "day": "2026-08-12",
       "category": "pv",
       "name": "total",
-      "hits": 2
+      "hits": 15
+    },
+    {
+      "day": "2026-08-12",
+      "category": "refsite",
+      "name": "검색 · 구글",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 10
+    },
+    {
+      "day": "2026-08-12",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-12",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 10
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "Kakao",
-      "hits": 6
+      "hits": 11
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "__total__",
-      "hits": 6
+      "hits": 12
     },
     {
       "day": "2026-08-12",
       "category": "visitor",
       "name": "unique",
-      "hits": 2
+      "hits": 12
     }
   ]
 }
