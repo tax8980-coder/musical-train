@@ -1,16 +1,17 @@
 {
+  "ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0": 9,
   "bad-debt-vat-credit-2year": 2,
-  "company-car-purchase-method-2026": 6,
-  "e-filing-tax-credit-agent-2026": 2,
+  "company-car-purchase-method-2026": 7,
+  "e-filing-tax-credit-agent-2026": 4,
   "employment-credit-fulltime-worker-2026": 8,
-  "financial-income-comprehensive-tax-refund": 6,
-  "inclusive-wage-fixed-ot-2026": 5,
-  "onerous-gift-acquisition-tax-2024du67238": 1,
-  "presale-right-acquisition-date-2024du54560": 3,
-  "support-conditioned-gift-civil-vs-tax": 2,
+  "financial-income-comprehensive-tax-refund": 10,
+  "inclusive-wage-fixed-ot-2026": 8,
+  "onerous-gift-acquisition-tax-2024du67238": 9,
+  "presale-right-acquisition-date-2024du54560": 7,
+  "support-conditioned-gift-civil-vs-tax": 8,
   "tax-credit-carryover-merger-conversion": 1,
   "temp-2house-3house-sell-one-2024du55426": 2,
-  "testamentary-trust-not-tax-saving": 5,
-  "two-workplaces-separate-accounting-127-10": 1,
-  "worker-succession-headcount-2022du53921": 4
+  "testamentary-trust-not-tax-saving": 8,
+  "two-workplaces-separate-accounting-127-10": 5,
+  "worker-succession-headcount-2022du53921": 6
 }
