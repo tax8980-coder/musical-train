@@ -73,6 +73,12 @@
 
   <section class="section">
     <div class="container container--narrow">
+      <div class="blog-search">
+        <svg class="blog-search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input class="blog-search__input" type="search" id="fileSearch" placeholder="자료 검색 (파일명)"
+               autocomplete="off" aria-label="자료 검색" />
+      </div>
+      <p class="blog-result" id="fileCount" aria-live="polite"></p>
       <ul class="file-list" id="fileList" aria-live="polite">
         <li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>
       </ul>
@@ -108,8 +114,11 @@
     return m ? (m[1] + '.' + m[2] + '.' + m[3] + '.') : esc(iso);
   }
   var listEl = document.getElementById('fileList');
-  var loadingEl = document.getElementById('fileLoading');
   var emptyEl = document.getElementById('fileEmpty');
+  var searchEl = document.getElementById('fileSearch');
+  var countEl = document.getElementById('fileCount');
+  var allFiles = [];
+  var query = '';
 
   function item(f) {
     var ext = (f.ext || '').toUpperCase() || 'FILE';
@@ -125,20 +134,34 @@
       '</li>';
   }
 
+  function render() {
+    var q = query.trim().toLowerCase();
+    var files = allFiles.filter(function (f) {
+      if (!q) return true;
+      return ((f.title || '') + ' ' + (f.ext || '')).toLowerCase().indexOf(q) !== -1;
+    });
+    if (countEl) countEl.textContent = allFiles.length ? ('총 ' + files.length + '개' + (q ? ' (검색 결과)' : '')) : '';
+    if (!files.length) {
+      listEl.innerHTML = '';
+      if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = q ? '검색 결과가 없습니다.' : '등록된 자료가 없습니다.'; }
+      return;
+    }
+    if (emptyEl) emptyEl.hidden = true;
+    listEl.innerHTML = files.map(item).join('');
+  }
+
+  if (searchEl) {
+    searchEl.addEventListener('input', function () { query = searchEl.value || ''; render(); });
+  }
+
   fetch('/api/files')
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var files = (data && data.files) || [];
-      if (!files.length) {
-        listEl.innerHTML = '';
-        if (emptyEl) { emptyEl.textContent = '등록된 자료가 없습니다.'; emptyEl.hidden = false; }
-        return;
-      }
-      listEl.innerHTML = files.map(item).join('');
+      allFiles = (data && data.files) || [];
+      render();
     })
     .catch(function () {
       listEl.innerHTML = '';
-      if (loadingEl) loadingEl.hidden = true;
       if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = '자료를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'; }
     });
 })();
