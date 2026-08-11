@@ -262,9 +262,44 @@ def derive_summary(blocks, limit=140):
     return ""
 
 
+# 한글 음절 → 로마자(개정 로마자표기, 음운변화 미반영 근사치). URL 슬러그 생성용.
+_ROMA_INI = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s", "ss", "", "j", "jj", "ch", "k", "t", "p", "h"]
+_ROMA_MED = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"]
+_ROMA_FIN = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k", "m", "l", "l", "l", "p", "l", "m", "p", "p", "t", "t", "ng", "t", "t", "k", "t", "p", "t"]
+
+
+def romanize_ko(text):
+    out = []
+    for ch in text:
+        code = ord(ch)
+        if 0xAC00 <= code <= 0xD7A3:               # 한글 음절
+            s = code - 0xAC00
+            out.append(_ROMA_INI[s // 588] + _ROMA_MED[(s % 588) // 28] + _ROMA_FIN[s % 28])
+        elif ch.isascii() and ch.isalnum():
+            out.append(ch)
+        else:
+            out.append(" ")
+    return "".join(out)
+
+
+def _trunc_words(s, limit):
+    """limit 이하로 자르되 하이픈(단어) 경계에서 자른다."""
+    if len(s) <= limit:
+        return s
+    cut = s[:limit]
+    return (cut[:cut.rfind("-")] if "-" in cut else cut).strip("-")
+
+
 def slugify(title, page_id):
-    base = re.sub(r"[^A-Za-z0-9가-힣]+", "-", unicodedata.normalize("NFKD", title)).strip("-").lower()
-    return (base[:40] or "post") + "-" + page_id.replace("-", "")[:8]
+    """한글 제목을 읽기 좋은 로마자 슬러그로 변환. 사건번호(예: 2024두67238→2024du67238)는
+    자동 반영해 뒤에 붙인다. (지저분한 hex 접미사 대신 안정적·가독형 슬러그 생성)"""
+    roman = re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9]+", "-", romanize_ko(title).lower())).strip("-")
+    m = re.search(r"\d{4}[a-z]{1,3}\d{2,}", roman)   # 사건번호 토큰(2024du67238 등)
+    if m:
+        case = m.group(0)
+        head = _trunc_words(re.sub(r"-{2,}", "-", roman.replace(case, "")).strip("-"), 32)
+        return (head + "-" + case).strip("-") if head else case
+    return _trunc_words(roman, 48) or ("post-" + page_id.replace("-", "")[:8])
 
 
 def choose_slug(title, page_id):
