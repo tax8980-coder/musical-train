@@ -772,7 +772,7 @@
       "day": "2026-08-11",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 28
+      "hits": 30
     },
     {
       "day": "2026-08-11",
@@ -789,20 +789,26 @@
     {
       "day": "2026-08-11",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-11",
+      "category": "ai",
       "name": "__total__",
-      "hits": 40
+      "hits": 50
     },
     {
       "day": "2026-08-11",
       "category": "bot",
       "name": "generic",
-      "hits": 15
+      "hits": 17
     },
     {
       "day": "2026-08-11",
       "category": "page",
       "name": "/",
-      "hits": 95
+      "hits": 121
     },
     {
       "day": "2026-08-11",
@@ -832,7 +838,7 @@
       "day": "2026-08-11",
       "category": "page",
       "name": "/column/financial-income-comprehensive-tax-refund",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-11",
@@ -868,25 +874,25 @@
       "day": "2026-08-11",
       "category": "page",
       "name": "/column/worker-succession-headcount-2022du53921",
-      "hits": 1
-    },
-    {
-      "day": "2026-08-11",
-      "category": "page",
-      "name": "/contact.html",
-      "hits": 5
-    },
-    {
-      "day": "2026-08-11",
-      "category": "page",
-      "name": "/corporate-tax",
       "hits": 2
     },
     {
       "day": "2026-08-11",
       "category": "page",
+      "name": "/contact.html",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-11",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-11",
+      "category": "page",
       "name": "/faq.html",
-      "hits": 17
+      "hits": 21
     },
     {
       "day": "2026-08-11",
@@ -898,31 +904,37 @@
       "day": "2026-08-11",
       "category": "page",
       "name": "/index.html",
-      "hits": 29
+      "hits": 32
     },
     {
       "day": "2026-08-11",
       "category": "page",
       "name": "/intro.html",
-      "hits": 31
+      "hits": 35
     },
     {
       "day": "2026-08-11",
       "category": "page",
       "name": "/media.html",
-      "hits": 26
+      "hits": 30
     },
     {
       "day": "2026-08-11",
       "category": "page",
       "name": "/post.html",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-08-11",
       "category": "page",
       "name": "/resources.html",
-      "hits": 36
+      "hits": 41
+    },
+    {
+      "day": "2026-08-11",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 2
     },
     {
       "day": "2026-08-11",
@@ -934,7 +946,7 @@
       "day": "2026-08-11",
       "category": "pv",
       "name": "total",
-      "hits": 273
+      "hits": 334
     },
     {
       "day": "2026-08-11",
@@ -952,7 +964,7 @@
       "day": "2026-08-11",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 91
+      "hits": 126
     },
     {
       "day": "2026-08-11",
@@ -964,7 +976,7 @@
       "day": "2026-08-11",
       "category": "reftype",
       "name": "직접",
-      "hits": 91
+      "hits": 126
     },
     {
       "day": "2026-08-11",
@@ -976,19 +988,31 @@
       "day": "2026-08-11",
       "category": "search",
       "name": "Bingbot",
-      "hits": 18
+      "hits": 23
     },
     {
       "day": "2026-08-11",
       "category": "search",
       "name": "Googlebot",
-      "hits": 16
+      "hits": 19
     },
     {
       "day": "2026-08-11",
       "category": "search",
       "name": "Kakao",
-      "hits": 222
+      "hits": 237
+    },
+    {
+      "day": "2026-08-11",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-11",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 1
     },
     {
       "day": "2026-08-11",
@@ -1000,19 +1024,49 @@
       "day": "2026-08-11",
       "category": "search",
       "name": "__total__",
-      "hits": 275
+      "hits": 305
     },
     {
       "day": "2026-08-11",
       "category": "search",
       "name": "facebook",
-      "hits": 17
+      "hits": 21
     },
     {
       "day": "2026-08-11",
       "category": "visitor",
       "name": "unique",
-      "hits": 81
+      "hits": 97
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
+      "name": "/",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-12",
+      "category": "pv",
+      "name": "total",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "Kakao",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-12",
+      "category": "search",
+      "name": "__total__",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-12",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 2
     }
   ]
 }
