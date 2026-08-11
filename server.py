@@ -322,42 +322,42 @@ SLUG_REDIRECTS = {
 HUBS = [
     {
         "slug": "corporate-tax",
-        "title": "법인세 이야기",
+        "title": "법인세 노트",
         "lead": "법인세 신고·세무조정, 적격합병·이월결손금·세액공제 승계 등 법인 세무의 실무 쟁점을 법령과 판례에 근거해 풀어 쓴 칼럼을 모았습니다.",
         "desc": "법인세 신고·세무조정·적격합병·세액공제 등 법인 세무 실무를 법령과 판례로 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["법인세"], "include": [], "exclude": [],
     },
     {
         "slug": "income-tax",
-        "title": "소득세 이야기",
+        "title": "소득세 노트",
         "lead": "종합소득세·근로소득·금융소득종합과세·사업소득 등 개인 소득세의 신고와 절세 쟁점을 법령과 예규로 풀어 쓴 칼럼을 모았습니다.",
         "desc": "종합소득세·근로소득·금융소득종합과세·사업소득 등 개인 소득세 실무를 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["소득세"], "include": [], "exclude": [],
     },
     {
         "slug": "vat",
-        "title": "부가가치세 이야기",
+        "title": "부가가치세 노트",
         "lead": "부가가치세 신고·매입세액공제·세금계산서·대손세액공제 등 부가세 실무 쟁점을 정리한 칼럼을 모았습니다.",
         "desc": "부가가치세 신고·매입세액공제·세금계산서·대손세액공제 등 부가세 실무를 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["부가가치세"], "include": [], "exclude": [],
     },
     {
         "slug": "tax-credit",
-        "title": "세액공제·감면 이야기",
+        "title": "세액공제·감면 노트",
         "lead": "통합고용세액공제·통합투자세액공제·연구인력개발비(R&D)·창업중소기업감면·중소기업특별세액감면 등 조세특례제한법상 세액공제·감면을 다룬 칼럼을 모았습니다.",
         "desc": "통합고용·통합투자·R&D·창업중소기업감면 등 조세특례제한법 세액공제·감면을 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["조세특례제한법"], "include": [], "exclude": [],
     },
     {
         "slug": "transfer-inheritance-gift",
-        "title": "양도·상속·증여세 이야기",
+        "title": "양도·상속·증여세 노트",
         "lead": "양도소득세 비과세·중과·취득시기와 상속·증여세 신고·절세, 가업승계·유류분·신탁 등 재산의 처분과 이전에 관한 쟁점을 모았습니다.",
         "desc": "양도소득세와 상속·증여세, 가업승계·유류분·신탁 등 재산의 처분·이전 쟁점을 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["양도소득세", "상속세", "증여세"], "include": [], "exclude": [],
     },
     {
         "slug": "acquisition-tax",
-        "title": "취득세 이야기",
+        "title": "취득세 노트",
         "lead": "부동산·주식 등 자산 취득에 따른 취득세와 관련 지방세 쟁점을 정리한 칼럼을 모았습니다.",
         "desc": "자산 취득에 따른 취득세와 관련 지방세 쟁점을 정리한 세무법인 지율 손창용 세무사의 칼럼 모음.",
         "tags": ["취득세"], "include": ["testamentary-trust-not-tax-saving"], "exclude": [],
@@ -993,14 +993,14 @@ def _render_post_cards(posts, views=None):
 
 def _render_hub_chips(active_slug=None, posts=None):
     """세목별 허브로 이동하는 칩 내비게이션(각 칩에 칼럼 수 표기).
-    맨 앞 '전체 세무이야기' 칩은 홈 전체 목록(/)으로 연결한다."""
+    맨 앞 '전체 세무칼럼노트' 칩은 홈 전체 목록(/)으로 연결한다."""
     if posts is None:
         posts = load_posts().get("posts", [])
     parts = ['<nav class="hub-chips" aria-label="세목별 대표 페이지">']
-    # 전체 세무이야기(홈 전체 목록). 홈(active_slug=None)에서는 활성 표시.
+    # 전체 세무칼럼노트(홈 전체 목록). 홈(active_slug=None)에서는 활성 표시.
     all_active = active_slug is None
     parts.append(
-        '<a class="hub-chip%s" href="/"%s>전체 세무이야기 <span class="hub-chip__n">%d</span></a>' % (
+        '<a class="hub-chip%s" href="/"%s>전체 세무칼럼노트 <span class="hub-chip__n">%d</span></a>' % (
             " is-active" if all_active else "",
             ' aria-current="page"' if all_active else "",
             len(posts),
