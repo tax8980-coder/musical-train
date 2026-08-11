@@ -305,6 +305,33 @@
           .forEach(function (b) { if (b) b.addEventListener('click', function () { window.print(); }); });
         window.scrollTo(0, 0);
 
+        // 함께 읽으면 좋은 칼럼: 태그 공유 많은 순 2편 + 네이버 블로그 링크 (서버 SSR과 동일)
+        fetch('/api/posts')
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            var all = (d && d.posts) || [];
+            var cur = p.tags || [];
+            function shared(x) { return (x.tags || []).filter(function (t) { return cur.indexOf(t) >= 0; }).length; }
+            var others = all.filter(function (q) { return q.slug !== p.slug; });
+            others.sort(function (a, b) {
+              var ds = shared(b) - shared(a);
+              return ds !== 0 ? ds : String(b.date || '').localeCompare(String(a.date || ''));
+            });
+            var items = others.slice(0, 2).map(function (r2) {
+              var rt = (r2.tags || []).join(' · ');
+              return '<li class="related__item"><a class="related__link" href="/column/' + encodeURIComponent(r2.slug) + '">' +
+                esc(r2.title) + '</a>' + (rt ? '<span class="related__tags">' + esc(rt) + '</span>' : '') + '</li>';
+            }).join('');
+            var naver = p.source || 'https://blog.naver.com/taxin4u';
+            items += '<li class="related__blog"><a href="' + esc(naver) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 많은 세무 칼럼 보기 →</a></li>';
+            var sec = document.createElement('section');
+            sec.className = 'related';
+            sec.setAttribute('aria-label', '함께 읽으면 좋은 칼럼');
+            sec.innerHTML = '<h2 class="related__title">함께 읽으면 좋은 칼럼</h2><ul class="related__list">' + items + '</ul>';
+            box.appendChild(sec);
+          })
+          .catch(function () {});
+
         // 조회수 +1 은 기록만 하고, 화면 숫자는 목록과 동일하게(열기 전 값) 유지한다.
         // (증가분은 다음 방문부터 반영 → 목록·상세 표시 불일치 방지)
         fetch('/api/posts/' + encodeURIComponent(slug) + '/view', { method: 'POST' }).catch(function () {});
