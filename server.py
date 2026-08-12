@@ -385,31 +385,44 @@ def _hub_posts(hub, posts):
     return [p for p in posts if _post_in_hub(p, hub)]
 
 
-# 대표 허브(breadcrumb·상단/하단 링크) 선정 우선순위. 칩 표시순서(HUBS)와 분리한다.
-# 조세특례제한법(세액공제·감면)은 법인세/소득세/부가세보다 '더 구체적인 주제'이므로 최우선으로 둔다
-# → [소득세·조특법] 칼럼은 '소득세 노트'가 아니라 '세액공제·감면 노트'가 대표가 된다.
+# ── 칼럼별 '세목 노트' 배정 (대표 노트 = breadcrumb·상단/하단 링크의 단일 소스) ──
+# HUBS 가 '노트 구조'라면, 이 표는 '각 칼럼을 어느 노트에 넣을지'의 배정이다.
+# 값은 허브 slug. 새 칼럼은 여기 한 줄만 추가하면 대표 노트가 확정된다.
+# (여기 없는 칼럼은 아래 _PRIMARY_HUB_ORDER 자동규칙으로 임시 배정 → 확인 후 한 줄 추가)
+POST_NOTE = {
+    "gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose": "transfer-inheritance-gift",
+    "sangsokse-singo-mueotbuteo-junbihaeya-halkkayo": "transfer-inheritance-gift",
+    "bumoga-janyeoege-ssage-palmyeon-chwideukseneun": "transfer-inheritance-gift",  # 저가양도 증여간주
+    "onerous-gift-acquisition-tax-2024du67238": "acquisition-tax",                  # 부담부증여 취득세
+    "support-conditioned-gift-civil-vs-tax": "transfer-inheritance-gift",           # 부담부증여(증여 중심)
+    "financial-income-comprehensive-tax-refund": "tax-credit",
+    "two-workplaces-separate-accounting-127-10": "tax-credit",
+    "worker-succession-headcount-2022du53921": "tax-credit",
+    "company-car-purchase-method-2026": "corporate-tax",
+    "testamentary-trust-not-tax-saving": "transfer-inheritance-gift",
+    "presale-right-acquisition-date-2024du54560": "transfer-inheritance-gift",
+    "temp-2house-3house-sell-one-2024du55426": "transfer-inheritance-gift",
+    "bad-debt-vat-credit-2year": "vat",                                             # 대손세액공제
+    "tax-credit-carryover-merger-conversion": "tax-credit",
+    "e-filing-tax-credit-agent-2026": "tax-credit",
+    "employment-credit-fulltime-worker-2026": "tax-credit",
+    # 세목 노트 없음(미배정): ai-…(AI 활용법), inclusive-wage-…(원천세·노동법)
+}
+
+# 미배정(새) 칼럼용 자동 기본 배정 우선순위. 조특법(세액공제·감면)을 최우선으로 둔다.
 _PRIMARY_HUB_ORDER = [
     "tax-credit", "corporate-tax", "income-tax", "vat",
     "transfer-inheritance-gift", "acquisition-tax",
 ]
 
 
-# 다태그 칼럼의 대표 노트 수동 지정(자동 판정이 실제 주제와 어긋나는 경우만). 값은 허브 slug.
-# 넓은 세목(소득세·법인세)이 구체 세목(부가세·취득세·양도상속증여)을 밀어내는 케이스를 바로잡는다.
-POST_HUB_OVERRIDE = {
-    "bad-debt-vat-credit-2year": "vat",                                # 대손세액공제 → 부가가치세
-    "onerous-gift-acquisition-tax-2024du67238": "acquisition-tax",     # 부담부증여 취득세 → 취득세
-    "bumoga-janyeoege-ssage-palmyeon-chwideukseneun": "transfer-inheritance-gift",  # 저가양도 증여간주
-    "support-conditioned-gift-civil-vs-tax": "transfer-inheritance-gift",           # 부담부증여(증여 중심)
-}
-
-
 def _primary_hub_for(post):
-    ov = POST_HUB_OVERRIDE.get(post.get("slug"))
-    if ov and ov in HUB_BY_SLUG:
-        return HUB_BY_SLUG[ov]
-    for slug in _PRIMARY_HUB_ORDER:
-        h = HUB_BY_SLUG.get(slug)
+    """칼럼의 대표 세목 노트. POST_NOTE 배정이 우선, 없으면 태그 기반 자동 배정."""
+    assigned = POST_NOTE.get(post.get("slug"))
+    if assigned and assigned in HUB_BY_SLUG:
+        return HUB_BY_SLUG[assigned]
+    for hslug in _PRIMARY_HUB_ORDER:
+        h = HUB_BY_SLUG.get(hslug)
         if h and _post_in_hub(post, h):
             return h
     for h in HUBS:   # 우선순위 목록에 없는 허브 폴백
