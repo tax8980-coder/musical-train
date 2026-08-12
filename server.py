@@ -394,7 +394,20 @@ _PRIMARY_HUB_ORDER = [
 ]
 
 
+# 다태그 칼럼의 대표 노트 수동 지정(자동 판정이 실제 주제와 어긋나는 경우만). 값은 허브 slug.
+# 넓은 세목(소득세·법인세)이 구체 세목(부가세·취득세·양도상속증여)을 밀어내는 케이스를 바로잡는다.
+POST_HUB_OVERRIDE = {
+    "bad-debt-vat-credit-2year": "vat",                                # 대손세액공제 → 부가가치세
+    "onerous-gift-acquisition-tax-2024du67238": "acquisition-tax",     # 부담부증여 취득세 → 취득세
+    "bumoga-janyeoege-ssage-palmyeon-chwideukseneun": "transfer-inheritance-gift",  # 저가양도 증여간주
+    "support-conditioned-gift-civil-vs-tax": "transfer-inheritance-gift",           # 부담부증여(증여 중심)
+}
+
+
 def _primary_hub_for(post):
+    ov = POST_HUB_OVERRIDE.get(post.get("slug"))
+    if ov and ov in HUB_BY_SLUG:
+        return HUB_BY_SLUG[ov]
     for slug in _PRIMARY_HUB_ORDER:
         h = HUB_BY_SLUG.get(slug)
         if h and _post_in_hub(post, h):
