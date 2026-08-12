@@ -385,8 +385,21 @@ def _hub_posts(hub, posts):
     return [p for p in posts if _post_in_hub(p, hub)]
 
 
+# 대표 허브(breadcrumb·상단/하단 링크) 선정 우선순위. 칩 표시순서(HUBS)와 분리한다.
+# 조세특례제한법(세액공제·감면)은 법인세/소득세/부가세보다 '더 구체적인 주제'이므로 최우선으로 둔다
+# → [소득세·조특법] 칼럼은 '소득세 노트'가 아니라 '세액공제·감면 노트'가 대표가 된다.
+_PRIMARY_HUB_ORDER = [
+    "tax-credit", "corporate-tax", "income-tax", "vat",
+    "transfer-inheritance-gift", "acquisition-tax",
+]
+
+
 def _primary_hub_for(post):
-    for h in HUBS:
+    for slug in _PRIMARY_HUB_ORDER:
+        h = HUB_BY_SLUG.get(slug)
+        if h and _post_in_hub(post, h):
+            return h
+    for h in HUBS:   # 우선순위 목록에 없는 허브 폴백
         if _post_in_hub(post, h):
             return h
     return None
