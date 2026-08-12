@@ -1352,21 +1352,99 @@
     },
     {
       "day": "2026-08-13",
+      "category": "bot",
+      "name": "generic",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-13",
       "category": "page",
       "name": "/",
-      "hits": 2
+      "hits": 17
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-08-13",
       "category": "pv",
       "name": "total",
-      "hits": 2
+      "hits": 26
+    },
+    {
+      "day": "2026-08-13",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 11
+    },
+    {
+      "day": "2026-08-13",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 11
+    },
+    {
+      "day": "2026-08-13",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-13",
+      "category": "search",
+      "name": "__total__",
+      "hits": 4
     },
     {
       "day": "2026-08-13",
       "category": "visitor",
       "name": "unique",
-      "hits": 2
+      "hits": 13
     }
   ]
 }
