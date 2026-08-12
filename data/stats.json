@@ -1354,18 +1354,36 @@
       "day": "2026-08-13",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 9
     },
     {
       "day": "2026-08-13",
       "category": "page",
       "name": "/",
-      "hits": 17
+      "hits": 24
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
     },
     {
       "day": "2026-08-13",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/column/testamentary-trust-not-tax-saving",
       "hits": 1
     },
     {
@@ -1408,43 +1426,43 @@
       "day": "2026-08-13",
       "category": "pv",
       "name": "total",
-      "hits": 26
+      "hits": 36
     },
     {
       "day": "2026-08-13",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 11
+      "hits": 17
     },
     {
       "day": "2026-08-13",
       "category": "reftype",
       "name": "직접",
-      "hits": 11
+      "hits": 17
     },
     {
       "day": "2026-08-13",
       "category": "search",
       "name": "Bingbot",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-13",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-13",
       "category": "search",
       "name": "__total__",
-      "hits": 4
+      "hits": 9
     },
     {
       "day": "2026-08-13",
       "category": "visitor",
       "name": "unique",
-      "hits": 13
+      "hits": 20
     }
   ]
 }
