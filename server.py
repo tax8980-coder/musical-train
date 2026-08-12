@@ -1012,11 +1012,15 @@ def _post_emoji(post):
     return "📄"
 
 
-def _render_post_cards(posts, views=None):
-    """홈·허브 칼럼 목록(리스트형): 이모지+제목(2~3줄) · 세목 · 작성일자."""
+def _render_post_cards(posts, views=None, from_note=None):
+    """홈·허브 칼럼 목록(리스트형): 이모지+제목(2~3줄) · 세목 · 작성일자.
+    from_note: 이 목록이 속한 노트(허브 slug 또는 'all'). 칼럼 링크에 ?from=… 로 실어
+    칼럼 상단/하단에 '어느 노트에서 왔는지'를 표시한다."""
     out = []
     for p in posts:
         href = "/column/" + quote(p.get("slug", ""), safe="")
+        if from_note:
+            href += "?from=" + from_note
         tagtxt = " · ".join(p.get("tags") or [])
         out.append(
             '<li class="post-row"><a class="post-row__link" href="' + href + '">'
@@ -1070,7 +1074,7 @@ def _render_index_html():
     # 1) 메인 카드 그리드
     html = html.replace(
         '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>',
-        _render_post_cards(posts, views),
+        _render_post_cards(posts, views, "all"),
         1,
     )
     # 2) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
@@ -1147,7 +1151,7 @@ def _render_hub_html(hub_slug):
     canonical = SITE_ORIGIN + "/" + hub_slug
     full_title = _esc_html(hub["title"]) + " | 세무 칼럼 · 세무법인 지율"
     desc = _esc_html(hub["desc"])
-    cards = _render_post_cards(members, views)
+    cards = _render_post_cards(members, views, hub_slug)
     if not members:
         cards = '<li class="post-grid__empty" style="list-style:none;color:#5b6b7f">이 주제의 칼럼을 준비 중입니다.</li>'
 
@@ -1265,23 +1269,23 @@ def _render_related(p, posts):
     )
 
 
-def _render_article(p, posts=None):
-    slug_source = p.get("source")
+def _render_article(p, posts=None, from_note=None):
     tags = "".join(
         '<a class="post-card__tag" href="/">' + _esc_html(t) + "</a>"
         for t in (p.get("tags") or [])
     )
     date = p.get("date")
-    hub = _primary_hub_for(p)
-    hub_top = (' <a class="article__back-hub" href="/' + hub["slug"] + '">' + _esc_html(hub["title"]) + "</a>") if hub else ""
-    if hub:
-        more_btn = ('<a class="btn btn--outline btn--sm" href="/' + hub["slug"] + '">'
-                    + _esc_html(hub["title"]) + "에서 더 보기</a> ")
-    elif slug_source:
-        more_btn = ('<a class="btn btn--outline btn--sm" href="' + _esc_html(slug_source)
-                    + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ')
+    # 컨텍스트 노트: 온 곳(from) 기준. 'all'→없음(← 전체 노트 링크로 충분),
+    # 특정 노트 slug→그 노트, 미지정(직접 방문)→대표 노트로 폴백.
+    if from_note == "all":
+        ctx = None
+    elif from_note and from_note in HUB_BY_SLUG:
+        ctx = HUB_BY_SLUG[from_note]
     else:
-        more_btn = ""
+        ctx = _primary_hub_for(p)
+    hub_top = (' <a class="article__back-hub" href="/' + ctx["slug"] + '">' + _esc_html(ctx["title"]) + "</a>") if ctx else ""
+    more_btn = ('<a class="btn btn--outline btn--sm" href="/' + ctx["slug"] + '">'
+                + _esc_html(ctx["title"]) + "에서 더 보기</a> ") if ctx else ""
     related = _render_related(p, posts) if posts else ""
     return (
         '<nav class="article__back"><a href="/">← 전체 세무칼럼 노트</a>' + hub_top + "</nav>"
@@ -1301,7 +1305,7 @@ def _render_article(p, posts=None):
     )
 
 
-def _render_post_html(slug):
+def _render_post_html(slug, from_note=None):
     """post.html 템플릿에 해당 칼럼의 제목·메타·본문·구조화데이터를 심어 반환."""
     html = _read_text(POST_TEMPLATE_PATH)
     all_posts = load_posts().get("posts", [])
@@ -1362,9 +1366,12 @@ def _render_post_html(slug):
     html = html.replace("</head>", ld_tag, 1)
     # 브레드크럼 스타일(허브 공용 CSS) 주입
     html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
+    # 노트 slug→제목 맵 주입(클라이언트가 ?from=<노트>를 제목으로 표시)
+    notes_js = "<script>window.__NOTES=" + json.dumps({h["slug"]: h["title"] for h in HUBS}, ensure_ascii=False) + ";</script>"
+    html = html.replace("</head>", notes_js + "</head>", 1)
 
     marker = '<p class="article__loading" id="articleLoading">칼럼을 불러오는 중입니다…</p>'
-    return html.replace(marker, _render_article(post, all_posts), 1)
+    return html.replace(marker, _render_article(post, all_posts, from_note), 1)
 
 
 # ---------------------------------------------------------------- handler
@@ -1759,7 +1766,8 @@ class Handler(SimpleHTTPRequestHandler):
         m_col = re.match(r"^/column/([A-Za-z0-9\-_]+)$", parsed.path)
         if m_col:
             try:
-                self._send_html(_render_post_html(m_col.group(1)))
+                from_note = (query.get("from", [""])[0] or "").strip() or None
+                self._send_html(_render_post_html(m_col.group(1), from_note))
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR column failed: %s", exc)

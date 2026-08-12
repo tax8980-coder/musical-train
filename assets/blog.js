@@ -34,7 +34,7 @@
     return '📄';
   }
   function card(p) {
-    var href = '/column/' + encodeURIComponent(p.slug);
+    var href = '/column/' + encodeURIComponent(p.slug) + '?from=all';
     var tagtxt = (p.tags || []).join(' · ');
     return '<li class="post-row"><a class="post-row__link" href="' + href + '">' +
       '<span class="post-row__title"><span class="post-row__emoji" aria-hidden="true">' + postEmoji(p) + '</span>' + esc(p.title) + '</span>' +
@@ -287,11 +287,16 @@
           return '<a class="post-card__tag" href="/">' + esc(t) + '</a>';
         }).join('');
 
-        // 세목 허브(예: 법인세 이야기) 링크: 상단(칼럼 목록 옆) + 하단('…에서 더 보기')
-        var hubTop = p.primary_hub ? ' <a class="article__back-hub" href="/' + encodeURIComponent(p.primary_hub.slug) + '">' + esc(p.primary_hub.title) + '</a>' : '';
-        var moreBtn = p.primary_hub
-          ? '<a class="btn btn--outline btn--sm" href="/' + encodeURIComponent(p.primary_hub.slug) + '">' + esc(p.primary_hub.title) + '에서 더 보기</a> '
-          : (p.source ? '<a class="btn btn--outline btn--sm" href="' + esc(p.source) + '" target="_blank" rel="noopener noreferrer">네이버 블로그에서 더 보기</a> ' : '');
+        // 컨텍스트 노트: '어느 노트에서 왔는지'(?from=). all→없음(← 전체 노트로 충분),
+        // 특정 노트 slug→그 노트, 미지정(직접 방문)→대표 노트로 폴백. (서버 SSR과 동일)
+        var notes = window.__NOTES || {};
+        var fromParam = new URLSearchParams(location.search).get('from');
+        var ctx = null;
+        if (fromParam === 'all') ctx = null;
+        else if (fromParam && notes[fromParam]) ctx = { slug: fromParam, title: notes[fromParam] };
+        else ctx = p.primary_hub || null;
+        var hubTop = ctx ? ' <a class="article__back-hub" href="/' + encodeURIComponent(ctx.slug) + '">' + esc(ctx.title) + '</a>' : '';
+        var moreBtn = ctx ? '<a class="btn btn--outline btn--sm" href="/' + encodeURIComponent(ctx.slug) + '">' + esc(ctx.title) + '에서 더 보기</a> ' : '';
 
         box.innerHTML =
           '<nav class="article__back"><a href="/">← 전체 세무칼럼 노트</a>' + hubTop +
