@@ -1054,13 +1054,13 @@
       "day": "2026-08-12",
       "category": "bot",
       "name": "generic",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-12",
       "category": "page",
       "name": "/",
-      "hits": 56
+      "hits": 68
     },
     {
       "day": "2026-08-12",
@@ -1084,13 +1084,13 @@
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-12",
@@ -1102,55 +1102,55 @@
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/financial-income-comprehensive-tax-refund",
-      "hits": 7
-    },
-    {
-      "day": "2026-08-12",
-      "category": "page",
-      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
       "hits": 8
     },
     {
       "day": "2026-08-12",
       "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 10
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
       "name": "/column/inclusive-wage-fixed-ot-2026",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 4
-    },
-    {
-      "day": "2026-08-12",
-      "category": "page",
-      "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 3
-    },
-    {
-      "day": "2026-08-12",
-      "category": "page",
-      "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
       "hits": 5
     },
     {
       "day": "2026-08-12",
       "category": "page",
-      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
       "hits": 4
     },
     {
       "day": "2026-08-12",
       "category": "page",
+      "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-12",
+      "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-12",
@@ -1168,7 +1168,7 @@
       "day": "2026-08-12",
       "category": "page",
       "name": "/column/two-workplaces-separate-accounting-127-10",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-12",
@@ -1228,7 +1228,7 @@
       "day": "2026-08-12",
       "category": "page",
       "name": "/media.html",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-12",
@@ -1264,7 +1264,7 @@
       "day": "2026-08-12",
       "category": "pv",
       "name": "total",
-      "hits": 195
+      "hits": 227
     },
     {
       "day": "2026-08-12",
@@ -1288,7 +1288,7 @@
       "day": "2026-08-12",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 114
+      "hits": 141
     },
     {
       "day": "2026-08-12",
@@ -1306,19 +1306,19 @@
       "day": "2026-08-12",
       "category": "reftype",
       "name": "직접",
-      "hits": 114
+      "hits": 141
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "Bingbot",
-      "hits": 24
+      "hits": 25
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "Googlebot",
-      "hits": 4
+      "hits": 10
     },
     {
       "day": "2026-08-12",
@@ -1330,25 +1330,43 @@
       "day": "2026-08-12",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "__total__",
-      "hits": 59
+      "hits": 68
     },
     {
       "day": "2026-08-12",
       "category": "search",
       "name": "facebook",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-08-12",
       "category": "visitor",
       "name": "unique",
-      "hits": 77
+      "hits": 104
+    },
+    {
+      "day": "2026-08-13",
+      "category": "page",
+      "name": "/",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-13",
+      "category": "pv",
+      "name": "total",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-13",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 2
     }
   ]
 }
