@@ -1772,6 +1772,13 @@ body.is-locked { overflow: hidden; }
   .prose h2 { font-size: 15pt; }
   .prose h3 { font-size: 13pt; }
 
+  /* 표·행·이미지가 페이지 경계에서 잘리지 않고 통째로 다음 페이지에 인쇄되도록.
+     (한 페이지보다 큰 표는 불가피하게 분할되지만, 페이지에 들어갈 표는 다음 페이지로 넘어감) */
+  .prose .table-wrap, .prose table { break-inside: avoid; page-break-inside: avoid; overflow: visible !important; }
+  .prose tr, .prose img { break-inside: avoid; page-break-inside: avoid; }
+  /* 제목이 페이지 맨 아래에 홀로 남지 않도록 다음 내용과 함께 이동 */
+  .prose h2, .prose h3, .prose h4 { break-after: avoid; page-break-after: avoid; }
+
   /* 링크 뒤 URL 자동표기 제거 */
   a[href]::after { content: "" !important; }
 
