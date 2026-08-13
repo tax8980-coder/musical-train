@@ -1366,13 +1366,13 @@
       "day": "2026-08-13",
       "category": "bot",
       "name": "generic",
-      "hits": 13
+      "hits": 15
     },
     {
       "day": "2026-08-13",
       "category": "page",
       "name": "/",
-      "hits": 71
+      "hits": 83
     },
     {
       "day": "2026-08-13",
@@ -1576,7 +1576,7 @@
       "day": "2026-08-13",
       "category": "pv",
       "name": "total",
-      "hits": 173
+      "hits": 185
     },
     {
       "day": "2026-08-13",
@@ -1606,7 +1606,7 @@
       "day": "2026-08-13",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 94
+      "hits": 96
     },
     {
       "day": "2026-08-13",
@@ -1624,19 +1624,19 @@
       "day": "2026-08-13",
       "category": "reftype",
       "name": "직접",
-      "hits": 94
+      "hits": 96
     },
     {
       "day": "2026-08-13",
       "category": "search",
       "name": "Bingbot",
-      "hits": 21
+      "hits": 23
     },
     {
       "day": "2026-08-13",
       "category": "search",
       "name": "Googlebot",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-13",
@@ -1654,7 +1654,7 @@
       "day": "2026-08-13",
       "category": "search",
       "name": "__total__",
-      "hits": 39
+      "hits": 42
     },
     {
       "day": "2026-08-13",
@@ -1666,7 +1666,55 @@
       "day": "2026-08-13",
       "category": "visitor",
       "name": "unique",
-      "hits": 60
+      "hits": 69
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "pv",
+      "name": "total",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-14",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 3
     }
   ]
 }
