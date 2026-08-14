@@ -2038,25 +2038,37 @@
       "day": "2026-08-15",
       "category": "bot",
       "name": "generic",
-      "hits": 11
+      "hits": 16
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 3
+      "hits": 7
     },
     {
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 3
+      "hits": 7
+    },
+    {
+      "day": "2026-08-15",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-15",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 4
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Bingbot",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-08-15",
@@ -2068,13 +2080,13 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 4
+      "hits": 7
     },
     {
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 3
+      "hits": 6
     }
   ]
 }
