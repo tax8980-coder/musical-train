@@ -2036,27 +2036,45 @@
     },
     {
       "day": "2026-08-15",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
       "category": "bot",
       "name": "generic",
-      "hits": 28
+      "hits": 37
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 13
+      "hits": 17
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
-      "hits": 1
+      "hits": 6
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 4
     },
     {
       "day": "2026-08-15",
@@ -2066,27 +2084,33 @@
     },
     {
       "day": "2026-08-15",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 17
+      "hits": 35
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 10
+      "hits": 20
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 10
+      "hits": 20
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Bingbot",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-15",
@@ -2098,7 +2122,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "Kakao",
-      "hits": 2
+      "hits": 9
     },
     {
       "day": "2026-08-15",
@@ -2110,19 +2134,19 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 16
+      "hits": 26
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "facebook",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 15
+      "hits": 23
     }
   ]
 }
