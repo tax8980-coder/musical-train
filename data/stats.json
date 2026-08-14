@@ -2038,37 +2038,55 @@
       "day": "2026-08-15",
       "category": "bot",
       "name": "generic",
-      "hits": 16
+      "hits": 26
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 7
+      "hits": 10
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
+      "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
     },
     {
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 7
+      "hits": 11
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 7
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "Kakao",
+      "hits": 2
     },
     {
       "day": "2026-08-15",
@@ -2080,13 +2098,19 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 7
+      "hits": 14
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 6
+      "hits": 10
     }
   ]
 }
