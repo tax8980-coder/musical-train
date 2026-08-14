@@ -2038,7 +2038,7 @@
       "day": "2026-08-15",
       "category": "bot",
       "name": "generic",
-      "hits": 2
+      "hits": 11
     },
     {
       "day": "2026-08-15",
@@ -2051,6 +2051,24 @@
       "category": "pv",
       "name": "total",
       "hits": 3
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "Naver",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
+      "category": "search",
+      "name": "__total__",
+      "hits": 4
     },
     {
       "day": "2026-08-15",
