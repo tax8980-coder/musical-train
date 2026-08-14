@@ -1672,7 +1672,7 @@
       "day": "2026-08-14",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 8
+      "hits": 29
     },
     {
       "day": "2026-08-14",
@@ -1689,6 +1689,12 @@
     {
       "day": "2026-08-14",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 25
+    },
+    {
+      "day": "2026-08-14",
+      "category": "ai",
       "name": "PerplexityBot",
       "hits": 1
     },
@@ -1696,13 +1702,13 @@
       "day": "2026-08-14",
       "category": "ai",
       "name": "__total__",
-      "hits": 37
+      "hits": 83
     },
     {
       "day": "2026-08-14",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-14",
@@ -1714,13 +1720,31 @@
       "day": "2026-08-14",
       "category": "page",
       "name": "/",
-      "hits": 53
+      "hits": 70
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 2
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/testamentary-trust-not-tax-saving",
+      "hits": 1
     },
     {
       "day": "2026-08-14",
@@ -1738,6 +1762,12 @@
       "day": "2026-08-14",
       "category": "page",
       "name": "/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/media.html",
       "hits": 1
     },
     {
@@ -1750,7 +1780,7 @@
       "day": "2026-08-14",
       "category": "pv",
       "name": "total",
-      "hits": 66
+      "hits": 88
     },
     {
       "day": "2026-08-14",
@@ -1762,13 +1792,13 @@
       "day": "2026-08-14",
       "category": "refsite",
       "name": "검색 · 구글",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-14",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-08-14",
@@ -1779,8 +1809,14 @@
     {
       "day": "2026-08-14",
       "category": "refsite",
+      "name": "검색 · 빙",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-14",
+      "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 44
+      "hits": 55
     },
     {
       "day": "2026-08-14",
@@ -1792,25 +1828,37 @@
       "day": "2026-08-14",
       "category": "reftype",
       "name": "검색",
-      "hits": 5
+      "hits": 11
     },
     {
       "day": "2026-08-14",
       "category": "reftype",
       "name": "직접",
-      "hits": 44
+      "hits": 55
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 2
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "Bingbot",
-      "hits": 28
+      "hits": 38
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "Googlebot",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
     },
     {
       "day": "2026-08-14",
@@ -1822,19 +1870,19 @@
       "day": "2026-08-14",
       "category": "search",
       "name": "__total__",
-      "hits": 42
+      "hits": 59
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "facebook",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-14",
       "category": "visitor",
       "name": "unique",
-      "hits": 49
+      "hits": 61
     }
   ]
 }
