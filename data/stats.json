@@ -1672,7 +1672,7 @@
       "day": "2026-08-14",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 29
+      "hits": 33
     },
     {
       "day": "2026-08-14",
@@ -1702,13 +1702,13 @@
       "day": "2026-08-14",
       "category": "ai",
       "name": "__total__",
-      "hits": 83
+      "hits": 87
     },
     {
       "day": "2026-08-14",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 17
     },
     {
       "day": "2026-08-14",
@@ -1720,25 +1720,115 @@
       "day": "2026-08-14",
       "category": "page",
       "name": "/",
-      "hits": 70
+      "hits": 89
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 3
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 2
+      "hits": 5
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/company-car-purchase-method-2026",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 6
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 1
+      "hits": 7
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 3
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 1
+      "hits": 4
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 3
     },
     {
       "day": "2026-08-14",
@@ -1750,37 +1840,91 @@
       "day": "2026-08-14",
       "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
-      "hits": 8
+      "hits": 14
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/column/worker-succession-headcount-2022du53921",
+      "hits": 3
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/contact.html",
-      "hits": 1
+      "hits": 4
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/income-tax",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 3
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/intro.html",
-      "hits": 2
+      "hits": 6
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/media.html",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-14",
       "category": "page",
       "name": "/resources.html",
-      "hits": 1
+      "hits": 5
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/transfer-inheritance-gift",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-14",
+      "category": "page",
+      "name": "/vat",
+      "hits": 4
     },
     {
       "day": "2026-08-14",
       "category": "pv",
       "name": "total",
-      "hits": 88
+      "hits": 226
     },
     {
       "day": "2026-08-14",
@@ -1816,7 +1960,7 @@
       "day": "2026-08-14",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 55
+      "hits": 64
     },
     {
       "day": "2026-08-14",
@@ -1834,7 +1978,7 @@
       "day": "2026-08-14",
       "category": "reftype",
       "name": "직접",
-      "hits": 55
+      "hits": 64
     },
     {
       "day": "2026-08-14",
@@ -1846,7 +1990,7 @@
       "day": "2026-08-14",
       "category": "search",
       "name": "Bingbot",
-      "hits": 38
+      "hits": 39
     },
     {
       "day": "2026-08-14",
@@ -1857,32 +2001,38 @@
     {
       "day": "2026-08-14",
       "category": "search",
+      "name": "Kakao",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-14",
+      "category": "search",
       "name": "Naver",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "__total__",
-      "hits": 59
+      "hits": 71
     },
     {
       "day": "2026-08-14",
       "category": "search",
       "name": "facebook",
-      "hits": 8
+      "hits": 10
     },
     {
       "day": "2026-08-14",
       "category": "visitor",
       "name": "unique",
-      "hits": 61
+      "hits": 75
     }
   ]
 }
