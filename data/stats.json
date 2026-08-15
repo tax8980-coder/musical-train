@@ -2222,39 +2222,45 @@
     },
     {
       "day": "2026-08-16",
+      "category": "bot",
+      "name": "generic",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
       "category": "page",
       "name": "/",
-      "hits": 5
+      "hits": 12
     },
     {
       "day": "2026-08-16",
       "category": "pv",
       "name": "total",
-      "hits": 5
+      "hits": 12
     },
     {
       "day": "2026-08-16",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 1
+      "hits": 7
     },
     {
       "day": "2026-08-16",
       "category": "reftype",
       "name": "직접",
-      "hits": 1
+      "hits": 7
     },
     {
       "day": "2026-08-16",
       "category": "search",
       "name": "Bingbot",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-16",
       "category": "search",
       "name": "Googlebot",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-16",
@@ -2266,13 +2272,13 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "__total__",
-      "hits": 4
+      "hits": 9
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 5
+      "hits": 7
     }
   ]
 }
