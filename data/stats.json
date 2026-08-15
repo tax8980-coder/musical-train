@@ -2068,7 +2068,7 @@
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 26
+      "hits": 29
     },
     {
       "day": "2026-08-15",
@@ -2087,6 +2087,12 @@
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
       "hits": 9
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
+      "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
     },
     {
       "day": "2026-08-15",
@@ -2110,25 +2116,25 @@
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 63
+      "hits": 67
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 41
+      "hits": 43
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 41
+      "hits": 43
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Bingbot",
-      "hits": 14
+      "hits": 16
     },
     {
       "day": "2026-08-15",
@@ -2158,7 +2164,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 36
+      "hits": 38
     },
     {
       "day": "2026-08-15",
@@ -2170,7 +2176,7 @@
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 50
+      "hits": 54
     }
   ]
 }
