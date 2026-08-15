@@ -2068,25 +2068,25 @@
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 34
+      "hits": 36
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 11
-    },
-    {
-      "day": "2026-08-15",
-      "category": "page",
-      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
       "hits": 12
     },
     {
       "day": "2026-08-15",
       "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
+      "hits": 14
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-08-15",
@@ -2122,19 +2122,19 @@
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 76
+      "hits": 82
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 51
+      "hits": 55
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 51
+      "hits": 55
     },
     {
       "day": "2026-08-15",
@@ -2146,7 +2146,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "Googlebot",
-      "hits": 6
+      "hits": 10
     },
     {
       "day": "2026-08-15",
@@ -2170,7 +2170,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 42
+      "hits": 46
     },
     {
       "day": "2026-08-15",
@@ -2182,7 +2182,7 @@
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 60
+      "hits": 62
     }
   ]
 }
