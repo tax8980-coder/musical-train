@@ -2210,15 +2210,27 @@
     },
     {
       "day": "2026-08-16",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
       "category": "page",
       "name": "/",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-16",
       "category": "pv",
       "name": "total",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-16",
@@ -2241,14 +2253,20 @@
     {
       "day": "2026-08-16",
       "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
+      "category": "search",
       "name": "__total__",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 3
+      "hits": 4
     }
   ]
 }
