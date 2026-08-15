@@ -2212,25 +2212,25 @@
       "day": "2026-08-16",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-16",
       "category": "ai",
       "name": "__total__",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-16",
       "category": "page",
       "name": "/",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-16",
       "category": "pv",
       "name": "total",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-16",
@@ -2242,6 +2242,12 @@
       "day": "2026-08-16",
       "category": "reftype",
       "name": "직접",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "search",
+      "name": "Bingbot",
       "hits": 1
     },
     {
@@ -2260,13 +2266,13 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "__total__",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 4
+      "hits": 5
     }
   ]
 }
