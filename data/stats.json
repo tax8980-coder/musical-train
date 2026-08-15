@@ -2068,7 +2068,7 @@
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 56
+      "hits": 57
     },
     {
       "day": "2026-08-15",
@@ -2134,7 +2134,7 @@
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 107
+      "hits": 108
     },
     {
       "day": "2026-08-15",
@@ -2146,7 +2146,7 @@
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 68
+      "hits": 69
     },
     {
       "day": "2026-08-15",
@@ -2158,7 +2158,7 @@
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 68
+      "hits": 69
     },
     {
       "day": "2026-08-15",
@@ -2206,7 +2206,49 @@
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 77
+      "hits": 78
+    },
+    {
+      "day": "2026-08-16",
+      "category": "page",
+      "name": "/",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-16",
+      "category": "pv",
+      "name": "total",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-16",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "search",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 3
     }
   ]
 }
