@@ -2038,7 +2038,7 @@
       "day": "2026-08-15",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-15",
@@ -2056,19 +2056,19 @@
       "day": "2026-08-15",
       "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-15",
       "category": "bot",
       "name": "generic",
-      "hits": 43
+      "hits": 45
     },
     {
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 48
+      "hits": 54
     },
     {
       "day": "2026-08-15",
@@ -2122,31 +2122,31 @@
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 97
+      "hits": 103
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 65
+      "hits": 67
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 65
+      "hits": 67
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Bingbot",
-      "hits": 22
+      "hits": 24
     },
     {
       "day": "2026-08-15",
       "category": "search",
       "name": "Googlebot",
-      "hits": 16
+      "hits": 18
     },
     {
       "day": "2026-08-15",
@@ -2170,7 +2170,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 60
+      "hits": 64
     },
     {
       "day": "2026-08-15",
@@ -2182,7 +2182,7 @@
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 70
+      "hits": 75
     }
   ]
 }
