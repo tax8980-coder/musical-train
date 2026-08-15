@@ -2068,7 +2068,7 @@
       "day": "2026-08-15",
       "category": "page",
       "name": "/",
-      "hits": 54
+      "hits": 56
     },
     {
       "day": "2026-08-15",
@@ -2103,6 +2103,12 @@
     {
       "day": "2026-08-15",
       "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
       "hits": 2
     },
@@ -2115,6 +2121,12 @@
     {
       "day": "2026-08-15",
       "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-15",
+      "category": "page",
       "name": "/tax-credit",
       "hits": 1
     },
@@ -2122,19 +2134,31 @@
       "day": "2026-08-15",
       "category": "pv",
       "name": "total",
-      "hits": 103
+      "hits": 107
+    },
+    {
+      "day": "2026-08-15",
+      "category": "refsite",
+      "name": "검색 · 야후",
+      "hits": 1
     },
     {
       "day": "2026-08-15",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 67
+      "hits": 68
+    },
+    {
+      "day": "2026-08-15",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 1
     },
     {
       "day": "2026-08-15",
       "category": "reftype",
       "name": "직접",
-      "hits": 67
+      "hits": 68
     },
     {
       "day": "2026-08-15",
@@ -2146,7 +2170,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "Googlebot",
-      "hits": 18
+      "hits": 19
     },
     {
       "day": "2026-08-15",
@@ -2170,7 +2194,7 @@
       "day": "2026-08-15",
       "category": "search",
       "name": "__total__",
-      "hits": 64
+      "hits": 65
     },
     {
       "day": "2026-08-15",
@@ -2182,7 +2206,7 @@
       "day": "2026-08-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 75
+      "hits": 77
     }
   ]
 }
