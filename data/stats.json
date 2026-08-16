@@ -2608,7 +2608,31 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/",
-      "hits": 7
+      "hits": 12
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-08-17",
@@ -2632,7 +2656,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/faq.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-17",
@@ -2644,7 +2668,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/intro.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-17",
@@ -2668,19 +2692,19 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 20
+      "hits": 32
     },
     {
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 16
+      "hits": 24
     },
     {
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 16
+      "hits": 24
     },
     {
       "day": "2026-08-17",
@@ -2697,6 +2721,12 @@
     {
       "day": "2026-08-17",
       "category": "search",
+      "name": "Naver",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-17",
+      "category": "search",
       "name": "Naver-Yeti",
       "hits": 1
     },
@@ -2704,13 +2734,13 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "__total__",
-      "hits": 6
+      "hits": 11
     },
     {
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 19
+      "hits": 30
     }
   ]
 }
