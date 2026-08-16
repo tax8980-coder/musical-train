@@ -2241,8 +2241,14 @@
     {
       "day": "2026-08-16",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "ai",
       "name": "__total__",
-      "hits": 23
+      "hits": 24
     },
     {
       "day": "2026-08-16",
@@ -2542,7 +2548,7 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "Bingbot",
-      "hits": 24
+      "hits": 25
     },
     {
       "day": "2026-08-16",
@@ -2566,13 +2572,49 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "__total__",
-      "hits": 54
+      "hits": 55
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
       "hits": 113
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-17",
+      "category": "pv",
+      "name": "total",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-17",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-17",
+      "category": "search",
+      "name": "__total__",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-17",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 2
     }
   ]
 }
