@@ -2218,7 +2218,7 @@
       "day": "2026-08-16",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-16",
@@ -2242,19 +2242,37 @@
       "day": "2026-08-16",
       "category": "ai",
       "name": "__total__",
-      "hits": 15
+      "hits": 16
     },
     {
       "day": "2026-08-16",
       "category": "bot",
       "name": "generic",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-16",
       "category": "page",
       "name": "/",
-      "hits": 39
+      "hits": 50
+    },
+    {
+      "day": "2026-08-16",
+      "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
+      "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-16",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 2
     },
     {
       "day": "2026-08-16",
@@ -2266,13 +2284,13 @@
       "day": "2026-08-16",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-16",
       "category": "page",
       "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-16",
@@ -2290,7 +2308,7 @@
       "day": "2026-08-16",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 8
+      "hits": 10
     },
     {
       "day": "2026-08-16",
@@ -2302,18 +2320,24 @@
       "day": "2026-08-16",
       "category": "page",
       "name": "/intro.html",
-      "hits": 27
+      "hits": 31
     },
     {
       "day": "2026-08-16",
       "category": "pv",
       "name": "total",
-      "hits": 97
+      "hits": 121
     },
     {
       "day": "2026-08-16",
       "category": "refsite",
       "name": "검색 · 구글",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-16",
+      "category": "refsite",
+      "name": "검색 · 네이버",
       "hits": 2
     },
     {
@@ -2326,31 +2350,31 @@
       "day": "2026-08-16",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 70
+      "hits": 84
     },
     {
       "day": "2026-08-16",
       "category": "reftype",
       "name": "검색",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-16",
       "category": "reftype",
       "name": "직접",
-      "hits": 70
+      "hits": 84
     },
     {
       "day": "2026-08-16",
       "category": "search",
       "name": "Bingbot",
-      "hits": 13
+      "hits": 17
     },
     {
       "day": "2026-08-16",
       "category": "search",
       "name": "Googlebot",
-      "hits": 10
+      "hits": 12
     },
     {
       "day": "2026-08-16",
@@ -2362,13 +2386,13 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "__total__",
-      "hits": 32
+      "hits": 38
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 78
+      "hits": 87
     }
   ]
 }
