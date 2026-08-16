@@ -2218,7 +2218,7 @@
       "day": "2026-08-16",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-16",
@@ -2242,19 +2242,19 @@
       "day": "2026-08-16",
       "category": "ai",
       "name": "__total__",
-      "hits": 16
+      "hits": 17
     },
     {
       "day": "2026-08-16",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-16",
       "category": "page",
       "name": "/",
-      "hits": 50
+      "hits": 51
     },
     {
       "day": "2026-08-16",
@@ -2273,6 +2273,12 @@
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 2
+    },
+    {
+      "day": "2026-08-16",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
     },
     {
       "day": "2026-08-16",
@@ -2320,13 +2326,13 @@
       "day": "2026-08-16",
       "category": "page",
       "name": "/intro.html",
-      "hits": 31
+      "hits": 32
     },
     {
       "day": "2026-08-16",
       "category": "pv",
       "name": "total",
-      "hits": 121
+      "hits": 124
     },
     {
       "day": "2026-08-16",
@@ -2350,7 +2356,7 @@
       "day": "2026-08-16",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 84
+      "hits": 85
     },
     {
       "day": "2026-08-16",
@@ -2362,13 +2368,13 @@
       "day": "2026-08-16",
       "category": "reftype",
       "name": "직접",
-      "hits": 84
+      "hits": 85
     },
     {
       "day": "2026-08-16",
       "category": "search",
       "name": "Bingbot",
-      "hits": 17
+      "hits": 18
     },
     {
       "day": "2026-08-16",
@@ -2386,13 +2392,13 @@
       "day": "2026-08-16",
       "category": "search",
       "name": "__total__",
-      "hits": 38
+      "hits": 39
     },
     {
       "day": "2026-08-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 87
+      "hits": 90
     }
   ]
 }
