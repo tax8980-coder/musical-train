@@ -2584,7 +2584,7 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-08-17",
@@ -2596,18 +2596,66 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "__total__",
-      "hits": 12
+      "hits": 15
+    },
+    {
+      "day": "2026-08-17",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/",
-      "hits": 4
+      "hits": 7
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/tax-credit",
       "hits": 1
     },
     {
@@ -2620,19 +2668,19 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 6
+      "hits": 16
     },
     {
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 3
+      "hits": 12
     },
     {
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 3
+      "hits": 12
     },
     {
       "day": "2026-08-17",
@@ -2662,7 +2710,7 @@
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 5
+      "hits": 15
     }
   ]
 }
