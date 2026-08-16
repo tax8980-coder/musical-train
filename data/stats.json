@@ -2626,7 +2626,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/column/e-filing-tax-credit-agent-2026",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
@@ -2644,13 +2644,13 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/contact.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/corporate-tax",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
@@ -2661,8 +2661,14 @@
     {
       "day": "2026-08-17",
       "category": "page",
+      "name": "/income-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
       "name": "/index.html",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-17",
@@ -2674,13 +2680,13 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/resources.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/tax-credit",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
@@ -2692,25 +2698,25 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 36
+      "hits": 43
     },
     {
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 28
+      "hits": 35
     },
     {
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 28
+      "hits": 35
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-17",
@@ -2734,13 +2740,13 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "__total__",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 34
+      "hits": 41
     }
   ]
 }
