@@ -2608,7 +2608,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/",
-      "hits": 12
+      "hits": 13
     },
     {
       "day": "2026-08-17",
@@ -2632,7 +2632,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-17",
@@ -2656,13 +2656,13 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/faq.html",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/index.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-17",
@@ -2692,19 +2692,19 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 32
+      "hits": 36
     },
     {
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 24
+      "hits": 28
     },
     {
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 24
+      "hits": 28
     },
     {
       "day": "2026-08-17",
@@ -2716,7 +2716,7 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-17",
@@ -2728,19 +2728,19 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "__total__",
-      "hits": 11
+      "hits": 14
     },
     {
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 30
+      "hits": 34
     }
   ]
 }
