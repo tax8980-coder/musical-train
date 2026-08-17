@@ -2584,7 +2584,7 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-17",
@@ -2608,19 +2608,19 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "__total__",
-      "hits": 33
+      "hits": 35
     },
     {
       "day": "2026-08-17",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/",
-      "hits": 50
+      "hits": 55
     },
     {
       "day": "2026-08-17",
@@ -2632,6 +2632,12 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
       "hits": 1
     },
     {
@@ -2776,12 +2782,18 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 121
+      "hits": 127
     },
     {
       "day": "2026-08-17",
       "category": "refsite",
       "name": "SNS · 네이버블로그",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-17",
+      "category": "refsite",
+      "name": "검색 · 구글",
       "hits": 1
     },
     {
@@ -2794,7 +2806,7 @@
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 86
+      "hits": 89
     },
     {
       "day": "2026-08-17",
@@ -2806,19 +2818,19 @@
       "day": "2026-08-17",
       "category": "reftype",
       "name": "검색",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 86
+      "hits": 89
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 13
     },
     {
       "day": "2026-08-17",
@@ -2842,13 +2854,13 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "__total__",
-      "hits": 40
+      "hits": 43
     },
     {
       "day": "2026-08-17",
@@ -2860,7 +2872,7 @@
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 101
+      "hits": 107
     }
   ]
 }
