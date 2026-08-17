@@ -2884,13 +2884,13 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -2902,7 +2902,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-18",
@@ -2913,14 +2913,26 @@
     {
       "day": "2026-08-18",
       "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
       "name": "/intro.html",
       "hits": 3
     },
     {
       "day": "2026-08-18",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 10
+      "hits": 15
     },
     {
       "day": "2026-08-18",
@@ -2932,7 +2944,7 @@
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-18",
@@ -2944,7 +2956,7 @@
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-18",
@@ -2968,7 +2980,7 @@
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 10
+      "hits": 14
     }
   ]
 }
