@@ -2584,13 +2584,13 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 2
+      "hits": 8
     },
     {
       "day": "2026-08-17",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-17",
@@ -2608,7 +2608,7 @@
       "day": "2026-08-17",
       "category": "ai",
       "name": "__total__",
-      "hits": 21
+      "hits": 29
     },
     {
       "day": "2026-08-17",
@@ -2620,7 +2620,7 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/",
-      "hits": 30
+      "hits": 40
     },
     {
       "day": "2026-08-17",
@@ -2698,13 +2698,19 @@
       "day": "2026-08-17",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-17",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
       "hits": 5
+    },
+    {
+      "day": "2026-08-17",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
+      "hits": 2
     },
     {
       "day": "2026-08-17",
@@ -2770,7 +2776,7 @@
       "day": "2026-08-17",
       "category": "pv",
       "name": "total",
-      "hits": 95
+      "hits": 108
     },
     {
       "day": "2026-08-17",
@@ -2788,7 +2794,7 @@
       "day": "2026-08-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 74
+      "hits": 81
     },
     {
       "day": "2026-08-17",
@@ -2806,19 +2812,19 @@
       "day": "2026-08-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 74
+      "hits": 81
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "Bingbot",
-      "hits": 8
+      "hits": 10
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "Googlebot",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-17",
@@ -2842,19 +2848,19 @@
       "day": "2026-08-17",
       "category": "search",
       "name": "__total__",
-      "hits": 31
+      "hits": 37
     },
     {
       "day": "2026-08-17",
       "category": "search",
       "name": "facebook",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 86
+      "hits": 92
     }
   ]
 }
