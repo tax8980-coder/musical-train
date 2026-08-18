@@ -2878,13 +2878,13 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 34
+      "hits": 43
     },
     {
       "day": "2026-08-18",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 8
+      "hits": 13
     },
     {
       "day": "2026-08-18",
@@ -2895,8 +2895,20 @@
     {
       "day": "2026-08-18",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-18",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-18",
+      "category": "ai",
       "name": "__total__",
-      "hits": 92
+      "hits": 110
     },
     {
       "day": "2026-08-18",
@@ -2914,7 +2926,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 51
+      "hits": 57
     },
     {
       "day": "2026-08-18",
@@ -2956,7 +2968,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -3010,7 +3022,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-18",
@@ -3034,7 +3046,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -3160,7 +3172,7 @@
       "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 178
+      "hits": 187
     },
     {
       "day": "2026-08-18",
@@ -3178,7 +3190,7 @@
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 39
+      "hits": 42
     },
     {
       "day": "2026-08-18",
@@ -3190,25 +3202,25 @@
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 39
+      "hits": 42
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "Applebot",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 12
+      "hits": 16
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "Googlebot",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-18",
@@ -3220,25 +3232,25 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "__total__",
-      "hits": 26
+      "hits": 34
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "facebook",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 53
+      "hits": 56
     }
   ]
 }
