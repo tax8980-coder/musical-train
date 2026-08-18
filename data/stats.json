@@ -2878,7 +2878,7 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 43
+      "hits": 47
     },
     {
       "day": "2026-08-18",
@@ -2908,13 +2908,13 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 110
+      "hits": 114
     },
     {
       "day": "2026-08-18",
       "category": "bot",
       "name": "generic",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-18",
@@ -2926,7 +2926,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 57
+      "hits": 67
     },
     {
       "day": "2026-08-18",
@@ -3124,7 +3124,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/income-tax",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-18",
@@ -3172,7 +3172,7 @@
       "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 187
+      "hits": 198
     },
     {
       "day": "2026-08-18",
@@ -3190,7 +3190,7 @@
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 42
+      "hits": 47
     },
     {
       "day": "2026-08-18",
@@ -3202,7 +3202,7 @@
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 42
+      "hits": 47
     },
     {
       "day": "2026-08-18",
@@ -3214,7 +3214,7 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 16
+      "hits": 17
     },
     {
       "day": "2026-08-18",
@@ -3232,13 +3232,13 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "__total__",
-      "hits": 34
+      "hits": 36
     },
     {
       "day": "2026-08-18",
@@ -3250,7 +3250,7 @@
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 56
+      "hits": 65
     }
   ]
 }
