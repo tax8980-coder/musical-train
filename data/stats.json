@@ -2878,7 +2878,7 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 47
+      "hits": 52
     },
     {
       "day": "2026-08-18",
@@ -2890,7 +2890,7 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Meta-ExternalAgent",
-      "hits": 50
+      "hits": 77
     },
     {
       "day": "2026-08-18",
@@ -2908,13 +2908,13 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 114
+      "hits": 146
     },
     {
       "day": "2026-08-18",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-18",
@@ -2926,7 +2926,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 67
+      "hits": 69
     },
     {
       "day": "2026-08-18",
@@ -3172,7 +3172,7 @@
       "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 198
+      "hits": 200
     },
     {
       "day": "2026-08-18",
@@ -3190,7 +3190,7 @@
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 47
+      "hits": 48
     },
     {
       "day": "2026-08-18",
@@ -3202,7 +3202,7 @@
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 47
+      "hits": 48
     },
     {
       "day": "2026-08-18",
@@ -3214,7 +3214,7 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 17
+      "hits": 19
     },
     {
       "day": "2026-08-18",
@@ -3232,13 +3232,13 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "__total__",
-      "hits": 36
+      "hits": 39
     },
     {
       "day": "2026-08-18",
@@ -3250,7 +3250,7 @@
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 65
+      "hits": 67
     }
   ]
 }
