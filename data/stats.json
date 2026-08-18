@@ -2878,7 +2878,7 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 55
+      "hits": 59
     },
     {
       "day": "2026-08-18",
@@ -2908,7 +2908,7 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 151
+      "hits": 155
     },
     {
       "day": "2026-08-18",
@@ -2926,7 +2926,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 77
+      "hits": 79
     },
     {
       "day": "2026-08-18",
@@ -3172,7 +3172,7 @@
       "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 208
+      "hits": 210
     },
     {
       "day": "2026-08-18",
@@ -3190,7 +3190,7 @@
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 53
+      "hits": 54
     },
     {
       "day": "2026-08-18",
@@ -3202,7 +3202,7 @@
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 53
+      "hits": 54
     },
     {
       "day": "2026-08-18",
@@ -3214,7 +3214,7 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-08-18",
@@ -3238,7 +3238,7 @@
       "day": "2026-08-18",
       "category": "search",
       "name": "__total__",
-      "hits": 41
+      "hits": 42
     },
     {
       "day": "2026-08-18",
@@ -3250,7 +3250,49 @@
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 72
+      "hits": 74
+    },
+    {
+      "day": "2026-08-19",
+      "category": "ai",
+      "name": "Amazonbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "ai",
+      "name": "Meta-ExternalAgent",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-19",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "pv",
+      "name": "total",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 2
     }
   ]
 }
