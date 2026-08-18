@@ -3315,6 +3315,12 @@
     {
       "day": "2026-08-19",
       "category": "page",
+      "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
       "hits": 2
     },
@@ -3352,19 +3358,19 @@
       "day": "2026-08-19",
       "category": "pv",
       "name": "total",
-      "hits": 39
+      "hits": 40
     },
     {
       "day": "2026-08-19",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 31
+      "hits": 32
     },
     {
       "day": "2026-08-19",
       "category": "reftype",
       "name": "직접",
-      "hits": 31
+      "hits": 32
     },
     {
       "day": "2026-08-19",
@@ -3381,14 +3387,20 @@
     {
       "day": "2026-08-19",
       "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "search",
       "name": "__total__",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 31
+      "hits": 32
     }
   ]
 }
