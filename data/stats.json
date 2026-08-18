@@ -2878,25 +2878,25 @@
       "day": "2026-08-18",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 19
+      "hits": 21
     },
     {
       "day": "2026-08-18",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 22
+      "hits": 25
     },
     {
       "day": "2026-08-18",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-18",
@@ -2908,13 +2908,13 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/",
-      "hits": 22
+      "hits": 35
     },
     {
       "day": "2026-08-18",
       "category": "page",
       "name": "/acquisition-tax",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -2932,7 +2932,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -3004,7 +3004,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-18",
@@ -3016,7 +3016,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/inclusive-wage-fixed-ot-2026",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -3034,7 +3034,7 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
@@ -3094,97 +3094,103 @@
       "day": "2026-08-18",
       "category": "page",
       "name": "/corporate-tax",
-      "hits": 2
-    },
-    {
-      "day": "2026-08-18",
-      "category": "page",
-      "name": "/faq.html",
       "hits": 3
     },
     {
       "day": "2026-08-18",
       "category": "page",
-      "name": "/income-tax",
-      "hits": 2
-    },
-    {
-      "day": "2026-08-18",
-      "category": "page",
-      "name": "/index.html",
-      "hits": 5
-    },
-    {
-      "day": "2026-08-18",
-      "category": "page",
-      "name": "/intro.html",
-      "hits": 6
-    },
-    {
-      "day": "2026-08-18",
-      "category": "page",
-      "name": "/media.html",
-      "hits": 7
-    },
-    {
-      "day": "2026-08-18",
-      "category": "page",
-      "name": "/resources.html",
+      "name": "/faq.html",
       "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "page",
+      "name": "/income-tax",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-18",
+      "category": "page",
       "name": "/tax-credit",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
       "category": "page",
       "name": "/transfer-inheritance-gift",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
       "category": "page",
       "name": "/vat",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-18",
       "category": "pv",
       "name": "total",
-      "hits": 128
+      "hits": 159
     },
     {
       "day": "2026-08-18",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 23
+      "hits": 28
     },
     {
       "day": "2026-08-18",
       "category": "reftype",
       "name": "검색",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 23
+      "hits": 28
+    },
+    {
+      "day": "2026-08-18",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-18",
@@ -3195,20 +3201,32 @@
     {
       "day": "2026-08-18",
       "category": "search",
+      "name": "Naver",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-18",
+      "category": "search",
       "name": "Naver-Yeti",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-18",
       "category": "search",
       "name": "__total__",
-      "hits": 13
+      "hits": 24
+    },
+    {
+      "day": "2026-08-18",
+      "category": "search",
+      "name": "facebook",
+      "hits": 3
     },
     {
       "day": "2026-08-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 29
+      "hits": 37
     }
   ]
 }
