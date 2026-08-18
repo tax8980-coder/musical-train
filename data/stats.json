@@ -3280,7 +3280,7 @@
       "day": "2026-08-19",
       "category": "bot",
       "name": "generic",
-      "hits": 2
+      "hits": 6
     },
     {
       "day": "2026-08-19",
@@ -3304,7 +3304,7 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-19",
@@ -3316,13 +3316,13 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-19",
@@ -3334,13 +3334,13 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/two-workplaces-separate-accounting-127-10",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-19",
@@ -3356,21 +3356,27 @@
     },
     {
       "day": "2026-08-19",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
       "category": "pv",
       "name": "total",
-      "hits": 40
+      "hits": 48
     },
     {
       "day": "2026-08-19",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 32
+      "hits": 40
     },
     {
       "day": "2026-08-19",
       "category": "reftype",
       "name": "직접",
-      "hits": 32
+      "hits": 40
     },
     {
       "day": "2026-08-19",
@@ -3382,7 +3388,7 @@
       "day": "2026-08-19",
       "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-19",
@@ -3394,13 +3400,13 @@
       "day": "2026-08-19",
       "category": "search",
       "name": "__total__",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 32
+      "hits": 40
     }
   ]
 }
