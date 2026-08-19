@@ -3610,7 +3610,7 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-20",
@@ -3622,19 +3622,19 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "Meta-ExternalAgent",
-      "hits": 17
+      "hits": 20
     },
     {
       "day": "2026-08-20",
       "category": "ai",
       "name": "__total__",
-      "hits": 23
+      "hits": 27
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-20",
@@ -3657,6 +3657,18 @@
     {
       "day": "2026-08-20",
       "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
       "hits": 2
     },
@@ -3670,31 +3682,37 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 33
+      "hits": 37
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 23
+      "hits": 26
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 23
+      "hits": 26
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Googlebot",
       "hits": 4
+    },
+    {
+      "day": "2026-08-20",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
     },
     {
       "day": "2026-08-20",
@@ -3706,13 +3724,13 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 11
+      "hits": 14
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 31
+      "hits": 35
     }
   ]
 }
