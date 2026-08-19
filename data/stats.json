@@ -3616,43 +3616,43 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-20",
       "category": "ai",
       "name": "Meta-ExternalAgent",
-      "hits": 14
+      "hits": 16
     },
     {
       "day": "2026-08-20",
       "category": "ai",
       "name": "__total__",
-      "hits": 19
+      "hits": 22
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 11
+      "hits": 14
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-20",
@@ -3670,19 +3670,19 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 25
+      "hits": 33
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 17
+      "hits": 23
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 17
+      "hits": 23
     },
     {
       "day": "2026-08-20",
@@ -3694,7 +3694,7 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-20",
@@ -3706,13 +3706,13 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 23
+      "hits": 31
     }
   ]
 }
