@@ -399,6 +399,7 @@ POST_NOTE = {
     "two-workplaces-separate-accounting-127-10": "tax-credit",
     "worker-succession-headcount-2022du53921": "tax-credit",
     "company-car-purchase-method-2026": "corporate-tax",
+    "jibun-eopi-beopin-gan-tujahago-suikman-nanwo": "corporate-tax",        # 익명조합 투자 법인세·원천징수
     "testamentary-trust-not-tax-saving": "transfer-inheritance-gift",
     "presale-right-acquisition-date-2024du54560": "transfer-inheritance-gift",
     "temp-2house-3house-sell-one-2024du55426": "transfer-inheritance-gift",
