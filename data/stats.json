@@ -3256,12 +3256,18 @@
       "day": "2026-08-19",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 20
+      "hits": 32
     },
     {
       "day": "2026-08-19",
       "category": "ai",
       "name": "ChatGPT-User",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-19",
+      "category": "ai",
+      "name": "ClaudeBot",
       "hits": 1
     },
     {
@@ -3273,20 +3279,38 @@
     {
       "day": "2026-08-19",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 81
+    },
+    {
+      "day": "2026-08-19",
+      "category": "ai",
       "name": "__total__",
-      "hits": 23
+      "hits": 120
     },
     {
       "day": "2026-08-19",
       "category": "bot",
       "name": "generic",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/",
-      "hits": 17
+      "hits": 28
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 2
     },
     {
       "day": "2026-08-19",
@@ -3304,19 +3328,25 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 3
+      "hits": 5
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/company-car-purchase-method-2026",
+      "hits": 2
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-08-19",
@@ -3327,8 +3357,20 @@
     {
       "day": "2026-08-19",
       "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 2
     },
     {
       "day": "2026-08-19",
@@ -3363,26 +3405,74 @@
     {
       "day": "2026-08-19",
       "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
       "name": "/intro.html",
       "hits": 2
     },
     {
       "day": "2026-08-19",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
       "category": "pv",
       "name": "total",
-      "hits": 54
+      "hits": 88
+    },
+    {
+      "day": "2026-08-19",
+      "category": "refsite",
+      "name": "SNS · 네이버블로그",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "refsite",
+      "name": "검색 · 구글",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-19",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 2
     },
     {
       "day": "2026-08-19",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 46
+      "hits": 61
+    },
+    {
+      "day": "2026-08-19",
+      "category": "reftype",
+      "name": "SNS",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 3
     },
     {
       "day": "2026-08-19",
       "category": "reftype",
       "name": "직접",
-      "hits": 46
+      "hits": 61
     },
     {
       "day": "2026-08-19",
@@ -3400,19 +3490,25 @@
       "day": "2026-08-19",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-19",
       "category": "search",
       "name": "__total__",
-      "hits": 8
+      "hits": 10
+    },
+    {
+      "day": "2026-08-19",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-08-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 46
+      "hits": 72
     }
   ]
 }
