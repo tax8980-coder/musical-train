@@ -3292,13 +3292,13 @@
       "day": "2026-08-19",
       "category": "bot",
       "name": "generic",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/",
-      "hits": 52
+      "hits": 60
     },
     {
       "day": "2026-08-19",
@@ -3328,13 +3328,19 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/bad-debt-vat-credit-2year",
       "hits": 2
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
     },
     {
       "day": "2026-08-19",
@@ -3353,6 +3359,12 @@
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
       "hits": 4
+    },
+    {
+      "day": "2026-08-19",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 2
     },
     {
       "day": "2026-08-19",
@@ -3376,13 +3388,13 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/inclusive-wage-fixed-ot-2026",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-19",
@@ -3394,13 +3406,13 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-19",
@@ -3412,7 +3424,7 @@
       "day": "2026-08-19",
       "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-19",
@@ -3508,13 +3520,13 @@
       "day": "2026-08-19",
       "category": "pv",
       "name": "total",
-      "hits": 160
+      "hits": 179
     },
     {
       "day": "2026-08-19",
       "category": "refsite",
       "name": "SNS · 네이버블로그",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-19",
@@ -3532,13 +3544,13 @@
       "day": "2026-08-19",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 102
+      "hits": 117
     },
     {
       "day": "2026-08-19",
       "category": "reftype",
       "name": "SNS",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-19",
@@ -3550,7 +3562,7 @@
       "day": "2026-08-19",
       "category": "reftype",
       "name": "직접",
-      "hits": 102
+      "hits": 117
     },
     {
       "day": "2026-08-19",
@@ -3562,7 +3574,13 @@
       "day": "2026-08-19",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 8
+    },
+    {
+      "day": "2026-08-19",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
     },
     {
       "day": "2026-08-19",
@@ -3574,7 +3592,7 @@
       "day": "2026-08-19",
       "category": "search",
       "name": "__total__",
-      "hits": 15
+      "hits": 18
     },
     {
       "day": "2026-08-19",
@@ -3586,7 +3604,7 @@
       "day": "2026-08-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 112
+      "hits": 127
     }
   ]
 }
