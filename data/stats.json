@@ -3610,13 +3610,13 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "Amazonbot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-20",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-20",
@@ -3628,13 +3628,13 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "__total__",
-      "hits": 27
+      "hits": 29
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 15
+      "hits": 16
     },
     {
       "day": "2026-08-20",
@@ -3658,13 +3658,13 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 1
+      "hits": 5
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-20",
@@ -3682,25 +3682,25 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 37
+      "hits": 44
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 26
+      "hits": 32
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 26
+      "hits": 32
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-20",
@@ -3724,13 +3724,13 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 35
+      "hits": 42
     }
   ]
 }
