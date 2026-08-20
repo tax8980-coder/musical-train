@@ -3616,7 +3616,7 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 5
+      "hits": 9
     },
     {
       "day": "2026-08-20",
@@ -3628,19 +3628,25 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "__total__",
-      "hits": 29
+      "hits": 33
+    },
+    {
+      "day": "2026-08-20",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 16
+      "hits": 18
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-20",
@@ -3664,7 +3670,7 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-20",
@@ -3682,25 +3688,37 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 44
+      "hits": 48
+    },
+    {
+      "day": "2026-08-20",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 1
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 32
+      "hits": 33
+    },
+    {
+      "day": "2026-08-20",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 1
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 32
+      "hits": 33
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Bingbot",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-20",
@@ -3718,19 +3736,19 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 15
+      "hits": 18
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 42
+      "hits": 46
     }
   ]
 }
