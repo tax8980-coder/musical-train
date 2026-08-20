@@ -155,8 +155,37 @@ def plain_text(rich):
     return "".join(r.get("plain_text", "") for r in (rich or []))
 
 
-def blocks_to_md(blocks):
+IMG_DIR = os.path.join(BASE, "assets", "columns")
+
+
+def save_image(url, slug, idx):
+    """노션 이미지(만료되는 S3 서명 URL)를 저장소에 내려받고 사이트 경로를 돌려준다.
+    실패하면 None → 호출측에서 기존 링크 방식으로 폴백."""
+    if not slug or not url:
+        return None
+    ext = ".png"
+    for e in (".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"):
+        if e in url.split("?")[0].lower():
+            ext = ".jpg" if e == ".jpeg" else e
+            break
+    name = "%s-%d%s" % (slug, idx, ext)
+    dest = os.path.join(IMG_DIR, name)
+    try:
+        os.makedirs(IMG_DIR, exist_ok=True)
+        req = urllib.request.Request(url, headers={"User-Agent": "jiyul-sync/1.0"})
+        with urllib.request.urlopen(req, timeout=60) as r, open(dest, "wb") as fp:
+            fp.write(r.read())
+    except Exception as e:                                  # noqa: BLE001
+        print("  · 이미지 저장 실패(%s): %s" % (name, e))
+        return None
+    print("  · 이미지 저장 %s" % name)
+    return "/assets/columns/" + name
+
+
+def blocks_to_md(blocks, slug=None, _img_no=None):
     lines = []
+    if _img_no is None:
+        _img_no = [0]
     for b in blocks:
         t = b.get("type")
         d = b.get(t, {}) if t else {}
@@ -216,9 +245,16 @@ def blocks_to_md(blocks):
             if d.get("type") in ("external", "file"):
                 url = d.get(d["type"], {}).get("url", "")
             url = url or d.get("url", "")
-            cap = rich_to_md(d.get("caption")) or url
-            if url:
-                lines.append("[%s](%s)" % (cap, url))
+            cap = rich_to_md(d.get("caption"))
+            if url and t == "image":
+                _img_no[0] += 1
+                local = save_image(url, slug, _img_no[0])
+                if local:
+                    lines.append("![%s](%s)" % (cap, local))
+                else:
+                    lines.append("[%s](%s)" % (cap or url, url))
+            elif url:
+                lines.append("[%s](%s)" % (cap or url, url))
         else:
             txt = rich_to_md(d.get("rich_text")) if isinstance(d, dict) else ""
             if txt:
@@ -386,7 +422,7 @@ def sync():
         except urllib.error.HTTPError:
             print("  · 건너뜀(조회 실패) %s" % title[:36])
             continue
-        md = blocks_to_md(body_blocks)
+        md = blocks_to_md(body_blocks, slug=slug)
         if "참고용 일반정보" not in md:
             md = DISCLAIMER + "\n" + md
         front = [

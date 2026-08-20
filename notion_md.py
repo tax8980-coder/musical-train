@@ -17,6 +17,7 @@ import re
 
 # ---------- 인라인 ----------
 _LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
+_IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
 _BOLD_RE = re.compile(r"\*\*(.+?)\*\*")
 _CODE_RE = re.compile(r"`([^`]+)`")
 
@@ -29,6 +30,13 @@ def render_inline(text):
     def stash(html_fragment):
         tokens.append(html_fragment)
         return "\x00%d\x00" % (len(tokens) - 1)
+
+    # 이미지: ![대체텍스트](url)  — 링크보다 먼저 처리해야 한다
+    def _img(m):
+        alt = html.escape(m.group(1), quote=True)
+        src = html.escape(m.group(2), quote=True)
+        return stash('<img src="%s" alt="%s" loading="lazy" decoding="async" />' % (src, alt))
+    text = _IMG_RE.sub(_img, text)
 
     # 링크: [텍스트](url)
     def _link(m):
@@ -211,6 +219,15 @@ def render_body(body):
             if ol or checks:
                 flush_lists()
             ul.append(s[2:]); i += 1; continue
+
+        # 이미지 단독 줄 → figure
+        mi = _IMG_RE.fullmatch(s)
+        if mi:
+            flush_lists()
+            cap = mi.group(1).strip()
+            cap_html = ("<figcaption>%s</figcaption>" % render_inline(cap)) if cap else ""
+            html_parts.append('<figure class="post-figure">%s%s</figure>' % (render_inline(s), cap_html))
+            i += 1; continue
 
         # 문단
         flush_lists()

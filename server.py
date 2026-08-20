@@ -446,6 +446,9 @@ HUB_INLINE_CSS = (
     '.article__back-hub::before{content:"📂 ";font-weight:400}'
     ".article__back-hub:hover{text-decoration:underline}"
     ".hub-breadcrumb{font-size:.9rem;color:#5b6b7f;margin:0 0 12px}"
+    ".post-figure{margin:20px 0;text-align:center}"
+    ".post-figure img{max-width:100%;height:auto;border:1px solid #e3e8ef;border-radius:8px}"
+    ".post-figure figcaption{margin-top:8px;font-size:.86rem;color:#6b7280;line-height:1.5}"
     ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
     ".hub-home{margin:2px 0 20px}"
     ".hub-home__title{font-size:1rem;font-weight:700;color:#1E3A5F;margin:0 0 10px}"
