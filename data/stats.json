@@ -3616,13 +3616,13 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 18
+      "hits": 19
     },
     {
       "day": "2026-08-20",
       "category": "ai",
       "name": "Meta-ExternalAgent",
-      "hits": 20
+      "hits": 21
     },
     {
       "day": "2026-08-20",
@@ -3634,25 +3634,37 @@
       "day": "2026-08-20",
       "category": "ai",
       "name": "__total__",
-      "hits": 79
+      "hits": 81
     },
     {
       "day": "2026-08-20",
       "category": "bot",
       "name": "generic",
-      "hits": 36
+      "hits": 83
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 66
+      "hits": 71
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 1
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 9
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 1
     },
     {
       "day": "2026-08-20",
@@ -3670,7 +3682,7 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-20",
@@ -3699,7 +3711,19 @@
     {
       "day": "2026-08-20",
       "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
       "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/income-tax",
       "hits": 1
     },
     {
@@ -3734,9 +3758,27 @@
     },
     {
       "day": "2026-08-20",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/transfer-inheritance-gift",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
+      "name": "/vat",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 110
+      "hits": 124
     },
     {
       "day": "2026-08-20",
@@ -3754,13 +3796,13 @@
       "day": "2026-08-20",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 67
+      "hits": 75
     },
     {
       "day": "2026-08-20",
@@ -3772,19 +3814,19 @@
       "day": "2026-08-20",
       "category": "reftype",
       "name": "검색",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 67
+      "hits": 75
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Bingbot",
-      "hits": 18
+      "hits": 21
     },
     {
       "day": "2026-08-20",
@@ -3802,19 +3844,19 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 37
+      "hits": 41
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 80
+      "hits": 91
     }
   ]
 }
