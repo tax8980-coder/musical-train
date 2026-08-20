@@ -3627,8 +3627,14 @@
     {
       "day": "2026-08-20",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 34
+    },
+    {
+      "day": "2026-08-20",
+      "category": "ai",
       "name": "__total__",
-      "hits": 33
+      "hits": 67
     },
     {
       "day": "2026-08-20",
@@ -3640,7 +3646,7 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 18
+      "hits": 28
     },
     {
       "day": "2026-08-20",
@@ -3651,8 +3657,14 @@
     {
       "day": "2026-08-20",
       "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
       "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-20",
@@ -3669,6 +3681,12 @@
     {
       "day": "2026-08-20",
       "category": "page",
+      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
       "hits": 5
     },
@@ -3681,6 +3699,12 @@
     {
       "day": "2026-08-20",
       "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "page",
       "name": "/post.html",
       "hits": 1
     },
@@ -3688,31 +3712,31 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 48
+      "hits": 62
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-20",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 33
+      "hits": 41
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "검색",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 33
+      "hits": 41
     },
     {
       "day": "2026-08-20",
@@ -3736,19 +3760,19 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 3
+      "hits": 8
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 18
+      "hits": 23
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 46
+      "hits": 56
     }
   ]
 }
