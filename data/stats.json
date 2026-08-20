@@ -3640,13 +3640,13 @@
       "day": "2026-08-20",
       "category": "bot",
       "name": "generic",
-      "hits": 83
+      "hits": 85
     },
     {
       "day": "2026-08-20",
       "category": "page",
       "name": "/",
-      "hits": 71
+      "hits": 72
     },
     {
       "day": "2026-08-20",
@@ -3688,7 +3688,7 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-20",
@@ -3700,7 +3700,7 @@
       "day": "2026-08-20",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-20",
@@ -3778,7 +3778,7 @@
       "day": "2026-08-20",
       "category": "pv",
       "name": "total",
-      "hits": 124
+      "hits": 127
     },
     {
       "day": "2026-08-20",
@@ -3801,8 +3801,14 @@
     {
       "day": "2026-08-20",
       "category": "refsite",
+      "name": "검색 · 빙",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-20",
+      "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 75
+      "hits": 77
     },
     {
       "day": "2026-08-20",
@@ -3814,19 +3820,19 @@
       "day": "2026-08-20",
       "category": "reftype",
       "name": "검색",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-20",
       "category": "reftype",
       "name": "직접",
-      "hits": 75
+      "hits": 77
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "Bingbot",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-08-20",
@@ -3844,19 +3850,73 @@
       "day": "2026-08-20",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-20",
       "category": "search",
       "name": "__total__",
-      "hits": 41
+      "hits": 43
     },
     {
       "day": "2026-08-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 91
+      "hits": 94
+    },
+    {
+      "day": "2026-08-21",
+      "category": "ai",
+      "name": "Meta-ExternalAgent",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-21",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-21",
+      "category": "page",
+      "name": "/",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-21",
+      "category": "page",
+      "name": "/readme.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-21",
+      "category": "pv",
+      "name": "total",
+      "hits": 9
+    },
+    {
+      "day": "2026-08-21",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-21",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-21",
+      "category": "search",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-21",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 4
     }
   ]
 }
