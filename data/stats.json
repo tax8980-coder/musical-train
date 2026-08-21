@@ -3873,20 +3873,32 @@
     {
       "day": "2026-08-21",
       "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-21",
+      "category": "ai",
       "name": "Meta-ExternalAgent",
       "hits": 3
     },
     {
       "day": "2026-08-21",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-21",
+      "category": "ai",
       "name": "__total__",
-      "hits": 4
+      "hits": 10
     },
     {
       "day": "2026-08-21",
       "category": "bot",
       "name": "generic",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-21",
@@ -3898,13 +3910,25 @@
       "day": "2026-08-21",
       "category": "page",
       "name": "/",
-      "hits": 18
+      "hits": 30
+    },
+    {
+      "day": "2026-08-21",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 3
     },
     {
       "day": "2026-08-21",
       "category": "page",
       "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
       "hits": 3
+    },
+    {
+      "day": "2026-08-21",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
     },
     {
       "day": "2026-08-21",
@@ -3922,13 +3946,19 @@
       "day": "2026-08-21",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-21",
       "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
       "hits": 6
+    },
+    {
+      "day": "2026-08-21",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
     },
     {
       "day": "2026-08-21",
@@ -3940,43 +3970,55 @@
       "day": "2026-08-21",
       "category": "pv",
       "name": "total",
-      "hits": 36
+      "hits": 54
+    },
+    {
+      "day": "2026-08-21",
+      "category": "refsite",
+      "name": "SNS · X(트위터)",
+      "hits": 1
     },
     {
       "day": "2026-08-21",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-21",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 20
+      "hits": 27
+    },
+    {
+      "day": "2026-08-21",
+      "category": "reftype",
+      "name": "SNS",
+      "hits": 1
     },
     {
       "day": "2026-08-21",
       "category": "reftype",
       "name": "검색",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-21",
       "category": "reftype",
       "name": "직접",
-      "hits": 20
+      "hits": 27
     },
     {
       "day": "2026-08-21",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 14
     },
     {
       "day": "2026-08-21",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-21",
@@ -3988,19 +4030,25 @@
       "day": "2026-08-21",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-21",
       "category": "search",
       "name": "__total__",
-      "hits": 21
+      "hits": 29
+    },
+    {
+      "day": "2026-08-21",
+      "category": "search",
+      "name": "facebook",
+      "hits": 2
     },
     {
       "day": "2026-08-21",
       "category": "visitor",
       "name": "unique",
-      "hits": 29
+      "hits": 43
     }
   ]
 }
