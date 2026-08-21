@@ -4288,7 +4288,7 @@
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-08-22",
@@ -4311,6 +4311,12 @@
     {
       "day": "2026-08-22",
       "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
       "hits": 3
     },
@@ -4324,19 +4330,19 @@
       "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 20
+      "hits": 21
     },
     {
       "day": "2026-08-22",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-22",
       "category": "reftype",
       "name": "직접",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-22",
@@ -4384,7 +4390,7 @@
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 18
+      "hits": 19
     }
   ]
 }
