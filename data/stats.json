@@ -4178,6 +4178,36 @@
     },
     {
       "day": "2026-08-22",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
+      "name": "Meta-ExternalAgent",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "Meta-ExternalAgent|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
       "category": "page",
       "name": "/",
       "hits": 3
@@ -4197,8 +4227,14 @@
     {
       "day": "2026-08-22",
       "category": "search",
-      "name": "__total__",
+      "name": "Naver-Yeti",
       "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
+      "name": "__total__",
+      "hits": 2
     },
     {
       "day": "2026-08-22",
