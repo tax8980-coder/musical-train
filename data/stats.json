@@ -4179,7 +4179,19 @@
     {
       "day": "2026-08-22",
       "category": "ai",
+      "name": "CCBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
       "name": "ChatGPT-User",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
+      "name": "GPTBot",
       "hits": 2
     },
     {
@@ -4191,8 +4203,32 @@
     {
       "day": "2026-08-22",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
       "name": "__total__",
-      "hits": 3
+      "hits": 11
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "CCBot|/acquisition-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "CCBot|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
     },
     {
       "day": "2026-08-22",
@@ -4209,14 +4245,50 @@
     {
       "day": "2026-08-22",
       "category": "aipage",
+      "name": "GPTBot|/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "GPTBot|/vat",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
       "name": "Meta-ExternalAgent|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "PerplexityBot|/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "PerplexityBot|/resources.html",
       "hits": 1
     },
     {
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 6
+      "hits": 14
     },
     {
       "day": "2026-08-22",
@@ -4233,14 +4305,20 @@
     {
       "day": "2026-08-22",
       "category": "search",
+      "name": "Baiduspider",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Googlebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-22",
@@ -4251,8 +4329,14 @@
     {
       "day": "2026-08-22",
       "category": "search",
+      "name": "YandexBot",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
       "name": "__total__",
-      "hits": 8
+      "hits": 15
     },
     {
       "day": "2026-08-22",
