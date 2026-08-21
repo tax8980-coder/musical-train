@@ -1714,7 +1714,7 @@ body.is-locked { overflow: hidden; }
 }
 .table-wrap th:last-child, .table-wrap td:last-child { border-right: 0; }
 .table-wrap tr:last-child td { border-bottom: 0; }
-.table-wrap th { background: var(--navy); color: #fff; font-weight: 600; white-space: nowrap; }
+.table-wrap th { background: var(--navy); color: #fff; font-weight: 600; white-space: nowrap; text-align: center; }
 /* 헤더 셀(남색 배경) 안의 **굵게**는 .prose strong 의 남색을 물려받으면 보이지 않는다 */
 .table-wrap th strong { color: inherit; }
 .table-wrap td { color: var(--text); }
