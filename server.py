@@ -245,6 +245,8 @@ def record_visit(path, ip, ua, ref=""):
             elif cat == "ai":
                 bump("ai", bot)
                 bump("ai", "__total__")
+                # AI 봇이 어떤 페이지(칼럼 URL)를 읽었는지 — name='봇|경로'
+                bump("aipage", (bot or "unknown") + "|" + path[:100])
             elif cat == "search":
                 bump("search", bot)
                 bump("search", "__total__")
@@ -497,7 +499,7 @@ def build_stats(days=30):
     out = {
         "days": days, "since": since,
         "pv": 0, "visitors": 0, "ai": 0, "search": 0, "bot": 0,
-        "ai_by_bot": [], "search_by_bot": [], "top_pages": [], "daily": [],
+        "ai_by_bot": [], "search_by_bot": [], "ai_pages": [], "top_pages": [], "daily": [],
         "ref_types": [], "ref_sites": [], "keywords": [],
     }
     try:
@@ -520,6 +522,19 @@ def build_stats(days=30):
         title_map = {p.get("slug"): p.get("title") for p in load_posts().get("posts", [])}
         out["top_pages"] = [(_page_label(r["name"], title_map), r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
+        # AI 봇별로 읽은 페이지: 봇 총조회수 내림차순 → 봇 안에서는 조회수 내림차순
+        ai_pages = {}
+        for r in q("SELECT name, SUM(hits) s FROM stat_counts WHERE category='aipage' AND day>=? "
+                   "GROUP BY name ORDER BY s DESC", (since,)):
+            bot_name, sep, apath = r["name"].partition("|")
+            if not sep or not apath:
+                continue
+            ai_pages.setdefault(bot_name, []).append(
+                (_page_label(apath, title_map), apath, int(r["s"])))
+        out["ai_pages"] = sorted(
+            ((b, sum(x[2] for x in rows), rows[:20]) for b, rows in ai_pages.items()),
+            key=lambda t: t[1], reverse=True)
+
         out["ref_types"] = [(r["name"], r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='reftype' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
         out["ref_sites"] = [(r["name"], r["s"]) for r in q(
@@ -553,6 +568,20 @@ def render_stats_html(s):
             for n, h in pairs
         )
 
+    def ai_pages_html(groups):
+        if not groups:
+            return ('<tr><td colspan="2" class="empty">아직 기록이 없습니다. '
+                    'AI 크롤러가 방문하면 이 표에 쌓입니다.</td></tr>')
+        out = []
+        for bot_name, total, rows in groups:
+            out.append('<tr class=grp><td>' + _esc_html(bot_name)
+                       + '</td><td class=num>' + format(int(total), ",d") + "</td></tr>")
+            for label, apath, hits in rows:
+                out.append("<tr><td>" + _esc_html(label)
+                           + "<span class=path>" + _esc_html(apath) + "</span></td>"
+                           + '<td class=num>' + format(int(hits), ",d") + "</td></tr>")
+        return "".join(out)
+
     daily_rows = "".join(
         "<tr><td>" + _esc_html(r[0]) + "</td>"
         + '<td class="num">' + format(int(r[1]), ",d") + "</td>"
@@ -579,6 +608,8 @@ def render_stats_html(s):
         "h2{font-size:15px;margin:0 0 10px;color:var(--navy)}"
         "table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}"
         "th{color:var(--sub);font-weight:600;font-size:12px}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}"
+        "tr.grp td{background:#F1F6FC;font-weight:700;color:var(--navy)}"
+        ".path{display:block;font-size:11px;color:var(--sub);font-weight:400;margin-top:2px;word-break:break-all}"
         ".empty{color:var(--sub);text-align:center;padding:14px}.note{color:var(--sub);font-size:12px;line-height:1.7}"
         "a.logout{font-size:13px;color:var(--sub);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:8px}"
         "a.logout:hover{background:#fff}"
@@ -595,6 +626,11 @@ def render_stats_html(s):
         "</div>"
         "<section><h2>AI 크롤러별 조회 (GPTBot·ClaudeBot·PerplexityBot 등)</h2>"
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["ai_by_bot"], "아직 AI 크롤러 방문 없음") + "</tbody></table></section>"
+        "<section><h2>AI별로 읽은 페이지 (어떤 AI가 어떤 칼럼을 읽었나)</h2>"
+        "<table><thead><tr><th>봇 / 페이지</th><th class=num>조회수</th></tr></thead><tbody>"
+        + ai_pages_html(s["ai_pages"]) + "</tbody></table>"
+        "<p class=note style='margin-top:10px'>※ 회색 줄이 봇 이름·합계, 그 아래가 해당 봇이 읽은 페이지입니다(봇별 상위 20개). "
+        "이 항목은 <b>2026-08-20부터</b> 수집을 시작했으므로 그 이전 AI 방문은 위의 봇별 합계에만 잡힙니다.</p></section>"
         "<section><h2>검색 크롤러별 조회 (Googlebot·Naver Yeti·Bingbot 등)</h2>"
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["search_by_bot"]) + "</tbody></table></section>"
         "<section><h2>인기 페이지 (사람 방문)</h2>"
