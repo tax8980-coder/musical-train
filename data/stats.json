@@ -4288,55 +4288,61 @@
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 17
+      "hits": 21
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 12
+      "hits": 20
     },
     {
       "day": "2026-08-22",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 7
+      "hits": 14
     },
     {
       "day": "2026-08-22",
       "category": "reftype",
       "name": "직접",
-      "hits": 7
+      "hits": 14
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-08-22",
@@ -4348,7 +4354,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Bingbot",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-22",
@@ -4360,7 +4366,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-22",
@@ -4372,13 +4378,13 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "__total__",
-      "hits": 21
+      "hits": 26
     },
     {
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 10
+      "hits": 18
     }
   ]
 }
