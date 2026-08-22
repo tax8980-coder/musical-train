@@ -4541,6 +4541,78 @@
       "category": "visitor",
       "name": "unique",
       "hits": 67
+    },
+    {
+      "day": "2026-08-23",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-23",
+      "category": "pv",
+      "name": "total",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-23",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-23",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-23",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-23",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "search",
+      "name": "__total__",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-23",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 5
     }
   ]
 }
