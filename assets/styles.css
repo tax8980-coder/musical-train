@@ -1794,14 +1794,20 @@ body.is-locked { overflow: hidden; }
   .print-watermark__logo { width: 320px; height: auto; opacity: 0.08; filter: grayscale(1); }
 
   /* 페이지 번호(n / 전체) — CSS 표준. 크롬은 미지원, 파이어폭스 등에서 표시됨 */
-  /* 하단 한 줄: 홈페이지 · 블로그 · 페이지번호.
-     좌/가운데/우 마진박스로 나누면 글자 길이에 따라 항목 사이 여백이 달라지므로,
-     한 줄 전체를 @bottom-center 하나에 넣고 같은 폭(NBSP 6칸)으로 띄운다. */
+  /* 하단 한 줄: (좌)홈페이지  (가운데)블로그  (우)페이지번호.
+     좌·우 박스가 각각 좌/우 여백에 붙으므로 시작점과 끝점은 본문 폭과 일치한다.
+     가운데 박스는 '페이지 정중앙'에 놓이는데 좌측 문구가 페이지번호보다 훨씬 길어
+     그대로 두면 좌측 여백만 좁아진다. 그래서 가운데 문구 앞에 고정폭 공백(NBSP)을
+     넣어 오른쪽으로 밀어 양쪽 간격을 같게 맞췄다.
+       계산: 10pt Pretendard 기준 폭 — 좌 195.5px, 우 30.8px, NBSP 3.35px
+             필요한 이동량 = (195.5 - 30.8) / 2 ≈ 82px
+             가운데 박스는 중앙정렬이라 NBSP N칸이면 N*3.35/2 만큼 이동 → N = 49
+     ※ 좌측 문구나 글꼴을 바꾸면 N도 다시 계산해야 한다. */
   @page {
     margin: 16mm 15mm 15mm;
-    @bottom-center {
-      content: "세무법인지율 홈페이지 taxin4u.com      " "블로그 blog.naver.com/taxin4u      " counter(page) " / " counter(pages);
-      font-size: 10pt; color: #333;
-    }
+    @bottom-left   { content: "세무법인지율 홈페이지 taxin4u.com"; font-size: 10pt; color: #333; }
+    @bottom-center { content: "                                                 블로그 blog.naver.com/taxin4u"; font-size: 10pt; color: #333; }
+    @bottom-right  { content: counter(page) " / " counter(pages); font-size: 10pt; color: #333; }
+  }
   }
 }
