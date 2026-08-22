@@ -4564,13 +4564,13 @@
       "day": "2026-08-23",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-23",
@@ -4588,7 +4588,7 @@
       "day": "2026-08-23",
       "category": "page",
       "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-23",
@@ -4600,19 +4600,19 @@
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 26
+      "hits": 30
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 20
+      "hits": 22
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 20
+      "hits": 22
     },
     {
       "day": "2026-08-23",
@@ -4624,25 +4624,25 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 11
+      "hits": 14
     },
     {
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 26
+      "hits": 30
     }
   ]
 }
