@@ -287,13 +287,12 @@
           return '<a class="post-card__tag" href="/">' + esc(t) + '</a>';
         }).join('');
 
-        // 컨텍스트 노트: '어느 노트에서 왔는지'(?from=). all→없음(← 전체 노트로 충분),
-        // 특정 노트 slug→그 노트, 미지정(직접 방문)→대표 노트로 폴백. (서버 SSR과 동일)
+        // 컨텍스트 노트: '어느 노트에서 왔는지'(?from=). 특정 노트 slug→그 노트,
+        // all(전체 목록)·미지정(직접 방문)→대표 노트로 폴백. (서버 SSR과 동일)
         var notes = window.__NOTES || {};
         var fromParam = new URLSearchParams(location.search).get('from');
         var ctx = null;
-        if (fromParam === 'all') ctx = null;
-        else if (fromParam && notes[fromParam]) ctx = { slug: fromParam, title: notes[fromParam] };
+        if (fromParam && notes[fromParam]) ctx = { slug: fromParam, title: notes[fromParam] };
         else ctx = p.primary_hub || null;
         var hubTop = ctx ? ' <a class="article__back-hub" href="/' + encodeURIComponent(ctx.slug) + '">' + esc(ctx.title) + '</a>' : '';
         var moreBtn = ctx ? '<a class="btn btn--outline btn--sm" href="/' + encodeURIComponent(ctx.slug) + '">' + esc(ctx.title) + '에서 더 보기</a> ' : '';

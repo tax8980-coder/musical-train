@@ -402,6 +402,20 @@ POST_NOTE = {
     "worker-succession-headcount-2022du53921": "tax-credit",
     "company-car-purchase-method-2026": "corporate-tax",
     "jibun-eopi-beopin-gan-tujahago-suikman-nanwo": "corporate-tax",        # 익명조합 투자 법인세·원천징수
+    # 2026-08-21 배정 (자동추정이 조특법 태그 때문에 세액공제·감면으로 잘못 잡히던 칼럼 포함)
+    "jasansujeungiik-semujojeong-bangbeope-ttara": "corporate-tax",          # 자산수증이익 세무조정
+    "beteunameseo-ttein-oegukingyeyakjase-1": "corporate-tax",               # 베트남 외국인계약자세
+    "daepyoja-gajigeupgeum-wae-bangchihamyeon-an": "corporate-tax",          # 대표자 가지급금
+    "baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro": "corporate-tax",        # 가족 인건비 필요경비
+    "saeopyong-sinyongkadeuro-gyeoljehamyeon": "vat",                        # 사업용 신용카드 매입세액
+    "georaecheoga-segeumgyesanseoreul-balgeuphaji": "vat",                   # 세금계산서 미발급
+    "2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek": "transfer-inheritance-gift",  # 1세대 1주택 비과세(1편)
+    "2026-sejegaepyeonan-jungsimeuro-goga-1jutaek": "transfer-inheritance-gift",    # 고가 1주택 양도세(2편)
+    "bumoga-ihonhaetdamyeon-jeungyeojaesangongje": "transfer-inheritance-gift",     # 증여재산공제
+    "baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae": "income-tax",             # 이익소각 의제배당
+    "seongsilsingohwakinbiyong-seaekgongje": "tax-credit",                   # 성실신고확인비용 세액공제
+    "2026nyeon-tonghapgoyongseaekgongjeui": "tax-credit",                    # 통합고용세액공제
+    "tonghapgoyongseaekgongje-sangsigeunroja": "tax-credit",                 # 통합고용 상시근로자 판정
     "testamentary-trust-not-tax-saving": "transfer-inheritance-gift",
     "presale-right-acquisition-date-2024du54560": "transfer-inheritance-gift",
     "temp-2house-3house-sell-one-2024du55426": "transfer-inheritance-gift",
@@ -1315,11 +1329,10 @@ def _render_article(p, posts=None, from_note=None):
         for t in (p.get("tags") or [])
     )
     date = p.get("date")
-    # 컨텍스트 노트: 온 곳(from) 기준. 'all'→없음(← 전체 노트 링크로 충분),
-    # 특정 노트 slug→그 노트, 미지정(직접 방문)→대표 노트로 폴백.
-    if from_note == "all":
-        ctx = None
-    elif from_note and from_note in HUB_BY_SLUG:
+    # 컨텍스트 노트: 온 곳(from) 기준. 특정 노트 slug→그 노트,
+    # 'all'(전체 목록에서 옴)·미지정(직접 방문)→대표 노트(POST_NOTE)로 폴백.
+    # ※ 예전에는 'all'이면 노트 링크를 숨겼으나, 세목 노트 바로가기가 사라져 보여 항상 노출한다.
+    if from_note and from_note in HUB_BY_SLUG:
         ctx = HUB_BY_SLUG[from_note]
     else:
         ctx = _primary_hub_for(p)
