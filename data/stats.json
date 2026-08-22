@@ -4570,31 +4570,37 @@
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 5
+      "hits": 7
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 5
+      "hits": 8
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-08-23",
@@ -4606,13 +4612,13 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 5
+      "hits": 8
     }
   ]
 }
