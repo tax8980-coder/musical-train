@@ -4324,13 +4324,13 @@
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 46
+      "hits": 49
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/",
-      "hits": 43
+      "hits": 49
     },
     {
       "day": "2026-08-22",
@@ -4348,13 +4348,13 @@
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-22",
@@ -4365,8 +4365,20 @@
     {
       "day": "2026-08-22",
       "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
       "hits": 3
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 2
     },
     {
       "day": "2026-08-22",
@@ -4420,7 +4432,7 @@
       "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 76
+      "hits": 90
     },
     {
       "day": "2026-08-22",
@@ -4444,7 +4456,7 @@
       "day": "2026-08-22",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 35
+      "hits": 45
     },
     {
       "day": "2026-08-22",
@@ -4462,13 +4474,13 @@
       "day": "2026-08-22",
       "category": "reftype",
       "name": "직접",
-      "hits": 35
+      "hits": 45
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Applebot",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-22",
@@ -4480,13 +4492,19 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Bingbot",
-      "hits": 39
+      "hits": 44
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Googlebot",
-      "hits": 4
+      "hits": 5
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
     },
     {
       "day": "2026-08-22",
@@ -4504,7 +4522,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "__total__",
-      "hits": 72
+      "hits": 81
     },
     {
       "day": "2026-08-22",
@@ -4516,7 +4534,7 @@
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 53
+      "hits": 66
     }
   ]
 }
