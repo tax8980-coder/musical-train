@@ -4330,7 +4330,7 @@
       "day": "2026-08-22",
       "category": "page",
       "name": "/",
-      "hits": 40
+      "hits": 43
     },
     {
       "day": "2026-08-22",
@@ -4420,7 +4420,7 @@
       "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 73
+      "hits": 76
     },
     {
       "day": "2026-08-22",
@@ -4444,7 +4444,7 @@
       "day": "2026-08-22",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 34
+      "hits": 35
     },
     {
       "day": "2026-08-22",
@@ -4462,13 +4462,13 @@
       "day": "2026-08-22",
       "category": "reftype",
       "name": "직접",
-      "hits": 34
+      "hits": 35
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Applebot",
-      "hits": 11
+      "hits": 13
     },
     {
       "day": "2026-08-22",
@@ -4486,13 +4486,13 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-22",
@@ -4504,7 +4504,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "__total__",
-      "hits": 66
+      "hits": 71
     },
     {
       "day": "2026-08-22",
@@ -4516,7 +4516,7 @@
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 50
+      "hits": 53
     }
   ]
 }
