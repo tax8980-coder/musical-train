@@ -4312,13 +4312,13 @@
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 37
+      "hits": 42
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/",
-      "hits": 27
+      "hits": 30
     },
     {
       "day": "2026-08-22",
@@ -4336,7 +4336,7 @@
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-22",
@@ -4354,13 +4354,55 @@
       "day": "2026-08-22",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 2
+      "hits": 3
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 5
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 44
+      "hits": 61
     },
     {
       "day": "2026-08-22",
@@ -4371,26 +4413,32 @@
     {
       "day": "2026-08-22",
       "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 26
+      "hits": 29
     },
     {
       "day": "2026-08-22",
       "category": "reftype",
       "name": "검색",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-22",
       "category": "reftype",
       "name": "직접",
-      "hits": 26
+      "hits": 29
     },
     {
       "day": "2026-08-22",
       "category": "search",
       "name": "Applebot",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-22",
@@ -4402,7 +4450,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Bingbot",
-      "hits": 30
+      "hits": 36
     },
     {
       "day": "2026-08-22",
@@ -4426,13 +4474,19 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "__total__",
-      "hits": 54
+      "hits": 63
+    },
+    {
+      "day": "2026-08-22",
+      "category": "search",
+      "name": "facebook",
+      "hits": 2
     },
     {
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 37
+      "hits": 40
     }
   ]
 }
