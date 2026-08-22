@@ -4564,7 +4564,7 @@
       "day": "2026-08-23",
       "category": "bot",
       "name": "generic",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-23",
@@ -4576,7 +4576,7 @@
       "day": "2026-08-23",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-23",
@@ -4594,25 +4594,25 @@
       "day": "2026-08-23",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 23
+      "hits": 26
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 17
+      "hits": 20
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 17
+      "hits": 20
     },
     {
       "day": "2026-08-23",
@@ -4630,19 +4630,19 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 23
+      "hits": 26
     }
   ]
 }
