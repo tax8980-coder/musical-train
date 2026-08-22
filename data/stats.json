@@ -4564,43 +4564,55 @@
       "day": "2026-08-23",
       "category": "bot",
       "name": "generic",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 7
+      "hits": 8
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
     },
     {
       "day": "2026-08-23",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 8
+      "hits": 13
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 3
+      "hits": 8
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 3
+      "hits": 8
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-23",
@@ -4612,13 +4624,13 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 8
+      "hits": 13
     }
   ]
 }
