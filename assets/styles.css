@@ -1798,7 +1798,7 @@ body.is-locked { overflow: hidden; }
   @page {
     margin: 16mm 15mm 15mm;
     @bottom-left   { content: "세무법인지율 www.taxin4u.com"; font-size: 10pt; color: #333; }
-    @bottom-center { content: "02-552-6436 · asd8980@hanmail.net"; font-size: 10pt; color: #333; }
+    @bottom-center { content: "네이버블로그 blog.naver.com/taxin4u"; font-size: 10pt; color: #333; }
     @bottom-right  { content: counter(page) " / " counter(pages); font-size: 10pt; color: #333; }
   }
 }
