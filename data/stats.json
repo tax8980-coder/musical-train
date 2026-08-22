@@ -4179,6 +4179,12 @@
     {
       "day": "2026-08-22",
       "category": "ai",
+      "name": "Amazonbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
+      "category": "ai",
       "name": "CCBot",
       "hits": 2
     },
@@ -4186,7 +4192,7 @@
       "day": "2026-08-22",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-22",
@@ -4222,7 +4228,13 @@
       "day": "2026-08-22",
       "category": "ai",
       "name": "__total__",
-      "hits": 17
+      "hits": 20
+    },
+    {
+      "day": "2026-08-22",
+      "category": "aipage",
+      "name": "Amazonbot|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
     },
     {
       "day": "2026-08-22",
@@ -4246,7 +4258,7 @@
       "day": "2026-08-22",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-22",
@@ -4312,13 +4324,13 @@
       "day": "2026-08-22",
       "category": "bot",
       "name": "generic",
-      "hits": 42
+      "hits": 45
     },
     {
       "day": "2026-08-22",
       "category": "page",
       "name": "/",
-      "hits": 30
+      "hits": 34
     },
     {
       "day": "2026-08-22",
@@ -4400,9 +4412,15 @@
     },
     {
       "day": "2026-08-22",
+      "category": "page",
+      "name": "/transfer-inheritance-gift",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-22",
       "category": "pv",
       "name": "total",
-      "hits": 61
+      "hits": 66
     },
     {
       "day": "2026-08-22",
@@ -4438,7 +4456,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Applebot",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-08-22",
@@ -4450,7 +4468,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "Bingbot",
-      "hits": 36
+      "hits": 37
     },
     {
       "day": "2026-08-22",
@@ -4474,7 +4492,7 @@
       "day": "2026-08-22",
       "category": "search",
       "name": "__total__",
-      "hits": 63
+      "hits": 65
     },
     {
       "day": "2026-08-22",
@@ -4486,7 +4504,7 @@
       "day": "2026-08-22",
       "category": "visitor",
       "name": "unique",
-      "hits": 40
+      "hits": 45
     }
   ]
 }
