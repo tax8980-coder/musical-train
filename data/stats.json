@@ -4847,6 +4847,60 @@
       "category": "visitor",
       "name": "unique",
       "hits": 96
+    },
+    {
+      "day": "2026-08-24",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-24",
+      "category": "pv",
+      "name": "total",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-24",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-24",
+      "category": "search",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-24",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 3
     }
   ]
 }
