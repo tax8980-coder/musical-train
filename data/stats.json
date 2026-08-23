@@ -4600,7 +4600,7 @@
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 47
+      "hits": 51
     },
     {
       "day": "2026-08-23",
@@ -4660,19 +4660,19 @@
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 71
+      "hits": 75
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 45
+      "hits": 47
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 45
+      "hits": 47
     },
     {
       "day": "2026-08-23",
@@ -4690,7 +4690,7 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-23",
@@ -4708,13 +4708,13 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 34
+      "hits": 37
     },
     {
       "day": "2026-08-23",
@@ -4726,7 +4726,7 @@
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 60
+      "hits": 64
     }
   ]
 }
