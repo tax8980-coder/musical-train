@@ -4906,7 +4906,7 @@
       "day": "2026-08-24",
       "category": "bot",
       "name": "generic",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -4924,7 +4924,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-24",
@@ -4954,7 +4954,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-24",
@@ -5026,19 +5026,19 @@
       "day": "2026-08-24",
       "category": "pv",
       "name": "total",
-      "hits": 46
+      "hits": 48
     },
     {
       "day": "2026-08-24",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 34
+      "hits": 36
     },
     {
       "day": "2026-08-24",
       "category": "reftype",
       "name": "직접",
-      "hits": 34
+      "hits": 36
     },
     {
       "day": "2026-08-24",
@@ -5050,7 +5050,7 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-24",
@@ -5062,13 +5062,13 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "__total__",
-      "hits": 15
+      "hits": 16
     },
     {
       "day": "2026-08-24",
       "category": "visitor",
       "name": "unique",
-      "hits": 43
+      "hits": 45
     }
   ]
 }
