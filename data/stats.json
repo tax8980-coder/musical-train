@@ -4546,25 +4546,25 @@
       "day": "2026-08-23",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-23",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-23",
       "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-23",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-23",
@@ -4592,15 +4592,33 @@
     },
     {
       "day": "2026-08-23",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
       "category": "bot",
       "name": "generic",
-      "hits": 19
+      "hits": 21
     },
     {
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 55
+      "hits": 61
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 2
     },
     {
       "day": "2026-08-23",
@@ -4623,7 +4641,19 @@
     {
       "day": "2026-08-23",
       "category": "page",
+      "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
       "name": "/column/company-car-purchase-method-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/contact.html",
       "hits": 1
     },
     {
@@ -4635,13 +4665,43 @@
     {
       "day": "2026-08-23",
       "category": "page",
-      "name": "/column/financial-income-comprehensive-tax-refund",
+      "name": "/column/e-filing-tax-credit-agent-2026",
       "hits": 1
     },
     {
       "day": "2026-08-23",
       "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
       "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/resources.html",
       "hits": 1
     },
     {
@@ -4653,26 +4713,62 @@
     {
       "day": "2026-08-23",
       "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/column/worker-succession-headcount-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
       "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
+      "name": "/post.html",
       "hits": 1
     },
     {
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 80
+      "hits": 106
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 50
+      "hits": 69
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 50
+      "hits": 69
     },
     {
       "day": "2026-08-23",
@@ -4684,7 +4780,7 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 21
+      "hits": 27
     },
     {
       "day": "2026-08-23",
@@ -4714,19 +4810,19 @@
       "day": "2026-08-23",
       "category": "search",
       "name": "__total__",
-      "hits": 39
+      "hits": 46
     },
     {
       "day": "2026-08-23",
       "category": "search",
       "name": "facebook",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 69
+      "hits": 89
     }
   ]
 }
