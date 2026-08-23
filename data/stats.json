@@ -4894,43 +4894,79 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/",
-      "hits": 8
+      "hits": 9
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/income-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "page",
+      "name": "/vat",
+      "hits": 1
     },
     {
       "day": "2026-08-24",
       "category": "pv",
       "name": "total",
-      "hits": 8
+      "hits": 14
     },
     {
       "day": "2026-08-24",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 2
+      "hits": 7
     },
     {
       "day": "2026-08-24",
       "category": "reftype",
       "name": "직접",
-      "hits": 2
+      "hits": 7
+    },
+    {
+      "day": "2026-08-24",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-08-24",
       "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-24",
       "category": "search",
       "name": "__total__",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-08-24",
       "category": "visitor",
       "name": "unique",
-      "hits": 8
+      "hits": 14
     }
   ]
 }
