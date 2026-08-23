@@ -4570,13 +4570,13 @@
       "day": "2026-08-23",
       "category": "bot",
       "name": "generic",
-      "hits": 13
+      "hits": 15
     },
     {
       "day": "2026-08-23",
       "category": "page",
       "name": "/",
-      "hits": 34
+      "hits": 38
     },
     {
       "day": "2026-08-23",
@@ -4617,6 +4617,12 @@
     {
       "day": "2026-08-23",
       "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-23",
+      "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
       "hits": 6
     },
@@ -4624,19 +4630,19 @@
       "day": "2026-08-23",
       "category": "pv",
       "name": "total",
-      "hits": 56
+      "hits": 61
     },
     {
       "day": "2026-08-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 36
+      "hits": 40
     },
     {
       "day": "2026-08-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 36
+      "hits": 40
     },
     {
       "day": "2026-08-23",
@@ -4684,7 +4690,7 @@
       "day": "2026-08-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 51
+      "hits": 54
     }
   ]
 }
