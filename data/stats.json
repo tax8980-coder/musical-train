@@ -4858,25 +4858,25 @@
       "day": "2026-08-24",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 12
+      "hits": 13
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "PerplexityBot",
-      "hits": 8
+      "hits": 18
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "__total__",
-      "hits": 27
+      "hits": 39
     },
     {
       "day": "2026-08-24",
@@ -4889,6 +4889,12 @@
       "category": "aipage",
       "name": "ChatGPT-User|/",
       "hits": 4
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
     },
     {
       "day": "2026-08-24",
@@ -4906,6 +4912,12 @@
       "day": "2026-08-24",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
       "hits": 1
     },
     {
@@ -4984,7 +4996,19 @@
       "day": "2026-08-24",
       "category": "aipage",
       "name": "PerplexityBot|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 2
+      "hits": 3
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
     },
     {
       "day": "2026-08-24",
@@ -4995,7 +5019,43 @@
     {
       "day": "2026-08-24",
       "category": "aipage",
+      "name": "PerplexityBot|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
       "name": "PerplexityBot|/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/testamentary-trust-not-tax-saving",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/corporate-tax",
       "hits": 1
     },
     {
@@ -5013,6 +5073,12 @@
     {
       "day": "2026-08-24",
       "category": "aipage",
+      "name": "PerplexityBot|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
       "name": "PerplexityBot|/transfer-inheritance-gift",
       "hits": 1
     },
@@ -5020,13 +5086,49 @@
       "day": "2026-08-24",
       "category": "bot",
       "name": "generic",
-      "hits": 7
+      "hits": 12
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "cnt|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 15
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "sum|/contact.html",
+      "hits": 32
+    },
+    {
+      "day": "2026-08-24",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 47
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/",
-      "hits": 46
+      "hits": 53
     },
     {
       "day": "2026-08-24",
@@ -5068,7 +5170,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-24",
@@ -5098,7 +5200,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -5182,7 +5284,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -5206,7 +5308,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-24",
@@ -5218,7 +5320,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/two-workplaces-separate-accounting-127-10",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-24",
@@ -5230,7 +5332,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/contact.html",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-24",
@@ -5296,7 +5398,7 @@
       "day": "2026-08-24",
       "category": "pv",
       "name": "total",
-      "hits": 194
+      "hits": 207
     },
     {
       "day": "2026-08-24",
@@ -5332,7 +5434,7 @@
       "day": "2026-08-24",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 155
+      "hits": 165
     },
     {
       "day": "2026-08-24",
@@ -5356,7 +5458,7 @@
       "day": "2026-08-24",
       "category": "reftype",
       "name": "직접",
-      "hits": 155
+      "hits": 165
     },
     {
       "day": "2026-08-24",
@@ -5368,7 +5470,7 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "Bingbot",
-      "hits": 23
+      "hits": 27
     },
     {
       "day": "2026-08-24",
@@ -5392,19 +5494,19 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "__total__",
-      "hits": 40
+      "hits": 45
     },
     {
       "day": "2026-08-24",
       "category": "search",
       "name": "facebook",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-24",
       "category": "visitor",
       "name": "unique",
-      "hits": 138
+      "hits": 149
     }
   ]
 }
