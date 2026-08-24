@@ -1794,20 +1794,16 @@ body.is-locked { overflow: hidden; }
   .print-watermark__logo { width: 320px; height: auto; opacity: 0.08; filter: grayscale(1); }
 
   /* 페이지 번호(n / 전체) — CSS 표준. 크롬은 미지원, 파이어폭스 등에서 표시됨 */
-  /* 하단 한 줄: 홈페이지 · 블로그 · 페이지번호 — 항목 사이 간격이 같아야 한다.
-     좌/가운데/우 마진박스로 나누면 가운데 박스가 '페이지 정중앙'에 고정돼
-     좌측 문구가 길수록 왼쪽 간격만 좁아진다(간격차 = 좌측폭 - 우측폭).
-     가운데 박스에 공백을 넣어 밀면 이번엔 좌측 박스 폭이 줄어 줄바꿈이 생긴다.
-     → 한 줄 전체를 @bottom-center 하나에 넣고 항목 사이를 같은 폭으로 띄운다.
-       10pt Pretendard 실측: 홈페이지 195.5px + 블로그 177.7px + 쪽번호 30.8px = 404px,
-       본문폭 180mm ≈ 680px → 한쪽 간격 138px(=41칸). 줄바꿈 여유로 39칸 사용.
-     ※ 문구·글꼴을 바꾸면 칸수를 다시 계산할 것. white-space:nowrap 로 줄바꿈 금지. */
+  /* 하단 한 줄: (좌)홈페이지  (가운데)페이지번호  (우)블로그.
+     @bottom-center 는 '페이지 정중앙'에 고정되므로 쪽번호를 여기에 둔다.
+     가운데 내용이 짧아(30.8px) 좌·우 박스가 각각 (680-30.8)/2 ≈ 325px 를 받으므로
+     좌측 195.5px, 우측 177.7px 문구가 넉넉히 들어가 줄바꿈이 생기지 않는다.
+     (반대로 가운데에 긴 문구를 두면 좌우 박스가 좁아져 두 줄로 접힌다 — 2026-08-21 확인)
+     ※ 좌우 문구 길이가 달라 양쪽 여백은 완전히 같지는 않다(약 5mm 차). */
   @page {
     margin: 16mm 15mm 15mm;
-    @bottom-center {
-      content: "세무법인지율 홈페이지 taxin4u.com                                       " "블로그 blog.naver.com/taxin4u                                       " counter(page) " / " counter(pages);
-      font-size: 10pt; color: #333; white-space: nowrap;
-    }
-  }
+    @bottom-left   { content: "세무법인지율 홈페이지 taxin4u.com"; font-size: 10pt; color: #333; white-space: nowrap; }
+    @bottom-center { content: counter(page) " / " counter(pages); font-size: 10pt; color: #333; white-space: nowrap; }
+    @bottom-right  { content: "블로그 blog.naver.com/taxin4u"; font-size: 10pt; color: #333; white-space: nowrap; }
   }
 }
