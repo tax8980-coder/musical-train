@@ -4858,25 +4858,25 @@
       "day": "2026-08-24",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "PerplexityBot",
-      "hits": 18
+      "hits": 19
     },
     {
       "day": "2026-08-24",
       "category": "ai",
       "name": "__total__",
-      "hits": 40
+      "hits": 43
     },
     {
       "day": "2026-08-24",
@@ -4888,7 +4888,7 @@
       "day": "2026-08-24",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-24",
@@ -4989,6 +4989,12 @@
     {
       "day": "2026-08-24",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
       "name": "PerplexityBot|/",
       "hits": 1
     },
@@ -5002,6 +5008,12 @@
       "day": "2026-08-24",
       "category": "aipage",
       "name": "PerplexityBot|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-24",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
       "hits": 1
     },
     {
@@ -5176,7 +5188,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/",
-      "hits": 64
+      "hits": 70
     },
     {
       "day": "2026-08-24",
@@ -5212,13 +5224,13 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/bad-debt-vat-credit-2year",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -5230,7 +5242,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-24",
@@ -5248,13 +5260,13 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-24",
@@ -5266,7 +5278,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -5278,7 +5290,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-24",
@@ -5296,19 +5308,19 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 12
+      "hits": 13
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-24",
@@ -5338,13 +5350,13 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-24",
@@ -5356,7 +5368,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-24",
@@ -5374,7 +5386,7 @@
       "day": "2026-08-24",
       "category": "page",
       "name": "/column/worker-succession-headcount-2022du53921",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-24",
@@ -5446,7 +5458,7 @@
       "day": "2026-08-24",
       "category": "pv",
       "name": "total",
-      "hits": 235
+      "hits": 255
     },
     {
       "day": "2026-08-24",
@@ -5482,7 +5494,7 @@
       "day": "2026-08-24",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 182
+      "hits": 200
     },
     {
       "day": "2026-08-24",
@@ -5506,7 +5518,7 @@
       "day": "2026-08-24",
       "category": "reftype",
       "name": "직접",
-      "hits": 182
+      "hits": 200
     },
     {
       "day": "2026-08-24",
@@ -5518,7 +5530,7 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "Bingbot",
-      "hits": 31
+      "hits": 34
     },
     {
       "day": "2026-08-24",
@@ -5542,7 +5554,7 @@
       "day": "2026-08-24",
       "category": "search",
       "name": "__total__",
-      "hits": 51
+      "hits": 54
     },
     {
       "day": "2026-08-24",
@@ -5554,7 +5566,7 @@
       "day": "2026-08-24",
       "category": "visitor",
       "name": "unique",
-      "hits": 165
+      "hits": 177
     }
   ]
 }
