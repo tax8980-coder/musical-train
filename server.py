@@ -259,6 +259,46 @@ def record_visit(path, ip, ua, ref=""):
         pass
 
 
+DWELL_MAX_SEC = 1800   # 1건당 상한 30분 (탭 방치 등 이상치 차단)
+DWELL_MIN_SEC = 1      # 1초 미만은 무시
+
+
+def record_dwell(path, ua, seconds):
+    """사람 방문자의 페이지 체류시간(초)을 일자별 합계/건수로 적립.
+    stat_counts 에 category='dwell', name='sum|<경로>' / 'cnt|<경로>' 및
+    전체합계 'sum|__all__' / 'cnt|__all__' 로 저장한다(스키마 변경 없음)."""
+    try:
+        sec = int(seconds)
+    except (TypeError, ValueError):
+        return
+    if sec < DWELL_MIN_SEC:
+        return
+    sec = min(sec, DWELL_MAX_SEC)
+    cat, _bot = classify_ua(ua)
+    if cat != "human":          # 크롤러는 체류시간 개념이 없음
+        return
+    try:
+        day = datetime.now(KST).strftime("%Y-%m-%d")
+        conn = get_conn()
+        try:
+            def bump(name, n):
+                conn.execute(
+                    "INSERT INTO stat_counts (day, category, name, hits) VALUES (?,?,?,?) "
+                    "ON CONFLICT(day,category,name) DO UPDATE SET hits = hits + ?",
+                    (day, "dwell", name, n, n),
+                )
+            p100 = path[:100]
+            bump("sum|" + p100, sec)
+            bump("cnt|" + p100, 1)
+            bump("sum|__all__", sec)
+            bump("cnt|__all__", 1)
+            conn.commit()
+        finally:
+            conn.close()
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def _seed_stats_from_snapshot(conn):
     """재배포로 DB가 초기화돼도 data/stats.json 집계로 방문 통계를 복원(값별 MAX)."""
     try:
@@ -514,6 +554,7 @@ def build_stats(days=30):
         "days": days, "since": since,
         "pv": 0, "visitors": 0, "ai": 0, "search": 0, "bot": 0,
         "ai_by_bot": [], "search_by_bot": [], "ai_pages": [], "top_pages": [], "daily": [],
+        "dwell_avg": 0, "dwell_samples": 0, "dwell_pages": [],
         "ref_types": [], "ref_sites": [], "keywords": [],
     }
     try:
@@ -549,6 +590,23 @@ def build_stats(days=30):
             ((b, sum(x[2] for x in rows), rows[:20]) for b, rows in ai_pages.items()),
             key=lambda t: t[1], reverse=True)
 
+        # 평균 체류시간(사람 방문) — dwell: 'sum|경로' / 'cnt|경로'
+        dwell_sum, dwell_cnt = {}, {}
+        for r in q("SELECT name, SUM(hits) s FROM stat_counts WHERE category='dwell' AND day>=? GROUP BY name", (since,)):
+            kind, sep, dpath = r["name"].partition("|")
+            if not sep:
+                continue
+            (dwell_sum if kind == "sum" else dwell_cnt)[dpath] = int(r["s"])
+        tot_s, tot_c = dwell_sum.get("__all__", 0), dwell_cnt.get("__all__", 0)
+        out["dwell_avg"] = int(round(tot_s / tot_c)) if tot_c else 0
+        out["dwell_samples"] = tot_c
+        rows = []
+        for dpath, c in dwell_cnt.items():
+            if dpath == "__all__" or c < 3:      # 표본 3건 미만은 평균이 의미 없어 제외
+                continue
+            rows.append((_page_label(dpath, title_map), dpath, int(round(dwell_sum.get(dpath, 0) / c)), c))
+        out["dwell_pages"] = sorted(rows, key=lambda r: r[3], reverse=True)[:15]
+
         out["ref_types"] = [(r["name"], r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='reftype' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
         out["ref_sites"] = [(r["name"], r["s"]) for r in q(
@@ -572,6 +630,15 @@ def build_stats(days=30):
     return out
 
 
+def _fmt_dwell(sec):
+    """초 → '1분 23초' / '45초'."""
+    sec = int(sec or 0)
+    if sec <= 0:
+        return "-"
+    m, sc = divmod(sec, 60)
+    return ("%d분 %d초" % (m, sc)) if m else ("%d초" % sc)
+
+
 def render_stats_html(s):
     """관리자 통계 대시보드(자체 완결 HTML)."""
     def rows_html(pairs, empty="데이터 없음"):
@@ -580,6 +647,17 @@ def render_stats_html(s):
         return "".join(
             "<tr><td>" + _esc_html(n) + '</td><td class="num">' + format(int(h), ",d") + "</td></tr>"
             for n, h in pairs
+        )
+
+    def dwell_rows_html(rows):
+        if not rows:
+            return ('<tr><td colspan="3" class="empty">아직 기록이 없습니다'
+                    '(수집 시작 이후 방문분부터 쌓입니다).</td></tr>')
+        return "".join(
+            "<tr><td>" + _esc_html(label) + "<span class=path>" + _esc_html(dpath) + "</span></td>"
+            + '<td class=num>' + _fmt_dwell(avg) + "</td>"
+            + '<td class=num>' + format(int(cnt), ",d") + "</td></tr>"
+            for label, dpath, avg, cnt in rows
         )
 
     def ai_pages_html(groups):
@@ -613,7 +691,8 @@ def render_stats_html(s):
         ":root{--navy:#1E3A5F;--blue:#3B82F6;--line:#E2E8F0;--sub:#5B6B7F}"
         "*{box-sizing:border-box}body{margin:0;font-family:Pretendard,system-ui,sans-serif;background:#F7F9FC;color:#1F2937;padding:20px}"
         ".wrap{max-width:960px;margin:0 auto}h1{font-size:20px;margin:0 0 4px}.meta{color:var(--sub);font-size:13px;margin-bottom:18px}"
-        ".cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}"
+        ".cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px}"
+        "@media(max-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}"
         "@media(max-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}"
         ".card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}"
         ".card .k{color:var(--sub);font-size:13px}.card .v{font-size:26px;font-weight:800;color:var(--navy);margin-top:4px}"
@@ -637,6 +716,9 @@ def render_stats_html(s):
         "<div class=card><div class=k>순 방문자(추정)</div><div class=v>" + format(int(s["visitors"]), ",d") + "</div></div>"
         "<div class='card ai'><div class=k>AI 크롤러 조회</div><div class=v>" + format(int(s["ai"]), ",d") + "</div></div>"
         "<div class=card><div class=k>검색 크롤러 조회</div><div class=v>" + format(int(s["search"]), ",d") + "</div></div>"
+        "<div class=card><div class=k>평균 체류시간(사람)</div><div class=v>" + _fmt_dwell(s["dwell_avg"])
+        + "</div><div style='color:var(--sub);font-size:12px;margin-top:2px'>표본 "
+        + format(int(s["dwell_samples"]), ",d") + "건</div></div>"
         "</div>"
         "<section><h2>AI 크롤러별 조회 (GPTBot·ClaudeBot·PerplexityBot 등)</h2>"
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["ai_by_bot"], "아직 AI 크롤러 방문 없음") + "</tbody></table></section>"
@@ -647,6 +729,10 @@ def render_stats_html(s):
         "이 항목은 <b>2026-08-20부터</b> 수집을 시작했으므로 그 이전 AI 방문은 위의 봇별 합계에만 잡힙니다.</p></section>"
         "<section><h2>검색 크롤러별 조회 (Googlebot·Naver Yeti·Bingbot 등)</h2>"
         "<table><thead><tr><th>봇</th><th class=num>조회수</th></tr></thead><tbody>" + rows_html(s["search_by_bot"]) + "</tbody></table></section>"
+        "<section><h2>페이지별 평균 체류시간 (사람 방문)</h2>"
+        "<table><thead><tr><th>페이지</th><th class=num>평균 체류</th><th class=num>표본</th></tr></thead><tbody>"
+        + dwell_rows_html(s["dwell_pages"]) + "</tbody></table>"
+        "<p class=note style='margin-top:10px'>※ 브라우저가 페이지를 떠날 때 보내는 값으로, 탭이 가려진 시간은 빼고 계산합니다. 1건당 최대 30분까지만 반영하며, 표본 3건 이상인 페이지만 표시합니다.</p></section>"
         "<section><h2>인기 페이지 (사람 방문)</h2>"
         "<table><thead><tr><th>페이지</th><th class=num>페이지뷰</th></tr></thead><tbody>" + rows_html(s["top_pages"]) + "</tbody></table></section>"
         "<section><h2>유입 경로 (사람 방문)</h2>"
@@ -1585,6 +1671,24 @@ class Handler(SimpleHTTPRequestHandler):
                 self._send_redirect("/admin/stats", set_cookie=self._admin_cookie_header())
             else:
                 self._send_redirect("/admin?e=1")
+            return
+
+        # ---- 체류시간 수집(공개, 브라우저 sendBeacon) ----
+        if parsed.path == "/api/dwell":
+            try:
+                length = int(self.headers.get("Content-Length") or 0)
+                data = {}
+                if 0 < length <= 512:
+                    data = json.loads(self.rfile.read(length).decode("utf-8", "replace"))
+                dpath = str(data.get("path") or "")[:100]
+                is_page = (dpath == "/" or dpath.endswith(".html")
+                           or re.match(r"^/column/[A-Za-z0-9\-_]+$", dpath)
+                           or dpath.strip("/") in HUB_BY_SLUG)
+                if is_page:
+                    record_dwell(dpath, self.headers.get("User-Agent", ""), data.get("sec"))
+            except Exception:  # noqa: BLE001
+                pass
+            self._send_json(200, {"ok": True})
             return
 
         # ---- 세무칼럼 조회수 +1 (공개) ----
