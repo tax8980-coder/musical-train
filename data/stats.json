@@ -6304,7 +6304,31 @@
       "day": "2026-08-26",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 6
+    },
+    {
+      "day": "2026-08-26",
+      "category": "dwell",
+      "name": "cnt|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "dwell",
+      "name": "sum|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 8
+    },
+    {
+      "day": "2026-08-26",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 8
     },
     {
       "day": "2026-08-26",
@@ -6316,13 +6340,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-26",
@@ -6334,7 +6358,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-26",
@@ -6364,19 +6388,19 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-26",
@@ -6404,21 +6428,27 @@
     },
     {
       "day": "2026-08-26",
+      "category": "page",
+      "name": "/column/worker-succession-headcount-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
       "category": "pv",
       "name": "total",
-      "hits": 48
+      "hits": 57
     },
     {
       "day": "2026-08-26",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 37
+      "hits": 43
     },
     {
       "day": "2026-08-26",
       "category": "reftype",
       "name": "직접",
-      "hits": 37
+      "hits": 43
     },
     {
       "day": "2026-08-26",
@@ -6430,13 +6460,13 @@
       "day": "2026-08-26",
       "category": "search",
       "name": "Bingbot",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-26",
       "category": "search",
       "name": "Googlebot",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-26",
@@ -6454,13 +6484,13 @@
       "day": "2026-08-26",
       "category": "search",
       "name": "__total__",
-      "hits": 25
+      "hits": 27
     },
     {
       "day": "2026-08-26",
       "category": "visitor",
       "name": "unique",
-      "hits": 47
+      "hits": 56
     }
   ]
 }
