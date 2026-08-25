@@ -5980,7 +5980,7 @@
       "day": "2026-08-25",
       "category": "page",
       "name": "/column/beopinjeonhwan-jungsogieop-tonghap-si",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-25",
@@ -6154,7 +6154,7 @@
       "day": "2026-08-25",
       "category": "pv",
       "name": "total",
-      "hits": 164
+      "hits": 165
     },
     {
       "day": "2026-08-25",
@@ -6172,7 +6172,7 @@
       "day": "2026-08-25",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 62
+      "hits": 63
     },
     {
       "day": "2026-08-25",
@@ -6184,13 +6184,13 @@
       "day": "2026-08-25",
       "category": "reftype",
       "name": "직접",
-      "hits": 62
+      "hits": 63
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "Bingbot",
-      "hits": 35
+      "hits": 36
     },
     {
       "day": "2026-08-25",
@@ -6214,19 +6214,67 @@
       "day": "2026-08-25",
       "category": "search",
       "name": "__total__",
-      "hits": 83
+      "hits": 85
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "facebook",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-25",
       "category": "visitor",
       "name": "unique",
-      "hits": 124
+      "hits": 125
+    },
+    {
+      "day": "2026-08-26",
+      "category": "page",
+      "name": "/",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-26",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "pv",
+      "name": "total",
+      "hits": 7
+    },
+    {
+      "day": "2026-08-26",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-26",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-26",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-26",
+      "category": "search",
+      "name": "__total__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-26",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 7
     }
   ]
 }
