@@ -5602,7 +5602,7 @@
       "day": "2026-08-25",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 9
+      "hits": 11
     },
     {
       "day": "2026-08-25",
@@ -5620,13 +5620,13 @@
       "day": "2026-08-25",
       "category": "ai",
       "name": "PerplexityBot",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-25",
       "category": "ai",
       "name": "__total__",
-      "hits": 23
+      "hits": 26
     },
     {
       "day": "2026-08-25",
@@ -5638,7 +5638,7 @@
       "day": "2026-08-25",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-25",
@@ -5721,6 +5721,12 @@
     {
       "day": "2026-08-25",
       "category": "aipage",
+      "name": "PerplexityBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-25",
+      "category": "aipage",
       "name": "PerplexityBot|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 1
     },
@@ -5758,7 +5764,7 @@
       "day": "2026-08-25",
       "category": "bot",
       "name": "generic",
-      "hits": 166
+      "hits": 167
     },
     {
       "day": "2026-08-25",
@@ -5932,7 +5938,7 @@
       "day": "2026-08-25",
       "category": "page",
       "name": "/",
-      "hits": 57
+      "hits": 61
     },
     {
       "day": "2026-08-25",
@@ -6148,7 +6154,7 @@
       "day": "2026-08-25",
       "category": "pv",
       "name": "total",
-      "hits": 160
+      "hits": 164
     },
     {
       "day": "2026-08-25",
@@ -6184,13 +6190,13 @@
       "day": "2026-08-25",
       "category": "search",
       "name": "Bingbot",
-      "hits": 30
+      "hits": 35
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "Googlebot",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-08-25",
@@ -6202,13 +6208,13 @@
       "day": "2026-08-25",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "__total__",
-      "hits": 75
+      "hits": 83
     },
     {
       "day": "2026-08-25",
@@ -6220,7 +6226,7 @@
       "day": "2026-08-25",
       "category": "visitor",
       "name": "unique",
-      "hits": 120
+      "hits": 124
     }
   ]
 }
