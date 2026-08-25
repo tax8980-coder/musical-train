@@ -6310,7 +6310,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/",
-      "hits": 7
+      "hits": 9
+    },
+    {
+      "day": "2026-08-26",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
     },
     {
       "day": "2026-08-26",
@@ -6322,13 +6328,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/e-filing-tax-credit-agent-2026",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-08-26",
@@ -6340,13 +6346,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-26",
@@ -6357,8 +6363,14 @@
     {
       "day": "2026-08-26",
       "category": "page",
-      "name": "/column/tax-credit-carryover-merger-conversion",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
       "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 3
     },
     {
       "day": "2026-08-26",
@@ -6370,19 +6382,19 @@
       "day": "2026-08-26",
       "category": "pv",
       "name": "total",
-      "hits": 27
+      "hits": 41
     },
     {
       "day": "2026-08-26",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 21
+      "hits": 31
     },
     {
       "day": "2026-08-26",
       "category": "reftype",
       "name": "직접",
-      "hits": 21
+      "hits": 31
     },
     {
       "day": "2026-08-26",
@@ -6394,13 +6406,19 @@
       "day": "2026-08-26",
       "category": "search",
       "name": "Bingbot",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-26",
       "category": "search",
       "name": "Googlebot",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-08-26",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
     },
     {
       "day": "2026-08-26",
@@ -6412,13 +6430,13 @@
       "day": "2026-08-26",
       "category": "search",
       "name": "__total__",
-      "hits": 17
+      "hits": 22
     },
     {
       "day": "2026-08-26",
       "category": "visitor",
       "name": "unique",
-      "hits": 27
+      "hits": 41
     }
   ]
 }
