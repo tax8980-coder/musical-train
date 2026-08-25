@@ -5932,7 +5932,7 @@
       "day": "2026-08-25",
       "category": "page",
       "name": "/",
-      "hits": 52
+      "hits": 57
     },
     {
       "day": "2026-08-25",
@@ -5944,7 +5944,7 @@
       "day": "2026-08-25",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-25",
@@ -6009,6 +6009,12 @@
     {
       "day": "2026-08-25",
       "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-25",
+      "category": "page",
       "name": "/column/e-filing-tax-credit-agent-2026",
       "hits": 2
     },
@@ -6029,6 +6035,12 @@
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
       "hits": 2
+    },
+    {
+      "day": "2026-08-25",
+      "category": "page",
+      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
     },
     {
       "day": "2026-08-25",
@@ -6100,13 +6112,13 @@
       "day": "2026-08-25",
       "category": "page",
       "name": "/intro.html",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-25",
       "category": "page",
       "name": "/media.html",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-25",
@@ -6136,7 +6148,7 @@
       "day": "2026-08-25",
       "category": "pv",
       "name": "total",
-      "hits": 150
+      "hits": 160
     },
     {
       "day": "2026-08-25",
@@ -6154,7 +6166,7 @@
       "day": "2026-08-25",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 61
+      "hits": 62
     },
     {
       "day": "2026-08-25",
@@ -6166,13 +6178,13 @@
       "day": "2026-08-25",
       "category": "reftype",
       "name": "직접",
-      "hits": 61
+      "hits": 62
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "Bingbot",
-      "hits": 26
+      "hits": 30
     },
     {
       "day": "2026-08-25",
@@ -6190,13 +6202,13 @@
       "day": "2026-08-25",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-25",
       "category": "search",
       "name": "__total__",
-      "hits": 70
+      "hits": 75
     },
     {
       "day": "2026-08-25",
@@ -6208,7 +6220,7 @@
       "day": "2026-08-25",
       "category": "visitor",
       "name": "unique",
-      "hits": 111
+      "hits": 120
     }
   ]
 }
