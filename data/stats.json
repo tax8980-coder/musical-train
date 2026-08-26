@@ -6232,7 +6232,7 @@
       "day": "2026-08-26",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 15
+      "hits": 18
     },
     {
       "day": "2026-08-26",
@@ -6244,7 +6244,7 @@
       "day": "2026-08-26",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-26",
@@ -6256,13 +6256,13 @@
       "day": "2026-08-26",
       "category": "ai",
       "name": "__total__",
-      "hits": 23
+      "hits": 27
     },
     {
       "day": "2026-08-26",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-08-26",
@@ -6280,6 +6280,18 @@
       "day": "2026-08-26",
       "category": "aipage",
       "name": "ChatGPT-User|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-26",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
       "hits": 1
     },
     {
@@ -6304,7 +6316,7 @@
       "day": "2026-08-26",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/budongsan-maegak-chwideuk-junggaesusuryo",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-26",
@@ -6346,7 +6358,7 @@
       "day": "2026-08-26",
       "category": "bot",
       "name": "generic",
-      "hits": 99
+      "hits": 100
     },
     {
       "day": "2026-08-26",
@@ -6484,7 +6496,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/",
-      "hits": 49
+      "hits": 54
     },
     {
       "day": "2026-08-26",
@@ -6526,7 +6538,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-26",
@@ -6544,7 +6556,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-26",
@@ -6562,13 +6574,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-08-26",
@@ -6586,13 +6598,13 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/financial-income-comprehensive-tax-refund",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-26",
@@ -6610,7 +6622,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/inclusive-wage-fixed-ot-2026",
-      "hits": 2
+      "hits": 6
     },
     {
       "day": "2026-08-26",
@@ -6628,7 +6640,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-08-26",
@@ -6640,7 +6652,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-26",
@@ -6658,7 +6670,7 @@
       "day": "2026-08-26",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-08-26",
@@ -6742,7 +6754,7 @@
       "day": "2026-08-26",
       "category": "pv",
       "name": "total",
-      "hits": 221
+      "hits": 239
     },
     {
       "day": "2026-08-26",
@@ -6760,7 +6772,7 @@
       "day": "2026-08-26",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 129
+      "hits": 136
     },
     {
       "day": "2026-08-26",
@@ -6772,13 +6784,13 @@
       "day": "2026-08-26",
       "category": "reftype",
       "name": "직접",
-      "hits": 129
+      "hits": 136
     },
     {
       "day": "2026-08-26",
       "category": "search",
       "name": "Applebot",
-      "hits": 17
+      "hits": 18
     },
     {
       "day": "2026-08-26",
@@ -6826,7 +6838,7 @@
       "day": "2026-08-26",
       "category": "search",
       "name": "__total__",
-      "hits": 81
+      "hits": 82
     },
     {
       "day": "2026-08-26",
@@ -6838,7 +6850,7 @@
       "day": "2026-08-26",
       "category": "visitor",
       "name": "unique",
-      "hits": 186
+      "hits": 199
     }
   ]
 }
