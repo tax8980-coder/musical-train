@@ -8566,7 +8566,7 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-29",
@@ -8596,25 +8596,31 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/intro.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/media.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
       "hits": 1
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 12
+      "hits": 16
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 69
+      "hits": 77
     },
     {
       "day": "2026-08-29",
@@ -8644,25 +8650,31 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/intro.html",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/media.html",
-      "hits": 5
+      "hits": 7
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 11
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 114
+      "hits": 137
     },
     {
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 26
+      "hits": 32
     },
     {
       "day": "2026-08-29",
@@ -8722,19 +8734,25 @@
       "day": "2026-08-29",
       "category": "page",
       "name": "/intro.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-29",
       "category": "page",
       "name": "/media.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-29",
+      "category": "page",
+      "name": "/resources.html",
       "hits": 1
     },
     {
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 63
+      "hits": 72
     },
     {
       "day": "2026-08-29",
@@ -8752,7 +8770,7 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 40
+      "hits": 43
     },
     {
       "day": "2026-08-29",
@@ -8770,7 +8788,7 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 40
+      "hits": 43
     },
     {
       "day": "2026-08-29",
@@ -8812,7 +8830,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 53
+      "hits": 57
     }
   ]
 }
