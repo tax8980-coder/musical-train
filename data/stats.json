@@ -8494,7 +8494,7 @@
       "day": "2026-08-29",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-29",
@@ -8506,7 +8506,7 @@
       "day": "2026-08-29",
       "category": "ai",
       "name": "__total__",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-29",
@@ -8530,6 +8530,12 @@
       "day": "2026-08-29",
       "category": "aipage",
       "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
       "hits": 1
     },
     {
@@ -8746,7 +8752,7 @@
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 52
+      "hits": 53
     },
     {
       "day": "2026-08-29",
@@ -8848,7 +8854,7 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 97
+      "hits": 98
     },
     {
       "day": "2026-08-29",
@@ -8902,7 +8908,7 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Bingbot",
-      "hits": 16
+      "hits": 17
     },
     {
       "day": "2026-08-29",
@@ -8920,7 +8926,7 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "__total__",
-      "hits": 43
+      "hits": 44
     },
     {
       "day": "2026-08-29",
@@ -8932,7 +8938,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 72
+      "hits": 73
     }
   ]
 }
