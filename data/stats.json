@@ -8584,18 +8584,24 @@
       "day": "2026-08-29",
       "category": "bot",
       "name": "generic",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "cnt|/column/beopinjeonhwan-jungsogieop-tonghap-si",
       "hits": 1
     },
     {
@@ -8631,8 +8637,14 @@
     {
       "day": "2026-08-29",
       "category": "dwell",
+      "name": "cnt|/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
       "name": "cnt|/intro.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-29",
@@ -8650,19 +8662,25 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 22
+      "hits": 26
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 101
+      "hits": 108
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 203
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "sum|/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 3
     },
     {
       "day": "2026-08-29",
@@ -8697,8 +8715,14 @@
     {
       "day": "2026-08-29",
       "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
       "name": "sum|/intro.html",
-      "hits": 3
+      "hits": 14
     },
     {
       "day": "2026-08-29",
@@ -8716,13 +8740,13 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 368
+      "hits": 395
     },
     {
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 49
+      "hits": 52
     },
     {
       "day": "2026-08-29",
@@ -8747,6 +8771,12 @@
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 5
+    },
+    {
+      "day": "2026-08-29",
+      "category": "page",
+      "name": "/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 1
     },
     {
       "day": "2026-08-29",
@@ -8793,8 +8823,14 @@
     {
       "day": "2026-08-29",
       "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "page",
       "name": "/intro.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-29",
@@ -8812,13 +8848,13 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 91
+      "hits": 97
     },
     {
       "day": "2026-08-29",
       "category": "refsite",
       "name": "SNS · 네이버블로그",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-29",
@@ -8836,13 +8872,13 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 52
+      "hits": 53
     },
     {
       "day": "2026-08-29",
       "category": "reftype",
       "name": "SNS",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-29",
@@ -8854,7 +8890,7 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 52
+      "hits": 53
     },
     {
       "day": "2026-08-29",
@@ -8878,13 +8914,13 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-29",
       "category": "search",
       "name": "__total__",
-      "hits": 42
+      "hits": 43
     },
     {
       "day": "2026-08-29",
@@ -8896,7 +8932,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 70
+      "hits": 72
     }
   ]
 }
