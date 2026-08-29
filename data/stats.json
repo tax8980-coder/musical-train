@@ -8674,7 +8674,7 @@
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 32
+      "hits": 34
     },
     {
       "day": "2026-08-29",
@@ -8752,7 +8752,7 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 72
+      "hits": 74
     },
     {
       "day": "2026-08-29",
@@ -8770,7 +8770,7 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 43
+      "hits": 45
     },
     {
       "day": "2026-08-29",
@@ -8788,7 +8788,7 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 43
+      "hits": 45
     },
     {
       "day": "2026-08-29",
@@ -8800,7 +8800,7 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-29",
@@ -8818,7 +8818,7 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "__total__",
-      "hits": 31
+      "hits": 32
     },
     {
       "day": "2026-08-29",
@@ -8830,7 +8830,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 57
+      "hits": 59
     }
   ]
 }
