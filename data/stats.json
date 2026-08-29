@@ -8566,7 +8566,7 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-29",
@@ -8614,13 +8614,13 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 16
+      "hits": 18
     },
     {
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 77
+      "hits": 90
     },
     {
       "day": "2026-08-29",
@@ -8668,13 +8668,13 @@
       "day": "2026-08-29",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 137
+      "hits": 150
     },
     {
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 34
+      "hits": 37
     },
     {
       "day": "2026-08-29",
@@ -8752,7 +8752,7 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 74
+      "hits": 77
     },
     {
       "day": "2026-08-29",
@@ -8770,7 +8770,7 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 45
+      "hits": 47
     },
     {
       "day": "2026-08-29",
@@ -8788,13 +8788,13 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 45
+      "hits": 47
     },
     {
       "day": "2026-08-29",
       "category": "search",
       "name": "Applebot",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-08-29",
@@ -8812,13 +8812,13 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-29",
       "category": "search",
       "name": "__total__",
-      "hits": 32
+      "hits": 34
     },
     {
       "day": "2026-08-29",
@@ -8830,7 +8830,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 59
+      "hits": 60
     }
   ]
 }
