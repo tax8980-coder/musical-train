@@ -8494,7 +8494,7 @@
       "day": "2026-08-29",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-08-29",
@@ -8506,7 +8506,7 @@
       "day": "2026-08-29",
       "category": "ai",
       "name": "__total__",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-29",
@@ -8524,6 +8524,12 @@
       "day": "2026-08-29",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
       "hits": 1
     },
     {
@@ -8752,7 +8758,7 @@
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 53
+      "hits": 56
     },
     {
       "day": "2026-08-29",
@@ -8854,7 +8860,7 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 98
+      "hits": 101
     },
     {
       "day": "2026-08-29",
@@ -8878,7 +8884,7 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 53
+      "hits": 54
     },
     {
       "day": "2026-08-29",
@@ -8896,7 +8902,7 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 53
+      "hits": 54
     },
     {
       "day": "2026-08-29",
@@ -8938,7 +8944,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 73
+      "hits": 75
     }
   ]
 }
