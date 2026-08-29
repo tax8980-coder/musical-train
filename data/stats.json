@@ -8494,19 +8494,19 @@
       "day": "2026-08-29",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-08-29",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-08-29",
       "category": "ai",
       "name": "__total__",
-      "hits": 10
+      "hits": 13
     },
     {
       "day": "2026-08-29",
@@ -8518,6 +8518,12 @@
       "day": "2026-08-29",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 1
     },
     {
@@ -8541,6 +8547,12 @@
     {
       "day": "2026-08-29",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/employment-credit-fulltime-worker-2026",
       "hits": 1
     },
@@ -8548,6 +8560,12 @@
       "day": "2026-08-29",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-29",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
       "hits": 1
     },
     {
@@ -8704,7 +8722,7 @@
       "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 45
+      "hits": 49
     },
     {
       "day": "2026-08-29",
@@ -8794,7 +8812,7 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 87
+      "hits": 91
     },
     {
       "day": "2026-08-29",
@@ -8818,7 +8836,7 @@
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 51
+      "hits": 52
     },
     {
       "day": "2026-08-29",
@@ -8836,7 +8854,7 @@
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 51
+      "hits": 52
     },
     {
       "day": "2026-08-29",
@@ -8848,7 +8866,7 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Bingbot",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-08-29",
@@ -8860,13 +8878,13 @@
       "day": "2026-08-29",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 13
+      "hits": 14
     },
     {
       "day": "2026-08-29",
       "category": "search",
       "name": "__total__",
-      "hits": 39
+      "hits": 41
     },
     {
       "day": "2026-08-29",
@@ -8878,7 +8896,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 67
+      "hits": 70
     }
   ]
 }
