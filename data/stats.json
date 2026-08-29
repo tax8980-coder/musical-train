@@ -8546,9 +8546,33 @@
     },
     {
       "day": "2026-08-29",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 29
+    },
+    {
+      "day": "2026-08-29",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 29
+    },
+    {
+      "day": "2026-08-29",
       "category": "page",
       "name": "/",
-      "hits": 11
+      "hits": 16
     },
     {
       "day": "2026-08-29",
@@ -8584,19 +8608,19 @@
       "day": "2026-08-29",
       "category": "pv",
       "name": "total",
-      "hits": 42
+      "hits": 47
     },
     {
       "day": "2026-08-29",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 33
+      "hits": 36
     },
     {
       "day": "2026-08-29",
       "category": "reftype",
       "name": "직접",
-      "hits": 33
+      "hits": 36
     },
     {
       "day": "2026-08-29",
@@ -8632,7 +8656,7 @@
       "day": "2026-08-29",
       "category": "visitor",
       "name": "unique",
-      "hits": 42
+      "hits": 46
     }
   ]
 }
