@@ -9020,15 +9020,63 @@
     },
     {
       "day": "2026-08-30",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 4
+    },
+    {
+      "day": "2026-08-30",
+      "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-30",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 6
+    },
+    {
+      "day": "2026-08-30",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 3
+    },
+    {
+      "day": "2026-08-30",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-30",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-30",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-30",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-30",
       "category": "page",
       "name": "/",
-      "hits": 28
+      "hits": 36
     },
     {
       "day": "2026-08-30",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
-      "hits": 4
+      "hits": 8
     },
     {
       "day": "2026-08-30",
@@ -9046,7 +9094,7 @@
       "day": "2026-08-30",
       "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-08-30",
@@ -9070,49 +9118,49 @@
       "day": "2026-08-30",
       "category": "pv",
       "name": "total",
-      "hits": 45
+      "hits": 60
     },
     {
       "day": "2026-08-30",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 21
+      "hits": 30
     },
     {
       "day": "2026-08-30",
       "category": "reftype",
       "name": "직접",
-      "hits": 21
+      "hits": 30
     },
     {
       "day": "2026-08-30",
       "category": "search",
       "name": "Bingbot",
-      "hits": 7
+      "hits": 10
     },
     {
       "day": "2026-08-30",
       "category": "search",
       "name": "Googlebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-30",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 8
+      "hits": 14
     },
     {
       "day": "2026-08-30",
       "category": "search",
       "name": "__total__",
-      "hits": 17
+      "hits": 27
     },
     {
       "day": "2026-08-30",
       "category": "visitor",
       "name": "unique",
-      "hits": 37
+      "hits": 52
     }
   ]
 }
