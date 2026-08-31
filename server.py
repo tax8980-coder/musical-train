@@ -547,11 +547,13 @@ def _page_label(path, title_map):
     return path
 
 
-def build_stats(days=30):
-    """관리자 대시보드용 집계 요약. 최근 N일."""
-    since = (datetime.now(KST) - timedelta(days=days - 1)).strftime("%Y-%m-%d")
+def build_stats(days=None):
+    """관리자 대시보드용 집계 요약.
+    days=None 이면 기록 시작일부터 전체 누적, 숫자면 최근 N일."""
+    since = ((datetime.now(KST) - timedelta(days=days - 1)).strftime("%Y-%m-%d")
+             if days else "0000-00-00")
     out = {
-        "days": days, "since": since,
+        "days": days, "since": since, "first_day": "",
         "pv": 0, "visitors": 0, "ai": 0, "search": 0, "bot": 0,
         "ai_by_bot": [], "search_by_bot": [], "ai_pages": [], "top_pages": [], "daily": [],
         "dwell_avg": 0, "dwell_samples": 0, "dwell_pages": [],
@@ -565,6 +567,8 @@ def build_stats(days=30):
         def q(sql, args=()):
             return conn.execute(sql, args).fetchall()
 
+        first = q("SELECT MIN(day) d FROM stat_counts WHERE day>=?", (since,))[0]["d"]
+        out["first_day"] = first or ""
         out["pv"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='pv' AND day>=?", (since,))[0]["s"])
         out["visitors"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='visitor' AND day>=?", (since,))[0]["s"])
         out["ai"] = (q("SELECT COALESCE(SUM(hits),0) s FROM stat_counts WHERE category='ai' AND name='__total__' AND day>=?", (since,))[0]["s"])
@@ -628,6 +632,18 @@ def build_stats(days=30):
     finally:
         conn.close()
     return out
+
+
+def _period_links(cur):
+    """통계 기간 전환 링크(전체 / 최근 30일 / 최근 7일)."""
+    out = []
+    for label, days in (("전체", None), ("30일", 30), ("7일", 7)):
+        href = "/admin/stats" + ("?days=%d" % days if days else "")
+        if cur == days:
+            out.append('<b style="color:var(--navy)">' + label + "</b>")
+        else:
+            out.append('<a href="%s" style="color:var(--blue)">%s</a>' % (href, label))
+    return " / ".join(out)
 
 
 def _fmt_dwell(sec):
@@ -710,7 +726,9 @@ def render_stats_html(s):
         "<div style='display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap'>"
         "<h1>방문 통계 <span style='font-weight:500;color:var(--sub);font-size:14px'>· 세무법인 지율</span></h1>"
         "<a class=logout href='/admin/logout'>로그아웃</a></div>"
-        "<p class=meta>최근 " + str(s["days"]) + "일 (" + _esc_html(s["since"]) + " ~) · 서버 기준 집계</p>"
+        "<p class=meta>" + (("최근 " + str(s["days"]) + "일") if s["days"] else "전체 누적")
+        + " (" + _esc_html(s["first_day"] or "-") + " ~ 오늘) · 서버 기준 집계"
+        + " &nbsp;·&nbsp; 기간: " + _period_links(s["days"]) + "</p>"
         "<div class=cards>"
         "<div class=card><div class=k>페이지뷰(사람)</div><div class=v>" + format(int(s["pv"]), ",d") + "</div></div>"
         "<div class=card><div class=k>순 방문자(추정)</div><div class=v>" + format(int(s["visitors"]), ",d") + "</div></div>"
@@ -1818,7 +1836,11 @@ class Handler(SimpleHTTPRequestHandler):
             if not (self._is_admin_session() or self._is_admin(query)):
                 self._send_redirect("/admin")
                 return
-            self._send_html(render_stats_html(build_stats(30)))
+            try:
+                days = int((query.get("days", [""])[0] or "0").strip())
+            except ValueError:
+                days = 0
+            self._send_html(render_stats_html(build_stats(days if days > 0 else None)))
             return
 
         # ---- 방문 통계 내보내기 (토큰 필요, 스냅샷 백업용) ----
