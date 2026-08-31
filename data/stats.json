@@ -9496,25 +9496,25 @@
       "day": "2026-08-31",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 5
+      "hits": 10
     },
     {
       "day": "2026-08-31",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-31",
       "category": "ai",
       "name": "__total__",
-      "hits": 7
+      "hits": 14
     },
     {
       "day": "2026-08-31",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-31",
@@ -9526,12 +9526,30 @@
       "day": "2026-08-31",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-31",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
       "hits": 1
     },
     {
       "day": "2026-08-31",
       "category": "aipage",
       "name": "ChatGPT-User|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-31",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-08-31",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/tonghapgoyongseaekgongje-sangsigeunroja",
       "hits": 1
     },
     {
@@ -9548,9 +9566,21 @@
     },
     {
       "day": "2026-08-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 2
+    },
+    {
+      "day": "2026-08-31",
       "category": "bot",
       "name": "generic",
-      "hits": 4
+      "hits": 21
+    },
+    {
+      "day": "2026-08-31",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
     },
     {
       "day": "2026-08-31",
@@ -9592,13 +9622,19 @@
       "day": "2026-08-31",
       "category": "dwell",
       "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-08-31",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 11
+      "hits": 14
+    },
+    {
+      "day": "2026-08-31",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 62
     },
     {
       "day": "2026-08-31",
@@ -9640,19 +9676,19 @@
       "day": "2026-08-31",
       "category": "dwell",
       "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 68
+      "hits": 132
     },
     {
       "day": "2026-08-31",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 2365
+      "hits": 2491
     },
     {
       "day": "2026-08-31",
       "category": "page",
       "name": "/",
-      "hits": 30
+      "hits": 34
     },
     {
       "day": "2026-08-31",
@@ -9724,7 +9760,7 @@
       "day": "2026-08-31",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-08-31",
@@ -9790,7 +9826,7 @@
       "day": "2026-08-31",
       "category": "page",
       "name": "/resources.html",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-08-31",
@@ -9814,13 +9850,13 @@
       "day": "2026-08-31",
       "category": "pv",
       "name": "total",
-      "hits": 85
+      "hits": 92
     },
     {
       "day": "2026-08-31",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-31",
@@ -9838,13 +9874,13 @@
       "day": "2026-08-31",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 58
+      "hits": 59
     },
     {
       "day": "2026-08-31",
       "category": "reftype",
       "name": "검색",
-      "hits": 7
+      "hits": 9
     },
     {
       "day": "2026-08-31",
@@ -9856,7 +9892,7 @@
       "day": "2026-08-31",
       "category": "reftype",
       "name": "직접",
-      "hits": 58
+      "hits": 59
     },
     {
       "day": "2026-08-31",
@@ -9868,25 +9904,25 @@
       "day": "2026-08-31",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 12
     },
     {
       "day": "2026-08-31",
       "category": "search",
       "name": "Googlebot",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-08-31",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-08-31",
       "category": "search",
       "name": "__total__",
-      "hits": 24
+      "hits": 29
     },
     {
       "day": "2026-08-31",
@@ -9898,7 +9934,7 @@
       "day": "2026-08-31",
       "category": "visitor",
       "name": "unique",
-      "hits": 77
+      "hits": 84
     }
   ]
 }
