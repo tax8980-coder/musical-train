@@ -10012,25 +10012,55 @@
       "day": "2026-09-01",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 8
     },
     {
       "day": "2026-09-01",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 4
     },
     {
       "day": "2026-09-01",
       "category": "ai",
       "name": "__total__",
-      "hits": 3
+      "hits": 14
     },
     {
       "day": "2026-09-01",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 4
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
     },
     {
       "day": "2026-09-01",
@@ -10040,9 +10070,45 @@
     },
     {
       "day": "2026-09-01",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "PerplexityBot|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "aipage",
+      "name": "PerplexityBot|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "bot",
+      "name": "generic",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-01",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 1
+      "hits": 6
     },
     {
       "day": "2026-09-01",
@@ -10053,14 +10119,116 @@
     {
       "day": "2026-09-01",
       "category": "dwell",
-      "name": "cnt|__all__",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 14
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/bad-debt-vat-credit-2year",
       "hits": 2
     },
     {
       "day": "2026-09-01",
       "category": "dwell",
+      "name": "cnt|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/employment-credit-fulltime-worker-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/column/tax-credit-carryover-merger-conversion",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/corporate-tax",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 43
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
       "name": "sum|/",
-      "hits": 5
+      "hits": 129
     },
     {
       "day": "2026-09-01",
@@ -10071,19 +10239,157 @@
     {
       "day": "2026-09-01",
       "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 94
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 6673
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/bad-debt-vat-credit-2year",
+      "hits": 214
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 333
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 67
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 21
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/employment-credit-fulltime-worker-2026",
+      "hits": 405
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 142
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1412
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 288
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/column/tax-credit-carryover-merger-conversion",
+      "hits": 156
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/contact.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/corporate-tax",
+      "hits": 35
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 13
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/media.html",
+      "hits": 32
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 8
+    },
+    {
+      "day": "2026-09-01",
+      "category": "dwell",
       "name": "sum|__all__",
-      "hits": 59
+      "hits": 10083
     },
     {
       "day": "2026-09-01",
       "category": "page",
       "name": "/",
-      "hits": 19
+      "hits": 39
     },
     {
       "day": "2026-09-01",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 17
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 1
     },
     {
@@ -10107,6 +10413,30 @@
     {
       "day": "2026-09-01",
       "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
       "hits": 2
     },
@@ -10119,20 +10449,74 @@
     {
       "day": "2026-09-01",
       "category": "page",
+      "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
       "name": "/media.html",
-      "hits": 4
+      "hits": 5
+    },
+    {
+      "day": "2026-09-01",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-09-01",
       "category": "pv",
       "name": "total",
-      "hits": 41
+      "hits": 101
+    },
+    {
+      "day": "2026-09-01",
+      "category": "refsite",
+      "name": "SNS · 네이버블로그",
+      "hits": 1
     },
     {
       "day": "2026-09-01",
       "category": "refsite",
       "name": "검색 · 구글",
-      "hits": 1
+      "hits": 3
+    },
+    {
+      "day": "2026-09-01",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 8
     },
     {
       "day": "2026-09-01",
@@ -10144,19 +10528,25 @@
       "day": "2026-09-01",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 28
+      "hits": 48
+    },
+    {
+      "day": "2026-09-01",
+      "category": "reftype",
+      "name": "SNS",
+      "hits": 1
     },
     {
       "day": "2026-09-01",
       "category": "reftype",
       "name": "검색",
-      "hits": 2
+      "hits": 12
     },
     {
       "day": "2026-09-01",
       "category": "reftype",
       "name": "직접",
-      "hits": 28
+      "hits": 48
     },
     {
       "day": "2026-09-01",
@@ -10168,7 +10558,7 @@
       "day": "2026-09-01",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 15
     },
     {
       "day": "2026-09-01",
@@ -10179,20 +10569,38 @@
     {
       "day": "2026-09-01",
       "category": "search",
+      "name": "Kakao",
+      "hits": 13
+    },
+    {
+      "day": "2026-09-01",
+      "category": "search",
+      "name": "Naver",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-01",
+      "category": "search",
       "name": "Naver-Yeti",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-01",
       "category": "search",
       "name": "__total__",
-      "hits": 10
+      "hits": 37
+    },
+    {
+      "day": "2026-09-01",
+      "category": "search",
+      "name": "facebook",
+      "hits": 2
     },
     {
       "day": "2026-09-01",
       "category": "visitor",
       "name": "unique",
-      "hits": 40
+      "hits": 69
     }
   ]
 }
