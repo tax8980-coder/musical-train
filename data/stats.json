@@ -10804,25 +10804,31 @@
       "day": "2026-09-02",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 8
     },
     {
       "day": "2026-09-02",
       "category": "ai",
       "name": "OAI-SearchBot",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-02",
+      "category": "ai",
+      "name": "PerplexityBot",
       "hits": 1
     },
     {
       "day": "2026-09-02",
       "category": "ai",
       "name": "__total__",
-      "hits": 4
+      "hits": 13
     },
     {
       "day": "2026-09-02",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-02",
@@ -10833,14 +10839,68 @@
     {
       "day": "2026-09-02",
       "category": "aipage",
+      "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/employment-credit-fulltime-worker-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/bad-debt-vat-credit-2year",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/beteunameseo-ttein-oegukingyeyakjase-1",
       "hits": 1
     },
     {
       "day": "2026-09-02",
       "category": "bot",
       "name": "generic",
-      "hits": 107
+      "hits": 108
+    },
+    {
+      "day": "2026-09-02",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
     },
     {
       "day": "2026-09-02",
@@ -10852,7 +10912,13 @@
       "day": "2026-09-02",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-09-02",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 248
     },
     {
       "day": "2026-09-02",
@@ -10864,7 +10930,7 @@
       "day": "2026-09-02",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 131
+      "hits": 379
     },
     {
       "day": "2026-09-02",
@@ -10876,7 +10942,7 @@
       "day": "2026-09-02",
       "category": "page",
       "name": "/",
-      "hits": 23
+      "hits": 28
     },
     {
       "day": "2026-09-02",
@@ -10887,20 +10953,26 @@
     {
       "day": "2026-09-02",
       "category": "page",
-      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "name": "/column/bad-debt-vat-credit-2year",
       "hits": 1
     },
     {
       "day": "2026-09-02",
       "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-02",
+      "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-02",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-09-02",
@@ -10912,7 +10984,7 @@
       "day": "2026-09-02",
       "category": "page",
       "name": "/column/e-filing-tax-credit-agent-2026",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-02",
@@ -10929,13 +11001,31 @@
     {
       "day": "2026-09-02",
       "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-09-02",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-02",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
       "hits": 1
     },
     {
@@ -10954,13 +11044,13 @@
       "day": "2026-09-02",
       "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-02",
       "category": "page",
       "name": "/column/temp-2house-3house-sell-one-2024du55426",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-09-02",
@@ -10990,7 +11080,7 @@
       "day": "2026-09-02",
       "category": "pv",
       "name": "total",
-      "hits": 68
+      "hits": 85
     },
     {
       "day": "2026-09-02",
@@ -11002,7 +11092,7 @@
       "day": "2026-09-02",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 50
+      "hits": 64
     },
     {
       "day": "2026-09-02",
@@ -11014,13 +11104,13 @@
       "day": "2026-09-02",
       "category": "reftype",
       "name": "직접",
-      "hits": 50
+      "hits": 64
     },
     {
       "day": "2026-09-02",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-09-02",
@@ -11032,25 +11122,25 @@
       "day": "2026-09-02",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 10
+      "hits": 12
     },
     {
       "day": "2026-09-02",
       "category": "search",
       "name": "__total__",
-      "hits": 20
+      "hits": 24
     },
     {
       "day": "2026-09-02",
       "category": "search",
       "name": "facebook",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-02",
       "category": "visitor",
       "name": "unique",
-      "hits": 56
+      "hits": 71
     }
   ]
 }
