@@ -12034,13 +12034,13 @@
       "day": "2026-09-04",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-04",
       "category": "ai",
       "name": "__total__",
-      "hits": 7
+      "hits": 8
     },
     {
       "day": "2026-09-04",
@@ -12068,9 +12068,15 @@
     },
     {
       "day": "2026-09-04",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-04",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-04",
@@ -12112,13 +12118,31 @@
       "day": "2026-09-04",
       "category": "page",
       "name": "/",
-      "hits": 6
+      "hits": 12
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 1
     },
     {
       "day": "2026-09-04",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 13
+      "hits": 14
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
     },
     {
       "day": "2026-09-04",
@@ -12141,8 +12165,20 @@
     {
       "day": "2026-09-04",
       "category": "page",
-      "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "name": "/column/tax-credit-carryover-merger-conversion",
       "hits": 1
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/column/testamentary-trust-not-tax-saving",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 7
     },
     {
       "day": "2026-09-04",
@@ -12154,6 +12190,12 @@
       "day": "2026-09-04",
       "category": "page",
       "name": "/column/worker-succession-headcount-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/contact.html",
       "hits": 1
     },
     {
@@ -12171,6 +12213,12 @@
     {
       "day": "2026-09-04",
       "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
       "name": "/transfer-inheritance-gift",
       "hits": 1
     },
@@ -12178,49 +12226,49 @@
       "day": "2026-09-04",
       "category": "pv",
       "name": "total",
-      "hits": 28
+      "hits": 50
     },
     {
       "day": "2026-09-04",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 24
+      "hits": 41
     },
     {
       "day": "2026-09-04",
       "category": "reftype",
       "name": "직접",
-      "hits": 24
+      "hits": 41
     },
     {
       "day": "2026-09-04",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 10
     },
     {
       "day": "2026-09-04",
       "category": "search",
       "name": "Googlebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-04",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 4
+      "hits": 8
     },
     {
       "day": "2026-09-04",
       "category": "search",
       "name": "__total__",
-      "hits": 11
+      "hits": 21
     },
     {
       "day": "2026-09-04",
       "category": "visitor",
       "name": "unique",
-      "hits": 25
+      "hits": 47
     }
   ]
 }
