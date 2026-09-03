@@ -11380,31 +11380,43 @@
       "day": "2026-09-03",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 6
+      "hits": 10
     },
     {
       "day": "2026-09-03",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-09-03",
       "category": "ai",
       "name": "__total__",
-      "hits": 10
+      "hits": 15
     },
     {
       "day": "2026-09-03",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-09-03",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
       "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/presale-right-acquisition-date-2024du54560",
+      "hits": 2
     },
     {
       "day": "2026-09-03",
@@ -11416,6 +11428,12 @@
       "day": "2026-09-03",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/bad-debt-vat-credit-2year",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/company-car-purchase-method-2026",
       "hits": 1
     },
     {
@@ -11434,19 +11452,199 @@
       "day": "2026-09-03",
       "category": "bot",
       "name": "generic",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 8
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
       "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/faq.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/media.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 24
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 286
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 612
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 150
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 108
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 33
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 295
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/contact.html",
+      "hits": 16
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/faq.html",
+      "hits": 5
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/media.html",
+      "hits": 16
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 9
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|/tax-credit",
+      "hits": 206
+    },
+    {
+      "day": "2026-09-03",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 1738
     },
     {
       "day": "2026-09-03",
       "category": "page",
       "name": "/",
-      "hits": 12
+      "hits": 36
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 2
     },
     {
       "day": "2026-09-03",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 5
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
     },
     {
       "day": "2026-09-03",
@@ -11470,7 +11668,31 @@
       "day": "2026-09-03",
       "category": "page",
       "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
-      "hits": 5
+      "hits": 7
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 2
     },
     {
       "day": "2026-09-03",
@@ -11480,45 +11702,87 @@
     },
     {
       "day": "2026-09-03",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "page",
+      "name": "/tax-credit",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
       "category": "pv",
       "name": "total",
-      "hits": 41
+      "hits": 82
+    },
+    {
+      "day": "2026-09-03",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 10
     },
     {
       "day": "2026-09-03",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 32
+      "hits": 44
+    },
+    {
+      "day": "2026-09-03",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 10
     },
     {
       "day": "2026-09-03",
       "category": "reftype",
       "name": "직접",
-      "hits": 32
+      "hits": 44
+    },
+    {
+      "day": "2026-09-03",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-09-03",
       "category": "search",
       "name": "Bingbot",
-      "hits": 13
+      "hits": 17
+    },
+    {
+      "day": "2026-09-03",
+      "category": "search",
+      "name": "Kakao",
+      "hits": 7
     },
     {
       "day": "2026-09-03",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 8
+      "hits": 14
     },
     {
       "day": "2026-09-03",
       "category": "search",
       "name": "__total__",
-      "hits": 21
+      "hits": 48
+    },
+    {
+      "day": "2026-09-03",
+      "category": "search",
+      "name": "facebook",
+      "hits": 9
     },
     {
       "day": "2026-09-03",
       "category": "visitor",
       "name": "unique",
-      "hits": 36
+      "hits": 57
     }
   ]
 }
