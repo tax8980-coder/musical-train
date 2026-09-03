@@ -11380,13 +11380,13 @@
       "day": "2026-09-03",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 32
+      "hits": 33
     },
     {
       "day": "2026-09-03",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-09-03",
@@ -11398,7 +11398,7 @@
       "day": "2026-09-03",
       "category": "ai",
       "name": "__total__",
-      "hits": 41
+      "hits": 43
     },
     {
       "day": "2026-09-03",
@@ -11422,7 +11422,7 @@
       "day": "2026-09-03",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-03",
@@ -11536,6 +11536,12 @@
       "day": "2026-09-03",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-03",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/worker-succession-headcount-2022du53921",
       "hits": 1
     },
     {
@@ -11794,7 +11800,7 @@
       "day": "2026-09-03",
       "category": "page",
       "name": "/",
-      "hits": 65
+      "hits": 70
     },
     {
       "day": "2026-09-03",
@@ -11926,7 +11932,7 @@
       "day": "2026-09-03",
       "category": "pv",
       "name": "total",
-      "hits": 137
+      "hits": 142
     },
     {
       "day": "2026-09-03",
@@ -11944,7 +11950,7 @@
       "day": "2026-09-03",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 59
+      "hits": 60
     },
     {
       "day": "2026-09-03",
@@ -11962,7 +11968,7 @@
       "day": "2026-09-03",
       "category": "reftype",
       "name": "직접",
-      "hits": 59
+      "hits": 60
     },
     {
       "day": "2026-09-03",
@@ -11974,7 +11980,7 @@
       "day": "2026-09-03",
       "category": "search",
       "name": "Bingbot",
-      "hits": 27
+      "hits": 29
     },
     {
       "day": "2026-09-03",
@@ -11991,14 +11997,20 @@
     {
       "day": "2026-09-03",
       "category": "search",
+      "name": "Naver",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-03",
+      "category": "search",
       "name": "Naver-Yeti",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-09-03",
       "category": "search",
       "name": "__total__",
-      "hits": 73
+      "hits": 78
     },
     {
       "day": "2026-09-03",
@@ -12010,7 +12022,49 @@
       "day": "2026-09-03",
       "category": "visitor",
       "name": "unique",
-      "hits": 94
+      "hits": 98
+    },
+    {
+      "day": "2026-09-04",
+      "category": "bot",
+      "name": "generic",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-04",
+      "category": "page",
+      "name": "/",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-04",
+      "category": "pv",
+      "name": "total",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-04",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-04",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-04",
+      "category": "search",
+      "name": "__total__",
+      "hits": 5
+    },
+    {
+      "day": "2026-09-04",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 2
     }
   ]
 }
