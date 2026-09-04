@@ -13120,13 +13120,13 @@
       "day": "2026-09-05",
       "category": "ai",
       "name": "Bytespider",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-05",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-09-05",
@@ -13138,7 +13138,13 @@
       "day": "2026-09-05",
       "category": "ai",
       "name": "__total__",
-      "hits": 9
+      "hits": 13
+    },
+    {
+      "day": "2026-09-05",
+      "category": "aipage",
+      "name": "Bytespider|/",
+      "hits": 1
     },
     {
       "day": "2026-09-05",
@@ -13156,12 +13162,24 @@
       "day": "2026-09-05",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-05",
       "category": "aipage",
       "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-05",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-05",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
       "hits": 1
     },
     {
@@ -13198,7 +13216,7 @@
       "day": "2026-09-05",
       "category": "page",
       "name": "/",
-      "hits": 16
+      "hits": 20
     },
     {
       "day": "2026-09-05",
@@ -13232,21 +13250,27 @@
     },
     {
       "day": "2026-09-05",
+      "category": "page",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-05",
       "category": "pv",
       "name": "total",
-      "hits": 42
+      "hits": 50
     },
     {
       "day": "2026-09-05",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 33
+      "hits": 39
     },
     {
       "day": "2026-09-05",
       "category": "reftype",
       "name": "직접",
-      "hits": 33
+      "hits": 39
     },
     {
       "day": "2026-09-05",
@@ -13258,7 +13282,7 @@
       "day": "2026-09-05",
       "category": "search",
       "name": "Bingbot",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-09-05",
@@ -13276,19 +13300,25 @@
       "day": "2026-09-05",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 9
+      "hits": 10
     },
     {
       "day": "2026-09-05",
       "category": "search",
       "name": "__total__",
-      "hits": 18
+      "hits": 21
+    },
+    {
+      "day": "2026-09-05",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-09-05",
       "category": "visitor",
       "name": "unique",
-      "hits": 39
+      "hits": 46
     }
   ]
 }
