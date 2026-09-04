@@ -13126,19 +13126,19 @@
       "day": "2026-09-05",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 1
-    },
-    {
-      "day": "2026-09-05",
-      "category": "ai",
-      "name": "OAI-SearchBot",
       "hits": 3
     },
     {
       "day": "2026-09-05",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-05",
+      "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 9
     },
     {
       "day": "2026-09-05",
@@ -13156,6 +13156,12 @@
       "day": "2026-09-05",
       "category": "aipage",
       "name": "ChatGPT-User|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-05",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
       "hits": 1
     },
     {
@@ -13178,63 +13184,81 @@
     },
     {
       "day": "2026-09-05",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-05",
       "category": "bot",
       "name": "generic",
-      "hits": 9
+      "hits": 14
     },
     {
       "day": "2026-09-05",
       "category": "page",
       "name": "/",
-      "hits": 13
+      "hits": 16
     },
     {
       "day": "2026-09-05",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-09-05",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
-      "hits": 3
+      "hits": 7
     },
     {
       "day": "2026-09-05",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-09-05",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-09-05",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
     },
     {
       "day": "2026-09-05",
       "category": "pv",
       "name": "total",
-      "hits": 28
+      "hits": 42
     },
     {
       "day": "2026-09-05",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 22
+      "hits": 33
     },
     {
       "day": "2026-09-05",
       "category": "reftype",
       "name": "직접",
-      "hits": 22
+      "hits": 33
+    },
+    {
+      "day": "2026-09-05",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-09-05",
       "category": "search",
       "name": "Bingbot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-05",
@@ -13246,25 +13270,25 @@
       "day": "2026-09-05",
       "category": "search",
       "name": "Naver",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-05",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-09-05",
       "category": "search",
       "name": "__total__",
-      "hits": 14
+      "hits": 18
     },
     {
       "day": "2026-09-05",
       "category": "visitor",
       "name": "unique",
-      "hits": 25
+      "hits": 39
     }
   ]
 }
