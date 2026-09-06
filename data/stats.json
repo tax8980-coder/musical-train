@@ -13498,48 +13498,66 @@
       "day": "2026-09-06",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 7
+      "hits": 15
     },
     {
       "day": "2026-09-06",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-09-06",
       "category": "ai",
       "name": "__total__",
-      "hits": 9
+      "hits": 20
     },
     {
       "day": "2026-09-06",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 2
+      "hits": 4
+    },
+    {
+      "day": "2026-09-06",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
     },
     {
       "day": "2026-09-06",
       "category": "aipage",
       "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-09-06",
       "category": "aipage",
       "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-06",
       "category": "aipage",
       "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-06",
       "category": "aipage",
       "name": "ChatGPT-User|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-06",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-06",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
       "hits": 1
     },
     {
@@ -13556,9 +13574,21 @@
     },
     {
       "day": "2026-09-06",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-06",
       "category": "bot",
       "name": "generic",
-      "hits": 38
+      "hits": 41
+    },
+    {
+      "day": "2026-09-06",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
     },
     {
       "day": "2026-09-06",
@@ -13570,7 +13600,13 @@
       "day": "2026-09-06",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-09-06",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 9
     },
     {
       "day": "2026-09-06",
@@ -13582,7 +13618,7 @@
       "day": "2026-09-06",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 169
+      "hits": 178
     },
     {
       "day": "2026-09-06",
@@ -13594,7 +13630,7 @@
       "day": "2026-09-06",
       "category": "page",
       "name": "/",
-      "hits": 12
+      "hits": 22
     },
     {
       "day": "2026-09-06",
@@ -13636,13 +13672,19 @@
       "day": "2026-09-06",
       "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-06",
       "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
       "hits": 2
+    },
+    {
+      "day": "2026-09-06",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
     },
     {
       "day": "2026-09-06",
@@ -13654,7 +13696,7 @@
       "day": "2026-09-06",
       "category": "pv",
       "name": "total",
-      "hits": 40
+      "hits": 53
     },
     {
       "day": "2026-09-06",
@@ -13666,7 +13708,7 @@
       "day": "2026-09-06",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 27
+      "hits": 34
     },
     {
       "day": "2026-09-06",
@@ -13678,13 +13720,13 @@
       "day": "2026-09-06",
       "category": "reftype",
       "name": "직접",
-      "hits": 27
+      "hits": 34
     },
     {
       "day": "2026-09-06",
       "category": "search",
       "name": "Bingbot",
-      "hits": 15
+      "hits": 22
     },
     {
       "day": "2026-09-06",
@@ -13696,19 +13738,19 @@
       "day": "2026-09-06",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 13
+      "hits": 15
     },
     {
       "day": "2026-09-06",
       "category": "search",
       "name": "__total__",
-      "hits": 32
+      "hits": 41
     },
     {
       "day": "2026-09-06",
       "category": "visitor",
       "name": "unique",
-      "hits": 39
+      "hits": 51
     }
   ]
 }
