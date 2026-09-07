@@ -442,6 +442,8 @@ POST_NOTE = {
     "worker-succession-headcount-2022du53921": "tax-credit",
     "company-car-purchase-method-2026": "corporate-tax",
     "jibun-eopi-beopin-gan-tujahago-suikman-nanwo": "corporate-tax",        # 익명조합 투자 법인세·원천징수
+    "company-house-shareholder-2014du43301": "corporate-tax",                # 대주주 거주 사택과 업무무관부동산
+    "company-house-ceo-expenses": "corporate-tax",                           # 대표이사 사택 비용 손금불산입
     # 2026-08-21 배정 (자동추정이 조특법 태그 때문에 세액공제·감면으로 잘못 잡히던 칼럼 포함)
     "jasansujeungiik-semujojeong-bangbeope-ttara": "corporate-tax",          # 자산수증이익 세무조정
     "beteunameseo-ttein-oegukingyeyakjase-1": "corporate-tax",               # 베트남 외국인계약자세
