@@ -16498,31 +16498,55 @@
       "day": "2026-09-10",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 1
+      "hits": 6
     },
     {
       "day": "2026-09-10",
       "category": "ai",
       "name": "__total__",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-10",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
       "hits": 1
     },
     {
       "day": "2026-09-10",
       "category": "aipage",
       "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-10",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-10",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
       "hits": 1
     },
     {
       "day": "2026-09-10",
       "category": "bot",
       "name": "generic",
-      "hits": 3
+      "hits": 25
     },
     {
       "day": "2026-09-10",
       "category": "page",
       "name": "/",
-      "hits": 3
+      "hits": 6
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 2
     },
     {
       "day": "2026-09-10",
@@ -16533,44 +16557,116 @@
     {
       "day": "2026-09-10",
       "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-10",
+      "category": "page",
+      "name": "/post.html",
       "hits": 1
     },
     {
       "day": "2026-09-10",
       "category": "pv",
       "name": "total",
-      "hits": 5
+      "hits": 21
     },
     {
       "day": "2026-09-10",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 3
+      "hits": 17
     },
     {
       "day": "2026-09-10",
       "category": "reftype",
       "name": "직접",
-      "hits": 3
+      "hits": 17
+    },
+    {
+      "day": "2026-09-10",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
     },
     {
       "day": "2026-09-10",
       "category": "search",
       "name": "Bingbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-10",
+      "category": "search",
+      "name": "Naver",
       "hits": 1
     },
     {
       "day": "2026-09-10",
       "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-10",
+      "category": "search",
       "name": "__total__",
-      "hits": 1
+      "hits": 8
     },
     {
       "day": "2026-09-10",
       "category": "visitor",
       "name": "unique",
-      "hits": 5
+      "hits": 20
     }
   ]
 }
