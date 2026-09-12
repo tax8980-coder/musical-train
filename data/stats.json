@@ -19846,7 +19846,7 @@
       "day": "2026-09-13",
       "category": "ai",
       "name": "Meta-ExternalAgent",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-13",
@@ -19864,7 +19864,7 @@
       "day": "2026-09-13",
       "category": "ai",
       "name": "__total__",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-09-13",
@@ -19893,6 +19893,12 @@
     {
       "day": "2026-09-13",
       "category": "aipage",
+      "name": "Meta-ExternalAgent|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-13",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
       "hits": 1
     },
@@ -19916,21 +19922,45 @@
     },
     {
       "day": "2026-09-13",
+      "category": "dwell",
+      "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-13",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-13",
+      "category": "dwell",
+      "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 454
+    },
+    {
+      "day": "2026-09-13",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 454
+    },
+    {
+      "day": "2026-09-13",
       "category": "page",
       "name": "/",
-      "hits": 6
+      "hits": 9
     },
     {
       "day": "2026-09-13",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-09-13",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-09-13",
@@ -19942,12 +19972,18 @@
       "day": "2026-09-13",
       "category": "page",
       "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-13",
       "category": "page",
       "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-13",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
       "hits": 1
     },
     {
@@ -19959,8 +19995,14 @@
     {
       "day": "2026-09-13",
       "category": "page",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-13",
+      "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-09-13",
@@ -19972,7 +20014,7 @@
       "day": "2026-09-13",
       "category": "pv",
       "name": "total",
-      "hits": 20
+      "hits": 36
     },
     {
       "day": "2026-09-13",
@@ -19984,31 +20026,31 @@
       "day": "2026-09-13",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-13",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 10
+      "hits": 22
     },
     {
       "day": "2026-09-13",
       "category": "reftype",
       "name": "검색",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-09-13",
       "category": "reftype",
       "name": "직접",
-      "hits": 10
+      "hits": 22
     },
     {
       "day": "2026-09-13",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 9
     },
     {
       "day": "2026-09-13",
@@ -20020,19 +20062,19 @@
       "day": "2026-09-13",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 10
+      "hits": 13
     },
     {
       "day": "2026-09-13",
       "category": "search",
       "name": "__total__",
-      "hits": 17
+      "hits": 23
     },
     {
       "day": "2026-09-13",
       "category": "visitor",
       "name": "unique",
-      "hits": 20
+      "hits": 36
     }
   ]
 }
