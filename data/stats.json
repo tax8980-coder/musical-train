@@ -20572,7 +20572,7 @@
       "day": "2026-09-14",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 4
+      "hits": 8
     },
     {
       "day": "2026-09-14",
@@ -20584,19 +20584,25 @@
       "day": "2026-09-14",
       "category": "ai",
       "name": "__total__",
-      "hits": 5
+      "hits": 9
     },
     {
       "day": "2026-09-14",
       "category": "aipage",
       "name": "ChatGPT-User|/",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-14",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 1
     },
     {
       "day": "2026-09-14",
       "category": "aipage",
       "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-14",
@@ -20620,7 +20626,7 @@
       "day": "2026-09-14",
       "category": "bot",
       "name": "generic",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-09-14",
@@ -20637,6 +20643,18 @@
     {
       "day": "2026-09-14",
       "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-14",
+      "category": "page",
+      "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-14",
+      "category": "page",
       "name": "/column/company-house-ceo-expenses",
       "hits": 2
     },
@@ -20644,6 +20662,12 @@
       "day": "2026-09-14",
       "category": "page",
       "name": "/column/company-house-shareholder-2014du43301",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-14",
+      "category": "page",
+      "name": "/column/daebeopwon-pangyeolgwa-heonjae-2024du37879",
       "hits": 1
     },
     {
@@ -20668,7 +20692,7 @@
       "day": "2026-09-14",
       "category": "page",
       "name": "/faq.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-14",
@@ -20680,13 +20704,19 @@
       "day": "2026-09-14",
       "category": "page",
       "name": "/index.html",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-09-14",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 2
     },
     {
       "day": "2026-09-14",
       "category": "page",
       "name": "/resources.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-14",
@@ -20698,43 +20728,55 @@
       "day": "2026-09-14",
       "category": "pv",
       "name": "total",
-      "hits": 36
+      "hits": 44
     },
     {
       "day": "2026-09-14",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 15
+      "hits": 23
     },
     {
       "day": "2026-09-14",
       "category": "reftype",
       "name": "직접",
-      "hits": 15
+      "hits": 23
     },
     {
       "day": "2026-09-14",
       "category": "search",
       "name": "Applebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-14",
       "category": "search",
       "name": "Bingbot",
-      "hits": 11
+      "hits": 13
+    },
+    {
+      "day": "2026-09-14",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 2
     },
     {
       "day": "2026-09-14",
       "category": "search",
       "name": "__total__",
-      "hits": 13
+      "hits": 19
+    },
+    {
+      "day": "2026-09-14",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-09-14",
       "category": "visitor",
       "name": "unique",
-      "hits": 23
+      "hits": 31
     }
   ]
 }
