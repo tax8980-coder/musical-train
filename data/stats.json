@@ -21590,21 +21590,105 @@
     },
     {
       "day": "2026-09-15",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-15",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-15",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-15",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-15",
       "category": "page",
       "name": "/",
-      "hits": 1
+      "hits": 5
+    },
+    {
+      "day": "2026-09-15",
+      "category": "page",
+      "name": "/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-15",
+      "category": "page",
+      "name": "/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-15",
+      "category": "page",
+      "name": "/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-15",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-15",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 3
     },
     {
       "day": "2026-09-15",
       "category": "pv",
       "name": "total",
+      "hits": 24
+    },
+    {
+      "day": "2026-09-15",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 19
+    },
+    {
+      "day": "2026-09-15",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 19
+    },
+    {
+      "day": "2026-09-15",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-15",
+      "category": "search",
+      "name": "Googlebot",
       "hits": 1
+    },
+    {
+      "day": "2026-09-15",
+      "category": "search",
+      "name": "__total__",
+      "hits": 7
     },
     {
       "day": "2026-09-15",
       "category": "visitor",
       "name": "unique",
-      "hits": 1
+      "hits": 23
     }
   ]
 }
