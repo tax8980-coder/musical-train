@@ -22412,33 +22412,135 @@
     },
     {
       "day": "2026-09-16",
-      "category": "page",
-      "name": "/",
-      "hits": 3
+      "category": "ai",
+      "name": "Bytespider",
+      "hits": 1
     },
     {
       "day": "2026-09-16",
-      "category": "pv",
-      "name": "total",
-      "hits": 3
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
     },
     {
       "day": "2026-09-16",
-      "category": "search",
-      "name": "Bingbot",
-      "hits": 3
+      "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 1
     },
     {
       "day": "2026-09-16",
-      "category": "search",
+      "category": "ai",
       "name": "__total__",
       "hits": 3
     },
     {
       "day": "2026-09-16",
+      "category": "aipage",
+      "name": "Bytespider|/column/company-house-shareholder-2014du43301",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "bot",
+      "name": "generic",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "dwell",
+      "name": "cnt|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "dwell",
+      "name": "sum|/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 11
+    },
+    {
+      "day": "2026-09-16",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 11
+    },
+    {
+      "day": "2026-09-16",
+      "category": "page",
+      "name": "/",
+      "hits": 5
+    },
+    {
+      "day": "2026-09-16",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "pv",
+      "name": "total",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-16",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-16",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-16",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-16",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 10
+    },
+    {
+      "day": "2026-09-16",
+      "category": "search",
+      "name": "__total__",
+      "hits": 10
+    },
+    {
+      "day": "2026-09-16",
       "category": "visitor",
       "name": "unique",
-      "hits": 3
+      "hits": 6
     }
   ]
 }
