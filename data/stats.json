@@ -25564,13 +25564,55 @@
       "day": "2026-09-20",
       "category": "bot",
       "name": "generic",
-      "hits": 8
+      "hits": 12
     },
     {
       "day": "2026-09-20",
       "category": "page",
       "name": "/",
+      "hits": 13
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
       "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-09-20",
@@ -25582,7 +25624,19 @@
       "day": "2026-09-20",
       "category": "pv",
       "name": "total",
-      "hits": 4
+      "hits": 28
+    },
+    {
+      "day": "2026-09-20",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 17
+    },
+    {
+      "day": "2026-09-20",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 17
     },
     {
       "day": "2026-09-20",
@@ -25594,19 +25648,19 @@
       "day": "2026-09-20",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-09-20",
       "category": "search",
       "name": "__total__",
-      "hits": 13
+      "hits": 15
     },
     {
       "day": "2026-09-20",
       "category": "visitor",
       "name": "unique",
-      "hits": 4
+      "hits": 26
     }
   ]
 }
