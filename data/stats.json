@@ -25132,19 +25132,19 @@
       "day": "2026-09-19",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-09-19",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 21
+      "hits": 22
     },
     {
       "day": "2026-09-19",
       "category": "ai",
       "name": "__total__",
-      "hits": 27
+      "hits": 29
     },
     {
       "day": "2026-09-19",
@@ -25156,6 +25156,12 @@
       "day": "2026-09-19",
       "category": "aipage",
       "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-19",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
       "hits": 1
     },
     {
@@ -25280,6 +25286,12 @@
     },
     {
       "day": "2026-09-19",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/worker-succession-headcount-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-19",
       "category": "bot",
       "name": "generic",
       "hits": 17
@@ -25348,7 +25360,7 @@
       "day": "2026-09-19",
       "category": "page",
       "name": "/",
-      "hits": 44
+      "hits": 46
     },
     {
       "day": "2026-09-19",
@@ -25426,7 +25438,7 @@
       "day": "2026-09-19",
       "category": "pv",
       "name": "total",
-      "hits": 84
+      "hits": 86
     },
     {
       "day": "2026-09-19",
@@ -25462,7 +25474,7 @@
       "day": "2026-09-19",
       "category": "search",
       "name": "Bingbot",
-      "hits": 42
+      "hits": 46
     },
     {
       "day": "2026-09-19",
@@ -25480,13 +25492,13 @@
       "day": "2026-09-19",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 15
+      "hits": 18
     },
     {
       "day": "2026-09-19",
       "category": "search",
       "name": "__total__",
-      "hits": 81
+      "hits": 88
     },
     {
       "day": "2026-09-19",
@@ -25498,7 +25510,49 @@
       "day": "2026-09-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 75
+      "hits": 77
+    },
+    {
+      "day": "2026-09-20",
+      "category": "bot",
+      "name": "generic",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-20",
+      "category": "page",
+      "name": "/",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "pv",
+      "name": "total",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-20",
+      "category": "search",
+      "name": "__total__",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-20",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 3
     }
   ]
 }
