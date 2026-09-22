@@ -28258,19 +28258,49 @@
       "day": "2026-09-23",
       "category": "bot",
       "name": "generic",
-      "hits": 19
+      "hits": 26
     },
     {
       "day": "2026-09-23",
       "category": "page",
       "name": "/",
-      "hits": 9
+      "hits": 10
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 2
     },
     {
       "day": "2026-09-23",
       "category": "page",
       "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
       "hits": 3
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/company-car-purchase-method-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/company-house-ceo-expenses",
+      "hits": 1
     },
     {
       "day": "2026-09-23",
@@ -28282,7 +28312,13 @@
       "day": "2026-09-23",
       "category": "page",
       "name": "/column/financial-income-comprehensive-tax-refund",
-      "hits": 3
+      "hits": 5
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
     },
     {
       "day": "2026-09-23",
@@ -28293,8 +28329,14 @@
     {
       "day": "2026-09-23",
       "category": "page",
+      "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-23",
@@ -28311,6 +28353,12 @@
     {
       "day": "2026-09-23",
       "category": "page",
+      "name": "/column/tax-credit-carryover-merger-conversion",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-23",
+      "category": "page",
       "name": "/column/two-workplaces-separate-accounting-127-10",
       "hits": 3
     },
@@ -28318,25 +28366,25 @@
       "day": "2026-09-23",
       "category": "pv",
       "name": "total",
-      "hits": 30
+      "hits": 49
     },
     {
       "day": "2026-09-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 24
+      "hits": 41
     },
     {
       "day": "2026-09-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 24
+      "hits": 41
     },
     {
       "day": "2026-09-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 8
     },
     {
       "day": "2026-09-23",
@@ -28348,19 +28396,19 @@
       "day": "2026-09-23",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 7
+      "hits": 12
     },
     {
       "day": "2026-09-23",
       "category": "search",
       "name": "__total__",
-      "hits": 14
+      "hits": 21
     },
     {
       "day": "2026-09-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 28
+      "hits": 46
     }
   ]
 }
