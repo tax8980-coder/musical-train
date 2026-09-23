@@ -28978,13 +28978,13 @@
       "day": "2026-09-24",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-24",
       "category": "ai",
       "name": "__total__",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-24",
@@ -29000,9 +29000,21 @@
     },
     {
       "day": "2026-09-24",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
       "category": "bot",
       "name": "generic",
       "hits": 10
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 3
     },
     {
       "day": "2026-09-24",
@@ -29013,8 +29025,32 @@
     {
       "day": "2026-09-24",
       "category": "dwell",
-      "name": "cnt|__all__",
+      "name": "cnt|/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
       "hits": 2
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 9
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 25
     },
     {
       "day": "2026-09-24",
@@ -29025,8 +29061,26 @@
     {
       "day": "2026-09-24",
       "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 35
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 13
+    },
+    {
+      "day": "2026-09-24",
+      "category": "dwell",
       "name": "sum|__all__",
-      "hits": 112
+      "hits": 189
     },
     {
       "day": "2026-09-24",
@@ -29038,13 +29092,13 @@
       "day": "2026-09-24",
       "category": "page",
       "name": "/",
-      "hits": 11
+      "hits": 13
     },
     {
       "day": "2026-09-24",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-24",
@@ -29079,6 +29133,12 @@
     {
       "day": "2026-09-24",
       "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
+      "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
       "hits": 1
     },
@@ -29098,7 +29158,7 @@
       "day": "2026-09-24",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-09-24",
@@ -29122,6 +29182,12 @@
       "day": "2026-09-24",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
       "hits": 1
     },
     {
@@ -29163,14 +29229,26 @@
     {
       "day": "2026-09-24",
       "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-24",
+      "category": "page",
       "name": "/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-24",
+      "category": "page",
+      "name": "/resources.html",
       "hits": 1
     },
     {
       "day": "2026-09-24",
       "category": "pv",
       "name": "total",
-      "hits": 41
+      "hits": 51
     },
     {
       "day": "2026-09-24",
@@ -29182,7 +29260,7 @@
       "day": "2026-09-24",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 19
+      "hits": 22
     },
     {
       "day": "2026-09-24",
@@ -29194,7 +29272,7 @@
       "day": "2026-09-24",
       "category": "reftype",
       "name": "직접",
-      "hits": 19
+      "hits": 22
     },
     {
       "day": "2026-09-24",
@@ -29224,7 +29302,7 @@
       "day": "2026-09-24",
       "category": "visitor",
       "name": "unique",
-      "hits": 36
+      "hits": 43
     }
   ]
 }
