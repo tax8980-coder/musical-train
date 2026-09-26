@@ -31034,6 +31034,24 @@
     },
     {
       "day": "2026-09-27",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-27",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-27",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-27",
       "category": "bot",
       "name": "generic",
       "hits": 17
@@ -31084,6 +31102,12 @@
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/company-house-shareholder-2014du43301",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/daebeopwon-panryedeungeul-2005du10453",
       "hits": 1
     },
     {
@@ -31144,7 +31168,7 @@
       "day": "2026-09-27",
       "category": "pv",
       "name": "total",
-      "hits": 53
+      "hits": 54
     },
     {
       "day": "2026-09-27",
@@ -31186,19 +31210,19 @@
       "day": "2026-09-27",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 17
+      "hits": 18
     },
     {
       "day": "2026-09-27",
       "category": "search",
       "name": "__total__",
-      "hits": 24
+      "hits": 25
     },
     {
       "day": "2026-09-27",
       "category": "visitor",
       "name": "unique",
-      "hits": 52
+      "hits": 53
     }
   ]
 }
