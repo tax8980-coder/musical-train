@@ -30394,19 +30394,19 @@
       "day": "2026-09-26",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 1
-    },
-    {
-      "day": "2026-09-26",
-      "category": "ai",
-      "name": "OAI-SearchBot",
       "hits": 2
     },
     {
       "day": "2026-09-26",
       "category": "ai",
+      "name": "OAI-SearchBot",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-26",
+      "category": "ai",
       "name": "__total__",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-09-26",
@@ -30423,8 +30423,14 @@
     {
       "day": "2026-09-26",
       "category": "aipage",
-      "name": "OAI-SearchBot|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
       "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 2
     },
     {
       "day": "2026-09-26",
@@ -30436,31 +30442,121 @@
       "day": "2026-09-26",
       "category": "bot",
       "name": "generic",
-      "hits": 13
+      "hits": 15
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 7
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 14
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 36
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 15
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 12
+    },
+    {
+      "day": "2026-09-26",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 82
     },
     {
       "day": "2026-09-26",
       "category": "page",
       "name": "/",
-      "hits": 10
+      "hits": 11
     },
     {
       "day": "2026-09-26",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
-    },
-    {
-      "day": "2026-09-26",
-      "category": "page",
-      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
       "hits": 3
     },
     {
       "day": "2026-09-26",
       "category": "page",
-      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
       "hits": 2
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 3
     },
     {
       "day": "2026-09-26",
@@ -30501,14 +30597,38 @@
     {
       "day": "2026-09-26",
       "category": "page",
+      "name": "/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
       "name": "/column/nurakhan-seaekgongje-gyeongjeongcheongguro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "page",
+      "name": "/resources.html",
       "hits": 1
     },
     {
       "day": "2026-09-26",
       "category": "pv",
       "name": "total",
-      "hits": 25
+      "hits": 36
     },
     {
       "day": "2026-09-26",
@@ -30526,7 +30646,7 @@
       "day": "2026-09-26",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 14
+      "hits": 20
     },
     {
       "day": "2026-09-26",
@@ -30538,13 +30658,13 @@
       "day": "2026-09-26",
       "category": "reftype",
       "name": "직접",
-      "hits": 14
+      "hits": 20
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "Bingbot",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-09-26",
@@ -30556,19 +30676,25 @@
       "day": "2026-09-26",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 17
+      "hits": 18
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "__total__",
-      "hits": 22
+      "hits": 25
+    },
+    {
+      "day": "2026-09-26",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-09-26",
       "category": "visitor",
       "name": "unique",
-      "hits": 23
+      "hits": 29
     }
   ]
 }
