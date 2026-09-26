@@ -31036,7 +31036,7 @@
       "day": "2026-09-27",
       "category": "bot",
       "name": "generic",
-      "hits": 7
+      "hits": 17
     },
     {
       "day": "2026-09-27",
@@ -31048,25 +31048,37 @@
       "day": "2026-09-27",
       "category": "page",
       "name": "/",
-      "hits": 6
+      "hits": 15
     },
     {
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 1
+      "hits": 5
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 4
     },
     {
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
       "hits": 3
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
     },
     {
       "day": "2026-09-27",
@@ -31078,18 +31090,48 @@
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
-      "hits": 1
+      "hits": 4
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 2
     },
     {
       "day": "2026-09-27",
       "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
       "hits": 1
     },
     {
       "day": "2026-09-27",
       "category": "page",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-27",
+      "category": "page",
+      "name": "/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
       "hits": 1
     },
     {
@@ -31102,7 +31144,7 @@
       "day": "2026-09-27",
       "category": "pv",
       "name": "total",
-      "hits": 18
+      "hits": 53
     },
     {
       "day": "2026-09-27",
@@ -31114,7 +31156,7 @@
       "day": "2026-09-27",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 10
+      "hits": 35
     },
     {
       "day": "2026-09-27",
@@ -31126,37 +31168,37 @@
       "day": "2026-09-27",
       "category": "reftype",
       "name": "직접",
-      "hits": 10
+      "hits": 35
     },
     {
       "day": "2026-09-27",
       "category": "search",
       "name": "Bingbot",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-09-27",
       "category": "search",
       "name": "Googlebot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-27",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 7
+      "hits": 17
     },
     {
       "day": "2026-09-27",
       "category": "search",
       "name": "__total__",
-      "hits": 10
+      "hits": 24
     },
     {
       "day": "2026-09-27",
       "category": "visitor",
       "name": "unique",
-      "hits": 18
+      "hits": 52
     }
   ]
 }
