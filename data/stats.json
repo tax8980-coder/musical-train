@@ -30394,19 +30394,25 @@
       "day": "2026-09-26",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 9
+    },
+    {
+      "day": "2026-09-26",
+      "category": "ai",
+      "name": "ClaudeBot",
+      "hits": 7
     },
     {
       "day": "2026-09-26",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 3
+      "hits": 9
     },
     {
       "day": "2026-09-26",
       "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 26
     },
     {
       "day": "2026-09-26",
@@ -30417,13 +30423,97 @@
     {
       "day": "2026-09-26",
       "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
       "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
       "hits": 1
     },
     {
       "day": "2026-09-26",
       "category": "aipage",
+      "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
       "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/sangsokse-singo-mueotbuteo-junbihaeya-halkkayo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "ClaudeBot|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
       "hits": 1
     },
     {
@@ -30435,14 +30525,32 @@
     {
       "day": "2026-09-26",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-26",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/onerous-gift-acquisition-tax-2024du67238",
       "hits": 1
     },
     {
       "day": "2026-09-26",
       "category": "bot",
       "name": "generic",
-      "hits": 15
+      "hits": 23
     },
     {
       "day": "2026-09-26",
@@ -30532,13 +30640,13 @@
       "day": "2026-09-26",
       "category": "page",
       "name": "/",
-      "hits": 11
+      "hits": 18
     },
     {
       "day": "2026-09-26",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-09-26",
@@ -30556,13 +30664,13 @@
       "day": "2026-09-26",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-09-26",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-26",
@@ -30592,7 +30700,7 @@
       "day": "2026-09-26",
       "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-26",
@@ -30628,7 +30736,7 @@
       "day": "2026-09-26",
       "category": "pv",
       "name": "total",
-      "hits": 36
+      "hits": 51
     },
     {
       "day": "2026-09-26",
@@ -30646,7 +30754,7 @@
       "day": "2026-09-26",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 20
+      "hits": 27
     },
     {
       "day": "2026-09-26",
@@ -30658,31 +30766,31 @@
       "day": "2026-09-26",
       "category": "reftype",
       "name": "직접",
-      "hits": 20
+      "hits": 27
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "Bingbot",
-      "hits": 5
+      "hits": 8
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "Googlebot",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 18
+      "hits": 24
     },
     {
       "day": "2026-09-26",
       "category": "search",
       "name": "__total__",
-      "hits": 25
+      "hits": 35
     },
     {
       "day": "2026-09-26",
@@ -30694,7 +30802,7 @@
       "day": "2026-09-26",
       "category": "visitor",
       "name": "unique",
-      "hits": 29
+      "hits": 43
     }
   ]
 }
