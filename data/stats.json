@@ -33075,6 +33075,24 @@
     {
       "day": "2026-09-30",
       "category": "dwell",
+      "name": "cnt|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/company-house-ceo-expenses",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
       "name": "cnt|/intro.html",
       "hits": 1
     },
@@ -33082,7 +33100,25 @@
       "day": "2026-09-30",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 1
+      "hits": 5
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 17
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/company-house-ceo-expenses",
+      "hits": 271
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 714
     },
     {
       "day": "2026-09-30",
@@ -33094,7 +33130,7 @@
       "day": "2026-09-30",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 5
+      "hits": 1007
     },
     {
       "day": "2026-09-30",
@@ -33106,7 +33142,7 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/",
-      "hits": 11
+      "hits": 16
     },
     {
       "day": "2026-09-30",
@@ -33130,6 +33166,12 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 1
     },
     {
@@ -33148,13 +33190,31 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/company-house-ceo-expenses",
-      "hits": 3
+      "hits": 5
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/company-house-shareholder-2014du43301",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
       "hits": 4
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
     },
     {
       "day": "2026-09-30",
@@ -33166,13 +33226,13 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-30",
@@ -33190,7 +33250,7 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-30",
@@ -33226,7 +33286,7 @@
       "day": "2026-09-30",
       "category": "pv",
       "name": "total",
-      "hits": 56
+      "hits": 72
     },
     {
       "day": "2026-09-30",
@@ -33237,8 +33297,14 @@
     {
       "day": "2026-09-30",
       "category": "refsite",
+      "name": "기타 · memo.naver.com",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 44
+      "hits": 56
     },
     {
       "day": "2026-09-30",
@@ -33249,14 +33315,20 @@
     {
       "day": "2026-09-30",
       "category": "reftype",
+      "name": "기타",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "reftype",
       "name": "직접",
-      "hits": 44
+      "hits": 56
     },
     {
       "day": "2026-09-30",
       "category": "search",
       "name": "Bingbot",
-      "hits": 10
+      "hits": 12
     },
     {
       "day": "2026-09-30",
@@ -33268,13 +33340,13 @@
       "day": "2026-09-30",
       "category": "search",
       "name": "__total__",
-      "hits": 21
+      "hits": 23
     },
     {
       "day": "2026-09-30",
       "category": "visitor",
       "name": "unique",
-      "hits": 52
+      "hits": 66
     }
   ]
 }
