@@ -33021,20 +33021,38 @@
     {
       "day": "2026-09-30",
       "category": "ai",
+      "name": "Bytespider",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 9
     },
     {
       "day": "2026-09-30",
       "category": "ai",
       "name": "OAI-SearchBot",
+      "hits": 7
+    },
+    {
+      "day": "2026-09-30",
+      "category": "ai",
+      "name": "PerplexityBot",
       "hits": 3
     },
     {
       "day": "2026-09-30",
       "category": "ai",
       "name": "__total__",
-      "hits": 5
+      "hits": 20
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "Bytespider|/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
     },
     {
       "day": "2026-09-30",
@@ -33045,7 +33063,31 @@
     {
       "day": "2026-09-30",
       "category": "aipage",
+      "name": "ChatGPT-User|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
       "name": "ChatGPT-User|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
       "hits": 1
     },
     {
@@ -33057,7 +33099,25 @@
     {
       "day": "2026-09-30",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/onerous-gift-acquisition-tax-2024du67238",
       "hits": 1
     },
     {
@@ -33068,69 +33128,225 @@
     },
     {
       "day": "2026-09-30",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
       "category": "bot",
       "name": "generic",
-      "hits": 9
+      "hits": 15
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
-      "name": "cnt|/column/company-house-ceo-expenses",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
+      "name": "cnt|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/company-house-ceo-expenses",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/company-house-shareholder-2014du43301",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
       "name": "cnt|/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 4
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/index.html",
       "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "cnt|/intro.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
       "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 5
+      "hits": 30
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "sum|/",
+      "hits": 20
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 17
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
+      "name": "sum|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 194
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 32
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
       "name": "sum|/column/company-house-ceo-expenses",
-      "hits": 271
+      "hits": 562
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/company-house-shareholder-2014du43301",
+      "hits": 193
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "sum|/column/daebeopwon-panryedeungeul-2005du10453",
-      "hits": 714
+      "hits": 1861
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 392
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 88
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 32
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/faq.html",
+      "hits": 9
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 7
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
       "name": "sum|/intro.html",
+      "hits": 14
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
+      "name": "sum|/media.html",
       "hits": 5
     },
     {
       "day": "2026-09-30",
       "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 11
+    },
+    {
+      "day": "2026-09-30",
+      "category": "dwell",
       "name": "sum|__all__",
-      "hits": 1007
+      "hits": 3437
     },
     {
       "day": "2026-09-30",
@@ -33142,12 +33358,18 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/",
-      "hits": 16
+      "hits": 24
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
+      "hits": 8
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 1
     },
     {
@@ -33160,13 +33382,13 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/bad-debt-vat-credit-2year",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-30",
@@ -33178,7 +33400,7 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/budongsan-maegak-chwideuk-junggaesusuryo",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-09-30",
@@ -33189,26 +33411,56 @@
     {
       "day": "2026-09-30",
       "category": "page",
+      "name": "/column/company-car-purchase-method-2026",
+      "hits": 6
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
       "name": "/column/company-house-ceo-expenses",
-      "hits": 5
+      "hits": 10
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/company-house-shareholder-2014du43301",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/daebeopwon-panryedeungeul-2005du10453",
-      "hits": 1
+      "hits": 3
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
+      "hits": 2
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 5
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 1
     },
     {
       "day": "2026-09-30",
@@ -33226,13 +33478,19 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/onerous-gift-acquisition-tax-2024du67238",
-      "hits": 4
+      "hits": 5
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 6
     },
     {
       "day": "2026-09-30",
@@ -33256,12 +33514,24 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/temp-2house-3house-sell-one-2024du55426",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/column/testamentary-trust-not-tax-saving",
+      "hits": 5
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
       "hits": 1
     },
     {
@@ -33274,25 +33544,55 @@
       "day": "2026-09-30",
       "category": "page",
       "name": "/contact.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/index.html",
       "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "page",
       "name": "/intro.html",
-      "hits": 2
+      "hits": 3
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-09-30",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-09-30",
       "category": "pv",
       "name": "total",
-      "hits": 72
+      "hits": 142
+    },
+    {
+      "day": "2026-09-30",
+      "category": "refsite",
+      "name": "검색 · 구글",
+      "hits": 2
     },
     {
       "day": "2026-09-30",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 3
+      "hits": 18
     },
     {
       "day": "2026-09-30",
@@ -33304,13 +33604,13 @@
       "day": "2026-09-30",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 56
+      "hits": 94
     },
     {
       "day": "2026-09-30",
       "category": "reftype",
       "name": "검색",
-      "hits": 3
+      "hits": 20
     },
     {
       "day": "2026-09-30",
@@ -33322,31 +33622,49 @@
       "day": "2026-09-30",
       "category": "reftype",
       "name": "직접",
-      "hits": 56
+      "hits": 94
     },
     {
       "day": "2026-09-30",
       "category": "search",
       "name": "Bingbot",
-      "hits": 12
+      "hits": 18
+    },
+    {
+      "day": "2026-09-30",
+      "category": "search",
+      "name": "Kakao",
+      "hits": 3
+    },
+    {
+      "day": "2026-09-30",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
     },
     {
       "day": "2026-09-30",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 11
+      "hits": 15
     },
     {
       "day": "2026-09-30",
       "category": "search",
       "name": "__total__",
-      "hits": 23
+      "hits": 45
+    },
+    {
+      "day": "2026-09-30",
+      "category": "search",
+      "name": "facebook",
+      "hits": 7
     },
     {
       "day": "2026-09-30",
       "category": "visitor",
       "name": "unique",
-      "hits": 66
+      "hits": 116
     }
   ]
 }
