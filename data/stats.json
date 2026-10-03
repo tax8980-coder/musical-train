@@ -35992,19 +35992,31 @@
       "day": "2026-10-03",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-10-03",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-10-03",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 2
     },
     {
       "day": "2026-10-03",
       "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 11
+    },
+    {
+      "day": "2026-10-03",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
     },
     {
       "day": "2026-10-03",
@@ -36033,7 +36045,19 @@
     {
       "day": "2026-10-03",
       "category": "aipage",
+      "name": "ChatGPT-User|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-03",
+      "category": "aipage",
       "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-03",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
       "hits": 1
     },
     {
@@ -36044,9 +36068,21 @@
     },
     {
       "day": "2026-10-03",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-03",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-03",
       "category": "bot",
       "name": "generic",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-03",
@@ -36136,7 +36172,7 @@
       "day": "2026-10-03",
       "category": "page",
       "name": "/",
-      "hits": 18
+      "hits": 24
     },
     {
       "day": "2026-10-03",
@@ -36172,7 +36208,7 @@
       "day": "2026-10-03",
       "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-03",
@@ -36214,7 +36250,7 @@
       "day": "2026-10-03",
       "category": "pv",
       "name": "total",
-      "hits": 46
+      "hits": 53
     },
     {
       "day": "2026-10-03",
@@ -36226,7 +36262,7 @@
       "day": "2026-10-03",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 30
+      "hits": 35
     },
     {
       "day": "2026-10-03",
@@ -36238,25 +36274,25 @@
       "day": "2026-10-03",
       "category": "reftype",
       "name": "직접",
-      "hits": 30
+      "hits": 35
     },
     {
       "day": "2026-10-03",
       "category": "search",
       "name": "Bingbot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-03",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 7
+      "hits": 14
     },
     {
       "day": "2026-10-03",
       "category": "search",
       "name": "__total__",
-      "hits": 11
+      "hits": 19
     },
     {
       "day": "2026-10-03",
@@ -36268,7 +36304,7 @@
       "day": "2026-10-03",
       "category": "visitor",
       "name": "unique",
-      "hits": 35
+      "hits": 41
     }
   ]
 }
