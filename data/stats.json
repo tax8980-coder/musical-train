@@ -37156,19 +37156,79 @@
       "day": "2026-10-05",
       "category": "bot",
       "name": "generic",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "cnt|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 20
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "sum|/media.html",
       "hits": 3
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 11
+    },
+    {
+      "day": "2026-10-05",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 42
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/",
-      "hits": 13
+      "hits": 22
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/acquisition-tax",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-05",
@@ -37203,6 +37263,18 @@
     {
       "day": "2026-10-05",
       "category": "page",
+      "name": "/column/company-house-ceo-expenses",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-05",
+      "category": "page",
+      "name": "/column/company-house-shareholder-2014du43301",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-05",
+      "category": "page",
       "name": "/column/daebeopwon-panryedeungeul-2005du10453",
       "hits": 1
     },
@@ -37221,8 +37293,26 @@
     {
       "day": "2026-10-05",
       "category": "page",
+      "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-05",
+      "category": "page",
+      "name": "/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-05",
+      "category": "page",
       "name": "/column/seomyeonbeopgyusodeuk2025-4683-2026-6-17",
       "hits": 6
+    },
+    {
+      "day": "2026-10-05",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 2
     },
     {
       "day": "2026-10-05",
@@ -37252,7 +37342,7 @@
       "day": "2026-10-05",
       "category": "page",
       "name": "/corporate-tax",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-05",
@@ -37276,31 +37366,31 @@
       "day": "2026-10-05",
       "category": "page",
       "name": "/intro.html",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/media.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/resources.html",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/tax-credit",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-05",
       "category": "page",
       "name": "/transfer-inheritance-gift",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-05",
@@ -37312,7 +37402,7 @@
       "day": "2026-10-05",
       "category": "pv",
       "name": "total",
-      "hits": 63
+      "hits": 90
     },
     {
       "day": "2026-10-05",
@@ -37324,7 +37414,7 @@
       "day": "2026-10-05",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 57
+      "hits": 77
     },
     {
       "day": "2026-10-05",
@@ -37336,13 +37426,19 @@
       "day": "2026-10-05",
       "category": "reftype",
       "name": "직접",
-      "hits": 57
+      "hits": 77
     },
     {
       "day": "2026-10-05",
       "category": "search",
       "name": "Bingbot",
-      "hits": 3
+      "hits": 7
+    },
+    {
+      "day": "2026-10-05",
+      "category": "search",
+      "name": "DuckDuckBot",
+      "hits": 1
     },
     {
       "day": "2026-10-05",
@@ -37360,19 +37456,19 @@
       "day": "2026-10-05",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 14
+      "hits": 23
     },
     {
       "day": "2026-10-05",
       "category": "search",
       "name": "__total__",
-      "hits": 21
+      "hits": 35
     },
     {
       "day": "2026-10-05",
       "category": "visitor",
       "name": "unique",
-      "hits": 45
+      "hits": 69
     }
   ]
 }
