@@ -41937,8 +41937,14 @@
     {
       "day": "2026-10-11",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-11",
+      "category": "ai",
       "name": "__total__",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-10-11",
@@ -41974,6 +41980,12 @@
       "day": "2026-10-11",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-11",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
       "hits": 1
     },
     {
@@ -42106,13 +42118,13 @@
       "day": "2026-10-11",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-10-11",
       "category": "search",
       "name": "__total__",
-      "hits": 14
+      "hits": 15
     },
     {
       "day": "2026-10-11",
