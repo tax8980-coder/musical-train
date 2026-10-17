@@ -48124,7 +48124,7 @@
       "day": "2026-10-17",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-17",
@@ -48136,7 +48136,7 @@
       "day": "2026-10-17",
       "category": "ai",
       "name": "__total__",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-17",
@@ -48148,6 +48148,12 @@
       "day": "2026-10-17",
       "category": "aipage",
       "name": "ChatGPT-User|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-17",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/presale-right-acquisition-date-2024du54560",
       "hits": 1
     },
     {
@@ -48166,7 +48172,7 @@
       "day": "2026-10-17",
       "category": "bot",
       "name": "generic",
-      "hits": 30
+      "hits": 31
     },
     {
       "day": "2026-10-17",
@@ -48196,7 +48202,7 @@
       "day": "2026-10-17",
       "category": "page",
       "name": "/",
-      "hits": 25
+      "hits": 26
     },
     {
       "day": "2026-10-17",
@@ -48208,7 +48214,7 @@
       "day": "2026-10-17",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-10-17",
@@ -48232,12 +48238,18 @@
       "day": "2026-10-17",
       "category": "page",
       "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-10-17",
       "category": "page",
       "name": "/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-17",
+      "category": "page",
+      "name": "/column/e-filing-tax-credit-agent-2026",
       "hits": 1
     },
     {
@@ -48249,8 +48261,20 @@
     {
       "day": "2026-10-17",
       "category": "page",
+      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-17",
+      "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
-      "hits": 3
+      "hits": 6
+    },
+    {
+      "day": "2026-10-17",
+      "category": "page",
+      "name": "/column/nurakhan-seaekgongje-gyeongjeongcheongguro",
+      "hits": 2
     },
     {
       "day": "2026-10-17",
@@ -48328,19 +48352,19 @@
       "day": "2026-10-17",
       "category": "pv",
       "name": "total",
-      "hits": 48
+      "hits": 61
     },
     {
       "day": "2026-10-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 39
+      "hits": 51
     },
     {
       "day": "2026-10-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 39
+      "hits": 51
     },
     {
       "day": "2026-10-17",
@@ -48352,7 +48376,7 @@
       "day": "2026-10-17",
       "category": "search",
       "name": "Bingbot",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-17",
@@ -48370,19 +48394,19 @@
       "day": "2026-10-17",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 14
+      "hits": 22
     },
     {
       "day": "2026-10-17",
       "category": "search",
       "name": "__total__",
-      "hits": 26
+      "hits": 35
     },
     {
       "day": "2026-10-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 21
+      "hits": 34
     }
   ]
 }
