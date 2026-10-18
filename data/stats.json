@@ -48826,36 +48826,48 @@
       "day": "2026-10-18",
       "category": "ai",
       "name": "Bytespider",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-10-18",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-18",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 1
-    },
-    {
-      "day": "2026-10-18",
-      "category": "ai",
-      "name": "PerplexityBot",
       "hits": 2
     },
     {
       "day": "2026-10-18",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-18",
+      "category": "ai",
       "name": "__total__",
-      "hits": 8
+      "hits": 13
+    },
+    {
+      "day": "2026-10-18",
+      "category": "aipage",
+      "name": "Bytespider|/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "aipage",
       "name": "Bytespider|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "aipage",
+      "name": "Bytespider|/column/beopinjeonhwan-jungsogieop-tonghap-si",
       "hits": 1
     },
     {
@@ -48874,7 +48886,7 @@
       "day": "2026-10-18",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-18",
@@ -48891,7 +48903,19 @@
     {
       "day": "2026-10-18",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "aipage",
       "name": "PerplexityBot|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
       "hits": 1
     },
     {
@@ -48904,31 +48928,55 @@
       "day": "2026-10-18",
       "category": "bot",
       "name": "generic",
-      "hits": 7
+      "hits": 13
     },
     {
       "day": "2026-10-18",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-10-18",
+      "category": "dwell",
+      "name": "cnt|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "dwell",
+      "name": "cnt|/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 4
+      "hits": 8
     },
     {
       "day": "2026-10-18",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 5
+      "hits": 8
+    },
+    {
+      "day": "2026-10-18",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 25
+    },
+    {
+      "day": "2026-10-18",
+      "category": "dwell",
+      "name": "sum|/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 107
     },
     {
       "day": "2026-10-18",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 5
+      "hits": 140
     },
     {
       "day": "2026-10-18",
@@ -48940,19 +48988,43 @@
       "day": "2026-10-18",
       "category": "page",
       "name": "/",
-      "hits": 27
+      "hits": 39
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/acquisition-tax",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
-      "hits": 6
+      "hits": 9
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 8
     },
     {
       "day": "2026-10-18",
@@ -48976,7 +49048,7 @@
       "day": "2026-10-18",
       "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-10-18",
@@ -49006,67 +49078,139 @@
       "day": "2026-10-18",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 3
+      "hits": 6
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/column/two-workplaces-separate-accounting-127-10",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-18",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "pv",
       "name": "total",
-      "hits": 57
+      "hits": 100
     },
     {
       "day": "2026-10-18",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 2
+      "hits": 3
+    },
+    {
+      "day": "2026-10-18",
+      "category": "refsite",
+      "name": "검색 · 빙",
+      "hits": 1
     },
     {
       "day": "2026-10-18",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 45
+      "hits": 84
     },
     {
       "day": "2026-10-18",
       "category": "reftype",
       "name": "검색",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-10-18",
       "category": "reftype",
       "name": "직접",
-      "hits": 45
+      "hits": 84
     },
     {
       "day": "2026-10-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 9
+      "hits": 13
     },
     {
       "day": "2026-10-18",
       "category": "search",
       "name": "Naver",
-      "hits": 1
+      "hits": 6
     },
     {
       "day": "2026-10-18",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 18
+      "hits": 26
     },
     {
       "day": "2026-10-18",
       "category": "search",
       "name": "__total__",
-      "hits": 28
+      "hits": 49
+    },
+    {
+      "day": "2026-10-18",
+      "category": "search",
+      "name": "facebook",
+      "hits": 4
     },
     {
       "day": "2026-10-18",
       "category": "visitor",
       "name": "unique",
-      "hits": 43
+      "hits": 64
     }
   ]
 }
