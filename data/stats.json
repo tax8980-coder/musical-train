@@ -48832,7 +48832,7 @@
       "day": "2026-10-18",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 12
+      "hits": 13
     },
     {
       "day": "2026-10-18",
@@ -48856,7 +48856,7 @@
       "day": "2026-10-18",
       "category": "ai",
       "name": "__total__",
-      "hits": 33
+      "hits": 34
     },
     {
       "day": "2026-10-18",
@@ -48898,7 +48898,7 @@
       "day": "2026-10-18",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-10-18",
@@ -49378,7 +49378,7 @@
       "day": "2026-10-18",
       "category": "search",
       "name": "Bingbot",
-      "hits": 19
+      "hits": 20
     },
     {
       "day": "2026-10-18",
@@ -49390,13 +49390,13 @@
       "day": "2026-10-18",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 42
+      "hits": 43
     },
     {
       "day": "2026-10-18",
       "category": "search",
       "name": "__total__",
-      "hits": 73
+      "hits": 75
     },
     {
       "day": "2026-10-18",
@@ -49409,6 +49409,168 @@
       "category": "visitor",
       "name": "unique",
       "hits": 86
+    },
+    {
+      "day": "2026-10-19",
+      "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-19",
+      "category": "ai",
+      "name": "Meta-ExternalAgent",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-19",
+      "category": "ai",
+      "name": "__total__",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-19",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "aipage",
+      "name": "Meta-ExternalAgent|/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "aipage",
+      "name": "Meta-ExternalAgent|/column/gaeinsaeopja-boksu-saeopjang-gammyeongwa-gongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "aipage",
+      "name": "Meta-ExternalAgent|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "bot",
+      "name": "generic",
+      "hits": 191
+    },
+    {
+      "day": "2026-10-19",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/column/company-house-ceo-expenses",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/income-tax",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "pv",
+      "name": "total",
+      "hits": 11
+    },
+    {
+      "day": "2026-10-19",
+      "category": "refsite",
+      "name": "검색 · 구글",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-19",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "Applebot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "Naver-Yeti",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "__total__",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-19",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 8
     }
   ]
 }
