@@ -49480,48 +49480,54 @@
       "day": "2026-10-19",
       "category": "bot",
       "name": "generic",
-      "hits": 194
+      "hits": 195
     },
     {
       "day": "2026-10-19",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-19",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-19",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-19",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-19",
       "category": "page",
       "name": "/",
-      "hits": 19
+      "hits": 33
     },
     {
       "day": "2026-10-19",
       "category": "page",
       "name": "/acquisition-tax",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-19",
       "category": "page",
       "name": "/column/company-house-ceo-expenses",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
       "hits": 1
     },
     {
@@ -49533,8 +49539,20 @@
     {
       "day": "2026-10-19",
       "category": "page",
-      "name": "/column/seomyeonbeopgyusodeuk2025-4683-2026-6-17",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
       "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/column/seomyeonbeopgyusodeuk2025-4683-2026-6-17",
+      "hits": 2
     },
     {
       "day": "2026-10-19",
@@ -49552,7 +49570,13 @@
       "day": "2026-10-19",
       "category": "page",
       "name": "/contact.html",
-      "hits": 2
+      "hits": 3
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/corporate-tax",
+      "hits": 1
     },
     {
       "day": "2026-10-19",
@@ -49564,7 +49588,7 @@
       "day": "2026-10-19",
       "category": "page",
       "name": "/income-tax",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-19",
@@ -49593,14 +49617,20 @@
     {
       "day": "2026-10-19",
       "category": "page",
-      "name": "/vat",
+      "name": "/transfer-inheritance-gift",
       "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "page",
+      "name": "/vat",
+      "hits": 2
     },
     {
       "day": "2026-10-19",
       "category": "pv",
       "name": "total",
-      "hits": 46
+      "hits": 70
     },
     {
       "day": "2026-10-19",
@@ -49612,7 +49642,7 @@
       "day": "2026-10-19",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 36
+      "hits": 51
     },
     {
       "day": "2026-10-19",
@@ -49624,7 +49654,7 @@
       "day": "2026-10-19",
       "category": "reftype",
       "name": "직접",
-      "hits": 36
+      "hits": 51
     },
     {
       "day": "2026-10-19",
@@ -49636,25 +49666,43 @@
       "day": "2026-10-19",
       "category": "search",
       "name": "Bingbot",
-      "hits": 4
+      "hits": 6
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "DuckDuckBot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-19",
+      "category": "search",
+      "name": "Naver",
+      "hits": 1
     },
     {
       "day": "2026-10-19",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 15
+      "hits": 22
     },
     {
       "day": "2026-10-19",
       "category": "search",
       "name": "__total__",
-      "hits": 20
+      "hits": 32
     },
     {
       "day": "2026-10-19",
       "category": "visitor",
       "name": "unique",
-      "hits": 36
+      "hits": 50
     }
   ]
 }
