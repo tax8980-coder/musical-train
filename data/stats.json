@@ -51484,13 +51484,13 @@
       "day": "2026-10-21",
       "category": "ai",
       "name": "Bytespider",
-      "hits": 4
+      "hits": 7
     },
     {
       "day": "2026-10-21",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 28
+      "hits": 32
     },
     {
       "day": "2026-10-21",
@@ -51502,13 +51502,25 @@
       "day": "2026-10-21",
       "category": "ai",
       "name": "__total__",
-      "hits": 37
+      "hits": 44
+    },
+    {
+      "day": "2026-10-21",
+      "category": "aipage",
+      "name": "Bytespider|/column/bumoga-janyeoege-ssage-palmyeon-chwideukseneun",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-21",
+      "category": "aipage",
+      "name": "Bytespider|/column/daebeopwon-pangyeolgwa-heonjae-2024du37879",
+      "hits": 1
     },
     {
       "day": "2026-10-21",
       "category": "aipage",
       "name": "Bytespider|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-21",
@@ -51532,7 +51544,7 @@
       "day": "2026-10-21",
       "category": "aipage",
       "name": "ChatGPT-User|/",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-10-21",
@@ -51585,6 +51597,12 @@
     {
       "day": "2026-10-21",
       "category": "aipage",
+      "name": "ChatGPT-User|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-21",
+      "category": "aipage",
       "name": "ChatGPT-User|/column/e-filing-tax-credit-agent-2026",
       "hits": 1
     },
@@ -51610,12 +51628,18 @@
       "day": "2026-10-21",
       "category": "aipage",
       "name": "ChatGPT-User|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-21",
       "category": "aipage",
       "name": "ChatGPT-User|/column/jasansujeungiik-semujojeong-bangbeope-ttara",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-21",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/presale-right-acquisition-date-2024du54560",
       "hits": 1
     },
     {
@@ -51676,13 +51700,13 @@
       "day": "2026-10-21",
       "category": "bot",
       "name": "generic",
-      "hits": 21
+      "hits": 24
     },
     {
       "day": "2026-10-21",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 19
+      "hits": 21
     },
     {
       "day": "2026-10-21",
@@ -51784,7 +51808,7 @@
       "day": "2026-10-21",
       "category": "dwell",
       "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-21",
@@ -51922,13 +51946,13 @@
       "day": "2026-10-21",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 153
+      "hits": 156
     },
     {
       "day": "2026-10-21",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 258
+      "hits": 263
     },
     {
       "day": "2026-10-21",
@@ -52030,7 +52054,7 @@
       "day": "2026-10-21",
       "category": "dwell",
       "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 2543
+      "hits": 2582
     },
     {
       "day": "2026-10-21",
@@ -52168,13 +52192,13 @@
       "day": "2026-10-21",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 11206
+      "hits": 11250
     },
     {
       "day": "2026-10-21",
       "category": "page",
       "name": "/",
-      "hits": 86
+      "hits": 101
     },
     {
       "day": "2026-10-21",
@@ -52198,7 +52222,7 @@
       "day": "2026-10-21",
       "category": "page",
       "name": "/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
-      "hits": 8
+      "hits": 9
     },
     {
       "day": "2026-10-21",
@@ -52330,7 +52354,7 @@
       "day": "2026-10-21",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-10-21",
@@ -52390,7 +52414,7 @@
       "day": "2026-10-21",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 8
+      "hits": 10
     },
     {
       "day": "2026-10-21",
@@ -52534,7 +52558,7 @@
       "day": "2026-10-21",
       "category": "pv",
       "name": "total",
-      "hits": 434
+      "hits": 453
     },
     {
       "day": "2026-10-21",
@@ -52552,13 +52576,13 @@
       "day": "2026-10-21",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 39
+      "hits": 40
     },
     {
       "day": "2026-10-21",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 295
+      "hits": 311
     },
     {
       "day": "2026-10-21",
@@ -52570,19 +52594,19 @@
       "day": "2026-10-21",
       "category": "reftype",
       "name": "검색",
-      "hits": 40
+      "hits": 41
     },
     {
       "day": "2026-10-21",
       "category": "reftype",
       "name": "직접",
-      "hits": 295
+      "hits": 311
     },
     {
       "day": "2026-10-21",
       "category": "search",
       "name": "Bingbot",
-      "hits": 12
+      "hits": 16
     },
     {
       "day": "2026-10-21",
@@ -52606,13 +52630,13 @@
       "day": "2026-10-21",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 47
+      "hits": 54
     },
     {
       "day": "2026-10-21",
       "category": "search",
       "name": "__total__",
-      "hits": 82
+      "hits": 93
     },
     {
       "day": "2026-10-21",
@@ -52624,7 +52648,109 @@
       "day": "2026-10-21",
       "category": "visitor",
       "name": "unique",
-      "hits": 179
+      "hits": 187
+    },
+    {
+      "day": "2026-10-22",
+      "category": "bot",
+      "name": "generic",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-22",
+      "category": "dwell",
+      "name": "cnt|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "dwell",
+      "name": "cnt|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "dwell",
+      "name": "sum|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "dwell",
+      "name": "sum|__all__",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "page",
+      "name": "/",
+      "hits": 8
+    },
+    {
+      "day": "2026-10-22",
+      "category": "page",
+      "name": "/column/seongsilsingohwakinbiyong-seaekgongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "page",
+      "name": "/readme.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "pv",
+      "name": "total",
+      "hits": 10
+    },
+    {
+      "day": "2026-10-22",
+      "category": "refsite",
+      "name": "직접 · 직접 유입/앱/북마크",
+      "hits": 9
+    },
+    {
+      "day": "2026-10-22",
+      "category": "reftype",
+      "name": "직접",
+      "hits": 9
+    },
+    {
+      "day": "2026-10-22",
+      "category": "search",
+      "name": "Bingbot",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-22",
+      "category": "search",
+      "name": "Googlebot",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "search",
+      "name": "Naver",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-22",
+      "category": "search",
+      "name": "__total__",
+      "hits": 6
+    },
+    {
+      "day": "2026-10-22",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-22",
+      "category": "visitor",
+      "name": "unique",
+      "hits": 5
     }
   ]
 }
