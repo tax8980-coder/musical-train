@@ -53794,13 +53794,13 @@
       "day": "2026-10-23",
       "category": "bot",
       "name": "generic",
-      "hits": 5
+      "hits": 6
     },
     {
       "day": "2026-10-23",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-10-23",
@@ -53823,14 +53823,26 @@
     {
       "day": "2026-10-23",
       "category": "dwell",
+      "name": "cnt|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-23",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-23",
+      "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 5
+      "hits": 9
     },
     {
       "day": "2026-10-23",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 1
+      "hits": 28
     },
     {
       "day": "2026-10-23",
@@ -53853,20 +53865,44 @@
     {
       "day": "2026-10-23",
       "category": "dwell",
+      "name": "sum|/contact.html",
+      "hits": 598
+    },
+    {
+      "day": "2026-10-23",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 366
+    },
+    {
+      "day": "2026-10-23",
+      "category": "dwell",
       "name": "sum|__all__",
-      "hits": 1027
+      "hits": 2018
     },
     {
       "day": "2026-10-23",
       "category": "page",
       "name": "/",
-      "hits": 13
+      "hits": 20
+    },
+    {
+      "day": "2026-10-23",
+      "category": "page",
+      "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
     },
     {
       "day": "2026-10-23",
       "category": "page",
       "name": "/column/daebeopwon-pangyeolgwa-heonjae-2024du37879",
-      "hits": 2
+      "hits": 5
+    },
+    {
+      "day": "2026-10-23",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 1
     },
     {
       "day": "2026-10-23",
@@ -53878,13 +53914,13 @@
       "day": "2026-10-23",
       "category": "page",
       "name": "/column/jasansujeungiik-semujojeong-bangbeope-ttara",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-23",
       "category": "page",
       "name": "/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-23",
@@ -53902,13 +53938,25 @@
       "day": "2026-10-23",
       "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
-      "hits": 3
+      "hits": 7
+    },
+    {
+      "day": "2026-10-23",
+      "category": "page",
+      "name": "/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-23",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 1
     },
     {
       "day": "2026-10-23",
       "category": "pv",
       "name": "total",
-      "hits": 29
+      "hits": 49
     },
     {
       "day": "2026-10-23",
@@ -53920,7 +53968,7 @@
       "day": "2026-10-23",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 23
+      "hits": 39
     },
     {
       "day": "2026-10-23",
@@ -53932,13 +53980,13 @@
       "day": "2026-10-23",
       "category": "reftype",
       "name": "직접",
-      "hits": 23
+      "hits": 39
     },
     {
       "day": "2026-10-23",
       "category": "search",
       "name": "Bingbot",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-10-23",
@@ -53950,19 +53998,25 @@
       "day": "2026-10-23",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 4
+      "hits": 15
     },
     {
       "day": "2026-10-23",
       "category": "search",
       "name": "__total__",
-      "hits": 6
+      "hits": 21
+    },
+    {
+      "day": "2026-10-23",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-10-23",
       "category": "visitor",
       "name": "unique",
-      "hits": 20
+      "hits": 35
     }
   ]
 }
