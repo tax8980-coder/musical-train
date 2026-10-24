@@ -55972,19 +55972,25 @@
       "day": "2026-10-25",
       "category": "bot",
       "name": "generic",
-      "hits": 1
+      "hits": 6
     },
     {
       "day": "2026-10-25",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-25",
       "category": "dwell",
       "name": "cnt|/column/budongsan-maegak-chwideuk-junggaesusuryo",
       "hits": 1
+    },
+    {
+      "day": "2026-10-25",
+      "category": "dwell",
+      "name": "cnt|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 2
     },
     {
       "day": "2026-10-25",
@@ -56002,19 +56008,25 @@
       "day": "2026-10-25",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 4
+      "hits": 7
     },
     {
       "day": "2026-10-25",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-25",
       "category": "dwell",
       "name": "sum|/column/budongsan-maegak-chwideuk-junggaesusuryo",
       "hits": 48
+    },
+    {
+      "day": "2026-10-25",
+      "category": "dwell",
+      "name": "sum|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 95
     },
     {
       "day": "2026-10-25",
@@ -56032,24 +56044,30 @@
       "day": "2026-10-25",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 60
+      "hits": 156
     },
     {
       "day": "2026-10-25",
       "category": "page",
       "name": "/",
-      "hits": 12
+      "hits": 17
     },
     {
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 4
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
       "hits": 1
     },
     {
@@ -56061,20 +56079,38 @@
     {
       "day": "2026-10-25",
       "category": "page",
-      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "name": "/column/company-house-shareholder-2014du43301",
       "hits": 2
     },
     {
       "day": "2026-10-25",
       "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 6
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
+      "hits": 4
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
+      "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
+      "name": "/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
       "hits": 1
     },
     {
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-10-25",
@@ -56140,19 +56176,31 @@
       "day": "2026-10-25",
       "category": "pv",
       "name": "total",
-      "hits": 30
+      "hits": 55
+    },
+    {
+      "day": "2026-10-25",
+      "category": "refsite",
+      "name": "검색 · 네이버",
+      "hits": 2
     },
     {
       "day": "2026-10-25",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 17
+      "hits": 36
+    },
+    {
+      "day": "2026-10-25",
+      "category": "reftype",
+      "name": "검색",
+      "hits": 2
     },
     {
       "day": "2026-10-25",
       "category": "reftype",
       "name": "직접",
-      "hits": 17
+      "hits": 36
     },
     {
       "day": "2026-10-25",
@@ -56170,19 +56218,19 @@
       "day": "2026-10-25",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 6
+      "hits": 14
     },
     {
       "day": "2026-10-25",
       "category": "search",
       "name": "__total__",
-      "hits": 9
+      "hits": 17
     },
     {
       "day": "2026-10-25",
       "category": "visitor",
       "name": "unique",
-      "hits": 12
+      "hits": 33
     }
   ]
 }
