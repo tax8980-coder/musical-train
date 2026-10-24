@@ -55947,8 +55947,14 @@
     {
       "day": "2026-10-25",
       "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-25",
+      "category": "ai",
       "name": "__total__",
-      "hits": 4
+      "hits": 6
     },
     {
       "day": "2026-10-25",
@@ -55970,9 +55976,21 @@
     },
     {
       "day": "2026-10-25",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/bad-debt-vat-credit-2year",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-25",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-25",
       "category": "bot",
       "name": "generic",
-      "hits": 6
+      "hits": 10
     },
     {
       "day": "2026-10-25",
@@ -56050,13 +56068,19 @@
       "day": "2026-10-25",
       "category": "page",
       "name": "/",
-      "hits": 17
+      "hits": 23
     },
     {
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
       "hits": 4
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
     },
     {
       "day": "2026-10-25",
@@ -56091,6 +56115,12 @@
     {
       "day": "2026-10-25",
       "category": "page",
+      "name": "/column/gaeinsaeopja-boksu-saeopjang-gammyeongwa-gongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-25",
+      "category": "page",
       "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
       "hits": 4
     },
@@ -56098,7 +56128,7 @@
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-10-25",
@@ -56110,7 +56140,7 @@
       "day": "2026-10-25",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-25",
@@ -56176,7 +56206,7 @@
       "day": "2026-10-25",
       "category": "pv",
       "name": "total",
-      "hits": 55
+      "hits": 66
     },
     {
       "day": "2026-10-25",
@@ -56188,7 +56218,7 @@
       "day": "2026-10-25",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 36
+      "hits": 39
     },
     {
       "day": "2026-10-25",
@@ -56200,13 +56230,13 @@
       "day": "2026-10-25",
       "category": "reftype",
       "name": "직접",
-      "hits": 36
+      "hits": 39
     },
     {
       "day": "2026-10-25",
       "category": "search",
       "name": "Bingbot",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-25",
@@ -56218,19 +56248,19 @@
       "day": "2026-10-25",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 14
+      "hits": 19
     },
     {
       "day": "2026-10-25",
       "category": "search",
       "name": "__total__",
-      "hits": 17
+      "hits": 23
     },
     {
       "day": "2026-10-25",
       "category": "visitor",
       "name": "unique",
-      "hits": 33
+      "hits": 43
     }
   ]
 }
