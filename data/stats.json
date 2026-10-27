@@ -57964,25 +57964,37 @@
       "day": "2026-10-27",
       "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 3
+      "hits": 10
     },
     {
       "day": "2026-10-27",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 11
+      "hits": 15
     },
     {
       "day": "2026-10-27",
       "category": "ai",
       "name": "__total__",
-      "hits": 15
+      "hits": 26
     },
     {
       "day": "2026-10-27",
       "category": "aipage",
       "name": "Bytespider|/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
       "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-27",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -57999,8 +58011,26 @@
     {
       "day": "2026-10-27",
       "category": "aipage",
-      "name": "OAI-SearchBot|/",
+      "name": "ChatGPT-User|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
       "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "aipage",
+      "name": "ChatGPT-User|/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/",
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -58012,13 +58042,13 @@
       "day": "2026-10-27",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/beopinjeonhwan-jungsogieop-tonghap-si",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-27",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/budongsan-maegak-chwideuk-junggaesusuryo",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -58042,7 +58072,7 @@
       "day": "2026-10-27",
       "category": "aipage",
       "name": "OAI-SearchBot|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -58066,13 +58096,49 @@
       "day": "2026-10-27",
       "category": "bot",
       "name": "generic",
-      "hits": 12
+      "hits": 14
     },
     {
       "day": "2026-10-27",
       "category": "dwell",
       "name": "cnt|/",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
       "hits": 2
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-10-27",
@@ -58083,14 +58149,68 @@
     {
       "day": "2026-10-27",
       "category": "dwell",
+      "name": "cnt|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 3
+      "hits": 16
     },
     {
       "day": "2026-10-27",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 2
+      "hits": 16
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 169
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 252
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
+      "hits": 105
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 59
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 23
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 33
     },
     {
       "day": "2026-10-27",
@@ -58101,20 +58221,44 @@
     {
       "day": "2026-10-27",
       "category": "dwell",
+      "name": "sum|/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 206
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "hits": 142
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 18
+    },
+    {
+      "day": "2026-10-27",
+      "category": "dwell",
       "name": "sum|__all__",
-      "hits": 199
+      "hits": 1220
     },
     {
       "day": "2026-10-27",
       "category": "page",
       "name": "/",
-      "hits": 19
+      "hits": 36
     },
     {
       "day": "2026-10-27",
       "category": "page",
       "name": "/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
       "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -58137,7 +58281,19 @@
     {
       "day": "2026-10-27",
       "category": "page",
+      "name": "/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
       "name": "/column/daebeopwon-panryedeungeul-2005du10453",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
+      "name": "/column/daepyoja-gajigeupgeum-wae-bangchihamyeon-an",
       "hits": 1
     },
     {
@@ -58150,19 +58306,37 @@
       "day": "2026-10-27",
       "category": "page",
       "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
-      "hits": 2
+      "hits": 4
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
+      "name": "/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
     },
     {
       "day": "2026-10-27",
       "category": "page",
       "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
-      "hits": 2
+      "hits": 3
     },
     {
       "day": "2026-10-27",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
       "hits": 2
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
+      "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-27",
+      "category": "page",
+      "name": "/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "hits": 1
     },
     {
       "day": "2026-10-27",
@@ -58186,7 +58360,7 @@
       "day": "2026-10-27",
       "category": "page",
       "name": "/intro.html",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-27",
@@ -58204,31 +58378,37 @@
       "day": "2026-10-27",
       "category": "pv",
       "name": "total",
-      "hits": 56
+      "hits": 85
+    },
+    {
+      "day": "2026-10-27",
+      "category": "refsite",
+      "name": "검색 · 구글",
+      "hits": 1
     },
     {
       "day": "2026-10-27",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 1
+      "hits": 10
     },
     {
       "day": "2026-10-27",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 39
+      "hits": 51
     },
     {
       "day": "2026-10-27",
       "category": "reftype",
       "name": "검색",
-      "hits": 1
+      "hits": 11
     },
     {
       "day": "2026-10-27",
       "category": "reftype",
       "name": "직접",
-      "hits": 39
+      "hits": 51
     },
     {
       "day": "2026-10-27",
@@ -58252,19 +58432,25 @@
       "day": "2026-10-27",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 21
+      "hits": 29
     },
     {
       "day": "2026-10-27",
       "category": "search",
       "name": "__total__",
-      "hits": 30
+      "hits": 39
+    },
+    {
+      "day": "2026-10-27",
+      "category": "search",
+      "name": "facebook",
+      "hits": 1
     },
     {
       "day": "2026-10-27",
       "category": "visitor",
       "name": "unique",
-      "hits": 39
+      "hits": 58
     }
   ]
 }
