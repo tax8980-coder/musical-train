@@ -58965,14 +58965,26 @@
     {
       "day": "2026-10-28",
       "category": "ai",
+      "name": "ChatGPT-User",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 2
+      "hits": 7
+    },
+    {
+      "day": "2026-10-28",
+      "category": "ai",
+      "name": "PerplexityBot",
+      "hits": 5
     },
     {
       "day": "2026-10-28",
       "category": "ai",
       "name": "__total__",
-      "hits": 5
+      "hits": 16
     },
     {
       "day": "2026-10-28",
@@ -58995,13 +59007,79 @@
     {
       "day": "2026-10-28",
       "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/daebeopwon-pangyeolgwa-heonjae-2024du37879",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/e-filing-tax-credit-agent-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
       "name": "OAI-SearchBot|/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
       "hits": 1
     },
     {
       "day": "2026-10-28",
       "category": "aipage",
+      "name": "OAI-SearchBot|/column/onerous-gift-acquisition-tax-2024du67238",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
       "name": "OAI-SearchBot|/transfer-inheritance-gift",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "PerplexityBot|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/bumoga-ihonhaetdamyeon-jeungyeojaesangongje",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "aipage",
+      "name": "PerplexityBot|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "bot",
+      "name": "empty-ua",
       "hits": 1
     },
     {
@@ -59014,7 +59092,49 @@
       "day": "2026-10-28",
       "category": "dwell",
       "name": "cnt|/",
+      "hits": 6
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongjeui",
       "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/bad-debt-vat-credit-2year",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/employment-credit-fulltime-worker-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-10-28",
@@ -59026,7 +59146,37 @@
       "day": "2026-10-28",
       "category": "dwell",
       "name": "cnt|/column/support-conditioned-gift-civil-vs-tax",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/faq.html",
       "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/intro.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/media.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "cnt|/resources.html",
+      "hits": 3
     },
     {
       "day": "2026-10-28",
@@ -59038,13 +59188,55 @@
       "day": "2026-10-28",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 5
+      "hits": 31
     },
     {
       "day": "2026-10-28",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 2
+      "hits": 27
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 217
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/bad-debt-vat-credit-2year",
+      "hits": 59
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/budongsan-maegak-chwideuk-junggaesusuryo",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/employment-credit-fulltime-worker-2026",
+      "hits": 108
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 444
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/inclusive-wage-fixed-ot-2026",
+      "hits": 147
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 93
     },
     {
       "day": "2026-10-28",
@@ -59056,7 +59248,37 @@
       "day": "2026-10-28",
       "category": "dwell",
       "name": "sum|/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 128
+      "hits": 431
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/faq.html",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/index.html",
+      "hits": 35
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/intro.html",
+      "hits": 37
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/media.html",
+      "hits": 21
+    },
+    {
+      "day": "2026-10-28",
+      "category": "dwell",
+      "name": "sum|/resources.html",
+      "hits": 57
     },
     {
       "day": "2026-10-28",
@@ -59068,13 +59290,13 @@
       "day": "2026-10-28",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 231
+      "hits": 1783
     },
     {
       "day": "2026-10-28",
       "category": "page",
       "name": "/",
-      "hits": 19
+      "hits": 33
     },
     {
       "day": "2026-10-28",
@@ -59097,13 +59319,31 @@
     {
       "day": "2026-10-28",
       "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
       "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
       "hits": 2
     },
     {
       "day": "2026-10-28",
       "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
       "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/budongsan-maegak-chwideuk-junggaesusuryo",
       "hits": 1
     },
     {
@@ -59127,7 +59367,49 @@
     {
       "day": "2026-10-28",
       "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
       "hits": 1
     },
     {
@@ -59140,7 +59422,7 @@
       "day": "2026-10-28",
       "category": "page",
       "name": "/column/support-conditioned-gift-civil-vs-tax",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-10-28",
@@ -59169,6 +59451,42 @@
     {
       "day": "2026-10-28",
       "category": "page",
+      "name": "/column/worker-succession-headcount-2022du53921",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/index.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/intro.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/media.html",
+      "hits": 2
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
+      "name": "/resources.html",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-28",
+      "category": "page",
       "name": "/transfer-inheritance-gift",
       "hits": 1
     },
@@ -59176,31 +59494,31 @@
       "day": "2026-10-28",
       "category": "pv",
       "name": "total",
-      "hits": 54
+      "hits": 94
     },
     {
       "day": "2026-10-28",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 2
+      "hits": 10
     },
     {
       "day": "2026-10-28",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 43
+      "hits": 64
     },
     {
       "day": "2026-10-28",
       "category": "reftype",
       "name": "검색",
-      "hits": 2
+      "hits": 10
     },
     {
       "day": "2026-10-28",
       "category": "reftype",
       "name": "직접",
-      "hits": 43
+      "hits": 64
     },
     {
       "day": "2026-10-28",
@@ -59218,25 +59536,31 @@
       "day": "2026-10-28",
       "category": "search",
       "name": "Naver",
-      "hits": 2
+      "hits": 4
     },
     {
       "day": "2026-10-28",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 10
+      "hits": 12
     },
     {
       "day": "2026-10-28",
       "category": "search",
       "name": "__total__",
-      "hits": 22
+      "hits": 29
+    },
+    {
+      "day": "2026-10-28",
+      "category": "search",
+      "name": "facebook",
+      "hits": 3
     },
     {
       "day": "2026-10-28",
       "category": "visitor",
       "name": "unique",
-      "hits": 42
+      "hits": 64
     }
   ]
 }
