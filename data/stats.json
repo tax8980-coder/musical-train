@@ -62080,18 +62080,48 @@
       "day": "2026-10-31",
       "category": "ai",
       "name": "OAI-SearchBot",
-      "hits": 2
+      "hits": 8
     },
     {
       "day": "2026-10-31",
       "category": "ai",
       "name": "__total__",
-      "hits": 3
+      "hits": 9
     },
     {
       "day": "2026-10-31",
       "category": "aipage",
       "name": "ChatGPT-User|/",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/company-car-purchase-method-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/e-filing-tax-credit-agent-2026",
       "hits": 1
     },
     {
@@ -62108,15 +62138,33 @@
     },
     {
       "day": "2026-10-31",
+      "category": "aipage",
+      "name": "OAI-SearchBot|/column/naeilchaeumgongje-gieopbudamgeum-yeongu",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
       "category": "bot",
       "name": "generic",
-      "hits": 7
+      "hits": 12
     },
     {
       "day": "2026-10-31",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 6
+      "hits": 7
+    },
+    {
+      "day": "2026-10-31",
+      "category": "dwell",
+      "name": "cnt|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "dwell",
+      "name": "cnt|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
     },
     {
       "day": "2026-10-31",
@@ -62128,13 +62176,25 @@
       "day": "2026-10-31",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 7
+      "hits": 10
     },
     {
       "day": "2026-10-31",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 9
+      "hits": 10
+    },
+    {
+      "day": "2026-10-31",
+      "category": "dwell",
+      "name": "sum|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 19
+    },
+    {
+      "day": "2026-10-31",
+      "category": "dwell",
+      "name": "sum|/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 53
     },
     {
       "day": "2026-10-31",
@@ -62146,37 +62206,43 @@
       "day": "2026-10-31",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 47
+      "hits": 120
     },
     {
       "day": "2026-10-31",
       "category": "page",
       "name": "/",
-      "hits": 37
+      "hits": 55
     },
     {
       "day": "2026-10-31",
       "category": "page",
       "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
-      "hits": 1
-    },
-    {
-      "day": "2026-10-31",
-      "category": "page",
-      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
-      "hits": 4
-    },
-    {
-      "day": "2026-10-31",
-      "category": "page",
-      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 3
     },
     {
       "day": "2026-10-31",
       "category": "page",
-      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
+      "hits": 5
+    },
+    {
+      "day": "2026-10-31",
+      "category": "page",
+      "name": "/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "page",
+      "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 4
+    },
+    {
+      "day": "2026-10-31",
+      "category": "page",
+      "name": "/column/beteunameseo-ttein-oegukingyeyakjase-1",
+      "hits": 6
     },
     {
       "day": "2026-10-31",
@@ -62193,14 +62259,26 @@
     {
       "day": "2026-10-31",
       "category": "page",
+      "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-10-31",
+      "category": "page",
       "name": "/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-31",
       "category": "page",
       "name": "/column/josim-gyeoljeongeuro-bon-2024so5819",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-10-31",
@@ -62212,7 +62290,7 @@
       "day": "2026-10-31",
       "category": "page",
       "name": "/column/oegukingeunroja-19-danilseyul-2026du30395",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-10-31",
@@ -62242,67 +62320,73 @@
       "day": "2026-10-31",
       "category": "pv",
       "name": "total",
-      "hits": 70
+      "hits": 101
     },
     {
       "day": "2026-10-31",
       "category": "refsite",
       "name": "검색 · 네이버",
+      "hits": 3
+    },
+    {
+      "day": "2026-10-31",
+      "category": "refsite",
+      "name": "검색 · 빙",
       "hits": 1
     },
     {
       "day": "2026-10-31",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 64
+      "hits": 85
     },
     {
       "day": "2026-10-31",
       "category": "reftype",
       "name": "검색",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-10-31",
       "category": "reftype",
       "name": "직접",
-      "hits": 64
+      "hits": 85
     },
     {
       "day": "2026-10-31",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-10-31",
       "category": "search",
       "name": "Naver",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-10-31",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 17
+      "hits": 24
     },
     {
       "day": "2026-10-31",
       "category": "search",
       "name": "__total__",
-      "hits": 27
+      "hits": 37
     },
     {
       "day": "2026-10-31",
       "category": "search",
       "name": "facebook",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-10-31",
       "category": "visitor",
       "name": "unique",
-      "hits": 43
+      "hits": 63
     }
   ]
 }
