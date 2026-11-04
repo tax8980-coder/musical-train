@@ -815,6 +815,7 @@ def list_files():
 
 
 MEDIA_JSON = os.path.join(BASE_DIR, "data", "media.json")
+CARDNEWS_JSON = os.path.join(BASE_DIR, "data", "cardnews.json")
 
 
 def _youtube_id(url):
@@ -841,6 +842,24 @@ def load_media():
         item["thumb"] = m.get("thumb") or (("https://img.youtube.com/vi/" + vid + "/hqdefault.jpg") if vid else "")
         out.append(item)
     out.sort(key=lambda x: x.get("date") or "", reverse=True)   # 최신순(날짜 없는 항목은 뒤로)
+    return out
+
+
+def load_cardnews():
+    """data/cardnews.json → 카드뉴스 세트 목록(최신순). 없으면 빈 목록.
+    각 세트: slug, title, subtitle, summary, date, tags, dir, cards[{file, alt}], columns[]."""
+    try:
+        with open(CARDNEWS_JSON, encoding="utf-8") as fp:
+            data = json.load(fp)
+    except (OSError, ValueError):
+        return []
+    sets = data if isinstance(data, list) else (data.get("cardnews") or [])
+    out = []
+    for c in sets:
+        if not c.get("title") or not c.get("cards"):
+            continue
+        out.append(c)
+    out.sort(key=lambda x: x.get("date") or "", reverse=True)
     return out
 
 
@@ -1368,6 +1387,7 @@ def _render_sitemap_xml():
         (o + "/faq.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "faq.html"))),
         (o + "/contact.html", "monthly", "0.8", _file_lastmod(os.path.join(BASE_DIR, "contact.html"))),
         (o + "/media.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "media.html"))),
+        (o + "/cardnews.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "cardnews.html"))),
     ]
     # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
     for h in HUBS:
@@ -1908,6 +1928,11 @@ class Handler(SimpleHTTPRequestHandler):
         # ---- 언론·강의 영상 목록 (공개) ----
         if parsed.path == "/api/media":
             self._send_json(200, {"ok": True, "media": load_media()})
+            return
+
+        # ---- 카드뉴스 목록 (공개) ----
+        if parsed.path == "/api/cardnews":
+            self._send_json(200, {"ok": True, "cardnews": load_cardnews()})
             return
 
         # ---- 조회수 내보내기 (공개, 이미 카드에 노출되는 비민감 데이터) : 스냅샷 백업용 ----

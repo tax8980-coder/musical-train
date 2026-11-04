@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>카드뉴스 | 세무법인 지율 - 손창용 세무사</title>
+<meta name="description" content="세무법인 지율 손창용 세무사가 세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음입니다." />
+<link rel="canonical" href="https://taxin4u.com/cardnews.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="세무법인 지율" />
+<meta property="og:title" content="카드뉴스 | 세무법인 지율" />
+<meta property="og:description" content="세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음." />
+<meta property="og:url" content="https://taxin4u.com/cardnews.html" />
+<meta property="og:image" content="https://taxin4u.com/assets/images/og.png?v=4" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="카드뉴스 | 세무법인 지율" />
+<meta name="twitter:description" content="세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음." />
+<meta name="twitter:image" content="https://taxin4u.com/assets/images/og.png?v=4" />
+<link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2" />
+<meta name="theme-color" content="#1E3A5F" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
+<link rel="stylesheet" href="assets/styles.css?v=50" />
+<style>
+  .sub-hero + .section { padding-top: 50px; }
+  @media (max-width: 767px) { .sub-hero + .section { padding-top: 30px; } }
+
+  /* 세트 목록 */
+  .cn-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
+  .cn-card { display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; background: #fff; transition: box-shadow .15s, transform .15s; }
+  .cn-card:hover { box-shadow: 0 8px 24px rgba(30,58,95,.12); transform: translateY(-2px); }
+  .cn-card__btn { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; width: 100%; }
+  .cn-card__thumb { display: block; position: relative; aspect-ratio: 4 / 5; background: #EAF1FA; overflow: hidden; }
+  .cn-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cn-card__count { position: absolute; right: 10px; bottom: 10px; font-size: .78rem; font-weight: 700; color: #fff; background: rgba(30,58,95,.82); border-radius: 999px; padding: 4px 11px; }
+  .cn-card__body { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+  .cn-card__tags { font-size: .78rem; font-weight: 700; color: #2A5A9A; }
+  .cn-card__title { font-size: 1.05rem; font-weight: 700; color: #1E3A5F; line-height: 1.4; }
+  .cn-card__sub { font-size: .9rem; color: #46566b; line-height: 1.5; }
+  .cn-card__date { font-size: .83rem; color: #5b6b7f; }
+  .cn-card__links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 15px 15px; }
+  .cn-card__link { font-size: .84rem; font-weight: 600; color: #2A5A9A; text-decoration: none; background: #EAF1FA; border: 1px solid #D3E0F0; border-radius: 999px; padding: 5px 11px; }
+  .cn-card__link:hover { background: #D8E6F7; }
+  .cn-card__link::before { content: "📄 "; font-weight: 400; }
+
+  /* 뷰어(라이트박스) */
+  .cn-viewer { position: fixed; inset: 0; z-index: 1200; background: rgba(11,22,38,.93); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; }
+  .cn-viewer[hidden] { display: none; }
+  .cn-viewer__stage { position: relative; display: flex; align-items: center; justify-content: center; max-width: 100%; max-height: calc(100vh - 120px); }
+  .cn-viewer__img { max-width: min(92vw, 560px); max-height: calc(100vh - 130px); width: auto; height: auto; border-radius: 10px; box-shadow: 0 18px 48px rgba(0,0,0,.45); background: #fff; }
+  .cn-viewer__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: 22px; font-weight: 700; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .cn-viewer__nav:hover { background: #fff; }
+  .cn-viewer__nav:disabled { opacity: .3; cursor: default; }
+  .cn-viewer__nav--prev { left: -62px; }
+  .cn-viewer__nav--next { right: -62px; }
+  @media (max-width: 767px) {
+    .cn-viewer__nav--prev { left: 4px; }
+    .cn-viewer__nav--next { right: 4px; }
+    .cn-viewer__nav { background: rgba(255,255,255,.78); }
+  }
+  .cn-viewer__bar { display: flex; align-items: center; gap: 14px; margin-top: 14px; color: #fff; font-size: .92rem; }
+  .cn-viewer__dots { display: flex; gap: 6px; }
+  .cn-viewer__dot { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.35); cursor: pointer; }
+  .cn-viewer__dot.is-on { background: #fff; width: 22px; border-radius: 999px; }
+  .cn-viewer__close { position: absolute; top: 14px; right: 16px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: 20px; cursor: pointer; }
+  .cn-viewer__title { position: absolute; top: 20px; left: 20px; right: 72px; color: #fff; font-size: .95rem; font-weight: 600; line-height: 1.4; }
+</style>
+</head>
+<body class="page-sub">
+<a class="skip-link" href="#main">본문으로 바로가기</a>
+
+<header class="site-header is-scrolled is-static" id="siteHeader">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="세무법인 지율 홈">
+      <img class="logo__img" src="assets/images/logo-brand.png?v=2" alt="세무법인 지율"
+           onload="this.closest('.logo').classList.add('has-img')" />
+      <span class="logo__fallback">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="hdrLogoG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1E3A5F"/><stop offset=".55" stop-color="#2A5A9A"/><stop offset="1" stop-color="#3B82F6"/>
+            </linearGradient></defs>
+            <rect width="40" height="40" rx="11" fill="url(#hdrLogoG)"/>
+            <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 13.5 H29"/><path d="M20 13.5 V19"/><path d="M20 19 L12 27.5"/><path d="M20 19 L28 27.5"/>
+            </g>
+          </svg>
+        </span>
+        <span class="logo__text">세무법인 <b>지율</b></span>
+      </span>
+      <span class="logo__brand">세무법인</span>
+    </a>
+    <nav class="gnb-sub" aria-label="바로가기">
+      <a href="index.html">세무칼럼</a>
+      <a href="intro.html"><span class="nav-label--wide">세무사/업무소개</span><span class="nav-label--narrow">업무분야</span></a>
+      <a href="media.html">언론·강의</a>
+      <a href="cardnews.html" aria-current="page">카드뉴스</a>
+      <a href="resources.html">자료실</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a class="btn btn--primary btn--sm" href="contact.html"><span class="nav-label--wide">강의요청 및 상담문의</span><span class="nav-label--narrow">상담 문의</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="sub-hero">
+    <div class="container">
+      <h1 class="sub-hero__title">카드뉴스</h1>
+      <p class="sub-hero__lead">세법 개정과 실무 쟁점을 카드 한 장씩으로 정리했습니다. 표지를 누르면 전체 카드를 넘겨 볼 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cn-grid" id="cnGrid"></div>
+      <p class="file-list__state" id="cnLoading">카드뉴스를 불러오는 중입니다…</p>
+      <p class="file-list__state" id="cnEmpty" hidden>등록된 카드뉴스가 없습니다.</p>
+    </div>
+  </section>
+</main>
+
+<div class="cn-viewer" id="cnViewer" role="dialog" aria-modal="true" aria-label="카드뉴스 보기" hidden>
+  <p class="cn-viewer__title" id="cnViewerTitle"></p>
+  <button class="cn-viewer__close" id="cnClose" type="button" aria-label="닫기">✕</button>
+  <div class="cn-viewer__stage">
+    <button class="cn-viewer__nav cn-viewer__nav--prev" id="cnPrev" type="button" aria-label="이전 카드">‹</button>
+    <img class="cn-viewer__img" id="cnImg" src="" alt="" />
+    <button class="cn-viewer__nav cn-viewer__nav--next" id="cnNext" type="button" aria-label="다음 카드">›</button>
+  </div>
+  <div class="cn-viewer__bar">
+    <span id="cnCounter">1 / 1</span>
+    <span class="cn-viewer__dots" id="cnDots"></span>
+  </div>
+</div>
+
+<div class="mobile-callbar" aria-label="빠른 상담">
+  <a class="mobile-callbar__tel" href="tel:02-552-6436">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.8 4.2-2 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-2L20 15.5V19a1.5 1.5 0 0 1-1.7 1.5A15.5 15.5 0 0 1 3.5 5.7A1.5 1.5 0 0 1 5 4Z"/></svg>
+    전화 상담
+  </a>
+  <a class="mobile-callbar__cta" href="contact.html">상담 신청</a>
+</div>
+
+<div data-site-footer hidden></div>
+<script src="assets/site-footer.js?v=10"></script>
+<script src="assets/dwell.js?v=1" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtDate(d) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || '');
+    return m ? m[1] + '.' + m[2] + '.' + m[3] + '.' : '';
+  }
+
+  var grid = document.getElementById('cnGrid');
+  var loading = document.getElementById('cnLoading');
+  var empty = document.getElementById('cnEmpty');
+  var sets = [];
+
+  /* ---------- 목록 ---------- */
+  function render(list) {
+    grid.innerHTML = list.map(function (s, i) {
+      var cover = s.dir + '/' + (s.cards[0] && s.cards[0].file);
+      var links = (s.columns || []).map(function (c) {
+        return '<a class="cn-card__link" href="/column/' + encodeURIComponent(c.slug) + '">' + esc(c.title) + '</a>';
+      }).join('');
+      return '' +
+        '<article class="cn-card">' +
+          '<button class="cn-card__btn" type="button" data-set="' + i + '" aria-label="' + esc(s.title) + ' 카드뉴스 보기">' +
+            '<span class="cn-card__thumb">' +
+              '<img src="' + esc(cover) + '" alt="' + esc(s.title) + ' 표지" loading="lazy" decoding="async" />' +
+              '<span class="cn-card__count">' + s.cards.length + '장</span>' +
+            '</span>' +
+            '<span class="cn-card__body">' +
+              (s.tags && s.tags.length ? '<span class="cn-card__tags">' + esc(s.tags.join(' · ')) + '</span>' : '') +
+              '<span class="cn-card__title">' + esc(s.title) + '</span>' +
+              (s.subtitle ? '<span class="cn-card__sub">' + esc(s.subtitle) + '</span>' : '') +
+              '<span class="cn-card__date">' + esc(fmtDate(s.date)) + '</span>' +
+            '</span>' +
+          '</button>' +
+          (links ? '<div class="cn-card__links">' + links + '</div>' : '') +
+        '</article>';
+    }).join('');
+
+    grid.querySelectorAll('.cn-card__btn').forEach(function (b) {
+      b.addEventListener('click', function () { open(parseInt(b.dataset.set, 10), 0); });
+    });
+  }
+
+  /* ---------- 뷰어 ---------- */
+  var viewer = document.getElementById('cnViewer');
+  var img = document.getElementById('cnImg');
+  var titleEl = document.getElementById('cnViewerTitle');
+  var counter = document.getElementById('cnCounter');
+  var dots = document.getElementById('cnDots');
+  var prevBtn = document.getElementById('cnPrev');
+  var nextBtn = document.getElementById('cnNext');
+  var cur = { set: 0, idx: 0 };
+
+  function show() {
+    var s = sets[cur.set];
+    var card = s.cards[cur.idx];
+    img.src = s.dir + '/' + card.file;
+    img.alt = card.alt || (s.title + ' ' + (cur.idx + 1) + '번째 카드');
+    titleEl.textContent = s.title;
+    counter.textContent = (cur.idx + 1) + ' / ' + s.cards.length;
+    prevBtn.disabled = cur.idx === 0;
+    nextBtn.disabled = cur.idx === s.cards.length - 1;
+    dots.innerHTML = s.cards.map(function (c, i) {
+      return '<button class="cn-viewer__dot' + (i === cur.idx ? ' is-on' : '') +
+             '" type="button" data-i="' + i + '" aria-label="' + (i + 1) + '번째 카드"></button>';
+    }).join('');
+    dots.querySelectorAll('.cn-viewer__dot').forEach(function (d) {
+      d.addEventListener('click', function () { cur.idx = parseInt(d.dataset.i, 10); show(); });
+    });
+    // 다음 카드 미리 받아두기
+    var nxt = s.cards[cur.idx + 1];
+    if (nxt) { new Image().src = s.dir + '/' + nxt.file; }
+  }
+
+  function open(si, ci) {
+    cur = { set: si, idx: ci };
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    show();
+  }
+  function close() {
+    viewer.hidden = true;
+    document.body.style.overflow = '';
+  }
+  function step(d) {
+    var s = sets[cur.set];
+    var n = cur.idx + d;
+    if (n < 0 || n >= s.cards.length) return;
+    cur.idx = n;
+    show();
+  }
+
+  prevBtn.addEventListener('click', function () { step(-1); });
+  nextBtn.addEventListener('click', function () { step(1); });
+  document.getElementById('cnClose').addEventListener('click', close);
+  viewer.addEventListener('click', function (e) { if (e.target === viewer) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (viewer.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
+  // 모바일 좌우 스와이프
+  var tx = 0, ty = 0;
+  viewer.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  viewer.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  /* ---------- 데이터 ---------- */
+  fetch('/api/cardnews')
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      sets = (d && d.cardnews) || [];
+      loading.hidden = true;
+      if (!sets.length) { empty.hidden = false; return; }
+      render(sets);
+    })
+    .catch(function () {
+      loading.hidden = true;
+      empty.hidden = false;
+      empty.textContent = '카드뉴스를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
+    });
+})();
+</script>
+</body>
+</html>
