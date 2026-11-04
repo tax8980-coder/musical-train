@@ -65655,8 +65655,14 @@
     {
       "day": "2026-11-04",
       "category": "ai",
+      "name": "Bytespider",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "ai",
       "name": "ChatGPT-User",
-      "hits": 2
+      "hits": 6
     },
     {
       "day": "2026-11-04",
@@ -65674,13 +65680,25 @@
       "day": "2026-11-04",
       "category": "ai",
       "name": "PerplexityBot",
-      "hits": 10
+      "hits": 14
     },
     {
       "day": "2026-11-04",
       "category": "ai",
       "name": "__total__",
-      "hits": 19
+      "hits": 28
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "Bytespider|/column/baeuja-janyeoege-jigeuphan-geupyeo-biyongeuro",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "ChatGPT-User|/",
+      "hits": 1
     },
     {
       "day": "2026-11-04",
@@ -65692,6 +65710,24 @@
       "day": "2026-11-04",
       "category": "aipage",
       "name": "ChatGPT-User|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "ChatGPT-User|/contact.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "ChatGPT-User|/media.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "ChatGPT-User|/resources.html",
       "hits": 1
     },
     {
@@ -65764,6 +65800,12 @@
       "day": "2026-11-04",
       "category": "aipage",
       "name": "PerplexityBot|/column/2026nyeon-yeonmaljeongsan-gyoyukbi-wolseaek",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/company-car-purchase-method-2026",
       "hits": 1
     },
     {
@@ -65787,7 +65829,19 @@
     {
       "day": "2026-11-04",
       "category": "aipage",
+      "name": "PerplexityBot|/column/financial-income-comprehensive-tax-refund",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
       "name": "PerplexityBot|/column/georaecheoga-segeumgyesanseoreul-balgeuphaji",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "aipage",
+      "name": "PerplexityBot|/column/inclusive-wage-fixed-ot-2026",
       "hits": 1
     },
     {
@@ -65800,19 +65854,43 @@
       "day": "2026-11-04",
       "category": "bot",
       "name": "generic",
-      "hits": 220
+      "hits": 223
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/",
-      "hits": 17
+      "hits": 22
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/cardnews.html",
+      "hits": 4
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 1
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/column/2026nyeon-yeonmaljeongsan-gyoyukbi-wolseaek",
       "hits": 4
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 1
     },
     {
       "day": "2026-11-04",
@@ -65829,14 +65907,26 @@
     {
       "day": "2026-11-04",
       "category": "dwell",
-      "name": "cnt|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "name": "cnt|/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
       "hits": 1
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
-      "name": "cnt|/column/oegukingeunroja-19-danilseyul-2026du30395",
+      "name": "cnt|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
       "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/column/oegukingeunroja-19-danilseyul-2026du30395",
+      "hits": 3
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-11-04",
@@ -65847,38 +65937,50 @@
     {
       "day": "2026-11-04",
       "category": "dwell",
-      "name": "cnt|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "name": "cnt|/column/temp-2house-3house-sell-one-2024du55426",
       "hits": 1
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
+      "name": "cnt|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
       "name": "cnt|/column/worker-succession-headcount-2022du53921",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "cnt|/faq.html",
       "hits": 1
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/index.html",
-      "hits": 2
+      "hits": 7
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/intro.html",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/media.html",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|/resources.html",
-      "hits": 1
+      "hits": 4
     },
     {
       "day": "2026-11-04",
@@ -65890,19 +65992,43 @@
       "day": "2026-11-04",
       "category": "dwell",
       "name": "cnt|__all__",
-      "hits": 41
+      "hits": 74
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/",
-      "hits": 722
+      "hits": 836
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/cardnews.html",
+      "hits": 74
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
+      "hits": 28
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 177
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/column/2026nyeon-yeonmaljeongsan-gyoyukbi-wolseaek",
       "hits": 148
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
+      "hits": 11
     },
     {
       "day": "2026-11-04",
@@ -65919,14 +66045,26 @@
     {
       "day": "2026-11-04",
       "category": "dwell",
+      "name": "sum|/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
       "name": "sum|/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
-      "hits": 78
+      "hits": 315
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/column/oegukingeunroja-19-danilseyul-2026du30395",
-      "hits": 515
+      "hits": 837
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 24
     },
     {
       "day": "2026-11-04",
@@ -65937,38 +66075,50 @@
     {
       "day": "2026-11-04",
       "category": "dwell",
+      "name": "sum|/column/temp-2house-3house-sell-one-2024du55426",
+      "hits": 44
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
       "name": "sum|/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
-      "hits": 171
+      "hits": 199
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/column/worker-succession-headcount-2022du53921",
-      "hits": 31
+      "hits": 35
+    },
+    {
+      "day": "2026-11-04",
+      "category": "dwell",
+      "name": "sum|/faq.html",
+      "hits": 3
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/index.html",
-      "hits": 10
+      "hits": 155
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/intro.html",
-      "hits": 94
+      "hits": 97
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/media.html",
-      "hits": 11
+      "hits": 25
     },
     {
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|/resources.html",
-      "hits": 11
+      "hits": 27
     },
     {
       "day": "2026-11-04",
@@ -65980,49 +66130,79 @@
       "day": "2026-11-04",
       "category": "dwell",
       "name": "sum|__all__",
-      "hits": 2685
+      "hits": 3931
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/",
-      "hits": 44
+      "hits": 53
     },
     {
       "day": "2026-11-04",
       "category": "page",
-      "name": "/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
+      "name": "/cardnews.html",
       "hits": 4
     },
     {
       "day": "2026-11-04",
       "category": "page",
-      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-1sedae-1jutaek",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/2026-sejegaepyeonan-jungsimeuro-goga-1jutaek",
       "hits": 1
     },
     {
       "day": "2026-11-04",
       "category": "page",
-      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
-      "hits": 1
-    },
-    {
-      "day": "2026-11-04",
-      "category": "page",
-      "name": "/column/2026nyeon-yeonmaljeongsan-gyoyukbi-wolseaek",
+      "name": "/column/2026nyeon-janyeoseaekgongje-yeonryeonggijun",
       "hits": 5
     },
     {
       "day": "2026-11-04",
       "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongje-2025nyeon",
+      "hits": 4
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/2026nyeon-tonghapgoyongseaekgongjeui",
+      "hits": 3
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/2026nyeon-yeonmaljeongsan-gyoyukbi-wolseaek",
+      "hits": 6
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
       "name": "/column/ai-chatgpt-claude-perplexity-gemini-gemi-3b6868d0",
-      "hits": 1
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/bad-debt-vat-credit-2year",
+      "hits": 3
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/baeuja-jeungyeo-hu-iiksogak-daebeopwon-3gae",
       "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/beopinjeonhwan-jungsogieop-tonghap-si",
+      "hits": 2
     },
     {
       "day": "2026-11-04",
@@ -66046,31 +66226,55 @@
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/company-car-purchase-method-2026",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/employment-credit-fulltime-worker-2026",
+      "hits": 4
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/financial-income-comprehensive-tax-refund",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/geunrojareul-seunggyehaetneunde-2022du53921",
       "hits": 2
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
-      "hits": 1
-    },
-    {
-      "day": "2026-11-04",
-      "category": "page",
-      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
       "hits": 4
     },
     {
       "day": "2026-11-04",
       "category": "page",
+      "name": "/column/inclusive-wage-fixed-ot-2026",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/jecheokgigan-3gaewol-ihamyeon-2025du33014",
+      "hits": 2
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/jibun-eopi-beopin-gan-tujahago-suikman-nanwo",
+      "hits": 7
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
       "name": "/column/oegukingeunroja-19-danilseyul-2026du30395",
-      "hits": 3
+      "hits": 4
     },
     {
       "day": "2026-11-04",
@@ -66082,7 +66286,13 @@
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/presale-right-acquisition-date-2024du54560",
-      "hits": 4
+      "hits": 5
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
+      "name": "/column/saeopyong-sinyongkadeuro-gyeoljehamyeon",
+      "hits": 1
     },
     {
       "day": "2026-11-04",
@@ -66106,31 +66316,31 @@
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/tax-credit-carryover-merger-conversion",
-      "hits": 5
+      "hits": 7
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/temp-2house-3house-sell-one-2024du55426",
-      "hits": 4
+      "hits": 5
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/tongsangimgeumi-pyeonggyunimgeumboda-nopeumyeon",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/column/worker-succession-headcount-2022du53921",
-      "hits": 3
+      "hits": 6
     },
     {
       "day": "2026-11-04",
@@ -66147,6 +66357,12 @@
     {
       "day": "2026-11-04",
       "category": "page",
+      "name": "/faq.html",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-04",
+      "category": "page",
       "name": "/income-tax",
       "hits": 1
     },
@@ -66154,37 +66370,37 @@
       "day": "2026-11-04",
       "category": "page",
       "name": "/index.html",
-      "hits": 2
+      "hits": 7
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/intro.html",
-      "hits": 3
+      "hits": 5
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/media.html",
-      "hits": 1
+      "hits": 3
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/resources.html",
-      "hits": 2
+      "hits": 5
     },
     {
       "day": "2026-11-04",
       "category": "page",
       "name": "/tax-credit",
-      "hits": 1
+      "hits": 2
     },
     {
       "day": "2026-11-04",
       "category": "pv",
       "name": "total",
-      "hits": 117
+      "hits": 189
     },
     {
       "day": "2026-11-04",
@@ -66196,7 +66412,7 @@
       "day": "2026-11-04",
       "category": "refsite",
       "name": "검색 · 네이버",
-      "hits": 10
+      "hits": 17
     },
     {
       "day": "2026-11-04",
@@ -66214,7 +66430,7 @@
       "day": "2026-11-04",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 80
+      "hits": 106
     },
     {
       "day": "2026-11-04",
@@ -66226,7 +66442,7 @@
       "day": "2026-11-04",
       "category": "reftype",
       "name": "검색",
-      "hits": 11
+      "hits": 18
     },
     {
       "day": "2026-11-04",
@@ -66238,13 +66454,13 @@
       "day": "2026-11-04",
       "category": "reftype",
       "name": "직접",
-      "hits": 80
+      "hits": 106
     },
     {
       "day": "2026-11-04",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 11
     },
     {
       "day": "2026-11-04",
@@ -66262,13 +66478,13 @@
       "day": "2026-11-04",
       "category": "search",
       "name": "Naver-Yeti",
-      "hits": 29
+      "hits": 42
     },
     {
       "day": "2026-11-04",
       "category": "search",
       "name": "__total__",
-      "hits": 43
+      "hits": 61
     },
     {
       "day": "2026-11-04",
@@ -66280,7 +66496,7 @@
       "day": "2026-11-04",
       "category": "visitor",
       "name": "unique",
-      "hits": 83
+      "hits": 114
     }
   ]
 }
