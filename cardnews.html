@@ -51,6 +51,11 @@
 
   /* 뷰어(라이트박스) */
   .cn-viewer { position: fixed; inset: 0; z-index: 1200; background: rgba(11,22,38,.93); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; }
+  /* 카드를 빠르게 넘기다 보면 드래그·더블클릭으로 글자가 선택돼 화면 전체가 파랗게 덮인다 */
+  .cn-viewer, .cn-viewer *, .cn-card__btn { -webkit-user-select: none; user-select: none; }
+  .cn-viewer__img { -webkit-user-drag: none; }
+  /* 뷰어가 열려 있는 동안에는 뒤 페이지 글자도 선택되지 않게 한다 */
+  body.cn-open, body.cn-open * { -webkit-user-select: none; user-select: none; }
   .cn-viewer[hidden] { display: none; }
   .cn-viewer__stage { position: relative; display: flex; align-items: center; justify-content: center; max-width: 100%; max-height: calc(100vh - 120px); }
   .cn-viewer__img { max-width: min(92vw, 560px); max-height: calc(100vh - 130px); width: auto; height: auto; border-radius: 10px; box-shadow: 0 18px 48px rgba(0,0,0,.45); background: #fff; }
@@ -234,11 +239,14 @@
     cur = { set: si, idx: ci };
     viewer.hidden = false;
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('cn-open');
     show();
   }
   function close() {
     viewer.hidden = true;
     document.body.style.overflow = '';
+    document.body.classList.remove('cn-open');
+    if (window.getSelection) { window.getSelection().removeAllRanges(); }
   }
   function step(d) {
     var s = sets[cur.set];
