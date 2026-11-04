@@ -1423,6 +1423,13 @@ def _render_cardnews_html(set_slug):
     html = html.replace(
         "</head>",
         "<script>window.__CN_OPEN=" + json.dumps(set_slug, ensure_ascii=False) + ";</script></head>", 1)
+
+    # /cardnews/<slug> 는 한 단계 아래 경로라, cardnews.html 의 상대경로(assets/…, index.html …)가
+    # /cardnews/assets/… 로 잘못 풀려 CSS·JS 가 404 가 된다. 정적 자원·메뉴 링크만 루트 기준으로 바꾼다
+    # (스크립트 안의 문자열은 건드리지 않는다 — 카드 이미지 경로가 깨진다).
+    html = html.replace('="assets/', '="/assets/')
+    for _page in ("index", "intro", "media", "cardnews", "resources", "faq", "contact"):
+        html = html.replace('href="%s.html"' % _page, 'href="/%s.html"' % _page)
     return html
 
 
