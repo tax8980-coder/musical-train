@@ -1388,7 +1388,8 @@ def _render_cardnews_html(set_slug):
     sub = item.get("subtitle") or ""
     desc = item.get("summary") or sub
     full_title = _esc_html(title) + " | 카드뉴스 · 세무법인 지율"
-    og_img = SITE_ORIGIN + item.get("dir", "") + "/og.jpg"
+    # 메신저 미리보기는 가로로 잘리므로 1200x630 전용 이미지를 쓴다(make_cardnews_og.py 생성).
+    og_img = SITE_ORIGIN + item.get("dir", "") + "/og-card.jpg"
     n = len(item.get("cards") or [])
 
     for old, new_ in (
@@ -1407,10 +1408,6 @@ def _render_cardnews_html(set_slug):
          '<meta property="og:url" content="' + _esc_html(canonical) + '" />'),
         ('<meta property="og:image" content="https://taxin4u.com/assets/images/og.png?v=4" />',
          '<meta property="og:image" content="' + _esc_html(og_img) + '" />'),
-        ('<meta property="og:image:width" content="1200" />',
-         '<meta property="og:image:width" content="1080" />'),
-        ('<meta property="og:image:height" content="630" />',
-         '<meta property="og:image:height" content="1350" />'),
         ('<meta name="twitter:title" content="카드뉴스 | 세무법인 지율" />',
          '<meta name="twitter:title" content="' + _esc_html(title) + '" />'),
         ('<meta name="twitter:description" content="세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음." />',
