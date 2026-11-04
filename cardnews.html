@@ -233,12 +233,12 @@
     return location.origin + '/cardnews/' + encodeURIComponent(s.slug);
   }
   function share(si) {
-    var s = sets[si];
     var url = setUrl(si);
-    var text = s.title + (s.subtitle ? ' — ' + s.subtitle : '');
     // 휴대폰: 기본 공유창(카카오톡·메시지 등) / PC: 링크 복사
+    // 주소만 넘긴다 — 제목·설명을 함께 넘기면 카카오톡이 그 글자를 본문에 붙여버려
+    // 미리보기 카드 위에 같은 제목이 한 번 더 나온다.
     if (navigator.share) {
-      navigator.share({ title: s.title, text: text, url: url }).catch(function () {});
+      navigator.share({ url: url }).catch(function () {});
       return;
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
