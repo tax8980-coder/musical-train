@@ -48,6 +48,14 @@
   .cn-card__link { font-size: .84rem; font-weight: 600; color: #2A5A9A; text-decoration: none; background: #EAF1FA; border: 1px solid #D3E0F0; border-radius: 999px; padding: 5px 11px; }
   .cn-card__link:hover { background: #D8E6F7; }
   .cn-card__link::before { content: "📄 "; font-weight: 400; }
+  .cn-card__share { font-size: .84rem; font-weight: 700; color: #fff; background: #2A5A9A; border: 1px solid #2A5A9A; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .cn-card__share:hover { background: #1E3A5F; border-color: #1E3A5F; }
+  .cn-card__share::before { content: "🔗 "; font-weight: 400; }
+  .cn-viewer__share { position: absolute; top: 14px; right: 66px; height: 42px; padding: 0 16px; border-radius: 999px; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: .9rem; font-weight: 700; cursor: pointer; }
+  .cn-viewer__share:hover { background: #fff; }
+  @media (max-width: 767px) { .cn-viewer__share { padding: 0 12px; font-size: .82rem; } }
+  .cn-toast { position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%); z-index: 1300; background: #1E3A5F; color: #fff; font-size: .92rem; font-weight: 600; padding: 11px 18px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.25); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .cn-toast.is-on { opacity: 1; }
 
   /* 뷰어(라이트박스) */
   .cn-viewer { position: fixed; inset: 0; z-index: 1200; background: rgba(11,22,38,.93); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; }
@@ -132,6 +140,7 @@
 
 <div class="cn-viewer" id="cnViewer" role="dialog" aria-modal="true" aria-label="카드뉴스 보기" hidden>
   <p class="cn-viewer__title" id="cnViewerTitle"></p>
+  <button class="cn-viewer__share" id="cnShare" type="button">링크 공유</button>
   <button class="cn-viewer__close" id="cnClose" type="button" aria-label="닫기">✕</button>
   <div class="cn-viewer__stage">
     <button class="cn-viewer__nav cn-viewer__nav--prev" id="cnPrev" type="button" aria-label="이전 카드">‹</button>
@@ -143,6 +152,8 @@
     <span class="cn-viewer__dots" id="cnDots"></span>
   </div>
 </div>
+
+<div class="cn-toast" id="cnToast" role="status" aria-live="polite"></div>
 
 <div class="mobile-callbar" aria-label="빠른 상담">
   <a class="mobile-callbar__tel" href="tel:02-552-6436">
@@ -181,6 +192,7 @@
       var links = (s.columns || []).map(function (c) {
         return '<a class="cn-card__link" href="/column/' + encodeURIComponent(c.slug) + '">' + esc(c.title) + '</a>';
       }).join('');
+      links += '<button class="cn-card__share" type="button" data-share="' + i + '">링크 복사</button>';
       return '' +
         '<article class="cn-card">' +
           '<button class="cn-card__btn" type="button" data-set="' + i + '" aria-label="' + esc(s.title) + ' 카드뉴스 보기">' +
@@ -202,6 +214,52 @@
     grid.querySelectorAll('.cn-card__btn').forEach(function (b) {
       b.addEventListener('click', function () { open(parseInt(b.dataset.set, 10), 0); });
     });
+    grid.querySelectorAll('.cn-card__share').forEach(function (b) {
+      b.addEventListener('click', function () { share(parseInt(b.dataset.share, 10)); });
+    });
+  }
+
+  /* ---------- 공유 ---------- */
+  var toast = document.getElementById('cnToast');
+  var toastTimer = null;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('is-on'); }, 2200);
+  }
+  function setUrl(si) {
+    var s = sets[si];
+    return location.origin + '/cardnews/' + encodeURIComponent(s.slug);
+  }
+  function share(si) {
+    var s = sets[si];
+    var url = setUrl(si);
+    var text = s.title + (s.subtitle ? ' — ' + s.subtitle : '');
+    // 휴대폰: 기본 공유창(카카오톡·메시지 등) / PC: 링크 복사
+    if (navigator.share) {
+      navigator.share({ title: s.title, text: text, url: url }).catch(function () {});
+      return;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () {
+        showToast('링크를 복사했습니다');
+      }).catch(function () { legacyCopy(url); });
+    } else {
+      legacyCopy(url);
+    }
+  }
+  function legacyCopy(url) {
+    var t = document.createElement('textarea');
+    t.value = url;
+    t.setAttribute('readonly', '');
+    t.style.position = 'fixed';
+    t.style.opacity = '0';
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand('copy'); showToast('링크를 복사했습니다'); }
+    catch (e) { window.prompt('아래 주소를 복사하세요', url); }
+    document.body.removeChild(t);
   }
 
   /* ---------- 뷰어 ---------- */
@@ -240,6 +298,7 @@
     viewer.hidden = false;
     document.body.style.overflow = 'hidden';
     document.body.classList.add('cn-open');
+    try { history.replaceState(null, '', '/cardnews/' + encodeURIComponent(sets[si].slug)); } catch (e) {}
     show();
   }
   function close() {
@@ -247,6 +306,7 @@
     document.body.style.overflow = '';
     document.body.classList.remove('cn-open');
     if (window.getSelection) { window.getSelection().removeAllRanges(); }
+    try { history.replaceState(null, '', '/cardnews.html'); } catch (e) {}
   }
   function step(d) {
     var s = sets[cur.set];
@@ -258,6 +318,7 @@
 
   prevBtn.addEventListener('click', function () { step(-1); });
   nextBtn.addEventListener('click', function () { step(1); });
+  document.getElementById('cnShare').addEventListener('click', function () { share(cur.set); });
   document.getElementById('cnClose').addEventListener('click', close);
   viewer.addEventListener('click', function (e) { if (e.target === viewer) close(); });
   document.addEventListener('keydown', function (e) {
@@ -284,6 +345,15 @@
       loading.hidden = true;
       if (!sets.length) { empty.hidden = false; return; }
       render(sets);
+
+      // 공유 주소(/cardnews/<slug>, ?set=, #slug)로 들어오면 그 세트를 바로 연다
+      var want = window.__CN_OPEN
+        || new URLSearchParams(location.search).get('set')
+        || decodeURIComponent((location.hash || '').replace('#', ''));
+      if (want) {
+        var idx = sets.findIndex(function (s) { return s.slug === want; });
+        if (idx >= 0) { open(idx, 0); }
+      }
     })
     .catch(function () {
       loading.hidden = true;

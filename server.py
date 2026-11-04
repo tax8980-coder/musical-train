@@ -1372,6 +1372,60 @@ def _render_hub_html(hub_slug):
     return html
 
 
+CARDNEWS_TEMPLATE_PATH = os.path.join(BASE_DIR, "cardnews.html")
+
+
+def _render_cardnews_html(set_slug):
+    """카드뉴스 세트별 공유 주소(/cardnews/<slug>).
+    메신저·SNS 미리보기가 그 세트의 제목·표지로 나오도록 메타태그를 바꿔 끼우고,
+    페이지가 열리면 해당 세트 뷰어가 바로 뜨도록 window.__CN_OPEN 을 심는다."""
+    item = next((c for c in load_cardnews() if c.get("slug") == set_slug), None)
+    if not item:
+        raise KeyError(set_slug)
+    html = _read_text(CARDNEWS_TEMPLATE_PATH)
+    canonical = SITE_ORIGIN + "/cardnews/" + quote(set_slug, safe="")
+    title = item.get("title", "카드뉴스")
+    sub = item.get("subtitle") or ""
+    desc = item.get("summary") or sub
+    full_title = _esc_html(title) + " | 카드뉴스 · 세무법인 지율"
+    og_img = SITE_ORIGIN + item.get("dir", "") + "/og.jpg"
+    n = len(item.get("cards") or [])
+
+    for old, new_ in (
+        ("<title>카드뉴스 | 세무법인 지율 - 손창용 세무사</title>",
+         "<title>" + full_title + "</title>"),
+        ('<meta name="description" content="세무법인 지율 손창용 세무사가 세법 개정과 실무 쟁점을 '
+         '카드 한 장씩으로 정리한 카드뉴스 모음입니다." />',
+         '<meta name="description" content="' + _esc_html(desc) + '" />'),
+        ('<link rel="canonical" href="https://taxin4u.com/cardnews.html" />',
+         '<link rel="canonical" href="' + _esc_html(canonical) + '" />'),
+        ('<meta property="og:title" content="카드뉴스 | 세무법인 지율" />',
+         '<meta property="og:title" content="' + _esc_html(title) + ' (카드 ' + str(n) + '장)" />'),
+        ('<meta property="og:description" content="세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음." />',
+         '<meta property="og:description" content="' + _esc_html(desc) + '" />'),
+        ('<meta property="og:url" content="https://taxin4u.com/cardnews.html" />',
+         '<meta property="og:url" content="' + _esc_html(canonical) + '" />'),
+        ('<meta property="og:image" content="https://taxin4u.com/assets/images/og.png?v=4" />',
+         '<meta property="og:image" content="' + _esc_html(og_img) + '" />'),
+        ('<meta property="og:image:width" content="1200" />',
+         '<meta property="og:image:width" content="1080" />'),
+        ('<meta property="og:image:height" content="630" />',
+         '<meta property="og:image:height" content="1350" />'),
+        ('<meta name="twitter:title" content="카드뉴스 | 세무법인 지율" />',
+         '<meta name="twitter:title" content="' + _esc_html(title) + '" />'),
+        ('<meta name="twitter:description" content="세법 개정과 실무 쟁점을 카드 한 장씩으로 정리한 카드뉴스 모음." />',
+         '<meta name="twitter:description" content="' + _esc_html(desc) + '" />'),
+        ('<meta name="twitter:image" content="https://taxin4u.com/assets/images/og.png?v=4" />',
+         '<meta name="twitter:image" content="' + _esc_html(og_img) + '" />'),
+    ):
+        html = html.replace(old, new_, 1)
+
+    html = html.replace(
+        "</head>",
+        "<script>window.__CN_OPEN=" + json.dumps(set_slug, ensure_ascii=False) + ";</script></head>", 1)
+    return html
+
+
 def _render_sitemap_xml():
     """posts.json 기준으로 sitemap.xml 을 매번 생성(새 칼럼 자동 포함)."""
     o = SITE_ORIGIN
@@ -1392,6 +1446,10 @@ def _render_sitemap_xml():
     # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
     for h in HUBS:
         entries.append((o + "/" + h["slug"], "weekly", "0.8", home_mod))
+    # 카드뉴스 세트별 공유 주소
+    for c in load_cardnews():
+        entries.append((o + "/cardnews/" + quote(c.get("slug", ""), safe=""),
+                        "monthly", "0.6", c.get("date") or home_mod))
     # 칼럼(동적)
     for p in posts:
         slug = p.get("slug", "")
@@ -1845,6 +1903,15 @@ class Handler(SimpleHTTPRequestHandler):
 
         if parsed.path == "/admin/logout":
             self._send_redirect("/admin", set_cookie=self._admin_cookie_header(logout=True))
+            return
+
+        # ---- 카드뉴스 세트별 공유 주소 (공개) ----
+        m_cn = re.match(r"^/cardnews/([A-Za-z0-9\-_]+)$", parsed.path)
+        if m_cn:
+            try:
+                self._send_html(_render_cardnews_html(m_cn.group(1)))
+            except (KeyError, OSError):
+                self._send_redirect("/cardnews.html")
             return
 
         if parsed.path == "/admin/stats":
