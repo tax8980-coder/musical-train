@@ -1334,6 +1334,16 @@ body.is-locked { overflow: hidden; }
   font-size: 15px;
   font-weight: 500;
   color: var(--text);
+  white-space: nowrap;   /* 메뉴가 '세무 / 칼럼' 처럼 단어 중간에서 접히지 않도록 */
+}
+/* 메뉴가 7개라 중간 너비에서 간격을 좁혀 한 줄을 유지한다 */
+@media (max-width: 1240px) {
+  .gnb-sub, .site-header.is-static .gnb-sub { gap: 16px; }
+  .gnb-sub a { font-size: 14.5px; }
+}
+@media (max-width: 1040px) and (min-width: 768px) {
+  .gnb-sub, .site-header.is-static .gnb-sub { gap: 11px; }
+  .gnb-sub a { font-size: 14px; }
 }
 .gnb-sub a:hover { color: var(--blue); }
 .gnb-sub .btn { color: #fff; }
@@ -1740,8 +1750,12 @@ body.is-locked { overflow: hidden; }
   .site-header.is-static .logo { flex: 0 1 auto; min-width: 0; gap: 1px; }
   .site-header.is-static .logo.has-img .logo__img { height: 32px; max-width: 120px; padding: 3px 6px; }
   .site-header.is-static .logo__brand { font-size: 19px; }
-  .site-header.is-static .gnb-sub { width: auto; flex: 0 0 auto; flex-wrap: nowrap; gap: 8px; }
-  .gnb-sub a:not(.btn) { display: inline-flex; font-size: 13px; min-height: 36px; white-space: nowrap; }
+  /* 메뉴가 7개(카드뉴스 포함)라 폭이 빠듯하다. 글자·간격을 줄이고,
+     그래도 넘치면 가로 스크롤로 모든 메뉴에 닿을 수 있게 한다. */
+  .site-header.is-static .gnb-sub { width: auto; flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; gap: 5px; }
+  .gnb-sub { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+  .gnb-sub::-webkit-scrollbar { display: none; }
+  .gnb-sub a:not(.btn) { display: inline-flex; font-size: 12.5px; min-height: 36px; white-space: nowrap; flex: 0 0 auto; }
   .gnb-sub a[href="faq.html"] { display: none; } /* 모바일에서는 자주 묻는 질문 숨김 */
   .gnb-sub a[aria-current="page"] { padding: 0 10px; }
   .gnb-sub .btn.btn--sm { padding: 0 12px; white-space: nowrap; }
