@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>세금계산기 | 세무법인 지율 - 손창용 세무사</title>
+<meta name="description" content="증여세·상속세·퇴직금을 현행 세법 기준으로 계산해 봅니다. 혼인·출산 증여재산공제, 10년 합산과세와 납부세액공제, 일괄공제·배우자공제, 퇴직소득세까지 단계별 계산 내역을 보여 드립니다." />
+<link rel="canonical" href="https://taxin4u.com/calculator.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="세무법인 지율" />
+<meta property="og:title" content="세금계산기 | 세무법인 지율" />
+<meta property="og:description" content="증여세·상속세·퇴직금 계산. 단계별 계산 내역과 근거 조문을 함께 보여 드립니다." />
+<meta property="og:url" content="https://taxin4u.com/calculator.html" />
+<meta property="og:image" content="https://taxin4u.com/assets/images/og.png?v=4" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="세금계산기 | 세무법인 지율" />
+<meta name="twitter:description" content="증여세·상속세·퇴직금 계산기." />
+<meta name="twitter:image" content="https://taxin4u.com/assets/images/og.png?v=4" />
+<link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=2" />
+<meta name="theme-color" content="#1E3A5F" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
+<link rel="stylesheet" href="assets/styles.css?v=51" />
+<style>
+  .sub-hero + .section { padding-top: 40px; }
+  @media (max-width: 767px) { .sub-hero + .section { padding-top: 26px; } }
+
+  .calc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+  .calc-tab { padding: 10px 18px; border-radius: 999px; border: 1px solid #D3E0F0; background: #EAF1FA; color: #1E3A5F; font-size: .95rem; font-weight: 700; cursor: pointer; }
+  .calc-tab:hover { background: #D8E6F7; }
+  .calc-tab.is-on { background: #1E3A5F; color: #fff; border-color: #1E3A5F; }
+
+  .calc-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+  /* display 를 직접 지정하면 hidden 속성이 무시되므로, 선택되지 않은 탭을 확실히 숨긴다 */
+  .calc-wrap[hidden] { display: none; }
+  @media (max-width: 899px) { .calc-wrap { grid-template-columns: 1fr; } }
+
+  .calc-panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 22px 22px 24px; }
+  .calc-panel h2 { font-size: 1.08rem; font-weight: 700; color: #1E3A5F; margin: 0 0 4px; }
+  .calc-panel .calc-lead { font-size: .88rem; color: #5b6b7f; line-height: 1.6; margin-bottom: 18px; }
+
+  .f-row { margin-bottom: 15px; }
+  .f-row > label { display: block; font-size: .88rem; font-weight: 600; color: #1E3A5F; margin-bottom: 6px; }
+  .f-hint { font-size: .78rem; color: #6b7280; margin-top: 5px; line-height: 1.5; }
+  .f-row input[type="text"], .f-row select {
+    width: 100%; box-sizing: border-box; padding: 11px 12px; font-size: 1rem;
+    border: 1px solid #CBD5E1; border-radius: 9px; background: #fff; color: #1F2937;
+  }
+  .f-row input[type="text"] { text-align: right; font-variant-numeric: tabular-nums; }
+  .f-row input:focus, .f-row select:focus { outline: 2px solid #93C5FD; outline-offset: 1px; }
+  .f-money { position: relative; }
+  /* .f-row input[type="text"] 의 padding 단축속성보다 우선해야 '원'과 숫자가 겹치지 않는다 */
+  .f-row .f-money input[type="text"] { padding-right: 38px; }
+  .f-money::after { content: "원"; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: .9rem; color: #6b7280; }
+  .f-people::after { content: "명"; }
+  .f-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .f-check { display: flex; align-items: flex-start; gap: 9px; font-size: .9rem; color: #1F2937; margin-bottom: 11px; line-height: 1.5; }
+  .f-check input { margin-top: 3px; flex: 0 0 auto; width: 17px; height: 17px; }
+  .f-btn { width: 100%; margin-top: 8px; padding: 14px; border: 0; border-radius: 10px; background: #3B82F6; color: #fff; font-size: 1.02rem; font-weight: 700; cursor: pointer; }
+  .f-btn:hover { background: #2563EB; }
+  .f-reset { width: 100%; margin-top: 8px; padding: 10px; border: 1px solid #CBD5E1; border-radius: 10px; background: #fff; color: #5b6b7f; font-size: .9rem; font-weight: 600; cursor: pointer; }
+
+  .r-total { background: linear-gradient(135deg, #1E3A5F, #2A5A9A); color: #fff; border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; }
+  .r-total .k { font-size: .9rem; color: #BFD3EE; font-weight: 600; }
+  .r-total .v { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 480px) { .r-total .v { font-size: 1.7rem; } }
+  .r-total .sub { margin-top: 8px; font-size: .86rem; color: #CFE0F5; line-height: 1.5; }
+
+  table.r-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  table.r-table th, table.r-table td { padding: 10px 8px; border-bottom: 1px solid #eef1f5; text-align: left; }
+  table.r-table td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.r-table tr.hl td, table.r-table tr.hl th { background: #F3F7FC; font-weight: 700; color: #1E3A5F; }
+  table.r-table tr.minus td.num { color: #2A5A9A; }
+  table.r-table .r-sub { display: block; margin-top: 3px; font-weight: 400; font-size: .85em; color: #6b7280; line-height: 1.45; }
+
+  .r-note { margin-top: 16px; font-size: .84rem; color: #5b6b7f; line-height: 1.65; background: #F7F9FC; border: 1px solid #eef1f5; border-radius: 10px; padding: 13px 15px; }
+  .r-note b { color: #1E3A5F; }
+  .r-source { margin-top: 12px; font-size: .8rem; color: #6b7280; line-height: 1.6; }
+  .r-source b { color: #1E3A5F; }
+  .r-empty { color: #6b7280; font-size: .92rem; line-height: 1.7; text-align: center; padding: 40px 10px; }
+
+  .calc-cta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .calc-cta a { flex: 1 1 180px; text-align: center; padding: 13px 16px; border-radius: 10px; font-size: .95rem; font-weight: 700; text-decoration: none; }
+  .calc-cta .a1 { background: #3B82F6; color: #fff; }
+  .calc-cta .a1:hover { background: #2563EB; }
+  .calc-cta .a2 { background: #EAF1FA; color: #1E3A5F; border: 1px solid #D3E0F0; }
+  .calc-cta .a2:hover { background: #D8E6F7; }
+
+  .disclaimer { margin-top: 26px; font-size: .85rem; line-height: 1.7; color: #5b6b7f; background: #FFF7ED; border: 1px solid #FED7AA; border-left: 5px solid #F59E0B; border-radius: 10px; padding: 16px 18px; }
+  .disclaimer b { color: #92400E; }
+</style>
+</head>
+<body class="page-sub">
+<a class="skip-link" href="#main">본문으로 바로가기</a>
+
+<header class="site-header is-scrolled is-static" id="siteHeader">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="세무법인 지율 홈">
+      <img class="logo__img" src="assets/images/logo-brand.png?v=2" alt="세무법인 지율"
+           onload="this.closest('.logo').classList.add('has-img')" />
+      <span class="logo__fallback">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="hdrLogoG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1E3A5F"/><stop offset=".55" stop-color="#2A5A9A"/><stop offset="1" stop-color="#3B82F6"/>
+            </linearGradient></defs>
+            <rect width="40" height="40" rx="11" fill="url(#hdrLogoG)"/>
+            <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 13.5 H29"/><path d="M20 13.5 V19"/><path d="M20 19 L12 27.5"/><path d="M20 19 L28 27.5"/>
+            </g>
+          </svg>
+        </span>
+        <span class="logo__text">세무법인 <b>지율</b></span>
+      </span>
+      <span class="logo__brand">세무법인</span>
+    </a>
+    <nav class="gnb-sub" aria-label="바로가기">
+      <a href="index.html">세무칼럼</a>
+      <a href="cardnews.html">카드뉴스</a>
+      <a href="calculator.html" aria-current="page">세금계산기</a>
+      <a href="intro.html"><span class="nav-label--wide">세무사/업무소개</span><span class="nav-label--narrow">업무분야</span></a>
+      <a href="media.html">언론·강의</a>
+      <a href="resources.html">자료실</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a class="btn btn--primary btn--sm" href="contact.html"><span class="nav-label--wide">강의요청 및 상담문의</span><span class="nav-label--narrow">상담 문의</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="sub-hero">
+    <div class="container">
+      <h1 class="sub-hero__title">세금계산기</h1>
+      <p class="sub-hero__lead">현행 세법 기준으로 계산하고, <b>어떤 공제가 얼마나 들어갔는지 단계별로</b> 보여 드립니다. 근거 조문도 함께 확인하세요.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-tabs" role="tablist">
+        <button class="calc-tab is-on" type="button" data-tab="gift" role="tab">증여세</button>
+        <button class="calc-tab" type="button" data-tab="inherit" role="tab">상속세</button>
+        <button class="calc-tab" type="button" data-tab="retire" role="tab">퇴직금</button>
+        <button class="calc-tab" type="button" data-tab="exec" role="tab">임원 퇴직금</button>
+      </div>
+
+      <!-- ───────── 증여세 ───────── -->
+      <div class="calc-wrap" data-pane="gift">
+        <div class="calc-panel">
+          <h2>증여세 계산</h2>
+          <p class="calc-lead">한 사람(증여자)에게서 받은 재산을 기준으로 계산합니다. 혼인·출산 증여재산공제까지 반영합니다.</p>
+
+          <div class="f-row">
+            <label for="g_amount">증여재산 가액</label>
+            <div class="f-money"><input type="text" id="g_amount" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">현금·예금·부동산·주식 등 이번에 증여받는 재산의 평가액</p>
+          </div>
+
+          <div class="f-row">
+            <label for="g_rel">증여자와의 관계</label>
+            <select id="g_rel">
+              <option value="spouse">배우자 (공제 6억원)</option>
+              <option value="lineal_adult" selected>직계존속 → 성년 자녀·손자녀 (5천만원)</option>
+              <option value="lineal_minor">직계존속 → 미성년 자녀·손자녀 (2천만원)</option>
+              <option value="descendant">직계비속 → 부모·조부모 (5천만원)</option>
+              <option value="relative">기타 친족 (6촌 이내 혈족·4촌 이내 인척, 1천만원)</option>
+              <option value="other">그 밖의 사람 (공제 없음)</option>
+            </select>
+          </div>
+
+          <div class="f-row">
+            <label for="g_add">10년 내 같은 사람에게서 받은 증여재산</label>
+            <div class="f-money"><input type="text" id="g_add" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">합계 1천만원 이상이면 이번 증여에 <b>합산</b>합니다. 증여자가 직계존속이면 <b>그 배우자(할머니·새어머니 등)에게 받은 것도 같은 사람</b>으로 봅니다.</p>
+          </div>
+
+          <div class="f-row">
+            <label for="g_addtax">그 증여의 증여세 산출세액</label>
+            <div class="f-money"><input type="text" id="g_addtax" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">합산되는 증여에 대해 납부했거나 납부할 산출세액 — <b>납부세액공제</b>로 빼 드립니다</p>
+          </div>
+
+          <div class="f-row">
+            <label for="g_prev">10년 내 이미 공제받은 금액</label>
+            <div class="f-money"><input type="text" id="g_prev" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">같은 관계(직계존속 등)에서 지난 10년간 이미 적용받은 증여재산공제액</p>
+          </div>
+
+          <div id="g_marry_box">
+            <div class="f-check">
+              <input type="checkbox" id="g_marry" />
+              <label for="g_marry" style="font-weight:500">혼인·출산 증여재산공제 적용 (직계존속에게서 받는 경우)</label>
+            </div>
+            <div class="f-row" id="g_marry_prev_row" hidden>
+              <label for="g_marry_prev">혼인·출산 공제로 이미 쓴 금액</label>
+              <div class="f-money"><input type="text" id="g_marry_prev" inputmode="numeric" placeholder="0" /></div>
+              <p class="f-hint">혼인공제와 출산공제를 <b>합쳐 평생 1억원</b>이 한도입니다</p>
+            </div>
+          </div>
+
+          <div class="f-check">
+            <input type="checkbox" id="g_payer" />
+            <label for="g_payer" style="font-weight:500">증여세도 증여자가 대신 낸다 (대납) — 대납액을 증여재산에 더해 다시 계산</label>
+          </div>
+          <div class="f-check">
+            <input type="checkbox" id="g_skip" />
+            <label for="g_skip" style="font-weight:500">세대를 건너뛴 증여 (조부모 → 손자녀) — 산출세액 30% 할증</label>
+          </div>
+          <div class="f-check">
+            <input type="checkbox" id="g_report" checked />
+            <label for="g_report" style="font-weight:500">기한 내 신고 — 신고세액공제 3% 적용</label>
+          </div>
+
+          <button class="f-btn" type="button" id="g_calc">계산하기</button>
+          <button class="f-reset" type="button" data-reset="gift">입력값 지우기</button>
+        </div>
+
+        <div class="calc-panel" id="g_result">
+          <p class="r-empty">금액을 입력하고 <b>계산하기</b>를 누르면<br>단계별 계산 내역이 여기에 표시됩니다.</p>
+        </div>
+      </div>
+
+      <!-- ───────── 상속세 ───────── -->
+      <div class="calc-wrap" data-pane="inherit" hidden>
+        <div class="calc-panel">
+          <h2>상속세 간이계산</h2>
+          <p class="calc-lead">일괄공제·배우자공제·금융재산공제를 반영한 <b>개략적인</b> 세액입니다. 실제 신고는 재산 평가와 사전증여 확인이 선행되어야 합니다.</p>
+
+          <div class="f-row">
+            <label for="i_asset">상속재산 가액</label>
+            <div class="f-money"><input type="text" id="i_asset" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">부동산·금융재산·보험금·퇴직금 등 상속개시일 현재 평가액 합계</p>
+          </div>
+
+          <div class="f-row">
+            <label for="i_gift">사전증여재산 가산액</label>
+            <div class="f-money"><input type="text" id="i_gift" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">상속인에게 10년 이내(상속인 외 5년) 증여한 재산</p>
+          </div>
+
+          <div class="f-row">
+            <label for="i_gifttax">그 사전증여의 증여세 산출세액</label>
+            <div class="f-money"><input type="text" id="i_gifttax" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">증여 당시 산출세액 — <b>증여세액공제</b>로 빼 드립니다 (과세가액 5억원 이하이면 공제 없음)</p>
+          </div>
+
+          <div class="f-row">
+            <label for="i_debt">채무</label>
+            <div class="f-money"><input type="text" id="i_debt" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">피상속인이 갚아야 할 빚 (임대보증금·금융기관 차입금 등 증빙 필요)</p>
+          </div>
+
+          <div class="f-row">
+            <label for="i_public">공과금</label>
+            <div class="f-money"><input type="text" id="i_public" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">상속개시일 현재 피상속인이 낼 의무가 있던 조세·공공요금 등</p>
+          </div>
+
+          <div class="f-grid2">
+            <div class="f-row">
+              <label for="i_funeral">장례비용</label>
+              <div class="f-money"><input type="text" id="i_funeral" inputmode="numeric" placeholder="0" /></div>
+            </div>
+            <div class="f-row">
+              <label for="i_funeral2">봉안시설·자연장지</label>
+              <div class="f-money"><input type="text" id="i_funeral2" inputmode="numeric" placeholder="0" /></div>
+            </div>
+          </div>
+          <p class="f-hint" style="margin-top:-6px">장례비용은 <b>증빙이 없어도 500만원</b>, 증빙이 있으면 최대 1천만원까지. 봉안시설·자연장지는 별도로 최대 500만원.</p>
+
+          <div class="f-row">
+            <label for="i_fin">순금융재산 가액</label>
+            <div class="f-money"><input type="text" id="i_fin" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">예금·보험·주식 등 금융재산에서 금융채무를 뺀 금액 (최대주주 주식 제외)</p>
+          </div>
+
+          <div class="f-row">
+            <label for="i_spouse">배우자 상속</label>
+            <select id="i_spouse">
+              <option value="none">배우자 없음</option>
+              <option value="yes" selected>배우자가 상속받음</option>
+              <option value="only">배우자 단독상속 (일괄공제 적용 불가)</option>
+            </select>
+          </div>
+
+          <div class="f-row" id="i_spouse_amt_row">
+            <label for="i_spouse_amt">배우자가 실제 상속받는 금액</label>
+            <div class="f-money"><input type="text" id="i_spouse_amt" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">5억원 미만이어도 <b>최소 5억원</b>이 공제됩니다 (최대 30억원)</p>
+          </div>
+
+          <div class="f-check">
+            <input type="checkbox" id="i_report" checked />
+            <label for="i_report" style="font-weight:500">기한 내 신고 — 신고세액공제 3% 적용</label>
+          </div>
+
+          <button class="f-btn" type="button" id="i_calc">계산하기</button>
+          <button class="f-reset" type="button" data-reset="inherit">입력값 지우기</button>
+        </div>
+
+        <div class="calc-panel" id="i_result">
+          <p class="r-empty">금액을 입력하고 <b>계산하기</b>를 누르면<br>단계별 계산 내역이 여기에 표시됩니다.</p>
+        </div>
+      </div>
+
+      <!-- ───────── 퇴직금 ───────── -->
+      <div class="calc-wrap" data-pane="retire" hidden>
+        <div class="calc-panel">
+          <h2>퇴직금 계산</h2>
+          <p class="calc-lead">평균임금으로 법정 퇴직금을 계산하고, <b>퇴직소득세까지</b> 함께 보여 드립니다. 1년 이상 근무하고 주 15시간 이상 일한 근로자가 대상입니다.</p>
+
+          <div class="f-grid2">
+            <div class="f-row">
+              <label for="r_in">입사일</label>
+              <input type="text" id="r_in" inputmode="numeric" placeholder="2020-03-02" style="text-align:center" />
+            </div>
+            <div class="f-row">
+              <label for="r_out">퇴사일</label>
+              <input type="text" id="r_out" inputmode="numeric" placeholder="2026-11-05" style="text-align:center" />
+            </div>
+          </div>
+          <p class="f-hint" style="margin-top:-6px">퇴사일은 <b>마지막 근무일의 다음 날</b>(퇴직일)을 적습니다. 예: 2026-11-05</p>
+
+          <div class="f-row" style="margin-top:15px">
+            <label for="r_pay3">퇴직 전 3개월 임금 총액</label>
+            <div class="f-money"><input type="text" id="r_pay3" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">기본급·수당 등 3개월분 세전 임금 합계 (상여·연차수당 제외)</p>
+          </div>
+
+          <div class="f-row">
+            <label for="r_bonus">연간 상여금 총액</label>
+            <div class="f-money"><input type="text" id="r_bonus" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">퇴직 전 1년간 받은 상여금 — <b>3/12</b>만 평균임금에 더합니다</p>
+          </div>
+
+          <div class="f-row">
+            <label for="r_annual">연차수당</label>
+            <div class="f-money"><input type="text" id="r_annual" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">퇴직 전전년도에 발생해 전년도에 미사용한 연차수당 — <b>3/12</b>만 더합니다</p>
+          </div>
+
+          <div class="f-check">
+            <input type="checkbox" id="r_tax" checked />
+            <label for="r_tax" style="font-weight:500">퇴직소득세·지방소득세까지 계산</label>
+          </div>
+
+          <button class="f-btn" type="button" id="r_calc">계산하기</button>
+          <button class="f-reset" type="button" data-reset="retire">입력값 지우기</button>
+        </div>
+
+        <div class="calc-panel" id="r_result">
+          <p class="r-empty">입사일·퇴사일과 임금을 입력하고 <b>계산하기</b>를 누르면<br>퇴직금과 세금이 여기에 표시됩니다.</p>
+        </div>
+      </div>
+
+      <!-- ───────── 임원 퇴직금 ───────── -->
+      <div class="calc-wrap" data-pane="exec" hidden>
+        <div class="calc-panel">
+          <h2>임원 퇴직금 한도 계산</h2>
+          <p class="calc-lead">소득세법 제22조 제3항의 <b>임원 퇴직소득 한도</b>를 적용합니다. 한도를 넘는 금액은 퇴직소득이 아니라 <b>근로소득</b>으로 과세됩니다.</p>
+
+          <div class="f-grid2">
+            <div class="f-row">
+              <label for="x_in">입사일(취임일)</label>
+              <input type="text" id="x_in" inputmode="numeric" placeholder="2015-01-01" style="text-align:center" />
+            </div>
+            <div class="f-row">
+              <label for="x_out">퇴직일</label>
+              <input type="text" id="x_out" inputmode="numeric" placeholder="2026-11-05" style="text-align:center" />
+            </div>
+          </div>
+
+          <div class="f-row" style="margin-top:15px">
+            <label for="x_pay">지급할 퇴직금 총액</label>
+            <div class="f-money"><input type="text" id="x_pay" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">정관·임원퇴직금지급규정에 따라 실제로 지급하는 금액</p>
+          </div>
+
+          <div class="f-row">
+            <label for="x_avg2">퇴직일부터 소급 3년 총급여의 연평균환산액</label>
+            <div class="f-money"><input type="text" id="x_avg2" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint"><b>2020년 1월 1일 이후</b> 근무기간에 적용 (배수 <b>2배</b>). 봉급·상여 등 근로소득 합계의 연평균</p>
+          </div>
+
+          <div class="f-row">
+            <label for="x_avg1">2019.12.31.부터 소급 3년 총급여의 연평균환산액</label>
+            <div class="f-money"><input type="text" id="x_avg1" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint"><b>2012.1.1.~2019.12.31.</b> 근무기간에 적용 (배수 <b>3배</b>). 해당 기간 근무가 없으면 0</p>
+          </div>
+
+          <div class="f-row">
+            <label for="x_before">2011.12.31. 퇴직 가정 시 퇴직소득금액</label>
+            <div class="f-money"><input type="text" id="x_before" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">2011년 이전 근무분은 <b>한도 계산에서 제외</b>합니다 (해당 없으면 0)</p>
+          </div>
+
+          <div class="f-check">
+            <input type="checkbox" id="x_tax" checked />
+            <label for="x_tax" style="font-weight:500">한도 내 퇴직소득에 대한 퇴직소득세까지 계산</label>
+          </div>
+
+          <button class="f-btn" type="button" id="x_calc">계산하기</button>
+          <button class="f-reset" type="button" data-reset="exec">입력값 지우기</button>
+        </div>
+
+        <div class="calc-panel" id="x_result">
+          <p class="r-empty">근무기간과 급여를 입력하고 <b>계산하기</b>를 누르면<br>한도와 초과액이 여기에 표시됩니다.</p>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <b>계산 결과는 참고용입니다.</b> 이 계산기는 대표적인 공제만 반영한 개략 계산으로, 재산 평가방법·사전증여 합산·법정상속분 한도·감면과 가산세 등
+        개별 사정에 따라 실제 세액은 달라집니다. 신고·납부 전에는 반드시 세무대리인의 검토를 받으시기 바라며,
+        본 계산 결과만을 근거로 한 조치에 대해 세무법인 지율은 책임지지 않습니다.
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="mobile-callbar" aria-label="빠른 상담">
+  <a class="mobile-callbar__tel" href="tel:02-552-6436">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.5l1.8 4.2-2 1.4a11.5 11.5 0 0 0 6.1 6.1l1.4-2L20 15.5V19a1.5 1.5 0 0 1-1.7 1.5A15.5 15.5 0 0 1 3.5 5.7A1.5 1.5 0 0 1 5 4Z"/></svg>
+    전화 상담
+  </a>
+  <a class="mobile-callbar__cta" href="contact.html">상담 신청</a>
+</div>
+
+<div data-site-footer hidden></div>
+<script src="assets/site-footer.js?v=10"></script>
+<script src="assets/dwell.js?v=1" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  var EOK = 100000000;        // 1억원
+  var MAN = 10000;            // 1만원
+
+  /* ---------- 공통 ---------- */
+  function won(n) { return Math.floor(n).toLocaleString('ko-KR') + '원'; }
+  function num(id) {
+    var el = document.getElementById(id);
+    var v = parseFloat((el.value || '').replace(/[^0-9.]/g, ''));
+    return isNaN(v) ? 0 : v;
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  // 입력창에 천단위 구분기호
+  document.querySelectorAll('input[inputmode="numeric"]').forEach(function (el) {
+    el.addEventListener('input', function () {
+      var raw = el.value.replace(/[^0-9]/g, '');
+      el.value = raw ? parseInt(raw, 10).toLocaleString('ko-KR') : '';
+    });
+  });
+
+  /* ---------- 상속·증여세 세율 (상증법 제26조·제56조) ---------- */
+  var BRACKETS = [
+    { limit: 1 * EOK, rate: 0.10, deduct: 0 },
+    { limit: 5 * EOK, rate: 0.20, deduct: 1000 * MAN },
+    { limit: 10 * EOK, rate: 0.30, deduct: 6000 * MAN },
+    { limit: 30 * EOK, rate: 0.40, deduct: 16000 * MAN },
+    { limit: Infinity, rate: 0.50, deduct: 46000 * MAN }
+  ];
+  function taxOf(base) {
+    if (base <= 0) return { tax: 0, rate: 0, deduct: 0 };
+    for (var i = 0; i < BRACKETS.length; i++) {
+      if (base <= BRACKETS[i].limit) {
+        return { tax: Math.floor(base * BRACKETS[i].rate - BRACKETS[i].deduct),
+                 rate: BRACKETS[i].rate, deduct: BRACKETS[i].deduct };
+      }
+    }
+    return { tax: 0, rate: 0, deduct: 0 };
+  }
+
+  function rows(list) {
+    return '<table class="r-table"><tbody>' + list.map(function (r) {
+      var cls = r.hl ? ' class="hl"' : (r.minus ? ' class="minus"' : '');
+      var key = esc(r.k) + (r.sub ? '<span class="r-sub">' + esc(r.sub) + '</span>' : '');
+      return '<tr' + cls + '><th>' + key + '</th><td class="num">' + r.v + '</td></tr>';
+    }).join('') + '</tbody></table>';
+  }
+  function resultHtml(title, total, sub, list, note, source) {
+    return '<div class="r-total"><div class="k">' + esc(title) + '</div>'
+      + '<div class="v">' + won(total) + '</div>'
+      + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>'
+      + rows(list)
+      + (note ? '<div class="r-note">' + note + '</div>' : '')
+      + (source ? '<p class="r-source"><b>근거</b> ' + source + '</p>' : '')
+      + '<div class="calc-cta">'
+      + '<a class="a1" href="contact.html">이 결과로 상담 신청하기</a>'
+      + '<a class="a2" href="index.html">관련 세무칼럼 보기</a></div>';
+  }
+
+  /* ---------- 증여세 ---------- */
+  var GIFT_LIMIT = {
+    spouse: 6 * EOK, lineal_adult: 5000 * MAN, lineal_minor: 2000 * MAN,
+    descendant: 5000 * MAN, relative: 1000 * MAN, other: 0
+  };
+  var GIFT_LABEL = {
+    spouse: '배우자', lineal_adult: '직계존속(성년)', lineal_minor: '직계존속(미성년)',
+    descendant: '직계비속', relative: '기타 친족', other: '그 밖의 사람'
+  };
+
+  function isLineal(rel) { return rel === 'lineal_adult' || rel === 'lineal_minor'; }
+
+  document.getElementById('g_marry').addEventListener('change', function () {
+    document.getElementById('g_marry_prev_row').hidden = !this.checked;
+  });
+  document.getElementById('g_rel').addEventListener('change', function () {
+    var on = isLineal(this.value);
+    document.getElementById('g_marry_box').style.display = on ? '' : 'none';
+    if (!on) { document.getElementById('g_marry').checked = false;
+               document.getElementById('g_marry_prev_row').hidden = true; }
+  });
+
+  document.getElementById('g_calc').addEventListener('click', function () {
+    var amount = num('g_amount');
+    var rel = document.getElementById('g_rel').value;
+    var prev = num('g_prev');
+    var useMarry = document.getElementById('g_marry').checked && isLineal(rel);
+    var marryPrev = useMarry ? num('g_marry_prev') : 0;
+    var skip = document.getElementById('g_skip').checked;
+    var report = document.getElementById('g_report').checked;
+    var payer = document.getElementById('g_payer').checked;
+    var addAmt = num('g_add');
+    var addTax = num('g_addtax');
+    var limit = GIFT_LIMIT[rel];
+    if (addAmt < 1000 * MAN) { addAmt = 0; addTax = 0; }   // 합계 1천만원 미만은 합산하지 않음
+
+    if (amount <= 0) { alert('증여재산 가액을 입력해 주세요.'); return; }
+
+    // 이번 증여재산으로 세액을 계산하는 1회분 계산 (10년 내 동일인 증여재산을 합산)
+    function once(thisGift) {
+      var gross = thisGift + addAmt;                       // 상증법 제47조 ② 합산
+      var basic = Math.max(0, Math.min(limit - prev, gross));
+      var marry = useMarry ? Math.max(0, Math.min(1 * EOK - marryPrev, gross - basic)) : 0;
+      var base = Math.max(0, gross - basic - marry);
+      var t = taxOf(base);
+      var sur = skip ? Math.floor(t.tax * 0.3) : 0;
+      // 납부세액공제(제58조) — 한도: 산출세액 × 가산한 증여재산의 과세표준 ÷ 전체 과세표준
+      var addBase = Math.max(0, addAmt - prev);
+      var cap = (base > 0) ? Math.floor(t.tax * Math.min(addBase, base) / base) : 0;
+      var paid = Math.min(addTax, cap);
+      // 신고세액공제(제69조 ②) — 산출세액에서 공제되는 금액을 뺀 금액의 3%
+      var credit = report ? Math.floor(Math.max(0, t.tax + sur - paid) * 0.03) : 0;
+      return { thisGift: thisGift, gross: gross, basic: basic, marry: marry, base: base,
+               t: t, sur: sur, paid: paid, cap: cap, credit: credit,
+               pay: Math.max(0, t.tax + sur - paid - credit) };
+    }
+
+    var plain = once(amount);          // 수증자가 직접 부담하는 경우
+    var r = plain, addOn = 0;
+
+    if (payer) {
+      // 증여자가 대신 낸 세금도 증여 → 대납액을 더해 다시 계산(수렴할 때까지 반복)
+      var T = plain.pay, before = -1, loop = 0;
+      while (Math.abs(T - before) > 1 && loop < 60) {
+        before = T;
+        T = once(amount + T).pay;
+        loop++;
+      }
+      addOn = T;
+      r = once(amount + addOn);
+    }
+
+    var list = [{ k: '이번 증여재산 가액', v: won(amount) }];
+    if (payer) {
+      list.push({ k: '증여자가 대신 낸 증여세 가산', sub: '세금을 대신 내주면 그 금액도 증여받은 것으로 봅니다', v: '+ ' + won(addOn) });
+    }
+    if (addAmt > 0) {
+      list.push({ k: '10년 내 같은 사람에게서 받은 증여 가산', sub: '상증법 제47조 제2항 · 합계 1천만원 이상이면 합산', v: '+ ' + won(addAmt) });
+    }
+    if (payer || addAmt > 0) list.push({ k: '증여세 과세가액', v: won(r.gross), hl: true });
+    list.push({ k: '증여재산공제 (' + GIFT_LABEL[rel] + ')', v: '− ' + won(r.basic), minus: true });
+    if (useMarry) list.push({ k: '혼인·출산 증여재산공제', v: '− ' + won(r.marry), minus: true });
+    list.push({ k: '과세표준', v: won(r.base), hl: true });
+    list.push({ k: '산출세액 (' + (r.t.rate * 100) + '% − 누진공제 ' + won(r.t.deduct) + ')', v: won(r.t.tax) });
+    if (skip) list.push({ k: '세대생략 할증 30%', v: '+ ' + won(r.sur) });
+    if (addAmt > 0) {
+      list.push({ k: '납부세액공제 (이미 낸 증여세)',
+                  sub: '공제한도 ' + won(r.cap) + (addTax > r.cap ? ' — 한도까지만 공제됩니다' : ''),
+                  v: '− ' + won(r.paid), minus: true });
+    }
+    if (report) list.push({ k: '신고세액공제 3%', v: '− ' + won(r.credit), minus: true });
+    list.push({ k: payer ? '증여자가 대신 낼 증여세' : '납부할 증여세', v: won(r.pay), hl: true });
+
+    var note = '';
+    if (payer) {
+      note += '<b>대납 계산</b> 수증자가 직접 내면 ' + won(plain.pay) + '이지만, 증여자가 대신 내면 그 세금도 증여재산에 더해져 '
+        + won(r.pay) + '이 됩니다(<b>' + won(r.pay - plain.pay) + ' 증가</b>). 더해진 세금에 다시 세금이 붙으므로 금액이 수렴할 때까지 반복 계산했습니다.<br>'
+        + '다만 수증자의 주소 불분명·납부능력 없음·비거주자 등으로 <b>증여자에게 연대납세의무</b>가 있어 납부하는 경우에는 추가 증여로 보지 않습니다.<br>';
+    }
+    if (r.basic < limit - prev && r.gross < limit - prev) {
+      note += '증여재산 가액이 공제 한도보다 작아 <b>공제를 전부 쓰지 않았습니다.</b> 남은 한도는 10년 안에 다시 쓸 수 있습니다.<br>';
+    }
+    if (useMarry && marryPrev + r.marry >= 1 * EOK) {
+      note += '혼인·출산 공제 한도(평생 1억원)를 모두 사용했습니다.<br>';
+    }
+    if (addAmt > 0) {
+      note += '<b>합산과세</b> 10년 내 같은 사람에게서 받은 증여를 합산해 세율을 적용하고, 그때 낸 세금은 <b>납부세액공제</b>로 뺍니다. '
+        + '공제한도는 산출세액 중 <b>가산한 증여재산이 차지하는 비율</b>만큼이며, 이 계산기는 가산분 과세표준을 '
+        + '(가산한 증여재산 − 이미 공제받은 금액)으로 보고 계산했습니다.<br>';
+    } else {
+      note += '10년 이내 같은 사람에게서 받은 증여가 더 있으면 <b>합산해서</b> 다시 계산해야 합니다.';
+    }
+
+    document.getElementById('g_result').innerHTML = resultHtml(
+      payer ? '증여자가 대신 낼 증여세 (예상)' : '납부할 증여세 (예상)', r.pay,
+      '총 증여재산 ' + won(r.gross) + ' · 과세표준 ' + won(r.base)
+        + ' · 실효세율 ' + (r.gross > 0 ? (r.pay / r.gross * 100).toFixed(1) : '0.0') + '%',
+      list, note,
+      '상속세 및 증여세법 제53조(증여재산 공제) · 제53조의2(혼인·출산 증여재산 공제) · 제56조·제26조(세율) · 제57조(세대생략 할증) · 제69조(신고세액공제)'
+      + (addAmt > 0 ? ' · 제47조 제2항(합산과세) · 제58조(납부세액공제)' : '')
+      + (payer ? ' · 제4조의2 제6항(증여자의 연대납세의무)' : ''));
+  });
+
+  /* ---------- 상속세 ---------- */
+  document.getElementById('i_spouse').addEventListener('change', function () {
+    document.getElementById('i_spouse_amt_row').hidden = (this.value === 'none');
+  });
+
+  document.getElementById('i_calc').addEventListener('click', function () {
+    var asset = num('i_asset');
+    var gift = num('i_gift');
+    var giftTax = num('i_gifttax');
+    var debt = num('i_debt');
+    var pub = num('i_public');
+    var fun1 = num('i_funeral');
+    var fun2 = num('i_funeral2');
+    var fin = num('i_fin');
+    // 장례비용 공제액: 직접비용은 500만원~1천만원, 봉안시설·자연장지는 별도 500만원 한도 (영 제9조 ②)
+    var funeral = Math.min(Math.max(fun1, 500 * MAN), 1000 * MAN) + Math.min(fun2, 500 * MAN);
+    var deductCost = debt + pub + funeral;
+    var sp = document.getElementById('i_spouse').value;
+    var spAmt = sp === 'none' ? 0 : num('i_spouse_amt');
+    var report = document.getElementById('i_report').checked;
+
+    if (asset <= 0) { alert('상속재산 가액을 입력해 주세요.'); return; }
+
+    var taxable = Math.max(0, asset + gift - deductCost);
+
+    // 일괄공제 5억 (배우자 단독상속은 적용 불가 → 기초공제 2억으로 계산)
+    var lump = (sp === 'only') ? 2 * EOK : 5 * EOK;
+    var lumpLabel = (sp === 'only') ? '기초공제 (배우자 단독상속)' : '일괄공제';
+
+    // 배우자 상속공제: 최소 5억, 최대 30억 (법정상속분 한도는 간이계산에서 생략)
+    var spDed = 0;
+    if (sp !== 'none') spDed = Math.min(Math.max(spAmt, 5 * EOK), 30 * EOK);
+
+    // 금융재산 상속공제
+    var finDed = 0;
+    if (fin > 2000 * MAN) finDed = Math.min(Math.max(Math.floor(fin * 0.2), 2000 * MAN), 2 * EOK);
+    else finDed = fin;
+
+    var totalDed = lump + spDed + finDed;
+    var base = Math.max(0, taxable - totalDed);
+    var t = taxOf(base);
+    // 증여세액공제(제28조) — 한도: 산출세액 × 가산한 증여재산 과세표준 ÷ 상속 과세표준
+    // 다만 상속세 과세가액이 5억원 이하이면 공제하지 않는다(제28조 ① 단서)
+    var giftCap = 0, giftCredit = 0;
+    if (gift > 0 && giftTax > 0 && taxable > 5 * EOK && base > 0) {
+      giftCap = Math.floor(t.tax * Math.min(gift, base) / base);
+      giftCredit = Math.min(giftTax, giftCap);
+    }
+    var credit = report ? Math.floor(Math.max(0, t.tax - giftCredit) * 0.03) : 0;
+    var pay = Math.max(0, t.tax - giftCredit - credit);
+
+    var list = [
+      { k: '상속재산 가액', v: won(asset) }
+    ];
+    if (gift > 0) list.push({ k: '사전증여재산 가산', v: '+ ' + won(gift) });
+    if (debt > 0) list.push({ k: '채무', v: '− ' + won(debt), minus: true });
+    if (pub > 0) list.push({ k: '공과금', v: '− ' + won(pub), minus: true });
+    list.push({ k: '장례비용',
+                sub: (fun1 < 500 * MAN ? '증빙이 없어도 500만원 공제' : (fun1 > 1000 * MAN ? '직접비용 한도 1천만원 적용' : '직접비용 ' + won(Math.min(fun1, 1000 * MAN))))
+                     + (fun2 > 0 ? ' + 봉안시설 ' + won(Math.min(fun2, 500 * MAN)) : ''),
+                v: '− ' + won(funeral), minus: true });
+    list.push({ k: '상속세 과세가액', v: won(taxable), hl: true });
+    list.push({ k: lumpLabel, v: '− ' + won(lump), minus: true });
+    if (spDed > 0) list.push({ k: '배우자 상속공제', v: '− ' + won(spDed), minus: true });
+    if (finDed > 0) list.push({ k: '금융재산 상속공제', v: '− ' + won(finDed), minus: true });
+    list.push({ k: '과세표준', v: won(base), hl: true });
+    list.push({ k: '산출세액 (' + (t.rate * 100) + '% − 누진공제 ' + won(t.deduct) + ')', v: won(t.tax) });
+    if (gift > 0 && giftTax > 0) {
+      list.push({ k: '증여세액공제 (사전증여분)',
+                  sub: (taxable <= 5 * EOK) ? '상속세 과세가액 5억원 이하는 공제하지 않습니다'
+                       : ('공제한도 ' + won(giftCap) + (giftTax > giftCap ? ' — 한도까지만 공제됩니다' : '')),
+                  v: '− ' + won(giftCredit), minus: true });
+    }
+    if (report) list.push({ k: '신고세액공제 3%', v: '− ' + won(credit), minus: true });
+    list.push({ k: '납부할 상속세', v: won(pay), hl: true });
+
+    var note = '';
+    if (base === 0) note += '공제가 과세가액보다 커서 <b>납부할 상속세가 없습니다.</b> 다만 신고의무는 남아 있을 수 있습니다.<br>';
+    if (sp !== 'none') note += '배우자 상속공제는 실제로는 <b>법정상속분 한도</b>가 함께 적용되어 이 계산보다 적을 수 있습니다.<br>';
+    if (gift > 0 && giftTax > 0) {
+      note += '<b>증여세액공제</b> 상속재산에 가산한 사전증여에 대해 이미 낸 증여세를 뺍니다. 한도 계산의 '
+        + '가산분 과세표준은 사전증여재산 가액으로 보았으므로, 그때 받은 증여재산공제를 반영하면 <b>한도가 더 작아질 수 있습니다.</b><br>';
+    }
+    note += '동거주택 상속공제(최대 6억원)·가업상속공제 등은 반영하지 않았습니다.';
+
+    document.getElementById('i_result').innerHTML = resultHtml(
+      '납부할 상속세 (예상)', pay,
+      '공제 합계 ' + won(totalDed) + ' · 과세표준 ' + won(base),
+      list, note,
+      '상속세 및 증여세법 제14조·시행령 제9조(공과금·장례비용) · 제18조·제21조(일괄공제) · 제19조(배우자 상속공제) · '
+      + '제22조(금융재산 상속공제) · 제26조(세율)' + (gift > 0 && giftTax > 0 ? ' · 제28조(증여세액공제)' : '') + ' · 제69조(신고세액공제)');
+  });
+
+  /* ---------- 퇴직금 ---------- */
+  // 종합소득세율 (소득세법 제55조 ①)
+  var INCOME_BRACKETS = [
+    { limit: 1400 * MAN, rate: 0.06, deduct: 0 },
+    { limit: 5000 * MAN, rate: 0.15, deduct: 126 * MAN },
+    { limit: 8800 * MAN, rate: 0.24, deduct: 576 * MAN },
+    { limit: 15000 * MAN, rate: 0.35, deduct: 1544 * MAN },
+    { limit: 30000 * MAN, rate: 0.38, deduct: 1994 * MAN },
+    { limit: 50000 * MAN, rate: 0.40, deduct: 2594 * MAN },
+    { limit: 100000 * MAN, rate: 0.42, deduct: 3594 * MAN },
+    { limit: Infinity, rate: 0.45, deduct: 6594 * MAN }
+  ];
+  function incomeTax(base) {
+    if (base <= 0) return 0;
+    for (var i = 0; i < INCOME_BRACKETS.length; i++) {
+      if (base <= INCOME_BRACKETS[i].limit) {
+        return Math.floor(base * INCOME_BRACKETS[i].rate - INCOME_BRACKETS[i].deduct);
+      }
+    }
+    return 0;
+  }
+  // 근속연수공제 (소득세법 제48조 ① 1호)
+  function serviceDeduct(y) {
+    if (y <= 5) return 100 * MAN * y;
+    if (y <= 10) return 500 * MAN + 200 * MAN * (y - 5);
+    if (y <= 20) return 1500 * MAN + 250 * MAN * (y - 10);
+    return 4000 * MAN + 300 * MAN * (y - 20);
+  }
+  // 환산급여공제 (소득세법 제48조 ① 2호)
+  function convertedDeduct(c) {
+    if (c <= 800 * MAN) return c;
+    if (c <= 7000 * MAN) return 800 * MAN + Math.floor((c - 800 * MAN) * 0.6);
+    if (c <= 10000 * MAN) return 4520 * MAN + Math.floor((c - 7000 * MAN) * 0.55);
+    if (c <= 30000 * MAN) return 6170 * MAN + Math.floor((c - 10000 * MAN) * 0.45);
+    return 15170 * MAN + Math.floor((c - 30000 * MAN) * 0.35);
+  }
+  function parseDate(v) {
+    var m = /^(\d{4})[-.\/ ]?(\d{1,2})[-.\/ ]?(\d{1,2})$/.exec((v || '').trim());
+    if (!m) return null;
+    var d = new Date(+m[1], +m[2] - 1, +m[3]);
+    return (d.getFullYear() === +m[1] && d.getMonth() === +m[2] - 1) ? d : null;
+  }
+  function ymd(d) {
+    return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  }
+
+  document.getElementById('r_calc').addEventListener('click', function () {
+    var din = parseDate(document.getElementById('r_in').value);
+    var dout = parseDate(document.getElementById('r_out').value);
+    if (!din || !dout) { alert('입사일과 퇴사일을 2020-03-02 형식으로 입력해 주세요.'); return; }
+    var days = Math.round((dout - din) / 86400000);
+    if (days <= 0) { alert('퇴사일이 입사일보다 뒤여야 합니다.'); return; }
+    if (days < 365) { alert('계속근로기간이 1년 미만이면 법정 퇴직금 지급 대상이 아닙니다 (재직일수 ' + days + '일).'); return; }
+
+    var pay3 = num('r_pay3'), bonus = num('r_bonus'), annual = num('r_annual');
+    if (pay3 <= 0) { alert('퇴직 전 3개월 임금 총액을 입력해 주세요.'); return; }
+
+    // 평균임금 산정기간 = 퇴직일 이전 3개월의 실제 일수
+    var from = new Date(dout.getTime()); from.setMonth(from.getMonth() - 3);
+    var periodDays = Math.round((dout - from) / 86400000);
+    var addBonus = Math.floor(bonus * 3 / 12);
+    var addAnnual = Math.floor(annual * 3 / 12);
+    var avgBase = pay3 + addBonus + addAnnual;
+    var daily = avgBase / periodDays;
+    var severance = Math.floor(daily * 30 * days / 365);
+
+    var list = [
+      { k: '재직일수', sub: ymd(din) + ' ~ ' + ymd(dout), v: days.toLocaleString('ko-KR') + '일' },
+      { k: '3개월 임금 총액', sub: '산정기간 ' + periodDays + '일', v: won(pay3) },
+      { k: '상여금 가산 (3/12)', v: '+ ' + won(addBonus) },
+      { k: '연차수당 가산 (3/12)', v: '+ ' + won(addAnnual) },
+      { k: '1일 평균임금', v: won(Math.floor(daily)) },
+      { k: '퇴직금', sub: '1일 평균임금 × 30일 × 재직일수 ÷ 365', v: won(severance), hl: true }
+    ];
+
+    var note = '평균임금이 <b>통상임금보다 적으면 통상임금</b>으로 계산합니다(근로기준법 제2조 ②). 이 계산기는 평균임금 기준입니다.<br>';
+    var source = '근로자퇴직급여 보장법 제8조 · 근로기준법 제2조(평균임금)';
+    var total = severance;
+
+    if (document.getElementById('r_tax').checked) {
+      var years = Math.ceil(days / 365);                 // 1년 미만은 1년으로 본다(제48조 ①)
+      var sDed = Math.min(serviceDeduct(years), severance);
+      var converted = Math.floor((severance - sDed) / years * 12);
+      var cDed = convertedDeduct(converted);
+      var base = Math.max(0, converted - cDed);
+      var convTax = incomeTax(base);
+      var tax = Math.floor(convTax / 12 * years);
+      var local = Math.floor(tax * 0.1);
+      total = severance - tax - local;
+
+      list.push({ k: '근속연수', sub: '1년 미만 기간은 1년으로 봅니다', v: years + '년' });
+      list.push({ k: '근속연수공제', v: '− ' + won(sDed), minus: true });
+      list.push({ k: '환산급여', sub: '(퇴직금 − 근속연수공제) ÷ 근속연수 × 12', v: won(converted) });
+      list.push({ k: '환산급여공제', v: '− ' + won(cDed), minus: true });
+      list.push({ k: '과세표준', v: won(base), hl: true });
+      list.push({ k: '환산산출세액', v: won(convTax) });
+      list.push({ k: '퇴직소득세', sub: '환산산출세액 ÷ 12 × 근속연수', v: won(tax) });
+      list.push({ k: '지방소득세 10%', v: won(local) });
+      list.push({ k: '세후 실수령액', v: won(total), hl: true });
+
+      note += '퇴직소득세는 <b>연분연승</b> 방식이라 근속연수가 길수록 세부담이 줄어듭니다.<br>';
+      source += ' · 소득세법 제48조(퇴직소득공제) · 제55조 ②(퇴직소득 산출세액)';
+    }
+    note += '임원 퇴직금 한도 초과액, 퇴직연금(DC·IRP) 이전분, 비과세 퇴직소득은 반영하지 않았습니다.';
+
+    document.getElementById('r_result').innerHTML = resultHtml(
+      document.getElementById('r_tax').checked ? '세후 실수령액 (예상)' : '퇴직금 (예상)',
+      total,
+      '퇴직금 ' + won(severance) + ' · 1일 평균임금 ' + won(Math.floor(daily)) + ' · 재직 ' + days.toLocaleString('ko-KR') + '일',
+      list, note, source);
+  });
+
+  /* ---------- 임원 퇴직금 (소득세법 제22조 ③ 한도) ---------- */
+  // 근무기간은 개월 수로 계산하고 1개월 미만은 1개월로 본다(제22조 ④ 1호)
+  function monthsOf(from, to) {
+    if (!from || !to || to < from) return 0;
+    return (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth()) + 1;
+  }
+  // 퇴직소득세 계산(공통) — 퇴직소득금액과 근속연수로 세액 산출
+  function retireTax(amount, years) {
+    var sDed = Math.min(serviceDeduct(years), amount);
+    var converted = Math.floor((amount - sDed) / years * 12);
+    var cDed = convertedDeduct(converted);
+    var base = Math.max(0, converted - cDed);
+    var convTax = incomeTax(base);
+    var tax = Math.floor(convTax / 12 * years);
+    return { sDed: sDed, converted: converted, cDed: cDed, base: base,
+             convTax: convTax, tax: tax, local: Math.floor(tax * 0.1) };
+  }
+
+  document.getElementById('x_calc').addEventListener('click', function () {
+    var din = parseDate(document.getElementById('x_in').value);
+    var dout = parseDate(document.getElementById('x_out').value);
+    if (!din || !dout) { alert('입사일(취임일)과 퇴직일을 2015-01-01 형식으로 입력해 주세요.'); return; }
+    if (dout <= din) { alert('퇴직일이 입사일보다 뒤여야 합니다.'); return; }
+
+    var pay = num('x_pay');
+    var avg1 = num('x_avg1'), avg2 = num('x_avg2'), before = num('x_before');
+    if (pay <= 0) { alert('지급할 퇴직금 총액을 입력해 주세요.'); return; }
+
+    var D2012 = new Date(2012, 0, 1), D2019 = new Date(2019, 11, 31), D2020 = new Date(2020, 0, 1);
+    var from1 = din > D2012 ? din : D2012;
+    var to1 = dout < D2019 ? dout : D2019;
+    var m1 = monthsOf(from1, to1);                       // 2012.1.1.~2019.12.31. 근무 개월수
+    var from2 = din > D2020 ? din : D2020;
+    var m2 = monthsOf(from2, dout);                      // 2020.1.1. 이후 근무 개월수
+
+    var limit1 = Math.floor(avg1 / 10 * (m1 / 12) * 3);
+    var limit2 = Math.floor(avg2 / 10 * (m2 / 12) * 2);
+    var limit = limit1 + limit2;
+
+    var target = Math.max(0, pay - before);              // 한도와 비교하는 금액(2011년 이전분 제외)
+    var over = Math.max(0, target - limit);              // 초과액 → 근로소득
+    var retireIncome = pay - over;                       // 퇴직소득으로 인정되는 금액
+
+    var list = [
+      { k: '지급할 퇴직금', v: won(pay) }
+    ];
+    if (before > 0) list.push({ k: '2011년 이전 근무분 (한도 제외)', v: '− ' + won(before), minus: true });
+    list.push({ k: '한도 비교 대상', v: won(target), hl: true });
+    if (m1 > 0) {
+      list.push({ k: '한도 ① 2012~2019년분',
+                  sub: won(avg1) + ' ÷ 10 × ' + m1 + '개월/12 × 3배', v: won(limit1) });
+    }
+    if (m2 > 0) {
+      list.push({ k: '한도 ② 2020년 이후분',
+                  sub: won(avg2) + ' ÷ 10 × ' + m2 + '개월/12 × 2배', v: won(limit2) });
+    }
+    list.push({ k: '임원 퇴직소득 한도', v: won(limit), hl: true });
+    list.push({ k: over > 0 ? '한도 초과액 → 근로소득' : '한도 초과액 없음',
+                sub: over > 0 ? '근로소득으로 보아 연말정산·종합소득에 합산' : '',
+                v: won(over) });
+    list.push({ k: '퇴직소득으로 인정되는 금액', v: won(retireIncome), hl: true });
+
+    var total = retireIncome;
+    var source = '소득세법 제22조 제3항·제4항(임원 퇴직소득 한도)';
+
+    if (document.getElementById('x_tax').checked && retireIncome > 0) {
+      var days = Math.round((dout - din) / 86400000);
+      var years = Math.max(1, Math.ceil(days / 365));
+      var r = retireTax(retireIncome, years);
+      total = retireIncome - r.tax - r.local;
+      list.push({ k: '근속연수', v: years + '년' });
+      list.push({ k: '근속연수공제', v: '− ' + won(r.sDed), minus: true });
+      list.push({ k: '환산급여', v: won(r.converted) });
+      list.push({ k: '환산급여공제', v: '− ' + won(r.cDed), minus: true });
+      list.push({ k: '과세표준', v: won(r.base), hl: true });
+      list.push({ k: '퇴직소득세', sub: '환산산출세액 ' + won(r.convTax) + ' ÷ 12 × 근속연수', v: won(r.tax) });
+      list.push({ k: '지방소득세 10%', v: won(r.local) });
+      list.push({ k: '퇴직소득 세후 실수령액', v: won(total), hl: true });
+      source += ' · 소득세법 제48조(퇴직소득공제) · 제55조 ②';
+    }
+
+    var note = '';
+    if (over > 0) {
+      note += '<b>한도 초과</b> ' + won(over) + '은 퇴직소득이 아니라 <b>근로소득</b>으로 보아 과세됩니다. '
+        + '법인 입장에서는 정관·임원퇴직금지급규정에 따른 금액인지(법인세법 시행령 제44조 ④) 손금 여부도 함께 검토해야 합니다.<br>';
+    } else {
+      note += '지급액이 한도 이내여서 전액 퇴직소득으로 과세됩니다.<br>';
+    }
+    note += '한도는 <b>2012~2019년분 3배 + 2020년 이후분 2배</b>로 나누어 계산하며, 근무기간은 개월 수(1개월 미만은 1개월)로 셉니다. '
+      + '2011.12.31. 이전 근무분은 한도 계산에서 제외합니다.<br>'
+      + '소득세법상 한도와 별개로 <b>법인세법상 손금 한도</b>(정관 규정 유무)는 따로 판단합니다.';
+
+    document.getElementById('x_result').innerHTML = resultHtml(
+      over > 0 ? '한도 초과액 (근로소득)' : '퇴직소득으로 인정되는 금액',
+      over > 0 ? over : retireIncome,
+      '한도 ' + won(limit) + ' · 지급액 ' + won(pay) + (over > 0 ? ' · 초과 ' + won(over) : ''),
+      list, note, source);
+  });
+
+  /* ---------- 탭 ---------- */
+  document.querySelectorAll('.calc-tab').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.calc-tab').forEach(function (x) { x.classList.remove('is-on'); });
+      b.classList.add('is-on');
+      document.querySelectorAll('[data-pane]').forEach(function (p) {
+        p.hidden = (p.dataset.pane !== b.dataset.tab);
+      });
+      try { history.replaceState(null, '', '#' + b.dataset.tab); } catch (e) {}
+    });
+  });
+  var want = (location.hash || '').replace('#', '');
+  if (want) {
+    var tab = document.querySelector('.calc-tab[data-tab="' + want + '"]');
+    if (tab) tab.click();
+  }
+
+  /* ---------- 지우기 ---------- */
+  document.querySelectorAll('[data-reset]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pane = document.querySelector('[data-pane="' + b.dataset.reset + '"]');
+      pane.querySelectorAll('input[type="text"]').forEach(function (i) { i.value = ''; });
+      pane.querySelectorAll('input[type="checkbox"]').forEach(function (i) {
+        i.checked = (i.id === 'g_report' || i.id === 'i_report');
+      });
+      pane.querySelectorAll('select').forEach(function (s) { s.selectedIndex = s.id === 'i_spouse' ? 1 : 0; });
+      if (b.dataset.reset === 'gift') { document.getElementById('g_rel').selectedIndex = 1;
+                                        document.getElementById('g_marry_prev_row').hidden = true; }
+      var res = pane.querySelector('[id$="_result"]');
+      res.innerHTML = '<p class="r-empty">값을 입력하고 <b>계산하기</b>를 누르면<br>단계별 계산 내역이 여기에 표시됩니다.</p>';
+    });
+  });
+})();
+</script>
+</body>
+</html>

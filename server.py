@@ -1446,6 +1446,7 @@ def _render_sitemap_xml():
         (o + "/contact.html", "monthly", "0.8", _file_lastmod(os.path.join(BASE_DIR, "contact.html"))),
         (o + "/media.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "media.html"))),
         (o + "/cardnews.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "cardnews.html"))),
+        (o + "/calculator.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "calculator.html"))),
     ]
     # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
     for h in HUBS:
