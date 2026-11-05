@@ -318,11 +318,11 @@
           <div class="f-grid2">
             <div class="f-row">
               <label for="r_in">입사일</label>
-              <input type="text" id="r_in" inputmode="numeric" placeholder="2020-03-02" style="text-align:center" />
+              <input type="text" id="r_in" class="f-date" inputmode="numeric" maxlength="10" placeholder="2020-03-02" style="text-align:center" />
             </div>
             <div class="f-row">
               <label for="r_out">퇴사일</label>
-              <input type="text" id="r_out" inputmode="numeric" placeholder="2026-11-05" style="text-align:center" />
+              <input type="text" id="r_out" class="f-date" inputmode="numeric" maxlength="10" placeholder="2026-11-05" style="text-align:center" />
             </div>
           </div>
           <p class="f-hint" style="margin-top:-6px">퇴사일은 <b>마지막 근무일의 다음 날</b>(퇴직일)을 적습니다. 예: 2026-11-05</p>
@@ -368,11 +368,11 @@
           <div class="f-grid2">
             <div class="f-row">
               <label for="x_in">입사일(취임일)</label>
-              <input type="text" id="x_in" inputmode="numeric" placeholder="2015-01-01" style="text-align:center" />
+              <input type="text" id="x_in" class="f-date" inputmode="numeric" maxlength="10" placeholder="2015-01-01" style="text-align:center" />
             </div>
             <div class="f-row">
               <label for="x_out">퇴직일</label>
-              <input type="text" id="x_out" inputmode="numeric" placeholder="2026-11-05" style="text-align:center" />
+              <input type="text" id="x_out" class="f-date" inputmode="numeric" maxlength="10" placeholder="2026-11-05" style="text-align:center" />
             </div>
           </div>
 
@@ -453,11 +453,27 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  // 입력창에 천단위 구분기호
-  document.querySelectorAll('input[inputmode="numeric"]').forEach(function (el) {
+  // 금액 입력창에만 천단위 구분기호를 넣는다.
+  // (날짜란까지 걸리면 2009-01-01 이 20,090,101 로 바뀌므로 .f-money 안으로 한정)
+  document.querySelectorAll('.f-money input[inputmode="numeric"]').forEach(function (el) {
     el.addEventListener('input', function () {
       var raw = el.value.replace(/[^0-9]/g, '');
       el.value = raw ? parseInt(raw, 10).toLocaleString('ko-KR') : '';
+    });
+  });
+
+  // 날짜 입력창은 숫자만 치면 2020-03-02 형태로 하이픈이 자동으로 들어간다.
+  document.querySelectorAll('input.f-date').forEach(function (el) {
+    el.addEventListener('input', function () {
+      var raw = el.value.replace(/[^0-9]/g, '').slice(0, 8);
+      var out = raw.slice(0, 4);
+      if (raw.length > 4) out += '-' + raw.slice(4, 6);
+      if (raw.length > 6) out += '-' + raw.slice(6, 8);
+      el.value = out;
+    });
+    // 지우는 중에 하이픈만 남지 않도록
+    el.addEventListener('blur', function () {
+      el.value = el.value.replace(/-+$/, '');
     });
   });
 
