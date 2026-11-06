@@ -148,6 +148,7 @@
         <button class="calc-tab" type="button" data-tab="inherit" role="tab">상속세</button>
         <button class="calc-tab" type="button" data-tab="retire" role="tab">퇴직금</button>
         <button class="calc-tab" type="button" data-tab="exec" role="tab">임원 퇴직금</button>
+        <button class="calc-tab" type="button" data-tab="pay" role="tab">월급 실수령액</button>
       </div>
 
       <!-- ───────── 증여세 ───────── -->
@@ -414,6 +415,66 @@
         </div>
       </div>
 
+      <!-- ───────── 월급 실수령액 ───────── -->
+      <div class="calc-wrap" data-pane="pay" hidden>
+        <div class="calc-panel">
+          <h2>월급 실수령액 계산</h2>
+          <p class="calc-lead">월 급여액에서 <b>4대보험료와 근로소득세</b>를 뺀 실수령액을 계산합니다. 2026년 요율과 <b>근로소득 간이세액표</b>를 그대로 적용합니다.</p>
+
+          <div class="f-row">
+            <label for="p_gross">월 급여액 (세전)</label>
+            <div class="f-money"><input type="text" id="p_gross" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">이번 달 지급총액 — 기본급·수당·상여를 모두 포함합니다</p>
+          </div>
+
+          <div class="f-row">
+            <label for="p_nontax">비과세액</label>
+            <div class="f-money"><input type="text" id="p_nontax" inputmode="numeric" placeholder="0" /></div>
+            <p class="f-hint">식대는 월 <b>20만원</b>까지, 자가운전보조금은 월 <b>20만원</b>까지 비과세. 4대보험료와 소득세 모두 이 금액을 뺀 급여를 기준으로 합니다</p>
+          </div>
+
+          <div class="f-grid2">
+            <div class="f-row">
+              <label for="p_family">공제대상 가족 수</label>
+              <select id="p_family">
+                <option value="1" selected>1명</option>
+                <option value="2">2명</option>
+                <option value="3">3명</option>
+                <option value="4">4명</option>
+                <option value="5">5명</option>
+                <option value="6">6명</option>
+                <option value="7">7명</option>
+                <option value="8">8명</option>
+                <option value="9">9명</option>
+                <option value="10">10명</option>
+                <option value="11">11명</option>
+              </select>
+              <p class="f-hint">본인 포함, 배우자도 1명으로 셉니다</p>
+            </div>
+            <div class="f-row">
+              <label for="p_child">8세~20세 자녀 수</label>
+              <select id="p_child">
+                <option value="0">없음</option>
+                <option value="1">1명</option>
+                <option value="2">2명</option>
+                <option value="3">3명</option>
+                <option value="4">4명</option>
+                <option value="5">5명</option>
+                <option value="6">6명</option>
+              </select>
+              <p class="f-hint">자녀세액공제분을 세액에서 빼 줍니다</p>
+            </div>
+          </div>
+
+          <button class="f-btn" type="button" id="p_calc">계산하기</button>
+          <button class="f-reset" type="button" data-reset="pay">입력값 지우기</button>
+        </div>
+
+        <div class="calc-panel" id="p_result">
+          <p class="r-empty">월 급여액을 입력하고 <b>계산하기</b>를 누르면<br>4대보험료·근로소득세와 실수령액이 여기에 표시됩니다.</p>
+        </div>
+      </div>
+
       <div class="disclaimer">
         <b>계산 결과는 참고용입니다.</b> 이 계산기는 대표적인 공제만 반영한 개략 계산으로, 재산 평가방법·사전증여 합산·법정상속분 한도·감면과 가산세 등
         개별 사정에 따라 실제 세액은 달라집니다. 신고·납부 전에는 반드시 세무대리인의 검토를 받으시기 바라며,
@@ -433,6 +494,7 @@
 
 <div data-site-footer hidden></div>
 <script src="assets/site-footer.js?v=10"></script>
+<script src="assets/simple-tax.js?v=1"></script>
 <script src="assets/dwell.js?v=1" defer></script>
 <script>
 (function () {
@@ -939,6 +1001,68 @@
       over > 0 ? '한도 초과액 (근로소득)' : '퇴직소득으로 인정되는 금액',
       over > 0 ? over : retireIncome,
       '한도 ' + won(limit) + ' · 지급액 ' + won(pay) + (over > 0 ? ' · 초과 ' + won(over) : ''),
+      list, note, source);
+  });
+
+
+  /* ---------- 월급 실수령액 (2026년 요율) ---------- */
+  var NP_RATE = 0.0475,            // 국민연금 9.5% 중 근로자 1/2
+      NP_MAX = 6590000, NP_MIN = 410000,   // 기준소득월액 상·하한 (2026.7.~2027.6.)
+      HI_RATE = 0.0719 / 2,        // 건강보험 7.19% 중 근로자 1/2
+      LTC_RATE = 0.9448 / 7.19,    // 장기요양보험료 = 건강보험료 × (0.9448% ÷ 7.19%)
+      EI_RATE = 0.009;             // 고용보험(실업급여) 근로자분
+  function floor10(x) { return Math.floor((x + 1e-6) / 10) * 10; }
+
+  document.getElementById('p_calc').addEventListener('click', function () {
+    var gross = num('p_gross');
+    var nontax = num('p_nontax');
+    var fam = parseInt(document.getElementById('p_family').value, 10) || 1;
+    var kids = parseInt(document.getElementById('p_child').value, 10) || 0;
+    if (gross <= 0) { alert('월 급여액을 입력해 주세요.'); return; }
+    if (nontax > gross) { alert('비과세액이 월 급여액보다 클 수 없습니다.'); return; }
+
+    var taxable = gross - nontax;
+    // 국민연금 기준소득월액은 1천원 미만을 버리고, 상·하한을 적용한다
+    var npBase = Math.min(Math.max(Math.floor(taxable / 1000) * 1000, NP_MIN), NP_MAX);
+    var np = floor10(npBase * NP_RATE);
+    var hi = floor10(taxable * HI_RATE);
+    var ltc = floor10(hi * LTC_RATE);
+    var ei = floor10(taxable * EI_RATE);
+    var it = SimpleTax.tax(taxable, fam, kids);
+    var lt = floor10(it * 0.10);
+    var ins = np + hi + ltc + ei;
+    var total = ins + it + lt;
+    var net = gross - total;
+
+    var npSub = '기준소득월액 ' + won(npBase) + ' × 4.75%';
+    if (npBase === NP_MAX) npSub += ' (상한 적용)';
+    else if (npBase === NP_MIN) npSub += ' (하한 적용)';
+
+    var list = [
+      { k: '월 급여액', v: won(gross) },
+      { k: '비과세액', v: '− ' + won(nontax), minus: true },
+      { k: '과세대상 급여', sub: '4대보험료·소득세의 공통 기준', v: won(taxable), hl: true },
+      { k: '국민연금', sub: npSub, v: '− ' + won(np), minus: true },
+      { k: '건강보험', sub: '과세대상 급여 × 3.595%', v: '− ' + won(hi), minus: true },
+      { k: '장기요양보험', sub: '건강보험료 × 13.14%', v: '− ' + won(ltc), minus: true },
+      { k: '고용보험', sub: '과세대상 급여 × 0.9% (실업급여분)', v: '− ' + won(ei), minus: true },
+      { k: '4대보험 합계', v: '− ' + won(ins), hl: true },
+      { k: '근로소득세', sub: '간이세액표 · 공제대상가족 ' + fam + '명'
+          + (kids > 0 ? ' · 8~20세 자녀 ' + kids + '명' : ''), v: '− ' + won(it), minus: true },
+      { k: '지방소득세', sub: '근로소득세의 10%', v: '− ' + won(lt), minus: true },
+      { k: '공제 합계', v: '− ' + won(total), hl: true }
+    ];
+
+    var note = '<b>산재보험료는 전액 회사가 부담</b>하므로 급여에서 빼지 않습니다. '
+      + '간이세액표 세액은 매월 떼는 금액일 뿐이고, 실제 세금은 <b>연말정산</b>에서 확정됩니다. '
+      + '원천징수세액은 간이세액표의 80%·100%·120% 중에서 고를 수 있는데, 여기서는 <b>100%</b>로 계산했습니다.';
+    var source = '국민연금법(보험료율 9.5%, 기준소득월액 상한 659만원·하한 41만원) · '
+      + '국민건강보험법(2026년 건강보험료율 7.19%, 장기요양보험료율 0.9448%) · '
+      + '고용보험법(실업급여 0.9%) · 소득세법 시행령 [별표 2] 근로소득 간이세액표';
+
+    document.getElementById('p_result').innerHTML = resultHtml(
+      '월 실수령액', net,
+      '연 환산 ' + won(net * 12) + ' · 공제율 ' + (total / gross * 100).toFixed(1) + '%',
       list, note, source);
   });
 
