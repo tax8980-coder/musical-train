@@ -828,6 +828,12 @@ def _human_size(num):
 # 예외만 FILE_CATEGORY 에 적는다(POST_NOTE 와 같은 방식).
 FILE_CATEGORIES = [("form", "계약서 및 서식"), ("press", "보도자료")]
 FILE_CATEGORY_LABEL = dict(FILE_CATEGORIES)
+# 구분 제목에 쓰는 표기. 보도자료는 PC 에서만 "및 카드뉴스"까지 보여준다
+# (모바일은 탭 세 개가 한 줄에 들어가야 해서 짧은 이름을 쓴다).
+FILE_CATEGORY_HTML = {
+    "form": "계약서 및 서식",
+    "press": '보도자료<span class="only-pc"> 및 카드뉴스</span>',
+}
 FILE_CATEGORY = {}
 
 
@@ -1407,7 +1413,7 @@ def _render_file_groups(files):
         group = [f for f in files if f.get("category") == key]
         if not group:
             continue
-        out.append('<li class="file-list__head">' + _esc_html(label)
+        out.append('<li class="file-list__head">' + FILE_CATEGORY_HTML.get(key, _esc_html(label))
                    + '<span>' + str(len(group)) + '개</span></li>')
         out.append(_render_file_items(group))
     return "".join(out)
