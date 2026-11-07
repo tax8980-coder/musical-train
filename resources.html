@@ -80,6 +80,15 @@
 
   <section class="section">
     <div class="container container--narrow">
+      <!-- 구분 탭. 홈의 칼럼 탭과 같은 방식 — 진짜 링크라 크롤러가 따라갈 수 있고
+           자바스크립트가 꺼져 있어도 동작한다. 켜져 있으면 아래 스크립트가 가로채 탭만 바꾼다. -->
+      <nav class="col-tabs" id="fileTabs" aria-label="자료 구분">
+        <a class="col-tab is-on" href="/resources.html" data-cat="all" aria-current="page">전체</a>
+        <a class="col-tab" href="/resources.html?cat=form" data-cat="form">계약서 및 서식</a>
+        <a class="col-tab" href="/resources.html?cat=press" data-cat="press">보도자료</a>
+      </nav>
+      <p class="col-pane__lead" id="fileLead">계약서·서식과 관계부처 보도자료를 모두 모았습니다.</p>
+
       <div class="blog-search">
         <svg class="blog-search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
         <input class="blog-search__input" type="search" id="fileSearch" placeholder="자료 검색 (파일명)"
@@ -126,6 +135,19 @@
   var searchEl = document.getElementById('fileSearch');
   var countEl = document.getElementById('fileCount');
   var CATEGORIES = [{ key: 'form', label: '계약서 및 서식' }, { key: 'press', label: '보도자료' }];
+  var LEADS = {
+    all: '계약서·서식과 관계부처 보도자료를 모두 모았습니다.',
+    form: '계약 실무에 바로 쓰실 수 있는 서식입니다. 사용 전에 개별 검토가 필요합니다.',
+    press: '관계부처 보도자료 원문입니다. 카드뉴스로 정리한 자료는 함께 연결해 두었습니다.'
+  };
+  var tabsEl = document.getElementById('fileTabs');
+  var leadEl = document.getElementById('fileLead');
+  function currentCat() {
+    var m = (location.search || '').match(/[?&]cat=([a-z]+)/);
+    var c = m ? m[1] : 'all';
+    return LEADS[c] ? c : 'all';
+  }
+  var cat = currentCat();
   var allFiles = [];
   var query = '';
 
@@ -147,6 +169,7 @@
   function render() {
     var q = query.trim().toLowerCase();
     var files = allFiles.filter(function (f) {
+      if (cat !== 'all' && (f.category || 'form') !== cat) return false;
       if (!q) return true;
       return ((f.title || '') + ' ' + (f.ext || '')).toLowerCase().indexOf(q) !== -1;
     });
@@ -157,7 +180,12 @@
       return;
     }
     if (emptyEl) emptyEl.hidden = true;
-    // 서버 SSR(_render_file_groups)과 같은 모양으로 구분별로 묶는다 — 한쪽만 고치면 어긋난다
+    // 서버 SSR(_render_file_groups)과 같은 모양 — 한쪽만 고치면 어긋난다.
+    // '전체'에서만 구분 제목을 달고, 한 구분을 고르면 목록만 보여준다.
+    if (cat !== 'all') {
+      listEl.innerHTML = files.map(item).join('');
+      return;
+    }
     var html = '';
     CATEGORIES.forEach(function (c) {
       var group = files.filter(function (f) { return (f.category || 'form') === c.key; });
@@ -166,6 +194,23 @@
       html += group.map(item).join('');
     });
     listEl.innerHTML = html;
+  }
+
+  if (tabsEl) {
+    tabsEl.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('.col-tab') : null;
+      if (!a || !a.dataset.cat) return;
+      e.preventDefault();
+      cat = a.dataset.cat;
+      tabsEl.querySelectorAll('.col-tab').forEach(function (x) {
+        var on = x === a;
+        x.classList.toggle('is-on', on);
+        if (on) { x.setAttribute('aria-current', 'page'); } else { x.removeAttribute('aria-current'); }
+      });
+      if (leadEl) leadEl.textContent = LEADS[cat];
+      try { history.replaceState(null, '', a.getAttribute('href')); } catch (err) {}
+      render();
+    });
   }
 
   if (searchEl) {

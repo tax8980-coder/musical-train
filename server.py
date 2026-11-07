@@ -1434,15 +1434,37 @@ def _render_file_items(files):
     return "".join(out)
 
 
-def _render_resources_html():
-    """자료실 HTML의 자리표시자를 실제 파일 목록으로 치환해 반환."""
+RESOURCE_LEADS = {
+    "all": "계약서·서식과 관계부처 보도자료를 모두 모았습니다.",
+    "form": "계약 실무에 바로 쓰실 수 있는 서식입니다. 사용 전에 개별 검토가 필요합니다.",
+    "press": "관계부처 보도자료 원문입니다. 카드뉴스로 정리한 자료는 함께 연결해 두었습니다.",
+}
+
+
+def _render_resources_html(cat="all"):
+    """자료실 HTML의 자리표시자를 실제 파일 목록으로 치환해 반환. cat 은 구분 탭."""
+    if cat not in RESOURCE_LEADS:
+        cat = "all"
     html = _read_text(RESOURCES_PATH)
     files = list_files()
+    # 선택한 탭 표시 (기본 '전체')
+    if cat != "all":
+        html = html.replace(
+            '<a class="col-tab is-on" href="/resources.html" data-cat="all" aria-current="page">전체</a>',
+            '<a class="col-tab" href="/resources.html" data-cat="all">전체</a>', 1)
+        html = html.replace(
+            '<a class="col-tab" href="/resources.html?cat=%s" data-cat="%s">' % (cat, cat),
+            '<a class="col-tab is-on" href="/resources.html?cat=%s" data-cat="%s" aria-current="page">' % (cat, cat), 1)
+        html = html.replace(
+            '<p class="col-pane__lead" id="fileLead">' + RESOURCE_LEADS["all"] + "</p>",
+            '<p class="col-pane__lead" id="fileLead">' + _esc_html(RESOURCE_LEADS[cat]) + "</p>", 1)
+        files = [f for f in files if f.get("category") == cat]
     if not files:
         return html
+    body = _render_file_items(files) if cat != "all" else _render_file_groups(files)
     html = html.replace(
         '<li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>',
-        _render_file_groups(files),
+        body,
         1,
     )
     html = html.replace(">등록된 자료가 없습니다.</p>", "></p>", 1)
@@ -2221,7 +2243,7 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/resources.html":
             try:
-                self._send_html(_render_resources_html())
+                self._send_html(_render_resources_html((parse_qs(parsed.query).get("cat") or ["all"])[0]))
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR resources failed: %s", exc)
