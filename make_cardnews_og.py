@@ -54,7 +54,9 @@ def _wrap(draw, text, font, max_w):
         sp = head.rfind(" ")
         if sp > 0 and draw.textlength(head[:sp], font=font) >= max_w * 0.6:
             lines.append(head[:sp])
-            cur = head[sp + 1:] + tok
+            # 다음 줄로 넘길 때는 rstrip 하지 않은 cur 에서 잘라야 어절 뒤 공백이 살아남는다
+            # (head 로 자르면 '살면 ' + '증여세가' 가 '살면증여세가' 로 붙어 버린다)
+            cur = cur[sp + 1:] + tok
             continue
         # 다음 줄이 문장부호로 시작하면 직전 글자를 함께 넘긴다
         if tok and tok[0] in NO_LINE_START and len(head) > 1:

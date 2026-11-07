@@ -456,6 +456,7 @@ def _hub_posts(hub, posts):
 # (여기 없는 칼럼은 아래 _PRIMARY_HUB_ORDER 자동규칙으로 임시 배정 → 확인 후 한 줄 추가)
 POST_NOTE = {
     "gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose": "transfer-inheritance-gift",
+    "bumo-jutaek-musangeoju-jeungyeose": "transfer-inheritance-gift",      # 부동산 무상사용이익
     "sangsokse-singo-mueotbuteo-junbihaeya-halkkayo": "transfer-inheritance-gift",
     "bumoga-janyeoege-ssage-palmyeon-chwideukseneun": "transfer-inheritance-gift",  # 저가양도 증여간주
     "onerous-gift-acquisition-tax-2024du67238": "acquisition-tax",                  # 부담부증여 취득세
