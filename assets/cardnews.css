@@ -1,0 +1,58 @@
+/* =========================================================
+   세무법인 지율 — 카드뉴스 갤러리 + 라이트박스 뷰어
+   cardnews.html(공유페이지)과 index.html(세무칼럼 '카드뉴스' 탭)이
+   함께 쓴다. 고치면 두 곳 모두에 반영되므로 한쪽만 손대지 말 것.
+   ========================================================= */
+
+/* 세트 목록 */
+.cn-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
+.cn-card { display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; background: #fff; transition: box-shadow .15s, transform .15s; }
+.cn-card:hover { box-shadow: 0 8px 24px rgba(30,58,95,.12); transform: translateY(-2px); }
+.cn-card__btn { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; width: 100%; }
+.cn-card__thumb { display: block; position: relative; aspect-ratio: 4 / 5; background: #EAF1FA; overflow: hidden; }
+.cn-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cn-card__count { position: absolute; right: 10px; bottom: 10px; font-size: .78rem; font-weight: 700; color: #fff; background: rgba(30,58,95,.82); border-radius: 999px; padding: 4px 11px; }
+.cn-card__body { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.cn-card__tags { font-size: .78rem; font-weight: 700; color: #2A5A9A; }
+.cn-card__title { font-size: 1.05rem; font-weight: 700; color: #1E3A5F; line-height: 1.4; }
+.cn-card__sub { font-size: .9rem; color: #46566b; line-height: 1.5; }
+.cn-card__date { font-size: .83rem; color: #5b6b7f; }
+.cn-card__links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 15px 15px; }
+.cn-card__link { font-size: .84rem; font-weight: 600; color: #2A5A9A; text-decoration: none; background: #EAF1FA; border: 1px solid #D3E0F0; border-radius: 999px; padding: 5px 11px; }
+.cn-card__link:hover { background: #D8E6F7; }
+.cn-card__link::before { content: "📄 "; font-weight: 400; }
+.cn-card__share { font-size: .84rem; font-weight: 700; color: #fff; background: #2A5A9A; border: 1px solid #2A5A9A; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.cn-card__share:hover { background: #1E3A5F; border-color: #1E3A5F; }
+.cn-card__share::before { content: "🔗 "; font-weight: 400; }
+.cn-viewer__share { position: absolute; top: 14px; right: 66px; height: 42px; padding: 0 16px; border-radius: 999px; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: .9rem; font-weight: 700; cursor: pointer; }
+.cn-viewer__share:hover { background: #fff; }
+@media (max-width: 767px) { .cn-viewer__share { padding: 0 12px; font-size: .82rem; } }
+.cn-toast { position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%); z-index: 1300; background: #1E3A5F; color: #fff; font-size: .92rem; font-weight: 600; padding: 11px 18px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.25); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.cn-toast.is-on { opacity: 1; }
+
+/* 뷰어(라이트박스) */
+.cn-viewer { position: fixed; inset: 0; z-index: 1200; background: rgba(11,22,38,.93); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; }
+/* 카드를 빠르게 넘기다 보면 드래그·더블클릭으로 글자가 선택돼 화면 전체가 파랗게 덮인다 */
+.cn-viewer, .cn-viewer *, .cn-card__btn { -webkit-user-select: none; user-select: none; }
+.cn-viewer__img { -webkit-user-drag: none; }
+/* 뷰어가 열려 있는 동안에는 뒤 페이지 글자도 선택되지 않게 한다 */
+body.cn-open, body.cn-open * { -webkit-user-select: none; user-select: none; }
+.cn-viewer[hidden] { display: none; }
+.cn-viewer__stage { position: relative; display: flex; align-items: center; justify-content: center; max-width: 100%; max-height: calc(100vh - 120px); }
+.cn-viewer__img { max-width: min(92vw, 560px); max-height: calc(100vh - 130px); width: auto; height: auto; border-radius: 10px; box-shadow: 0 18px 48px rgba(0,0,0,.45); background: #fff; }
+.cn-viewer__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: 22px; font-weight: 700; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cn-viewer__nav:hover { background: #fff; }
+.cn-viewer__nav:disabled { opacity: .3; cursor: default; }
+.cn-viewer__nav--prev { left: -62px; }
+.cn-viewer__nav--next { right: -62px; }
+@media (max-width: 767px) {
+  .cn-viewer__nav--prev { left: 4px; }
+  .cn-viewer__nav--next { right: 4px; }
+  .cn-viewer__nav { background: rgba(255,255,255,.78); }
+}
+.cn-viewer__bar { display: flex; align-items: center; gap: 14px; margin-top: 14px; color: #fff; font-size: .92rem; }
+.cn-viewer__dots { display: flex; gap: 6px; }
+.cn-viewer__dot { width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,.35); cursor: pointer; }
+.cn-viewer__dot.is-on { background: #fff; width: 22px; border-radius: 999px; }
+.cn-viewer__close { position: absolute; top: 14px; right: 16px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: #1E3A5F; font-size: 20px; cursor: pointer; }
+.cn-viewer__title { position: absolute; top: 20px; left: 20px; right: 72px; color: #fff; font-size: .95rem; font-weight: 600; line-height: 1.4; }

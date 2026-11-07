@@ -33,15 +33,57 @@
     for (var i = 0; i < ts.length; i++) { if (TAG_EMOJI[ts[i]]) return TAG_EMOJI[ts[i]]; }
     return '📄';
   }
-  function card(p) {
+  // opts.rank  : 인기 칼럼의 순위 번호(1부터). 없으면 이모지만.
+  // opts.views : true 면 날짜 대신 조회수도 함께 보여준다.
+  function card(p, opts) {
+    opts = opts || {};
     var href = '/column/' + encodeURIComponent(p.slug) + '?from=all';
     var tagtxt = (p.tags || []).join(' · ');
+    var head = opts.rank
+      ? '<span class="post-row__rank" aria-hidden="true">' + opts.rank + '</span>'
+      : '<span class="post-row__emoji" aria-hidden="true">' + postEmoji(p) + '</span>';
     return '<li class="post-row"><a class="post-row__link" href="' + href + '">' +
-      '<span class="post-row__title"><span class="post-row__emoji" aria-hidden="true">' + postEmoji(p) + '</span>' + esc(p.title) + '</span>' +
+      '<span class="post-row__title">' + head + esc(p.title) + '</span>' +
       '<span class="post-row__meta">' +
       (tagtxt ? '<span class="post-row__tags">' + esc(tagtxt) + '</span>' : '') +
+      (opts.views && SHOW_VIEWS ? '<span class="post-row__views">조회 ' + fmtViews(p.views) + '</span>' : '') +
       '<time class="post-row__date" datetime="' + esc(p.date) + '">' + fmtDate(p.date) + '</time>' +
       '</span></a></li>';
+  }
+
+  /* ---------------- 세무칼럼 탭 (인기 / 최신 / 전체 / 카드뉴스) ----------------
+     패널은 숨기기만 하고 DOM 에서 지우지 않는다 — 크롤러는 숨은 패널도 읽는다.
+     주소의 ?tab= 으로 바로 열 수 있고, 탭을 바꾸면 주소도 같이 바뀐다. */
+  var TABS = ['popular', 'latest', 'all', 'cardnews'];
+  var tabsEl = $('#colTabs');
+  function showTab(name, push) {
+    if (TABS.indexOf(name) === -1) name = 'popular';
+    Array.prototype.forEach.call(document.querySelectorAll('.col-tab'), function (b) {
+      b.classList.toggle('is-on', b.getAttribute('data-tab') === name);
+      b.setAttribute('aria-selected', b.getAttribute('data-tab') === name ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.col-pane'), function (p) {
+      p.hidden = p.getAttribute('data-pane') !== name;
+    });
+    if (push) {
+      try {
+        var q = (name === 'popular') ? '/' : ('/?tab=' + name);
+        history.replaceState(null, '', q);
+      } catch (e) { /* 주소 갱신 실패는 화면에 영향 없음 */ }
+    }
+  }
+  if (tabsEl) {
+    tabsEl.addEventListener('click', function (e) {
+      var b = e.target.closest('.col-tab');
+      if (!b) return;
+      showTab(b.getAttribute('data-tab'), true);
+    });
+    // 들어온 주소에 ?tab= 이 있으면 그 탭으로. 카드뉴스 공유주소 흔적(#slug, ?set=)이면 카드뉴스 탭.
+    var want = new URLSearchParams(location.search).get('tab');
+    if (!want && (new URLSearchParams(location.search).get('set') || location.hash.length > 1)) {
+      want = 'cardnews';
+    }
+    showTab(want || 'popular', false);
   }
 
   /* ---------------- 목록 페이지 ---------------- */
@@ -211,6 +253,30 @@
       });
     }
 
+    /* 인기 칼럼 5편 — 조회수 내림차순, 같으면 최신순.
+       최신 칼럼 10편 — 발행일 내림차순. (서버 SSR 과 같은 규칙) */
+    var HOT_N = 5, NEW_N = 10;
+    function renderHotNew() {
+      var hotEl = $('#hotList');
+      if (hotEl) {
+        var hot = allPosts.slice().sort(function (a, b) {
+          var d = (parseInt(b.views, 10) || 0) - (parseInt(a.views, 10) || 0);
+          return d !== 0 ? d : String(b.date || '').localeCompare(String(a.date || ''));
+        }).slice(0, HOT_N);
+        hotEl.innerHTML = hot.map(function (p, i) {
+          return card(p, { rank: i + 1, views: true });
+        }).join('') || '<li class="post-grid__loading">아직 등록된 칼럼이 없습니다.</li>';
+      }
+      var newEl = $('#newList');
+      if (newEl) {
+        var recent = allPosts.slice().sort(function (a, b) {
+          return String(b.date || '').localeCompare(String(a.date || ''));
+        }).slice(0, NEW_N);
+        newEl.innerHTML = recent.map(function (p) { return card(p); }).join('')
+          || '<li class="post-grid__loading">아직 등록된 칼럼이 없습니다.</li>';
+      }
+    }
+
     fetch('/api/posts')
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -218,6 +284,7 @@
         if (!allPosts.length) { listEl.innerHTML = ''; if (emptyEl) emptyEl.hidden = false; return; }
         buildTags();
         renderQuick();
+        renderHotNew();
         render(true);
       })
       .catch(function () {

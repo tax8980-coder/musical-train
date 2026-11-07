@@ -1226,22 +1226,31 @@ def _post_emoji(post):
     return "📄"
 
 
-def _render_post_cards(posts, views=None, from_note=None):
+def _render_post_cards(posts, views=None, from_note=None, ranked=False, show_views=False):
     """홈·허브 칼럼 목록(리스트형): 이모지+제목(2~3줄) · 세목 · 작성일자.
     from_note: 이 목록이 속한 노트(허브 slug 또는 'all'). 칼럼 링크에 ?from=… 로 실어
-    칼럼 상단/하단에 '어느 노트에서 왔는지'를 표시한다."""
+    칼럼 상단/하단에 '어느 노트에서 왔는지'를 표시한다.
+    ranked: 이모지 대신 1,2,3… 순위 뱃지(인기 칼럼). show_views: 조회수도 표기.
+    ※ 마크업은 assets/blog.js 의 card() 와 똑같이 유지할 것 — blog.js 가 이 HTML을 덮어쓴다."""
     out = []
-    for p in posts:
+    views = views or {}
+    for i, p in enumerate(posts, 1):
         href = "/column/" + quote(p.get("slug", ""), safe="")
         if from_note:
             href += "?from=" + from_note
         tagtxt = " · ".join(p.get("tags") or [])
+        head = ('<span class="post-row__rank" aria-hidden="true">%d</span>' % i) if ranked else (
+            '<span class="post-row__emoji" aria-hidden="true">' + _post_emoji(p) + "</span>")
+        vtxt = ""
+        if show_views:
+            n = int(p.get("views") or views.get(p.get("slug"), 0) or 0)
+            vtxt = '<span class="post-row__views">조회 %s</span>' % format(n, ",")
         out.append(
             '<li class="post-row"><a class="post-row__link" href="' + href + '">'
-            + '<span class="post-row__title"><span class="post-row__emoji" aria-hidden="true">'
-            + _post_emoji(p) + "</span>" + _esc_html(p.get("title")) + "</span>"
+            + '<span class="post-row__title">' + head + _esc_html(p.get("title")) + "</span>"
             + '<span class="post-row__meta">'
             + (('<span class="post-row__tags">' + _esc_html(tagtxt) + "</span>") if tagtxt else "")
+            + vtxt
             + '<time class="post-row__date" datetime="' + _esc_html(p.get("date")) + '">'
             + _fmt_date(p.get("date")) + "</time></span></a></li>"
         )
@@ -1285,12 +1294,24 @@ def _render_index_html():
     if not posts:
         return html
     views = get_views_map()
-    # 1) 메인 카드 그리드
-    html = html.replace(
-        '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>',
+    # 1) 탭별 목록 — '인기 칼럼'(조회수 상위 5) → '최신 칼럼'(10) → '전체 칼럼' 순서로
+    #    자리표시자가 나오므로 replace(…, 1) 을 세 번 불러 앞에서부터 차례로 채운다.
+    #    숨은 패널도 HTML 에는 그대로 들어가 크롤러가 읽는다.
+    #    ※ 정렬 규칙은 blog.js 의 renderHotNew() 와 똑같이 유지할 것.
+    HOT_N, NEW_N = 5, 10
+    for p in posts:
+        p.setdefault("views", int(views.get(p.get("slug"), 0)))
+    recent = sorted(posts, key=lambda p: str(p.get("date") or ""), reverse=True)
+    # 조회수 내림차순, 같으면 최신순 — 날짜로 먼저 정렬한 뒤 안정정렬로 조회수를 얹는다
+    hot = sorted(recent, key=lambda p: int(p.get("views") or 0), reverse=True)[:HOT_N]
+    recent = recent[:NEW_N]
+    for block in (
+        _render_post_cards(hot, views, "all", ranked=True, show_views=True),
+        _render_post_cards(recent, views, "all"),
         _render_post_cards(posts, views, "all"),
-        1,
-    )
+    ):
+        html = html.replace(
+            '<li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>', block, 1)
     # 2) 숨김 처리된 '아직 등록된 칼럼이 없습니다.' 문구 제거
     #    (hidden 속성만으로는 텍스트 크롤러가 본문으로 읽어감. 칼럼이 있으므로 비운다)
     html = html.replace(">아직 등록된 칼럼이 없습니다.</p>", "></p>", 1)

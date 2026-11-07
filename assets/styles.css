@@ -1323,10 +1323,16 @@ body.is-locked { overflow: hidden; }
 .site-header.is-static { position: static; }
 .page-sub { padding-bottom: 0; }
 
-/* 서브 페이지 헤더: 로고는 좌측, 메뉴는 우측(항목 간 균등 간격) */
-.site-header.is-static .gnb-sub { gap: 30px; }
+/* 서브 페이지 헤더: 로고는 좌측, 메뉴는 우측(항목 간 균등 간격)
+   헤더는 space-between 이라 메뉴 간격을 넓히면 로고와 첫 메뉴 사이 빈칸이
+   그만큼 줄어든다. 2026-11-07 에 카드뉴스가 세무칼럼 탭으로 들어가 메뉴가
+   6개+버튼으로 줄면서 빈칸이 과하게 벌어져, 구간별로 간격을 다시 잡았다. */
+   간격은 구간마다 툭툭 끊기지 않도록 화면 폭에 비례해 12~42px 사이에서
+   자동으로 변한다(6.4vw − 40px). 폭이 넓어질수록 메뉴가 고르게 벌어지면서
+   로고 옆 빈칸이 같이 줄어든다. */
+.site-header.is-static .gnb-sub { gap: clamp(12px, 6.4vw - 40px, 42px); }
 
-.gnb-sub { display: flex; align-items: center; gap: 24px; }
+.gnb-sub { display: flex; align-items: center; gap: clamp(12px, 6.4vw - 40px, 42px); }
 .gnb-sub a {
   display: inline-flex;
   align-items: center;
@@ -1336,15 +1342,11 @@ body.is-locked { overflow: hidden; }
   color: var(--text);
   white-space: nowrap;   /* 메뉴가 '세무 / 칼럼' 처럼 단어 중간에서 접히지 않도록 */
 }
-/* 메뉴가 7개라 중간 너비에서 간격을 좁혀 한 줄을 유지한다 */
-@media (max-width: 1240px) {
-  .gnb-sub, .site-header.is-static .gnb-sub { gap: 16px; }
-  .gnb-sub a { font-size: 14.5px; }
-}
-@media (max-width: 1040px) and (min-width: 768px) {
-  .gnb-sub, .site-header.is-static .gnb-sub { gap: 11px; }
-  .gnb-sub a { font-size: 14px; }
-}
+/* 간격은 위 clamp() 가 알아서 줄여 주고, 여기서는 글자 크기만 단계적으로 줄여
+   한 줄을 유지한다. 폭이 빠듯할수록 작아진다. */
+@media (max-width: 1240px) { .gnb-sub a { font-size: 14.5px; } }
+@media (max-width: 1040px) and (min-width: 768px) { .gnb-sub a { font-size: 14px; } }
+@media (max-width: 900px) and (min-width: 768px) { .gnb-sub a { font-size: 13.5px; } }
 .gnb-sub a:hover { color: var(--blue); }
 .gnb-sub .btn { color: #fff; }
 /* 현재 페이지 메뉴 = 파란 박스 (상담 문의 버튼과 동일한 느낌) */
@@ -1356,8 +1358,15 @@ body.is-locked { overflow: hidden; }
   font-weight: 600;
 }
 .gnb-sub a[aria-current="page"]:hover { color: #fff; background: #2F6FE0; }
-/* 네비 라벨: 데스크톱은 '세무사/업무소개', 모바일(≤767px)은 '업무분야' */
+/* 네비 라벨: 넓을 때는 '세무사/업무소개'·'강의요청 및 상담문의',
+   좁아지면(≤900px) 짧은 '업무분야'·'상담 문의' 로 바꾼다.
+   900px 아래에서는 긴 라벨 두 개가 약 100px 를 더 먹어 메뉴가 헤더 밖으로
+   밀려났다(2026-11-07 실측: 772px 에서 45px 초과). */
 .gnb-sub .nav-label--narrow { display: none; }
+@media (max-width: 900px) {
+  .gnb-sub .nav-label--wide { display: none; }
+  .gnb-sub .nav-label--narrow { display: inline; }
+}
 @media (max-width: 767px) {
   .gnb-sub .nav-label--wide { display: none; }
   .gnb-sub .nav-label--narrow { display: inline; }
