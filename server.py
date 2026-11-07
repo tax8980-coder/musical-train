@@ -824,6 +824,20 @@ def _human_size(num):
     return "%.1f GB" % num
 
 
+# 자료실 구분. 파일명에 '보도자료'가 들어가면 자동으로 보도자료로 보고,
+# 예외만 FILE_CATEGORY 에 적는다(POST_NOTE 와 같은 방식).
+FILE_CATEGORIES = [("form", "계약서 및 서식"), ("press", "보도자료")]
+FILE_CATEGORY_LABEL = dict(FILE_CATEGORIES)
+FILE_CATEGORY = {}
+
+
+def _file_category(name):
+    hit = FILE_CATEGORY.get(name)
+    if hit in FILE_CATEGORY_LABEL:
+        return hit
+    return "press" if "보도자료" in name else "form"
+
+
 def list_files():
     """files/ 폴더의 다운로드 파일 목록(가나다/이름순). 숨김(.)·시스템(_) 파일 및 README 제외."""
     out = []
@@ -862,6 +876,8 @@ def list_files():
         hit = by_file.get(f["name"])
         if hit:
             f["cardnews"] = hit
+        f["category"] = _file_category(f["name"])
+        f["category_label"] = FILE_CATEGORY_LABEL[f["category"]]
     return out
 
 
@@ -1384,6 +1400,19 @@ def _render_index_html(tab="popular"):
     return _apply_index_tab(html, tab)
 
 
+def _render_file_groups(files):
+    """자료실 목록을 구분(계약서 및 서식 / 보도자료)별로 묶어서 그린다."""
+    out = []
+    for key, label in FILE_CATEGORIES:
+        group = [f for f in files if f.get("category") == key]
+        if not group:
+            continue
+        out.append('<li class="file-list__head">' + _esc_html(label)
+                   + '<span>' + str(len(group)) + '개</span></li>')
+        out.append(_render_file_items(group))
+    return "".join(out)
+
+
 def _render_file_items(files):
     out = []
     for f in files:
@@ -1413,7 +1442,7 @@ def _render_resources_html():
         return html
     html = html.replace(
         '<li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>',
-        _render_file_items(files),
+        _render_file_groups(files),
         1,
     )
     html = html.replace(">등록된 자료가 없습니다.</p>", "></p>", 1)

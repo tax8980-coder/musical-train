@@ -1449,6 +1449,14 @@ body.is-locked { overflow: hidden; }
 /* 자료실 (resources.html) — 한 줄에 2개(2열 그리드) */
 .file-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; padding: 0; }
 .file-list__state { grid-column: 1 / -1; padding: 28px 4px; text-align: center; color: var(--text-sub); }
+/* 자료실 구분 제목 (계약서 및 서식 / 보도자료) */
+.file-list__head {
+  grid-column: 1 / -1; display: flex; align-items: baseline; gap: 10px;
+  margin: 18px 2px 2px; padding-bottom: 10px; border-bottom: 2px solid var(--line);
+  font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: -.01em;
+}
+.file-list__head:first-child { margin-top: 0; }
+.file-list__head span { font-size: 13px; font-weight: 600; color: var(--text-sub); }
 .file-item {
   display: flex; align-items: center; gap: 16px;
   padding: 16px 18px; background: var(--white);
