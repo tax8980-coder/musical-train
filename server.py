@@ -210,9 +210,28 @@ def classify_ua(ua):
     return ("human", None)
 
 
+def canon_page_path(path):
+    """통계용 경로 정규화.
+
+    홈이 '/' 와 '/index.html' 두 키로 쪼개져 인기페이지·체류시간이 따로 잡히던
+    문제를 막는다. 쿼리(?from=all 등)와 앵커를 떼고 홈 표기를 '/' 하나로 모은다.
+    기록 시점과 집계 시점 양쪽에서 부르므로 옛 데이터도 합쳐져 보인다."""
+    p = str(path or "")
+    for sep in ("?", "#"):
+        i = p.find(sep)
+        if i != -1:
+            p = p[:i]
+    if not p.startswith("/"):
+        p = "/" + p
+    if p.lower() in ("/", "/index.html", "/index.htm"):
+        return "/"
+    return p
+
+
 def record_visit(path, ip, ua, ref=""):
     """컨텐츠 페이지 GET 1건을 일자별 집계에 반영. 실패는 조용히 무시(서비스 영향 없음)."""
     try:
+        path = canon_page_path(path)
         day = datetime.now(KST).strftime("%Y-%m-%d")
         cat, bot = classify_ua(ua)
         conn = get_conn()
@@ -277,6 +296,7 @@ def record_dwell(path, ua, seconds):
     cat, _bot = classify_ua(ua)
     if cat != "human":          # 크롤러는 체류시간 개념이 없음
         return
+    path = canon_page_path(path)
     try:
         day = datetime.now(KST).strftime("%Y-%m-%d")
         conn = get_conn()
@@ -346,6 +366,9 @@ _STATIC_PAGE_LABELS = {
     "/faq.html": "자주 묻는 질문",
     "/contact.html": "상담 문의",
     "/post.html": "칼럼(구 주소)",
+    "/media.html": "언론·강의",
+    "/cardnews.html": "카드뉴스",
+    "/calculator.html": "세금계산기",
 }
 
 # 옛 자동생성 slug → 정리된 slug. /column/<옛slug> 요청은 새 주소로 301 이동한다.
@@ -581,19 +604,29 @@ def build_stats(days=None):
         out["search_by_bot"] = [(r["name"], r["s"]) for r in q(
             "SELECT name, SUM(hits) s FROM stat_counts WHERE category='search' AND name!='__total__' AND day>=? GROUP BY name ORDER BY s DESC", (since,))]
         title_map = {p.get("slug"): p.get("title") for p in load_posts().get("posts", [])}
-        out["top_pages"] = [(_page_label(r["name"], title_map), r["s"]) for r in q(
-            "SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name ORDER BY s DESC LIMIT 15", (since,))]
+        # 인기 페이지 — 경로를 정규화(홈 '/'+'/index.html' 합산)한 뒤 상위 15개를 고른다.
+        # SQL LIMIT 를 먼저 걸면 합치기 전 순위로 잘리므로 전부 받아 와서 합친다.
+        page_hits = {}
+        for r in q("SELECT name, SUM(hits) s FROM stat_counts WHERE category='page' AND day>=? GROUP BY name", (since,)):
+            cp = canon_page_path(r["name"])
+            page_hits[cp] = page_hits.get(cp, 0) + int(r["s"])
+        out["top_pages"] = [(_page_label(p, title_map), n) for p, n in
+                            sorted(page_hits.items(), key=lambda kv: kv[1], reverse=True)[:15]]
         # AI 봇별로 읽은 페이지: 봇 총조회수 내림차순 → 봇 안에서는 조회수 내림차순
         ai_pages = {}
         for r in q("SELECT name, SUM(hits) s FROM stat_counts WHERE category='aipage' AND day>=? "
-                   "GROUP BY name ORDER BY s DESC", (since,)):
+                   "GROUP BY name", (since,)):
             bot_name, sep, apath = r["name"].partition("|")
             if not sep or not apath:
                 continue
-            ai_pages.setdefault(bot_name, []).append(
-                (_page_label(apath, title_map), apath, int(r["s"])))
+            per = ai_pages.setdefault(bot_name, {})
+            cp = canon_page_path(apath)
+            per[cp] = per.get(cp, 0) + int(r["s"])
         out["ai_pages"] = sorted(
-            ((b, sum(x[2] for x in rows), rows[:20]) for b, rows in ai_pages.items()),
+            ((b, sum(per.values()),
+              [(_page_label(p, title_map), p, n)
+               for p, n in sorted(per.items(), key=lambda kv: kv[1], reverse=True)[:20]])
+             for b, per in ai_pages.items()),
             key=lambda t: t[1], reverse=True)
 
         # 평균 체류시간(사람 방문) — dwell: 'sum|경로' / 'cnt|경로'
@@ -602,7 +635,9 @@ def build_stats(days=None):
             kind, sep, dpath = r["name"].partition("|")
             if not sep:
                 continue
-            (dwell_sum if kind == "sum" else dwell_cnt)[dpath] = int(r["s"])
+            key = dpath if dpath == "__all__" else canon_page_path(dpath)
+            tgt = dwell_sum if kind == "sum" else dwell_cnt
+            tgt[key] = tgt.get(key, 0) + int(r["s"])
         tot_s, tot_c = dwell_sum.get("__all__", 0), dwell_cnt.get("__all__", 0)
         out["dwell_avg"] = int(round(tot_s / tot_c)) if tot_c else 0
         out["dwell_samples"] = tot_c
@@ -1727,7 +1762,7 @@ class Handler(SimpleHTTPRequestHandler):
 
     def _track_visit(self, parsed):
         """컨텐츠 페이지(/, *.html, /column/<slug>) GET만 방문 통계에 집계."""
-        p = parsed.path
+        p = canon_page_path(parsed.path)
         is_page = (p == "/" or p.endswith(".html") or re.match(r"^/column/[A-Za-z0-9\-_]+$", p)
                    or p.strip("/") in HUB_BY_SLUG)
         if not is_page:
@@ -1783,7 +1818,7 @@ class Handler(SimpleHTTPRequestHandler):
                 data = {}
                 if 0 < length <= 512:
                     data = json.loads(self.rfile.read(length).decode("utf-8", "replace"))
-                dpath = str(data.get("path") or "")[:100]
+                dpath = canon_page_path(str(data.get("path") or "")[:100])
                 is_page = (dpath == "/" or dpath.endswith(".html")
                            or re.match(r"^/column/[A-Za-z0-9\-_]+$", dpath)
                            or dpath.strip("/") in HUB_BY_SLUG)
