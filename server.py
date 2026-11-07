@@ -533,6 +533,10 @@ HUB_INLINE_CSS = (
     ".hub-breadcrumb a{color:#2A5A9A;text-decoration:none}.hub-breadcrumb a:hover{text-decoration:underline}"
     ".hub-home{margin:2px 0 20px}"
     ".hub-home__title{font-size:1rem;font-weight:700;color:#1E3A5F;margin:0 0 10px}"
+    # 모바일에서는 '세목별로 모아 보기' 칩 묶음을 숨긴다 — 작은 화면에서 네 줄을
+    # 차지해 정작 칼럼 목록이 한참 아래로 밀렸다(2026-11-07). 숨기기만 하므로
+    # HTML 에는 그대로 남아 크롤러는 6개 노트 링크를 계속 읽는다.
+    "@media (max-width:767px){.hub-home{display:none}}"
     ".related{margin:34px 0 6px;padding-top:22px;border-top:1px solid #e5e7eb}"
     ".related__title{font-size:23px;font-weight:700;line-height:1.4;letter-spacing:-.01em;color:#1E3A5F;margin:0 0 14px}"
     "@media (max-width:767px){.related__title{font-size:20px}}"
