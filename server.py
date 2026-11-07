@@ -1287,12 +1287,49 @@ def _render_hub_chips(active_slug=None, posts=None):
     return "".join(parts)
 
 
-def _render_index_html():
+# 홈 안에서 바뀌는 탭은 셋뿐이다. 카드뉴스는 정렬 기준이 아니라 콘텐츠 타입이라
+# 별도 페이지(/cardnews.html)로 두고, ?tab=cardnews 로 들어오면 그리로 301 보낸다.
+COLUMN_TABS = ("popular", "latest", "all")
+
+
+def _apply_index_tab(html, tab):
+    """?tab= 으로 들어온 탭을 HTML 단계에서 미리 열어 둔다.
+
+    탭은 <a href> 라서 자바스크립트가 꺼져 있어도 링크가 동작해야 하는데,
+    정적 HTML 은 '인기 칼럼'이 열린 상태로 고정돼 있다. 여기서 활성 표시와
+    hidden 속성을 옮겨, JS 없이도(=크롤러에게도) 누른 탭이 열린 채로 보인다."""
+    if tab == "popular" or tab not in COLUMN_TABS:
+        return html
+    # 1) 활성 표시를 인기 → 선택한 탭으로 옮긴다
+    html = html.replace(
+        '<a class="col-tab is-on" href="/" data-tab="popular" aria-current="page">',
+        '<a class="col-tab" href="/" data-tab="popular">', 1)
+    for old, new_ in (
+        ('<a class="col-tab" href="/?tab=latest" data-tab="latest">',
+         '<a class="col-tab is-on" href="/?tab=latest" data-tab="latest" aria-current="page">'),
+        ('<a class="col-tab" href="/?tab=all" data-tab="all">',
+         '<a class="col-tab is-on" href="/?tab=all" data-tab="all" aria-current="page">'),
+    ):
+        if ('data-tab="%s"' % tab) in old:
+            html = html.replace(old, new_, 1)
+    # 2) 패널의 hidden 을 옮긴다(인기는 숨기고, 선택한 탭은 연다)
+    panes = {"popular": "paneHot", "latest": "paneNew", "all": "paneAll"}
+    html = html.replace(
+        '<div class="col-pane" id="paneHot" data-pane="popular">',
+        '<div class="col-pane" id="paneHot" data-pane="popular" hidden>', 1)
+    pid = panes[tab]
+    html = html.replace(
+        '<div class="col-pane" id="%s" data-pane="%s" hidden>' % (pid, tab),
+        '<div class="col-pane" id="%s" data-pane="%s">' % (pid, tab), 1)
+    return html
+
+
+def _render_index_html(tab="popular"):
     """홈 HTML의 자리표시자를 실제 칼럼 목록으로 치환해 반환."""
     html = _read_text(INDEX_PATH)
     posts = load_posts().get("posts", [])
     if not posts:
-        return html
+        return _apply_index_tab(html, tab)
     views = get_views_map()
     # 1) 탭별 목록 — '인기 칼럼'(조회수 상위 5) → '최신 칼럼'(10) → '전체 칼럼' 순서로
     #    자리표시자가 나오므로 replace(…, 1) 을 세 번 불러 앞에서부터 차례로 채운다.
@@ -1326,7 +1363,7 @@ def _render_index_html():
         1,
     )
     html = html.replace("</head>", HUB_INLINE_CSS + "</head>", 1)
-    return html
+    return _apply_index_tab(html, tab)
 
 
 def _render_file_items(files):
@@ -2093,8 +2130,17 @@ class Handler(SimpleHTTPRequestHandler):
         # ---- 크롤러 대비 서버 렌더링(SSR): 홈 칼럼 목록·칼럼 본문을 HTML에 미리 심어 응답 ----
         # 실패 시에는 정적 파일을 그대로 서빙(브라우저 JS가 렌더)하여 사이트가 끊기지 않게 한다.
         if parsed.path == "/":
+            want_tab = (query.get("tab", ["popular"])[0] or "popular").strip()
+            # 카드뉴스는 홈의 탭이 아니라 별도 페이지다 — 옛 주소로 들어오면 301
+            if want_tab == "cardnews":
+                self.send_response(301)
+                self.send_header("Location", "/cardnews.html")
+                self.send_header("Content-Length", "0")
+                self.end_headers()
+                return
             try:
-                self._send_html(_render_index_html())
+                # ?tab= 으로 들어오면 그 탭이 열린 상태로 그려 준다(JS 없이도 링크가 동작)
+                self._send_html(_render_index_html(want_tab))
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR index failed: %s", exc)

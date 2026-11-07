@@ -30,26 +30,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=56" />
-<link rel="stylesheet" href="assets/cardnews.css?v=1" />
+<link rel="stylesheet" href="assets/styles.css?v=58" />
 <style>
-  /* 세무칼럼 탭 (인기 / 최신 / 전체 / 카드뉴스) — calculator.html 의 탭과 같은 모양 */
-  .col-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
-  .col-tab { padding: 10px 18px; border-radius: 999px; border: 1px solid #D3E0F0; background: #EAF1FA; color: #1E3A5F; font-size: .95rem; font-weight: 700; cursor: pointer; }
-  .col-tab:hover { background: #D8E6F7; }
-  .col-tab.is-on { background: #1E3A5F; color: #fff; border-color: #1E3A5F; }
-  .col-tab__n { font-weight: 600; opacity: .72; margin-left: 4px; }
-  .col-pane[hidden] { display: none; }
-  .col-pane__lead { margin: 0 0 16px; font-size: .93rem; color: #5b6b7f; line-height: 1.6; }
-  /* 인기 칼럼의 순위 뱃지 */
+  /* 인기 칼럼의 순위 뱃지·조회수 (홈에서만 쓴다. 탭 막대 자체는 styles.css) */
   .post-row__rank { flex: 0 0 24px; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-right: 8px; border-radius: 50%; background: #1E3A5F; color: #fff; font-size: .78rem; font-weight: 800; }
   .post-row__views { font-size: .83rem; color: #5b6b7f; white-space: nowrap; }
-  /* 모바일에서 탭 4개가 한 줄에 들어가도록 여백·글자를 줄인다 */
-  @media (max-width: 767px) {
-    .col-tabs { gap: 6px; flex-wrap: nowrap; }
-    .col-tab { padding: 9px 11px; font-size: .84rem; white-space: nowrap; }
-  }
-  @media (max-width: 359px) { .col-tab { padding: 8px 9px; font-size: .8rem; } }
 </style>
 
 <script type="application/ld+json">
@@ -172,11 +157,15 @@
 
   <section class="section">
     <div class="container">
-      <nav class="col-tabs" id="colTabs" role="tablist" aria-label="세무칼럼 보기 방식">
-        <button class="col-tab is-on" type="button" role="tab" data-tab="popular">인기 칼럼</button>
-        <button class="col-tab" type="button" role="tab" data-tab="latest">최신 칼럼</button>
-        <button class="col-tab" type="button" role="tab" data-tab="all">전체 칼럼</button>
-        <button class="col-tab" type="button" role="tab" data-tab="cardnews">카드뉴스</button>
+      <!-- 탭은 버튼이 아니라 진짜 링크(<a href>)다. 검색 크롤러가 따라갈 수 있어야 하고,
+           자바스크립트가 꺼져 있어도 동작해야 한다. 자바스크립트가 켜져 있으면
+           blog.js 가 클릭을 가로채 페이지 이동 없이 탭만 바꾼다.
+           카드뉴스는 실제 페이지 /cardnews.html 로 연결한다(이미 색인된 주소). -->
+      <nav class="col-tabs" id="colTabs" aria-label="세무칼럼 보기 방식">
+        <a class="col-tab is-on" href="/" data-tab="popular" aria-current="page">인기 칼럼</a>
+        <a class="col-tab" href="/?tab=latest" data-tab="latest">최신 칼럼</a>
+        <a class="col-tab" href="/?tab=all" data-tab="all">전체 칼럼</a>
+        <a class="col-tab" href="/cardnews.html" data-tab="cardnews">카드뉴스</a>
       </nav>
 
       <!-- 인기 칼럼: 조회수 상위 5편 -->
@@ -212,33 +201,11 @@
         <nav class="pager" id="blogPager" aria-label="칼럼 페이지" hidden></nav>
       </div>
 
-      <!-- 카드뉴스: cardnews.html 과 같은 갤러리(assets/cardnews.js 공용) -->
-      <div class="col-pane" id="paneCn" data-pane="cardnews" hidden>
-        <p class="col-pane__lead">세법 개정과 실무 쟁점을 카드 한 장씩으로 정리했습니다. 표지를 누르면 전체 카드를 넘겨 볼 수 있습니다.</p>
-        <div class="cn-grid" id="cnGrid"></div>
-        <p class="file-list__state" id="cnLoading">카드뉴스를 불러오는 중입니다…</p>
-        <p class="file-list__state" id="cnEmpty" hidden>등록된 카드뉴스가 없습니다.</p>
-      </div>
+      <!-- 카드뉴스는 '정렬 기준'이 아니라 '콘텐츠 타입'이라 탭이 아니라 별도 페이지다.
+           탭 막대의 '카드뉴스'는 /cardnews.html 로 실제 이동한다(이미 색인된 주소). -->
     </div>
   </section>
 </main>
-
-<div class="cn-viewer" id="cnViewer" role="dialog" aria-modal="true" aria-label="카드뉴스 보기" hidden>
-  <p class="cn-viewer__title" id="cnViewerTitle"></p>
-  <button class="cn-viewer__share" id="cnShare" type="button">링크 공유</button>
-  <button class="cn-viewer__close" id="cnClose" type="button" aria-label="닫기">✕</button>
-  <div class="cn-viewer__stage">
-    <button class="cn-viewer__nav cn-viewer__nav--prev" id="cnPrev" type="button" aria-label="이전 카드">‹</button>
-    <img class="cn-viewer__img" id="cnImg" src="" alt="" />
-    <button class="cn-viewer__nav cn-viewer__nav--next" id="cnNext" type="button" aria-label="다음 카드">›</button>
-  </div>
-  <div class="cn-viewer__bar">
-    <span id="cnCounter">1 / 1</span>
-    <span class="cn-viewer__dots" id="cnDots"></span>
-  </div>
-</div>
-
-<div class="cn-toast" id="cnToast" role="status" aria-live="polite"></div>
 
 <!-- 모바일 전화 상담 고정 바 -->
 <div class="mobile-callbar" aria-label="빠른 상담">
@@ -251,8 +218,7 @@
 
 <div data-site-footer hidden></div>
 
-<script src="assets/blog.js?v=25"></script>
-<script src="assets/cardnews.js?v=1"></script>
+<script src="assets/blog.js?v=27"></script>
 <script src="assets/dwell.js?v=1" defer></script>
 <script src="assets/site-footer.js?v=10"></script>
 </body>

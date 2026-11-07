@@ -1569,6 +1569,32 @@ body.is-locked { overflow: hidden; }
   .profile-intro__name { font-size: 22px; }
 }
 
+/* =========================================================
+   세무칼럼 탭 막대 (인기 / 최신 / 전체 / 카드뉴스)
+   홈(index.html)과 카드뉴스 페이지(cardnews.html)가 함께 쓴다.
+   탭은 <button> 이 아니라 <a href> 다 — 검색 크롤러가 따라갈 수 있어야 하고
+   자바스크립트가 꺼져 있어도 동작해야 한다. 앞의 셋은 홈의 정렬 기준이라
+   같은 페이지 안에서 바뀌고, 카드뉴스는 콘텐츠 타입이라 별도 페이지로 이동한다.
+   ========================================================= */
+.col-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+.col-tab {
+  display: inline-flex; align-items: center;
+  padding: 10px 18px; border-radius: 999px;
+  border: 1px solid #D3E0F0; background: #EAF1FA; color: #1E3A5F;
+  font-size: .95rem; font-weight: 700; line-height: 1.2;
+  text-decoration: none; cursor: pointer;
+}
+.col-tab:hover { background: #D8E6F7; color: #1E3A5F; }
+.col-tab.is-on, .col-tab.is-on:hover { background: #1E3A5F; color: #fff; border-color: #1E3A5F; }
+.col-pane[hidden] { display: none; }
+.col-pane__lead { margin: 0 0 16px; font-size: .93rem; color: #5b6b7f; line-height: 1.6; }
+/* 모바일에서 탭 4개가 한 줄에 들어가도록 여백·글자를 줄인다 */
+@media (max-width: 767px) {
+  .col-tabs { gap: 6px; flex-wrap: nowrap; }
+  .col-tab { padding: 9px 11px; font-size: .84rem; white-space: nowrap; }
+}
+@media (max-width: 359px) { .col-tab { padding: 8px 9px; font-size: .8rem; } }
+
 /* 칼럼 빠른 목록 (제목만, 5개씩) */
 .quick-list {
   margin-bottom: 22px; padding: 18px 20px;

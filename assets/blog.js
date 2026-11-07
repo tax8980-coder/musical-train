@@ -54,36 +54,40 @@
   /* ---------------- 세무칼럼 탭 (인기 / 최신 / 전체 / 카드뉴스) ----------------
      패널은 숨기기만 하고 DOM 에서 지우지 않는다 — 크롤러는 숨은 패널도 읽는다.
      주소의 ?tab= 으로 바로 열 수 있고, 탭을 바꾸면 주소도 같이 바뀐다. */
-  var TABS = ['popular', 'latest', 'all', 'cardnews'];
+  // 같은 페이지 안에서 바뀌는 탭은 셋뿐이다. '카드뉴스'는 정렬 기준이 아니라
+  // 콘텐츠 타입이라 /cardnews.html 로 실제 이동한다(가로채지 않는다).
+  var TABS = ['popular', 'latest', 'all'];
   var tabsEl = $('#colTabs');
   function showTab(name, push) {
     if (TABS.indexOf(name) === -1) name = 'popular';
     Array.prototype.forEach.call(document.querySelectorAll('.col-tab'), function (b) {
-      b.classList.toggle('is-on', b.getAttribute('data-tab') === name);
-      b.setAttribute('aria-selected', b.getAttribute('data-tab') === name ? 'true' : 'false');
+      var on = b.getAttribute('data-tab') === name;
+      b.classList.toggle('is-on', on);
+      if (on) b.setAttribute('aria-current', 'page');
+      else b.removeAttribute('aria-current');
     });
     Array.prototype.forEach.call(document.querySelectorAll('.col-pane'), function (p) {
       p.hidden = p.getAttribute('data-pane') !== name;
     });
     if (push) {
       try {
-        var q = (name === 'popular') ? '/' : ('/?tab=' + name);
-        history.replaceState(null, '', q);
+        history.replaceState(null, '', name === 'popular' ? '/' : ('/?tab=' + name));
       } catch (e) { /* 주소 갱신 실패는 화면에 영향 없음 */ }
     }
   }
   if (tabsEl) {
+    // 탭은 진짜 링크다. 같은 페이지 안에서 바뀌는 셋만 이동을 막고 탭을 바꾼다.
+    // '카드뉴스'는 data-tab 이 TABS 에 없으므로 가로채지 않고 링크 그대로 이동한다.
+    // 새 탭으로 열기·가운데 클릭·단축키 조합도 가로채지 않는다.
     tabsEl.addEventListener('click', function (e) {
       var b = e.target.closest('.col-tab');
       if (!b) return;
+      if (TABS.indexOf(b.getAttribute('data-tab')) === -1) return;
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
       showTab(b.getAttribute('data-tab'), true);
     });
-    // 들어온 주소에 ?tab= 이 있으면 그 탭으로. 카드뉴스 공유주소 흔적(#slug, ?set=)이면 카드뉴스 탭.
-    var want = new URLSearchParams(location.search).get('tab');
-    if (!want && (new URLSearchParams(location.search).get('set') || location.hash.length > 1)) {
-      want = 'cardnews';
-    }
-    showTab(want || 'popular', false);
+    showTab(new URLSearchParams(location.search).get('tab') || 'popular', false);
   }
 
   /* ---------------- 목록 페이지 ---------------- */

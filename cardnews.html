@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=56" />
+<link rel="stylesheet" href="assets/styles.css?v=58" />
 <link rel="stylesheet" href="assets/cardnews.css?v=1" />
 <style>
   .sub-hero + .section { padding-top: 50px; }
@@ -59,7 +59,6 @@
     </a>
     <nav class="gnb-sub" aria-label="바로가기">
       <a href="/">세무칼럼</a>
-      <a href="/?tab=cardnews" aria-current="page">카드뉴스</a>
       <a href="calculator.html">세금계산기</a>
       <a href="intro.html"><span class="nav-label--wide">세무사/업무소개</span><span class="nav-label--narrow">업무분야</span></a>
       <a href="media.html">언론·강의</a>
@@ -80,6 +79,15 @@
 
   <section class="section">
     <div class="container">
+      <!-- 홈의 탭 막대와 같은 모양·같은 링크. 카드뉴스는 별도 페이지라
+           여기서는 '카드뉴스'가 켜진 상태이고 나머지는 홈으로 돌아간다. -->
+      <nav class="col-tabs" aria-label="세무칼럼 보기 방식">
+        <a class="col-tab" href="/">인기 칼럼</a>
+        <a class="col-tab" href="/?tab=latest">최신 칼럼</a>
+        <a class="col-tab" href="/?tab=all">전체 칼럼</a>
+        <a class="col-tab is-on" href="/cardnews.html" aria-current="page">카드뉴스</a>
+      </nav>
+
       <div class="cn-grid" id="cnGrid"></div>
       <p class="file-list__state" id="cnLoading">카드뉴스를 불러오는 중입니다…</p>
       <p class="file-list__state" id="cnEmpty" hidden>등록된 카드뉴스가 없습니다.</p>
