@@ -828,12 +828,6 @@ def _human_size(num):
 # 예외만 FILE_CATEGORY 에 적는다(POST_NOTE 와 같은 방식).
 FILE_CATEGORIES = [("form", "계약서 및 서식"), ("press", "보도자료")]
 FILE_CATEGORY_LABEL = dict(FILE_CATEGORIES)
-# 구분 제목에 쓰는 표기. 보도자료는 PC 에서만 "및 카드뉴스"까지 보여준다
-# (모바일은 탭 세 개가 한 줄에 들어가야 해서 짧은 이름을 쓴다).
-FILE_CATEGORY_HTML = {
-    "form": "계약서 및 서식",
-    "press": '보도자료<span class="only-pc"> 및 카드뉴스</span>',
-}
 FILE_CATEGORY = {}
 
 
@@ -1406,19 +1400,6 @@ def _render_index_html(tab="popular"):
     return _apply_index_tab(html, tab)
 
 
-def _render_file_groups(files):
-    """자료실 목록을 구분(계약서 및 서식 / 보도자료)별로 묶어서 그린다."""
-    out = []
-    for key, label in FILE_CATEGORIES:
-        group = [f for f in files if f.get("category") == key]
-        if not group:
-            continue
-        out.append('<li class="file-list__head">' + FILE_CATEGORY_HTML.get(key, _esc_html(label))
-                   + '<span>' + str(len(group)) + '개</span></li>')
-        out.append(_render_file_items(group))
-    return "".join(out)
-
-
 def _render_file_items(files):
     out = []
     for f in files:
@@ -1441,36 +1422,33 @@ def _render_file_items(files):
 
 
 RESOURCE_LEADS = {
-    "all": "계약서·서식과 관계부처 보도자료를 모두 모았습니다.",
     "form": "계약 실무에 바로 쓰실 수 있는 서식입니다. 사용 전에 개별 검토가 필요합니다.",
     "press": "관계부처 보도자료 원문입니다. 카드뉴스로 정리한 자료는 함께 연결해 두었습니다.",
 }
 
 
-def _render_resources_html(cat="all"):
-    """자료실 HTML의 자리표시자를 실제 파일 목록으로 치환해 반환. cat 은 구분 탭."""
+def _render_resources_html(cat="form"):
+    """자료실 HTML을 구분(계약서 및 서식 / 보도자료)별 목록으로 채워 반환."""
     if cat not in RESOURCE_LEADS:
-        cat = "all"
+        cat = "form"
     html = _read_text(RESOURCES_PATH)
-    files = list_files()
-    # 선택한 탭 표시 (기본 '전체')
-    if cat != "all":
+    if cat != "form":
+        # 선택한 탭으로 표시를 옮긴다(기본은 마크업에 박혀 있는 계약서 및 서식)
         html = html.replace(
-            '<a class="col-tab is-on" href="/resources.html" data-cat="all" aria-current="page">전체</a>',
-            '<a class="col-tab" href="/resources.html" data-cat="all">전체</a>', 1)
+            '<a class="col-tab is-on" href="/resources.html" data-cat="form" aria-current="page">계약서 및 서식</a>',
+            '<a class="col-tab" href="/resources.html" data-cat="form">계약서 및 서식</a>', 1)
         html = html.replace(
             '<a class="col-tab" href="/resources.html?cat=%s" data-cat="%s">' % (cat, cat),
             '<a class="col-tab is-on" href="/resources.html?cat=%s" data-cat="%s" aria-current="page">' % (cat, cat), 1)
         html = html.replace(
-            '<p class="col-pane__lead" id="fileLead">' + RESOURCE_LEADS["all"] + "</p>",
+            '<p class="col-pane__lead" id="fileLead">' + RESOURCE_LEADS["form"] + "</p>",
             '<p class="col-pane__lead" id="fileLead">' + _esc_html(RESOURCE_LEADS[cat]) + "</p>", 1)
-        files = [f for f in files if f.get("category") == cat]
+    files = [f for f in list_files() if f.get("category") == cat]
     if not files:
         return html
-    body = _render_file_items(files) if cat != "all" else _render_file_groups(files)
     html = html.replace(
         '<li class="file-list__state" id="fileLoading">자료를 불러오는 중입니다…</li>',
-        body,
+        _render_file_items(files),
         1,
     )
     html = html.replace(">등록된 자료가 없습니다.</p>", "></p>", 1)
@@ -2249,7 +2227,7 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/resources.html":
             try:
-                self._send_html(_render_resources_html((parse_qs(parsed.query).get("cat") or ["all"])[0]))
+                self._send_html(_render_resources_html((parse_qs(parsed.query).get("cat") or ["form"])[0]))
                 return
             except Exception as exc:  # noqa: BLE001
                 self.log_error("SSR resources failed: %s", exc)
