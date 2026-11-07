@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=59" />
+<link rel="stylesheet" href="assets/styles.css?v=60" />
 <style>
   /* 자료실: 상단 안내와 검색·목록 사이 여백을 기존 100px→50px(모바일 60→30px)로 50% 축소 */
   .sub-hero + .section { padding-top: 50px; }
@@ -139,6 +139,7 @@
       '<span class="file-item__meta">' + esc(meta) + '</span>' +
       '</div>' +
       '<a class="btn btn--primary btn--sm file-item__dl" href="' + href + '" download>다운로드</a>' +
+      (f.cardnews ? '<a class="file-item__cn" href="/cardnews/' + encodeURIComponent(f.cardnews.slug) + '">카드뉴스로 보기</a>' : '') +
       '</li>';
   }
 

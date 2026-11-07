@@ -21,6 +21,7 @@
 .cn-card__link { font-size: .84rem; font-weight: 600; color: #2A5A9A; text-decoration: none; background: #EAF1FA; border: 1px solid #D3E0F0; border-radius: 999px; padding: 5px 11px; }
 .cn-card__link:hover { background: #D8E6F7; }
 .cn-card__link::before { content: "📄 "; font-weight: 400; }
+.cn-card__link--file::before { content: "⬇ "; }
 .cn-card__share { font-size: .84rem; font-weight: 700; color: #fff; background: #2A5A9A; border: 1px solid #2A5A9A; border-radius: 999px; padding: 5px 12px; cursor: pointer; }
 .cn-card__share:hover { background: #1E3A5F; border-color: #1E3A5F; }
 .cn-card__share::before { content: "🔗 "; font-weight: 400; }

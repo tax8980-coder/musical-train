@@ -851,6 +851,17 @@ def list_files():
             "modified": datetime.fromtimestamp(st.st_mtime, KST).isoformat(timespec="seconds"),
         })
     out.sort(key=lambda f: f["name"].lower())
+    # 카드뉴스 세트가 원문으로 지목한 파일에는 그 세트로 가는 링크를 붙인다.
+    # 매핑의 유일한 출처는 data/cardnews.json 의 files[] 이므로 따로 관리할 목록이 없다.
+    by_file = {}
+    for cset in load_cardnews():
+        for ref in cset.get("files") or []:
+            if ref.get("name"):
+                by_file[ref["name"]] = {"slug": cset.get("slug"), "title": cset.get("title")}
+    for f in out:
+        hit = by_file.get(f["name"])
+        if hit:
+            f["cardnews"] = hit
     return out
 
 
@@ -1387,6 +1398,8 @@ def _render_file_items(files):
             + '<span class="file-item__meta">' + _esc_html(meta) + "</span>"
             + "</div>"
             + '<a class="btn btn--primary btn--sm file-item__dl" href="' + href + '" download>다운로드</a>'
+            + (('<a class="file-item__cn" href="/cardnews/' + quote(f["cardnews"]["slug"], safe="")
+                + '">카드뉴스로 보기</a>') if f.get("cardnews") else "")
             + "</li>"
         )
     return "".join(out)

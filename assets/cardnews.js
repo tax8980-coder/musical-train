@@ -38,6 +38,11 @@
       var links = (s.columns || []).map(function (c) {
         return '<a class="cn-card__link" href="/column/' + encodeURIComponent(c.slug) + '">' + esc(c.title) + '</a>';
       }).join('');
+      // 자료실에 원문(보도자료·고시 등)이 있으면 바로 내려받을 수 있게 붙인다
+      links += (s.files || []).map(function (f) {
+        return '<a class="cn-card__link cn-card__link--file" href="/files/' + encodeURIComponent(f.name)
+          + '" download>' + esc(f.label || '원문 내려받기') + '</a>';
+      }).join('');
       links += '<button class="cn-card__share" type="button" data-share="' + i + '">링크 복사</button>';
       return '' +
         '<article class="cn-card">' +
