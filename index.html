@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" />
-<link rel="stylesheet" href="assets/styles.css?v=58" />
+<link rel="stylesheet" href="assets/styles.css?v=59" />
 <style>
   /* 인기 칼럼의 순위 뱃지·조회수 (홈에서만 쓴다. 탭 막대 자체는 styles.css) */
   .post-row__rank { flex: 0 0 24px; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-right: 8px; border-radius: 50%; background: #1E3A5F; color: #fff; font-size: .78rem; font-weight: 800; }
@@ -170,7 +170,8 @@
 
       <!-- 인기 칼럼: 조회수 상위 5편 -->
       <div class="col-pane" id="paneHot" data-pane="popular">
-        <p class="col-pane__lead">독자들이 가장 많이 찾아본 칼럼 5편입니다. 조회수 기준으로 매일 바뀝니다.</p>
+        <!-- 편수는 화면에 따라 다르다(데스크톱 10편 / 모바일 5편) -->
+        <p class="col-pane__lead">독자들이 가장 많이 찾아본 칼럼 <span class="only-pc">10편</span><span class="only-mo">5편</span>입니다. 조회수 기준으로 매일 바뀝니다.</p>
         <ul class="post-list" id="hotList" aria-live="polite">
           <li class="post-grid__loading">칼럼을 불러오는 중입니다…</li>
         </ul>
@@ -218,7 +219,7 @@
 
 <div data-site-footer hidden></div>
 
-<script src="assets/blog.js?v=27"></script>
+<script src="assets/blog.js?v=29"></script>
 <script src="assets/dwell.js?v=1" defer></script>
 <script src="assets/site-footer.js?v=10"></script>
 </body>

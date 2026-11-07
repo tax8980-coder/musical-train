@@ -66,8 +66,15 @@
       if (on) b.setAttribute('aria-current', 'page');
       else b.removeAttribute('aria-current');
     });
-    Array.prototype.forEach.call(document.querySelectorAll('.col-pane'), function (p) {
-      p.hidden = p.getAttribute('data-pane') !== name;
+    // 열 패널을 '먼저 보이게' 한 뒤에 나머지를 숨긴다.
+    // 순서를 반대로 하면 둘 다 숨은 순간 문서가 짧아지고, 브라우저가 스크롤 위치를
+    // 그때의 최대값으로 깎아 버려 탭을 누를 때마다 화면이 위로 튄다(실측 560→215px).
+    var panes = document.querySelectorAll('.col-pane');
+    Array.prototype.forEach.call(panes, function (p) {
+      if (p.getAttribute('data-pane') === name) p.hidden = false;
+    });
+    Array.prototype.forEach.call(panes, function (p) {
+      if (p.getAttribute('data-pane') !== name) p.hidden = true;
     });
     if (push) {
       try {
@@ -257,9 +264,11 @@
       });
     }
 
-    /* 인기 칼럼 5편 — 조회수 내림차순, 같으면 최신순.
-       최신 칼럼 10편 — 발행일 내림차순. (서버 SSR 과 같은 규칙) */
-    var HOT_N = 5, NEW_N = 10;
+    /* 인기 칼럼 — 조회수 내림차순, 같으면 최신순.
+       최신 칼럼 — 발행일 내림차순. (서버 SSR 과 같은 규칙)
+       인기는 10편을 그려 두고, 모바일에서는 CSS 가 6번째부터 숨겨 5편만 보인다
+       (화면 폭에 따라 자바스크립트로 개수를 바꾸면 창 크기를 바꿀 때 어긋난다). */
+    var HOT_N = 10, NEW_N = 10;
     function renderHotNew() {
       var hotEl = $('#hotList');
       if (hotEl) {

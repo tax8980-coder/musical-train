@@ -1335,7 +1335,9 @@ def _render_index_html(tab="popular"):
     #    자리표시자가 나오므로 replace(…, 1) 을 세 번 불러 앞에서부터 차례로 채운다.
     #    숨은 패널도 HTML 에는 그대로 들어가 크롤러가 읽는다.
     #    ※ 정렬 규칙은 blog.js 의 renderHotNew() 와 똑같이 유지할 것.
-    HOT_N, NEW_N = 5, 10
+    # 인기는 10편을 심고, 모바일에서는 CSS 가 6번째부터 숨겨 5편만 보인다
+    # (blog.js 의 HOT_N 과 같은 값을 유지할 것)
+    HOT_N, NEW_N = 10, 10
     for p in posts:
         p.setdefault("views", int(views.get(p.get("slug"), 0)))
     recent = sorted(posts, key=lambda p: str(p.get("date") or ""), reverse=True)

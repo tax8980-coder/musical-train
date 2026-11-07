@@ -1592,6 +1592,9 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 767px) {
   .col-tabs { gap: 6px; flex-wrap: nowrap; }
   .col-tab { padding: 9px 11px; font-size: .84rem; white-space: nowrap; }
+  /* 인기 칼럼: 데스크톱 10편 / 모바일 5편. HTML 에는 10편이 다 들어 있고
+     모바일에서만 6번째부터 가린다(크롤러는 10편을 그대로 읽는다). */
+  #hotList .post-row:nth-child(n + 6) { display: none; }
 }
 @media (max-width: 359px) { .col-tab { padding: 8px 9px; font-size: .8rem; } }
 
