@@ -2059,9 +2059,19 @@ class Handler(SimpleHTTPRequestHandler):
             self._serve_download(unquote(parsed.path[len("/files/"):]))
             return
 
+        # ---- 홈 대표주소 통일: /index.html → / 301 ----
+        # 홈이 두 주소로 노출되면 검색엔진 색인과 방문통계가 둘로 갈라진다.
+        # canonical 은 이미 '/' 로 통일돼 있고, 여기서 주소 자체를 하나로 모은다.
+        # 쿼리스트링(?from=all 등)은 그대로 넘겨 유입 분석이 끊기지 않게 한다.
+        if parsed.path.lower() in ("/index.html", "/index.htm"):
+            self.send_response(301)
+            self.send_header("Location", "/" + (("?" + parsed.query) if parsed.query else ""))
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         # ---- 크롤러 대비 서버 렌더링(SSR): 홈 칼럼 목록·칼럼 본문을 HTML에 미리 심어 응답 ----
         # 실패 시에는 정적 파일을 그대로 서빙(브라우저 JS가 렌더)하여 사이트가 끊기지 않게 한다.
-        if parsed.path in ("/", "/index.html"):
+        if parsed.path == "/":
             try:
                 self._send_html(_render_index_html())
                 return
