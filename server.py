@@ -1897,6 +1897,12 @@ class Handler(SimpleHTTPRequestHandler):
     def end_headers(self):
         # light hardening for the static responses as well
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        # HTML 은 매번 서버에 확인하게 한다(no-cache = 바뀌었는지 묻고, 그대로면 304).
+        # 지정이 없으면 브라우저가 Last-Modified 만 보고 옛 HTML 을 한동안 그냥 써서
+        # ?v= 를 올린 새 JS 가 적용되지 않는다(2026-11-09 카드뉴스 링크복사 사례).
+        buf = b"".join(getattr(self, "_headers_buffer", []) or []).lower()
+        if b"content-type: text/html" in buf and b"cache-control:" not in buf:
+            self.send_header("Cache-Control", "no-cache")
         super().end_headers()
 
     # ---- routes

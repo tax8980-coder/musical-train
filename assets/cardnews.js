@@ -66,7 +66,9 @@
       b.addEventListener('click', function () { open(parseInt(b.dataset.set, 10), 0); });
     });
     grid.querySelectorAll('.cn-card__share').forEach(function (b) {
-      b.addEventListener('click', function () { share(parseInt(b.dataset.share, 10)); });
+      // '링크 복사'는 기기와 상관없이 항상 복사한다(휴대폰에서 공유창을 띄우면
+      // 복사가 안 돼 카카오톡에 붙여넣을 게 없다). 공유창은 뷰어의 '링크 공유'만 쓴다.
+      b.addEventListener('click', function () { copyUrl(setUrl(parseInt(b.dataset.share, 10))); });
     });
   }
 
