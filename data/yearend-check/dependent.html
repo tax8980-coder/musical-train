@@ -1,0 +1,256 @@
+<section id="jy-dep-check" aria-labelledby="jydTitle">
+<style>
+#jy-dep-check{--jy-main:#4FB8D3;--jy-deep:#1d7f99;--jy-soft:#D9F1F7;--jy-ink:#1b2a33;--jy-sub:#5b6b74;--jy-line:#d7e6ec;--jy-ok:#1f8a5b;--jy-ok-bg:#e6f6ee;--jy-no:#c0392b;--jy-no-bg:#fdecea;
+  box-sizing:border-box;max-width:860px;margin:0 auto;padding:28px 16px 40px;color:var(--jy-ink);background:#f4f8fa;
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all}
+#jy-dep-check *,#jy-dep-check *::before,#jy-dep-check *::after{box-sizing:border-box}
+#jy-dep-check h2,#jy-dep-check h3,#jy-dep-check p{margin:0}
+#jy-dep-check .jy-head{margin-bottom:20px}
+#jy-dep-check .jy-eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--jy-deep);background:var(--jy-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+#jy-dep-check h2{font-size:clamp(22px,4.6vw,30px);line-height:1.3;font-weight:800;letter-spacing:-.02em}
+#jy-dep-check .jy-lead{margin-top:8px;color:var(--jy-sub);font-size:15px}
+#jy-dep-check .jy-card{background:#fff;border:1px solid var(--jy-line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(20,60,80,.04)}
+#jy-dep-check .jy-card+.jy-card{margin-top:16px}
+#jy-dep-check .jy-prog{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:13px;color:var(--jy-sub);font-weight:600}
+#jy-dep-check .jy-bar{flex:1;height:6px;background:#e8f1f4;border-radius:99px;overflow:hidden}
+#jy-dep-check .jy-bar i{display:block;height:100%;width:0;background:var(--jy-main);border-radius:99px;transition:width .3s ease}
+#jy-dep-check .jy-qno{font-size:13px;font-weight:800;color:var(--jy-deep);letter-spacing:.04em}
+#jy-dep-check .jy-q{margin-top:4px;font-size:clamp(18px,3.6vw,22px);font-weight:800;line-height:1.45}
+#jy-dep-check .jy-help{margin-top:12px;padding:12px 14px;background:#f6fafb;border-left:3px solid var(--jy-main);border-radius:0 8px 8px 0;font-size:14.5px;color:#34464f}
+#jy-dep-check .jy-help ul{margin:0;padding-left:18px}
+#jy-dep-check .jy-help li+li{margin-top:2px}
+#jy-dep-check .jy-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+#jy-dep-check button{font:inherit;cursor:pointer;border-radius:10px;transition:background .15s,border-color .15s,transform .05s}
+#jy-dep-check button:active{transform:translateY(1px)}
+#jy-dep-check button:focus-visible{outline:3px solid #9fd8e8;outline-offset:2px}
+#jy-dep-check .jy-yes,#jy-dep-check .jy-no{min-height:54px;font-size:17px;font-weight:800;border:2px solid var(--jy-main)}
+#jy-dep-check .jy-yes{background:var(--jy-main);color:#fff}
+#jy-dep-check .jy-yes:hover{background:var(--jy-deep);border-color:var(--jy-deep)}
+#jy-dep-check .jy-no{background:#fff;color:var(--jy-deep)}
+#jy-dep-check .jy-no:hover{background:var(--jy-soft)}
+#jy-dep-check .jy-sub{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+#jy-dep-check .jy-link{background:none;border:1px solid var(--jy-line);color:var(--jy-sub);font-size:14px;padding:7px 12px}
+#jy-dep-check .jy-link:hover{border-color:var(--jy-main);color:var(--jy-deep)}
+#jy-dep-check .jy-link[disabled]{opacity:.4;cursor:default}
+#jy-dep-check .jy-res{border-radius:12px;padding:18px}
+#jy-dep-check .jy-res.ok{background:var(--jy-ok-bg);border:1px solid #b9e3cc}
+#jy-dep-check .jy-res.no{background:var(--jy-no-bg);border:1px solid #f3c4bd}
+#jy-dep-check .jy-badge{display:inline-block;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;color:#fff}
+#jy-dep-check .ok .jy-badge{background:var(--jy-ok)}
+#jy-dep-check .no .jy-badge{background:var(--jy-no)}
+#jy-dep-check .jy-res h3{margin-top:8px;font-size:clamp(20px,4vw,24px);font-weight:800}
+#jy-dep-check .ok h3{color:var(--jy-ok)}
+#jy-dep-check .no h3{color:var(--jy-no)}
+#jy-dep-check .jy-res p{margin-top:8px;font-size:15px}
+#jy-dep-check .jy-basis{margin-top:10px;font-size:13.5px;color:var(--jy-sub)}
+#jy-dep-check .jy-path{margin-top:16px}
+#jy-dep-check .jy-path h4{margin:0 0 8px;font-size:14px;color:var(--jy-sub)}
+#jy-dep-check .jy-path ol{margin:0;padding-left:20px;font-size:14.5px}
+#jy-dep-check .jy-path li{padding:3px 0}
+#jy-dep-check .jy-path b{display:inline-block;min-width:38px;margin-left:6px;padding:0 6px;border-radius:5px;font-size:12.5px;text-align:center;white-space:nowrap}
+#jy-dep-check .jy-path b.y{background:var(--jy-soft);color:var(--jy-deep)}
+#jy-dep-check .jy-path b.n{background:#eef0f2;color:#55626a}
+#jy-dep-check h3.jy-sec{font-size:19px;font-weight:800;margin-bottom:12px}
+#jy-dep-check .jy-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#jy-dep-check table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+#jy-dep-check th,#jy-dep-check td{border:1px solid var(--jy-line);padding:9px 10px;vertical-align:top;text-align:left}
+#jy-dep-check thead th{background:var(--jy-soft);color:#16566a;font-weight:800;white-space:nowrap}
+#jy-dep-check td.nw,#jy-dep-check th.nw{white-space:nowrap}
+#jy-dep-check tbody th{background:#f7fbfc;font-weight:700;white-space:nowrap}
+#jy-dep-check details{margin-top:4px}
+#jy-dep-check summary{cursor:pointer;font-weight:800;font-size:16px;color:var(--jy-deep);list-style:none;display:flex;align-items:center;gap:8px}
+#jy-dep-check summary::-webkit-details-marker{display:none}
+#jy-dep-check summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--jy-soft);font-weight:800}
+#jy-dep-check details[open] summary::before{content:"−"}
+#jy-dep-check .jy-flow{margin-top:14px;overflow-x:auto;border:1px solid var(--jy-line);border-radius:10px;background:#fff}
+#jy-dep-check .jy-flow svg{display:block;width:100%;min-width:640px;height:auto}
+#jy-dep-check .jy-notes{margin:0;padding-left:18px;font-size:14px;color:#3a4a52}
+#jy-dep-check .jy-notes li+li{margin-top:6px}
+#jy-dep-check .jy-notes a{color:var(--jy-deep)}
+#jy-dep-check .jy-foot{margin-top:18px;font-size:12.5px;color:var(--jy-sub);text-align:center}
+#jy-dep-check .jy-foot strong{color:var(--jy-ink)}
+@media (max-width:600px){#jy-dep-check table{min-width:0}#jy-dep-check thead{display:none}#jy-dep-check tbody tr{display:block;border:1px solid var(--jy-line);border-radius:10px;margin-bottom:10px;overflow:hidden}#jy-dep-check tbody th,#jy-dep-check tbody td{display:block;border:0;padding:8px 12px}#jy-dep-check tbody th{background:var(--jy-soft);color:#16566a}#jy-dep-check tbody td[data-l]::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:800;color:var(--jy-deep)}#jy-dep-check tbody td+td{border-top:1px dashed var(--jy-line)}}
+@media (max-width:480px){#jy-dep-check .jy-card{padding:18px 14px}}
+@media print{#jy-dep-check .jy-btns,#jy-dep-check .jy-sub{display:none}}
+
+#jy-dep-check .jy-rel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+#jy-dep-check .jy-rel button{min-height:76px;padding:10px;border:2px solid var(--jy-main);background:#fff;color:var(--jy-deep);font-weight:800;font-size:17px;line-height:1.35}
+#jy-dep-check .jy-rel button small{display:block;font-size:12.5px;font-weight:600;color:var(--jy-sub);margin-top:2px}
+#jy-dep-check .jy-rel button:hover{background:var(--jy-soft)}
+#jy-dep-check .jy-tip{margin-top:10px;font-size:14px;color:#2b4a57;background:#eef8fb;border-radius:8px;padding:10px 12px}
+#jy-dep-check .jy-tabs{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+#jy-dep-check .jy-tabs button{border:1px solid var(--jy-line);background:#fff;color:var(--jy-sub);padding:7px 14px;font-size:14px;font-weight:700}
+#jy-dep-check .jy-tabs button[aria-selected="true"]{background:var(--jy-main);border-color:var(--jy-main);color:#fff}
+#jy-dep-check .jy-flow{margin-top:10px}
+#jy-dep-check .jy-flow[hidden]{display:none}
+@media (max-width:520px){#jy-dep-check .jy-rel{grid-template-columns:1fr}#jy-dep-check .jy-rel button{min-height:58px}}
+</style>
+
+  <header class="jy-head">
+    <span class="jy-eyebrow">2026년 귀속 연말정산 · 인적공제</span>
+    <h2 id="jydTitle">부양가족공제 자가진단</h2>
+    <p class="jy-lead">공제받으려는 가족을 고른 뒤 질문에 「예 / 아니오」로 답하면 부양가족 기본공제(1명당 150만원)를 받을 수 있는지 바로 확인할 수 있습니다.</p>
+  </header>
+
+  <div class="jy-card" id="jydApp" aria-live="polite">
+    <noscript><p>자바스크립트가 꺼져 있어 단계별 진단을 사용할 수 없습니다. 아래 「전체 흐름도 보기」로 확인해 주세요.</p></noscript>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">부양가족공제 요건 한눈에 보기</h3>
+    <div class="jy-tbl-wrap">
+      <table>
+        <thead><tr><th class="nw">구분</th><th>직계존속</th><th>직계비속</th><th>형제자매</th></tr></thead>
+        <tbody>
+          <tr><th>범위</th><td data-l="직계존속">본인·배우자의 부모, 조부모 등<br>(직계존속의 재혼 배우자 포함)</td><td data-l="직계비속">자녀, 손자녀, 동거 입양자<br>(배우자가 종전 혼인 중 출산한 자녀 포함)</td><td data-l="형제자매">본인·배우자의 형제자매</td></tr>
+          <tr><th>나이요건</th><td class="nw" data-l="직계존속">60세 이상</td><td class="nw" data-l="직계비속">20세 이하</td><td data-l="형제자매">20세 이하 또는 60세 이상</td></tr>
+          <tr><th>2026년 기준</th><td class="nw" data-l="직계존속">1966.12.31. 이전 출생</td><td class="nw" data-l="직계비속">2006.1.1. 이후 출생</td><td data-l="형제자매">2006.1.1. 이후 또는<br>1966.12.31. 이전 출생</td></tr>
+          <tr><th>장애인</th><td colspan="3" data-l="공통">장애인이면 나이요건을 적용하지 않음(소득요건은 적용)</td></tr>
+          <tr><th>생계요건</th><td data-l="직계존속">함께 살아야 함. 주거 형편상 따로 살아도 인정</td><td data-l="직계비속">요건 없음</td><td data-l="형제자매">함께 살아야 함. 취학·요양·근무상 형편으로 일시퇴거해도 인정</td></tr>
+          <tr><th>소득요건</th><td colspan="3" data-l="공통">연간 소득금액 합계액 100만원 이하(근로소득만 있으면 총급여 500만원 이하)</td></tr>
+          <tr><th>공제금액</th><td colspan="3" data-l="공통">1명당 연 150만원</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="jy-basis" style="margin-top:10px;font-size:13px;color:#5b6b74">근거: 소득세법 §50①3호, §53①~⑤, 같은 법 시행령 §106⑤~⑦, §107, §114</p>
+  </div>
+
+  <div class="jy-card">
+    <details>
+      <summary>전체 흐름도 보기</summary>
+      <div class="jy-tabs" role="tablist">
+        <button type="button" role="tab" aria-selected="true" data-tab="asc">직계존속</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="desc">직계비속</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="sib">형제자매</button>
+      </div>
+      <div class="jy-flow" data-panel="asc"><svg viewBox="0 0 1275 754" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jydasc" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="20" y="20" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속과 동일한 주소에서</text><text x="250.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">생계를 같이 하고 있나요?</text><rect x="580" y="20" width="360" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="760.0" y="58.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">주거형편상 별거하고 있나요?</text><rect x="20" y="170" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="208.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속이 60세 이상인가요?</text><rect x="560" y="170" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="197.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장애인, 중증환자,</text><text x="670.0" y="218.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상이자등 인가요?</text><rect x="860" y="170" width="240" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="980.0" y="197.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">연도 중 장애등이</text><text x="980.0" y="218.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">치유되었나요?</text><rect x="20" y="310" width="460" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="344.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속가 소득이 있나요?</text><rect x="560" y="310" width="220" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="344.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 가능</text><rect x="20" y="420" width="460" height="84" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="447.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속가 근로소득</text><text x="250.0" y="468.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(일용근로소득 제외)만 있나요?</text><text x="250.0" y="489.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(근로소득과 다른 소득이 있는 경우 : NO선택)</text><rect x="560" y="430" width="340" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="730.0" y="457.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속의 연간소득금액이</text><text x="730.0" y="478.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">100만원 이하인가요?</text><rect x="20" y="550" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="577.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속의 총급여액이</text><text x="250.0" y="598.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">500만원 이하인가요?</text><rect x="560" y="550" width="220" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="588.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 불가</text><polyline points="480,582 560,582" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="498" y="576" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="250,614 250,670" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="258" y="648" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><rect x="20" y="670" width="760" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="400.0" y="708.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 가능</text><rect x="1125" y="670" width="130" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="1190.0" y="697.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족</text><text x="1190.0" y="718.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">공제 불가</text><polyline points="250,84 250,170" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="258" y="110" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="760,84 760,124 250,124" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="768" y="108" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,234 250,310" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="258" y="258" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="670,234 670,270" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="678" y="260" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="980,234 980,270 250,270" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="988" y="260" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,366 250,420" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="258" y="398" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,504 250,550" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="258" y="532" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="480,52 580,52" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="498" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="940,52 1190,52 1190,670" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="960" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,202 560,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="498" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="780,202 860,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="798" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1100,202 1190,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="1115" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,338 560,338" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="498" y="332" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,462 560,462" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="498" y="456" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="900,462 1190,462" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="920" y="456" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="820,494 820,702 780,702" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydasc)"/><text x="828" y="522" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text></svg></div>
+      <div class="jy-flow" data-panel="desc" hidden><svg viewBox="0 0 1275 634" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jyddesc" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="20" y="20" width="460" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="54.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속이 20세 이하인가요?</text><rect x="560" y="20" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장애인, 중증환자,</text><text x="670.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상이자등 인가요?</text><rect x="860" y="20" width="240" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="980.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">연도 중 장애등이</text><text x="980.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">치유되었나요?</text><rect x="20" y="170" width="460" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="204.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속이 소득이 있나요?</text><rect x="20" y="290" width="460" height="84" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="317.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속이 근로소득</text><text x="250.0" y="338.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(일용근로소득 제외)만 있나요?</text><text x="250.0" y="359.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(근로소득과 다른소득이 있는 경우: NO 선택)</text><rect x="20" y="430" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="457.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속의 총급여액이</text><text x="250.0" y="478.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">500만원 이하인가요?</text><rect x="20" y="550" width="760" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="400.0" y="588.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족 공제 가능</text><rect x="560" y="166" width="200" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="660.0" y="193.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족</text><text x="660.0" y="214.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">공제 가능</text><rect x="560" y="300" width="340" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="730.0" y="327.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속의 연간소득금액이</text><text x="730.0" y="348.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">100만원 이하인가요?</text><rect x="560" y="430" width="200" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="660.0" y="457.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족</text><text x="660.0" y="478.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">공제 불가</text><rect x="1125" y="550" width="130" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="1190.0" y="577.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족</text><text x="1190.0" y="598.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">공제 불가</text><polyline points="250,76 250,170" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="258" y="108" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="670,84 670,130" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="678" y="112" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="980,84 980,130 250,130" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="988" y="112" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,226 250,290" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="258" y="263.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,374 250,430" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="258" y="407.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,494 250,550" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="258" y="527.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="480,48 560,48" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="498" y="42" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="780,48 860,48" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="798" y="42" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1100,48 1190,48 1190,550" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="1115" y="42" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,198 560,198" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="498" y="192" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,332 560,332" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="498" y="326" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,462 560,462" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="498" y="456" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="900,332 1190,332" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="920" y="326" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="820,364 820,582 780,582" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyddesc)"/><text x="828" y="392" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text></svg></div>
+      <div class="jy-flow" data-panel="sib" hidden><svg viewBox="0 0 1275 874" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jydsib" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="20" y="20" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)와 동일한 주소에서</text><text x="250.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">생계를 같이 하고 있나요?</text><rect x="580" y="20" width="360" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="760.0" y="58.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">취학등의 사유로 일시퇴거상태인가요?</text><rect x="20" y="170" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="197.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)가 60세 이상 또는</text><text x="250.0" y="218.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">20세 이하인가요?</text><rect x="560" y="170" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="197.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장애인, 중증환자,</text><text x="670.0" y="218.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상이자등 인가요?</text><rect x="860" y="170" width="240" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="980.0" y="197.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">연도 중 장애등이</text><text x="980.0" y="218.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">치유되었나요?</text><rect x="20" y="310" width="460" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="344.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)가 소득이 있나요?</text><rect x="560" y="310" width="220" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="344.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 가능</text><rect x="20" y="420" width="460" height="84" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="447.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)가 근로소득</text><text x="250.0" y="468.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(일용근로소득 제외)만 있나요?</text><text x="250.0" y="489.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(근로소득과 다른 소득이 있는 경우 : NO선택)</text><rect x="560" y="430" width="340" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="730.0" y="457.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)의 연간소득금액이</text><text x="730.0" y="478.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">100만원 이하인가요?</text><rect x="20" y="550" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="577.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)의 총급여액이</text><text x="250.0" y="598.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">500만원 이하인가요?</text><rect x="20" y="670" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="697.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제(자매)와 동일한 주소에서</text><text x="250.0" y="718.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">생계를 같이 하고 있나요?</text><rect x="560" y="670" width="220" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="670.0" y="708.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 불가</text><polyline points="250,614 250,670" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="648" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="480,582 670,582 670,670" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="576" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,702 560,702" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="696" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="250,734 250,790" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="768" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><rect x="20" y="790" width="760" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="400.0" y="828.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족공제 가능</text><rect x="1125" y="790" width="130" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="1190.0" y="817.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">부양가족</text><text x="1190.0" y="838.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">공제 불가</text><polyline points="250,84 250,170" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="110" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="760,84 760,124 250,124" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="768" y="108" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,234 250,310" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="258" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="670,234 670,270" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="678" y="260" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="980,234 980,270 250,270" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="988" y="260" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,366 250,420" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="398" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,504 250,550" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="258" y="532" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="480,52 580,52" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="940,52 1190,52 1190,790" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="960" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,202 560,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="780,202 860,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="798" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1100,202 1190,202" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="1115" y="196" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,338 560,338" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="332" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,462 560,462" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="498" y="456" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="900,462 1190,462" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="920" y="456" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="820,494 820,822 780,822" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jydsib)"/><text x="828" y="522" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text></svg></div>
+    </details>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">알아두면 좋은 점</h3>
+    <ul class="jy-notes">
+      <li>나이는 과세기간 중 해당 나이가 되는 날이 하루라도 있으면 요건을 충족한 것으로 봅니다.</li>
+      <li>그 밖의 요건은 과세기간 종료일(12.31.) 현재 상황으로 판정하고, 연도 중 사망하거나 장애가 치유된 경우에는 사망일·치유일 전날 상황으로 판정합니다.</li>
+      <li>소득금액은 수입금액에서 필요경비(근로소득은 근로소득공제)를 뺀 금액이며, 종합·퇴직·양도소득금액을 모두 합합니다. 비과세소득과 분리과세소득(예: 연 2천만원 이하 금융소득, 일용근로소득)은 포함하지 않습니다.</li>
+      <li>기본공제대상자가 장애인이면 1명당 200만원, 70세 이상이면 1명당 100만원을 추가로 공제받을 수 있습니다.</li>
+      <li>같은 가족을 여러 형제가 중복해서 공제받을 수 없으며, 한 사람만 공제받습니다.</li>
+      <li>「국민기초생활 보장법」에 따른 수급자와 6개월 이상 직접 양육한 위탁아동도 부양가족공제 대상이 될 수 있습니다(이 진단에는 포함하지 않음).</li>
+      <li>정부는 소득요건을 300만원(근로소득만 있으면 총급여 750만원) 이하로 올리는 개정안을 제출했습니다. 국회를 통과하면 2027년 귀속분부터 적용될 예정이며, 2026년 귀속분에는 현행 기준이 적용됩니다.</li>
+      <li>법령 확인: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> (소득세법 제50조·제53조) · 상담: <a href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청</a> 국세상담센터 126</li>
+    </ul>
+  </div>
+
+  <p class="jy-foot">이 자가진단은 일반적인 기준에 따른 참고용이며, 개별 사실관계에 따라 결과가 달라질 수 있습니다.<br><strong>세무법인 지율</strong> · taxin4u.com</p>
+
+<script>
+(function(){
+  var sec=document.getElementById('jy-dep-check'); if(!sec) return;
+  var root=document.getElementById('jydApp');
+  var REL={asc:'직계존속',desc:'직계비속',sib:'형제자매'};
+  // 공통 소득 질문 (자가진단표와 동일)
+  function incomeNodes(p,who){
+    var n={};
+    n[p+'inc']={t:who+'가 소득이 있나요?',h:['비과세소득·분리과세소득(일용근로소득, 연 2천만원 이하 금융소득 등)만 있으면 <b>아니오</b>를 선택하세요.'],y:p+'wageOnly',n:'rNoIncome'};
+    n[p+'wageOnly']={t:who+'가 근로소득(일용근로소득 제외)만 있나요?',h:['근로소득과 다른 소득이 있는 경우 <b>아니오</b>를 선택하세요.'],y:p+'wage',n:p+'amt'};
+    n[p+'wage']={t:who+'의 총급여액이 500만원 이하인가요?',h:['총급여액은 연간 근로소득에서 비과세소득을 뺀 금액입니다.'],y:'rWageOk',n:'rWageNo'};
+    n[p+'amt']={t:who+'의 연간소득금액이 100만원 이하인가요?',h:['종합소득금액·퇴직소득금액·양도소득금액을 모두 합한 금액입니다.','소득금액 = 수입금액 − 필요경비(근로소득은 근로소득공제)'],y:'rAmtOk',n:'rAmtNo'};
+    return n;
+  }
+  function disNodes(p,next){
+    var n={};
+    n[p+'dis']={t:'장애인, 중증환자, 상이자등 인가요?',h:['「장애인복지법」에 따른 장애인, 발달재활서비스를 지원받는 장애아동','국가유공자 등 상이자 및 이와 유사한 사람으로서 근로능력이 없는 사람','희귀성난치질환등으로 중단 없이 주기적인 치료가 필요한 사람(의료기관 장애인증명서 발급)'],y:next,n:p+'cured'};
+    n[p+'cured']={t:'연도 중 장애등이 치유되었나요?',h:['연도 중 치유된 경우 치유일 전날 상황으로 판정하므로 <b>예</b>를 선택하세요.'],y:next,n:'rAgeNo'};
+    return n;
+  }
+  var Q={};
+  function add(o){for(var k in o) Q[k]=o[k];}
+  // 직계존속
+  add({
+    a1:{t:'직계존속과 동일한 주소에서 생계를 같이 하고 있나요?',h:['본인 또는 배우자의 부모·조부모 등이 해당합니다.','주민등록표상 동거가족으로서 실제로 생계를 같이 하는 경우를 말합니다.'],y:'a2',n:'a1b'},
+    a1b:{t:'주거형편상 별거하고 있나요?',h:['직계존속은 주거 형편에 따라 따로 살더라도 생계를 같이 하는 것으로 봅니다.'],y:'a2',n:'rLiveNo'},
+    a2:{t:'직계존속이 60세 이상인가요?',h:['2026년 귀속: <b>1966.12.31. 이전 출생</b>이면 예를 선택하세요.'],y:'ainc',n:'adis'}
+  });
+  add(disNodes('a','ainc')); add(incomeNodes('a','직계존속'));
+  // 직계비속
+  add({
+    d1:{t:'직계비속이 20세 이하인가요?',h:['자녀·손자녀·동거 입양자가 해당합니다(직계비속은 따로 살아도 됩니다).','2026년 귀속: <b>2006.1.1. 이후 출생</b>이면 예를 선택하세요.'],y:'dinc',n:'ddis'}
+  });
+  add(disNodes('d','dinc')); add(incomeNodes('d','직계비속'));
+  // 형제자매
+  add({
+    s1:{t:'형제(자매)와 동일한 주소에서 생계를 같이 하고 있나요?',h:['본인 또는 배우자의 형제자매가 해당합니다.','주민등록표상 동거가족으로서 실제로 생계를 같이 하는 경우를 말합니다.'],y:'s2',n:'s1b'},
+    s1b:{t:'취학등의 사유로 일시퇴거상태인가요?',h:['취학, 질병의 요양, 근무상 또는 사업상 형편으로 본래 주소에서 일시 퇴거한 경우 생계를 같이 하는 것으로 봅니다.','이 경우 일시퇴거자 동거가족상황표와 재학·요양·재직증명서를 제출해야 합니다.'],y:'s2',n:'rLiveNo'},
+    s2:{t:'형제(자매)가 60세 이상 또는 20세 이하인가요?',h:['2026년 귀속: <b>1966.12.31. 이전</b> 또는 <b>2006.1.1. 이후 출생</b>이면 예를 선택하세요.'],y:'sinc',n:'sdis'}
+  });
+  add(disNodes('s','sinc')); add(incomeNodes('s','형제(자매)'));
+  var OK='부양가족공제를 받을 수 있습니다', NO='부양가족공제를 받을 수 없습니다';
+  var RES={
+    rLiveNo:{ok:0,t:NO,d:'생계를 같이 하는 부양가족에 해당하지 않습니다. 직계존속은 주거 형편상 별거, 형제자매는 취학·요양·근무상 형편 등에 따른 일시퇴거만 예외로 인정됩니다.',b:'소득세법 §53①~③, 시행령 §114'},
+    rAgeNo:{ok:0,t:NO,d:'나이요건을 충족하지 못하고 장애인에도 해당하지 않습니다.',b:'소득세법 §50①3호, §53⑤'},
+    rNoIncome:{ok:1,t:OK,d:'과세대상 소득이 없으므로 소득요건을 충족합니다. 1명당 연 150만원을 공제받을 수 있습니다.',b:'소득세법 §50①3호'},
+    rWageOk:{ok:1,t:OK,d:'근로소득만 있고 총급여액이 500만원 이하이므로 소득요건을 충족합니다. 1명당 연 150만원을 공제받을 수 있습니다.',b:'소득세법 §50①3호'},
+    rWageNo:{ok:0,t:NO,d:'근로소득만 있는 경우 총급여액이 500만원 이하여야 합니다.',b:'소득세법 §50①3호'},
+    rAmtOk:{ok:1,t:OK,d:'연간 소득금액 합계액이 100만원 이하이므로 소득요건을 충족합니다. 1명당 연 150만원을 공제받을 수 있습니다.',b:'소득세법 §50①3호'},
+    rAmtNo:{ok:0,t:NO,d:'연간 소득금액 합계액(종합·퇴직·양도소득금액)이 100만원을 넘으면 소득요건을 충족하지 못합니다.',b:'소득세법 §50①3호'}
+  };
+  var rel=null, hist=[];
+  function li(arr){return '<ul>'+arr.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+  function pathHtml(){
+    if(!rel) return '';
+    var rows='<li>공제받으려는 가족<b class="y">'+REL[rel]+'</b></li>'+hist.map(function(s){return '<li>'+Q[s.id].t+'<b class="'+(s.a?'y':'n')+'">'+(s.a?'예':'아니오')+'</b></li>';}).join('');
+    return '<div class="jy-path"><h4>내 답변</h4><ol>'+rows+'</ol></div>';
+  }
+  function bar(step,done){
+    var pct=done?100:Math.min(90,Math.round(step/7*100));
+    return '<div class="jy-prog"><span>'+(done?'진단 완료':'질문 '+step)+'</span><div class="jy-bar"><i style="width:'+pct+'%"></i></div></div>';
+  }
+  function start(){
+    rel=null; hist=[];
+    root.innerHTML=bar(0,false)+'<p class="jy-qno">STEP 1</p><p class="jy-q">공제받으려는 가족은 누구인가요?</p>'+
+      '<div class="jy-help">'+li(['배우자는 「배우자공제 자가진단」을 이용하세요.','부양가족마다 따로 진단합니다.'])+'</div>'+
+      '<div class="jy-rel"><button type="button" data-r="asc">직계존속<small>부모·조부모 등</small></button><button type="button" data-r="desc">직계비속<small>자녀·손자녀·입양자</small></button><button type="button" data-r="sib">형제자매<small>본인·배우자의 형제자매</small></button></div>';
+    Array.prototype.forEach.call(root.querySelectorAll('[data-r]'),function(b){b.onclick=function(){rel=b.getAttribute('data-r');render({asc:'a1',desc:'d1',sib:'s1'}[rel]);};});
+  }
+  function render(id){
+    var step=hist.length+2;
+    if(Q[id]){
+      var q=Q[id];
+      root.innerHTML=bar(step-1,false)+'<p class="jy-qno">'+REL[rel]+' · Q'+(step-1)+'</p><p class="jy-q">'+q.t+'</p>'+
+        (q.h?'<div class="jy-help">'+li(q.h)+'</div>':'')+
+        '<div class="jy-btns"><button type="button" class="jy-yes">예</button><button type="button" class="jy-no">아니오</button></div>'+
+        '<div class="jy-sub"><button type="button" class="jy-link" data-act="back">← 이전 질문</button><button type="button" class="jy-link" data-act="reset">처음부터</button></div>'+pathHtml();
+      root.querySelector('.jy-yes').onclick=function(){go(id,1);};
+      root.querySelector('.jy-no').onclick=function(){go(id,0);};
+    }else{
+      var r=RES[id], extra='';
+      if(r.ok){
+        var dis=hist.some(function(s){return /(dis|cured)$/.test(s.id)&&s.a;});
+        var tips=[];
+        if(dis) tips.push('장애인이므로 장애인공제(1명당 200만원)를 추가로 받을 수 있습니다.');
+        if(rel==='asc') tips.push('70세 이상(2026년 귀속: 1956.12.31. 이전 출생)이면 경로우대공제(1명당 100만원)를 추가로 받을 수 있습니다.');
+        if(rel==='sib'&&hist.some(function(s){return s.id==='s1b'&&s.a;})) tips.push('일시퇴거자 동거가족상황표와 재학·요양·재직증명서를 제출해야 합니다.');
+        if(tips.length) extra='<div class="jy-tip">'+tips.join('<br>')+'</div>';
+      }
+      root.innerHTML=bar(0,true)+'<div class="jy-res '+(r.ok?'ok':'no')+'"><span class="jy-badge">'+(r.ok?'공제 가능':'공제 불가')+'</span><h3>'+r.t+'</h3><p>'+r.d+'</p><p class="jy-basis">근거: '+r.b+'</p></div>'+extra+pathHtml()+
+        '<div class="jy-sub"><button type="button" class="jy-link" data-act="back">← 이전 질문</button><button type="button" class="jy-link" data-act="reset">다른 가족 진단하기</button></div>';
+    }
+    root.querySelector('[data-act="back"]').onclick=back;
+    root.querySelector('[data-act="reset"]').onclick=start;
+  }
+  function go(id,a){hist.push({id:id,a:a});render(a?Q[id].y:Q[id].n);}
+  function back(){if(!hist.length){start();return;} var p=hist.pop(); render(p.id);}
+  // 흐름도 탭
+  Array.prototype.forEach.call(sec.querySelectorAll('[data-tab]'),function(t){
+    t.onclick=function(){
+      var k=t.getAttribute('data-tab');
+      Array.prototype.forEach.call(sec.querySelectorAll('[data-tab]'),function(x){x.setAttribute('aria-selected',x===t?'true':'false');});
+      Array.prototype.forEach.call(sec.querySelectorAll('[data-panel]'),function(p){p.hidden=p.getAttribute('data-panel')!==k;});
+    };
+  });
+  start();
+})();
+</script>
+</section>

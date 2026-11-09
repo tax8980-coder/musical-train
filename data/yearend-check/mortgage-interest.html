@@ -1,0 +1,164 @@
+<section id="jy-mortgage-check" aria-labelledby="jy-mortgage-check-t">
+<style>
+#jy-mortgage-check{--jy-main:#4FB8D3;--jy-deep:#1d7f99;--jy-soft:#D9F1F7;--jy-ink:#1b2a33;--jy-sub:#5b6b74;--jy-line:#d7e6ec;--jy-ok:#1f8a5b;--jy-ok-bg:#e6f6ee;--jy-no:#c0392b;--jy-no-bg:#fdecea;
+  box-sizing:border-box;max-width:860px;margin:0 auto;padding:28px 16px 40px;color:var(--jy-ink);background:#f4f8fa;
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all}
+#jy-mortgage-check *,#jy-mortgage-check *::before,#jy-mortgage-check *::after{box-sizing:border-box}
+#jy-mortgage-check h2,#jy-mortgage-check h3,#jy-mortgage-check p{margin:0}
+#jy-mortgage-check .jy-head{margin-bottom:20px}
+#jy-mortgage-check .jy-eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--jy-deep);background:var(--jy-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+#jy-mortgage-check h2{font-size:clamp(22px,4.6vw,30px);line-height:1.3;font-weight:800;letter-spacing:-.02em}
+#jy-mortgage-check .jy-lead{margin-top:8px;color:var(--jy-sub);font-size:15px}
+#jy-mortgage-check .jy-card{background:#fff;border:1px solid var(--jy-line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(20,60,80,.04)}
+#jy-mortgage-check .jy-card+.jy-card{margin-top:16px}
+#jy-mortgage-check .jy-prog{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:13px;color:var(--jy-sub);font-weight:600}
+#jy-mortgage-check .jy-bar{flex:1;height:6px;background:#e8f1f4;border-radius:99px;overflow:hidden}
+#jy-mortgage-check .jy-bar i{display:block;height:100%;width:0;background:var(--jy-main);border-radius:99px;transition:width .3s ease}
+#jy-mortgage-check .jy-qno{font-size:13px;font-weight:800;color:var(--jy-deep);letter-spacing:.04em}
+#jy-mortgage-check .jy-q{margin-top:4px;font-size:clamp(18px,3.6vw,22px);font-weight:800;line-height:1.45}
+#jy-mortgage-check .jy-help{margin-top:12px;padding:12px 14px;background:#f6fafb;border-left:3px solid var(--jy-main);border-radius:0 8px 8px 0;font-size:14.5px;color:#34464f}
+#jy-mortgage-check .jy-help ul{margin:0;padding-left:18px}
+#jy-mortgage-check .jy-help li+li{margin-top:2px}
+#jy-mortgage-check .jy-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+#jy-mortgage-check button{font:inherit;cursor:pointer;border-radius:10px;transition:background .15s,border-color .15s,transform .05s}
+#jy-mortgage-check button:active{transform:translateY(1px)}
+#jy-mortgage-check button:focus-visible{outline:3px solid #9fd8e8;outline-offset:2px}
+#jy-mortgage-check .jy-yes,#jy-mortgage-check .jy-no{min-height:54px;font-size:17px;font-weight:800;border:2px solid var(--jy-main)}
+#jy-mortgage-check .jy-yes{background:var(--jy-main);color:#fff}
+#jy-mortgage-check .jy-yes:hover{background:var(--jy-deep);border-color:var(--jy-deep)}
+#jy-mortgage-check .jy-no{background:#fff;color:var(--jy-deep)}
+#jy-mortgage-check .jy-no:hover{background:var(--jy-soft)}
+#jy-mortgage-check .jy-sub{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+#jy-mortgage-check .jy-link{background:none;border:1px solid var(--jy-line);color:var(--jy-sub);font-size:14px;padding:7px 12px}
+#jy-mortgage-check .jy-link:hover{border-color:var(--jy-main);color:var(--jy-deep)}
+#jy-mortgage-check .jy-link[disabled]{opacity:.4;cursor:default}
+#jy-mortgage-check .jy-res{border-radius:12px;padding:18px}
+#jy-mortgage-check .jy-res.ok{background:var(--jy-ok-bg);border:1px solid #b9e3cc}
+#jy-mortgage-check .jy-res.no{background:var(--jy-no-bg);border:1px solid #f3c4bd}
+#jy-mortgage-check .jy-badge{display:inline-block;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;color:#fff}
+#jy-mortgage-check .ok .jy-badge{background:var(--jy-ok)}
+#jy-mortgage-check .no .jy-badge{background:var(--jy-no)}
+#jy-mortgage-check .jy-res h3{margin-top:8px;font-size:clamp(20px,4vw,24px);font-weight:800}
+#jy-mortgage-check .ok h3{color:var(--jy-ok)}
+#jy-mortgage-check .no h3{color:var(--jy-no)}
+#jy-mortgage-check .jy-res p{margin-top:8px;font-size:15px}
+#jy-mortgage-check .jy-basis{margin-top:10px;font-size:13.5px;color:var(--jy-sub)}
+#jy-mortgage-check .jy-path{margin-top:16px}
+#jy-mortgage-check .jy-path h4{margin:0 0 8px;font-size:14px;color:var(--jy-sub)}
+#jy-mortgage-check .jy-path ol{margin:0;padding-left:20px;font-size:14.5px}
+#jy-mortgage-check .jy-path li{padding:3px 0}
+#jy-mortgage-check .jy-path b{display:inline-block;min-width:38px;margin-left:6px;padding:0 6px;border-radius:5px;font-size:12.5px;text-align:center;white-space:nowrap}
+#jy-mortgage-check .jy-path b.y{background:var(--jy-soft);color:var(--jy-deep)}
+#jy-mortgage-check .jy-path b.n{background:#eef0f2;color:#55626a}
+#jy-mortgage-check h3.jy-sec{font-size:19px;font-weight:800;margin-bottom:12px}
+#jy-mortgage-check .jy-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#jy-mortgage-check table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+#jy-mortgage-check th,#jy-mortgage-check td{border:1px solid var(--jy-line);padding:9px 10px;vertical-align:top;text-align:left}
+#jy-mortgage-check thead th{background:var(--jy-soft);color:#16566a;font-weight:800;white-space:nowrap}
+#jy-mortgage-check td.nw,#jy-mortgage-check th.nw{white-space:nowrap}
+#jy-mortgage-check tbody th{background:#f7fbfc;font-weight:700;white-space:nowrap}
+#jy-mortgage-check details{margin-top:4px}
+#jy-mortgage-check summary{cursor:pointer;font-weight:800;font-size:16px;color:var(--jy-deep);list-style:none;display:flex;align-items:center;gap:8px}
+#jy-mortgage-check summary::-webkit-details-marker{display:none}
+#jy-mortgage-check summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--jy-soft);font-weight:800}
+#jy-mortgage-check details[open] summary::before{content:"−"}
+#jy-mortgage-check .jy-flow{margin-top:14px;overflow-x:auto;border:1px solid var(--jy-line);border-radius:10px;background:#fff}
+#jy-mortgage-check .jy-flow svg{display:block;width:100%;min-width:640px;height:auto}
+#jy-mortgage-check .jy-notes{margin:0;padding-left:18px;font-size:14px;color:#3a4a52}
+#jy-mortgage-check .jy-notes li+li{margin-top:6px}
+#jy-mortgage-check .jy-notes a{color:var(--jy-deep)}
+#jy-mortgage-check .jy-foot{margin-top:18px;font-size:12.5px;color:var(--jy-sub);text-align:center}
+#jy-mortgage-check .jy-foot strong{color:var(--jy-ink)}
+@media (max-width:480px){#jy-mortgage-check .jy-card{padding:18px 14px}}
+@media print{#jy-mortgage-check .jy-btns,#jy-mortgage-check .jy-sub{display:none}}
+
+#jy-mortgage-check .jy-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+#jy-mortgage-check .jy-opts button{min-height:64px;padding:10px;border:2px solid var(--jy-main);background:#fff;color:var(--jy-deep);font-weight:800;font-size:16.5px;line-height:1.35}
+#jy-mortgage-check .jy-opts button small{display:block;font-size:12.5px;font-weight:600;color:var(--jy-sub);margin-top:2px}
+#jy-mortgage-check .jy-opts button:hover{background:var(--jy-soft)}
+#jy-mortgage-check .jy-tip{margin-top:10px;font-size:14px;color:#2b4a57;background:#eef8fb;border-radius:8px;padding:10px 12px}
+#jy-mortgage-check .jy-res.info{background:#eef6fb;border:1px solid #c6e2ee}
+#jy-mortgage-check .info .jy-badge{background:var(--jy-deep)}
+#jy-mortgage-check .info h3{color:#16566a}
+#jy-mortgage-check .jy-tbl-note{margin-top:10px;font-size:13px;color:var(--jy-sub)}
+#jy-mortgage-check .jy-tbl-wrap+.jy-tbl-wrap{margin-top:14px}
+@media (max-width:600px){#jy-mortgage-check table{min-width:0}#jy-mortgage-check thead{display:none}
+#jy-mortgage-check tbody tr{display:block;border:1px solid var(--jy-line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+#jy-mortgage-check tbody th,#jy-mortgage-check tbody td{display:block;border:0;padding:8px 12px;white-space:normal}
+#jy-mortgage-check tbody th{background:var(--jy-soft);color:#16566a}
+#jy-mortgage-check tbody td[data-l]::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:800;color:var(--jy-deep)}
+#jy-mortgage-check tbody td+td{border-top:1px dashed var(--jy-line)}}
+</style>
+
+  <header class="jy-head">
+    <span class="jy-eyebrow">2026년 귀속 연말정산 · 주택자금 소득공제</span>
+    <h2 id="jy-mortgage-check-t">장기주택저당차입금 공제 자가진단</h2>
+    <p class="jy-lead">질문에 「예 / 아니오」로 답하면 장기주택저당차입금 이자상환액 소득공제를 받을 수 있는지 확인할 수 있습니다.</p>
+  </header>
+
+  <div class="jy-card jy-app" aria-live="polite">
+    <noscript><p>자바스크립트가 꺼져 있어 단계별 진단을 사용할 수 없습니다. 아래 「전체 흐름도 보기」로 확인해 주세요.</p></noscript>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">요건 한눈에 보기</h3>
+    <div class="jy-tbl-wrap"><table><thead><tr><th class="nw">구분</th><th>내용</th></tr></thead><tbody><tr><th>대상자</th><td>무주택 또는 1주택 세대의 세대주(세대주가 주택자금 공제를 받지 않으면 실제 거주하는 세대원)</td></tr><tr><th>주택가격</th><td>취득 당시 기준시가 6억원 이하(2024.1.1. 이후 차입분)</td></tr><tr><th>차입 시기</th><td>소유권이전(보존)등기일부터 3개월 이내</td></tr><tr><th>채무자</th><td>저당권이 설정된 주택의 소유자 본인</td></tr><tr><th>제외</th><td>과세기간 종료일 현재 세대가 2주택 이상 보유</td></tr></tbody></table></div>
+    <p class="jy-tbl-note">근거: 소득세법 §52⑤, 같은 법 시행령 §112⑧·⑩</p>
+  </div>
+
+  <div class="jy-card">
+    <details>
+      <summary>전체 흐름도 보기</summary>
+      <div class="jy-flow"><svg viewBox="0 0 1210 1304" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jyMmortgage" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="20" y="20" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">근로소득이 있습니까?</text><text x="250.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(일용근로소득 제외)</text><rect x="20" y="130" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="157.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">주택취득 당시 무주택 또는</text><text x="250.0" y="178.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">1주택만 소유한 세대인가요?</text><rect x="20" y="260" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="287.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">과세기간 종료일 현재 세대주인가요?</text><text x="250.0" y="308.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(단독세대주 포함)</text><rect x="580" y="242" width="460" height="100" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="810.0" y="266.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">세대주가 주택자금공제등을 받았나요?</text><text x="810.0" y="287.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(주택임차차입금 원리금상환액공제,</text><text x="810.0" y="308.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장기주택저당 차입금이자상환액공제,</text><text x="810.0" y="329.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">주택마련저축공제)</text><rect x="580" y="380" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="810.0" y="407.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">세대원이 취득주택에</text><text x="810.0" y="428.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">실제 거주하나요?</text><rect x="20" y="510" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="537.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">과세기간 종료일 현재 무주택 또는</text><text x="250.0" y="558.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">1주택만 소유한 세대요건을 충족하나요?</text><rect x="20" y="630" width="700" height="100" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="370.0" y="665.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">2024.1.1. 이후 차입한 경우 주택취득 당시 기준시가가 6억원 이하인가요?</text><text x="370.0" y="686.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(2013.12.31. 이전 : 3억원 이하, 2018.12.31. 이전 : 4억원 이하,</text><text x="370.0" y="707.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">2023.12.31. 이전 : 5억원 이하)</text><rect x="20" y="790" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="817.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">근로자 본인 소유주택으로</text><text x="250.0" y="838.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">본인 명의로 차입하였나요?</text><rect x="20" y="910" width="460" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="944.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">대환대출인가요?</text><rect x="580" y="906" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="810.0" y="933.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">기존 차입금 기준으로 주택소유권이전(보존)</text><text x="810.0" y="954.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">등기일부터 3개월 이내에 차입하였나요?</text><rect x="580" y="1026" width="460" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="810.0" y="1053.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">기존 차입금 기준으로 장기주택저당</text><text x="810.0" y="1074.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">차입금 이자상환액 소득공제 가능</text><rect x="20" y="1090" width="460" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="1117.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">주택소유권이전(보존)등기일부터</text><text x="250.0" y="1138.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">3개월 이내에 차입하였나요?</text><rect x="20" y="1220" width="460" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="250.0" y="1247.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장기주택저당차입금</text><text x="250.0" y="1268.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">이자상환액 소득공제 가능</text><rect x="1070" y="1220" width="120" height="64" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="1130.0" y="1247.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">소득공제</text><text x="1130.0" y="1268.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">불가</text><polyline points="250,84 250,130" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="112.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,194 250,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="232.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,574 250,630" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="607.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,730 250,790" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="765.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,854 250,910" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="887.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,966 250,1090" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="1033.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="250,1154 250,1220" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="1192.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="250,324 250,510" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="258" y="354" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="810.0,342 810.0,380" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="818.0" y="366.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="810.0,444 810.0,470 250,470" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="818.0" y="462" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="480,52 1130,52" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="496" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,162 1130,162" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="496" y="156" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,542 1130,542" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="496" y="536" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="720,680 1130,680" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="736" y="674" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,822 1130,822" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="496" y="816" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,1122 1130,1122" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="496" y="1116" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1130,52 1130,1220" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><polyline points="480,292 580,292" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="496" y="286" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1040,292 1130,292" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="1056" y="286" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="1040,412 1130,412" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="1056" y="406" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="480,938 580,938" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="496" y="932" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="1040,938 1130,938" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="1056" y="932" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="810.0,970 810.0,1026" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMmortgage)"/><text x="818.0" y="1003.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text></svg></div>
+    </details>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">알아두면 좋은 점</h3>
+    <ul class="jy-notes">
+      <li>정부가 2027년 차입분부터 실제 거주 요건을 강화하는 세법개정안을 제출했으나, 국회 통과 전이므로 2026년 귀속분에는 현행 기준이 적용됩니다.</li>
+      <li>법령 확인: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> (소득세법 제52조) · 상담: <a href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청</a> 국세상담센터 126</li>
+    </ul>
+  </div>
+
+  <p class="jy-foot">이 자가진단은 일반적인 기준에 따른 참고용이며, 개별 사실관계에 따라 결과가 달라질 수 있습니다.<br><strong>세무법인 지율</strong> · taxin4u.com</p>
+
+<script>
+(function(){
+  var sec=document.getElementById('jy-mortgage-check'); if(!sec) return;
+  var root=sec.querySelector('.jy-app'), C={"start": "q1", "depth": 9, "nodes": {"q1": {"t": "근로소득이 있습니까?", "h": ["일용근로소득만 있는 경우 <b>아니오</b>를 선택하세요."], "y": "q2", "n": "rNoWork"}, "q2": {"t": "주택취득 당시 무주택 또는 1주택만 소유한 세대인가요?", "y": "q3", "n": "rNo"}, "q3": {"t": "과세기간 종료일 현재 세대주인가요?", "h": ["단독세대주를 포함합니다."], "y": "q5", "n": "q4"}, "q4": {"t": "세대주가 주택자금공제 등을 받았나요?", "h": ["주택임차차입금 원리금상환액공제, 장기주택저당차입금 이자상환액공제, 주택청약종합저축 소득공제가 해당합니다."], "y": "rNo", "n": "q4b"}, "q4b": {"t": "세대원이 취득주택에 실제 거주하나요?", "h": ["세대주는 실제 거주와 관계없이 공제되지만, 세대원은 실제 거주하는 경우에만 공제됩니다."], "y": "q5", "n": "rNo"}, "q5": {"t": "과세기간 종료일 현재 무주택 또는 1주택만 소유한 세대요건을 충족하나요?", "h": ["세대 구성원이 보유한 주택을 포함해 2주택 이상이면 공제받을 수 없습니다."], "y": "q6", "n": "rNo"}, "q6": {"t": "주택취득 당시 기준시가가 아래 금액 이하인가요?", "h": ["2024.1.1. 이후 차입: 6억원 이하", "2019.1.1.~2023.12.31. 차입: 5억원 이하", "2014.1.1.~2018.12.31. 차입: 4억원 이하", "2013.12.31. 이전 차입: 3억원 이하"], "y": "q7", "n": "rNo"}, "q7": {"t": "근로자 본인 소유주택으로 본인 명의로 차입하였나요?", "y": "q8", "n": "rNo"}, "q8": {"t": "대환대출인가요?", "y": "q9", "n": "q10"}, "q9": {"t": "기존 차입금 기준으로 주택소유권이전(보존)등기일부터 3개월 이내에 차입하였나요?", "y": "rOkRe", "n": "rNo"}, "q10": {"t": "주택소유권이전(보존)등기일부터 3개월 이내에 차입하였나요?", "y": "rOk", "n": "rNo"}}, "res": {"rNoWork": {"k": "no", "t": "공제를 받을 수 없습니다", "d": "근로소득(일용근로소득 제외)이 있는 근로자만 적용받을 수 있습니다."}, "rNo": {"k": "no", "t": "소득공제를 받을 수 없습니다", "d": "장기주택저당차입금 이자상환액 소득공제 요건을 충족하지 못합니다."}, "rOkRe": {"k": "ok", "t": "기존 차입금 기준으로 장기주택저당차입금 이자상환액 소득공제를 받을 수 있습니다", "d": "대환대출은 기존 차입금 잔액을 한도로 공제대상이 되며, 상환기간은 기존 차입금의 최초 차입일을 기준으로 계산합니다.", "tip": "공제한도는 「장기주택저당차입금 공제한도 자가진단」으로 확인하세요."}, "rOk": {"k": "ok", "t": "장기주택저당차입금 이자상환액 소득공제를 받을 수 있습니다", "d": "해당 연도에 지급한 이자상환액을 공제한도 안에서 소득공제받을 수 있습니다.", "tip": "공제한도는 「장기주택저당차입금 공제한도 자가진단」으로 확인하세요."}}, "basis": "소득세법 §52⑤, 같은 법 시행령 §112⑧·⑩"}, hist=[];
+  function li(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+  function pathHtml(){
+    if(!hist.length) return '';
+    return '<div class="jy-path"><h4>내 답변</h4><ol>'+hist.map(function(s){
+      var q=C.nodes[s.id], lab=q.opts?q.opts[s.a].l:(s.a?'예':'아니오'), cls=(q.opts||s.a)?'y':'n';
+      return '<li>'+q.t+'<b class="'+cls+'">'+lab+'</b></li>';}).join('')+'</ol></div>';
+  }
+  function bar(done){
+    var step=hist.length+1, pct=done?100:Math.min(92,Math.round(hist.length/C.depth*100));
+    return '<div class="jy-prog"><span>'+(done?'진단 완료':'질문 '+step)+'</span><div class="jy-bar"><i style="width:'+pct+'%"></i></div></div>';
+  }
+  function sub(done){
+    return '<div class="jy-sub"><button type="button" class="jy-link" data-act="back"'+(hist.length?'':' disabled')+'>← 이전 질문</button>'+
+      (hist.length?'<button type="button" class="jy-link" data-act="reset">'+(done?'다시 진단하기':'처음부터')+'</button>':'')+'</div>';
+  }
+  function render(id){
+    var q=C.nodes[id];
+    if(q){
+      var btns=q.opts?'<div class="jy-opts">'+q.opts.map(function(o,i){return '<button type="button" data-o="'+i+'">'+o.l+(o.s?'<small>'+o.s+'</small>':'')+'</button>';}).join('')+'</div>'
+        :'<div class="jy-btns"><button type="button" class="jy-yes" data-o="1">예</button><button type="button" class="jy-no" data-o="0">아니오</button></div>';
+      root.innerHTML=bar(false)+'<p class="jy-qno">Q'+(hist.length+1)+'</p><p class="jy-q">'+q.t+'</p>'+(q.h&&q.h.length?'<div class="jy-help">'+li(q.h)+'</div>':'')+btns+sub(false)+pathHtml();
+      Array.prototype.forEach.call(root.querySelectorAll('[data-o]'),function(b){b.onclick=function(){
+        var a=+b.getAttribute('data-o'); hist.push({id:id,a:a}); render(q.opts?q.opts[a].to:(a?q.y:q.n));};});
+    }else{
+      var r=C.res[id], k=r.k, badge=r.badge||(k==='ok'?'공제 가능':k==='no'?'공제 불가':'안내');
+      root.innerHTML=bar(true)+'<div class="jy-res '+k+'"><span class="jy-badge">'+badge+'</span><h3>'+r.t+'</h3><p>'+r.d+'</p><p class="jy-basis">근거: '+(r.b||C.basis)+'</p></div>'+
+        (r.tip?'<div class="jy-tip">'+r.tip+'</div>':'')+pathHtml()+sub(true);
+    }
+    var b=root.querySelector('[data-act="back"]'); if(b) b.onclick=function(){if(hist.length){render(hist.pop().id);}};
+    var rs=root.querySelector('[data-act="reset"]'); if(rs) rs.onclick=function(){hist=[];render(C.start);};
+  }
+  render(C.start);
+})();
+</script>
+</section>

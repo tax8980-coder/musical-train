@@ -1607,7 +1607,9 @@ body.is-locked { overflow: hidden; }
 .col-pane__lead { margin: 0 0 16px; font-size: .93rem; color: #5b6b7f; line-height: 1.6; }
 /* 모바일에서 탭 4개가 한 줄에 들어가도록 여백·글자를 줄인다 */
 @media (max-width: 767px) {
-  .col-tabs { gap: 6px; flex-wrap: nowrap; }
+  /* 탭이 5개(…카드뉴스·연말정산)라 한 줄에 안 들어간다. 가로 스크롤로 숨기면
+     마지막 탭을 못 보고 지나치므로 두 줄로 감싼다. */
+  .col-tabs { gap: 6px; flex-wrap: wrap; }
   .col-tab { padding: 9px 11px; font-size: .84rem; white-space: nowrap; }
   /* 인기 칼럼: 데스크톱 10편 / 모바일 5편. HTML 에는 10편이 다 들어 있고
      모바일에서만 6번째부터 가린다(크롤러는 10편을 그대로 읽는다). */

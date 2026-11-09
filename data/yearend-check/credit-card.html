@@ -1,0 +1,164 @@
+<section id="jy-card-check" aria-labelledby="jy-card-check-t">
+<style>
+#jy-card-check{--jy-main:#4FB8D3;--jy-deep:#1d7f99;--jy-soft:#D9F1F7;--jy-ink:#1b2a33;--jy-sub:#5b6b74;--jy-line:#d7e6ec;--jy-ok:#1f8a5b;--jy-ok-bg:#e6f6ee;--jy-no:#c0392b;--jy-no-bg:#fdecea;
+  box-sizing:border-box;max-width:860px;margin:0 auto;padding:28px 16px 40px;color:var(--jy-ink);background:#f4f8fa;
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all}
+#jy-card-check *,#jy-card-check *::before,#jy-card-check *::after{box-sizing:border-box}
+#jy-card-check h2,#jy-card-check h3,#jy-card-check p{margin:0}
+#jy-card-check .jy-head{margin-bottom:20px}
+#jy-card-check .jy-eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--jy-deep);background:var(--jy-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+#jy-card-check h2{font-size:clamp(22px,4.6vw,30px);line-height:1.3;font-weight:800;letter-spacing:-.02em}
+#jy-card-check .jy-lead{margin-top:8px;color:var(--jy-sub);font-size:15px}
+#jy-card-check .jy-card{background:#fff;border:1px solid var(--jy-line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(20,60,80,.04)}
+#jy-card-check .jy-card+.jy-card{margin-top:16px}
+#jy-card-check .jy-prog{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:13px;color:var(--jy-sub);font-weight:600}
+#jy-card-check .jy-bar{flex:1;height:6px;background:#e8f1f4;border-radius:99px;overflow:hidden}
+#jy-card-check .jy-bar i{display:block;height:100%;width:0;background:var(--jy-main);border-radius:99px;transition:width .3s ease}
+#jy-card-check .jy-qno{font-size:13px;font-weight:800;color:var(--jy-deep);letter-spacing:.04em}
+#jy-card-check .jy-q{margin-top:4px;font-size:clamp(18px,3.6vw,22px);font-weight:800;line-height:1.45}
+#jy-card-check .jy-help{margin-top:12px;padding:12px 14px;background:#f6fafb;border-left:3px solid var(--jy-main);border-radius:0 8px 8px 0;font-size:14.5px;color:#34464f}
+#jy-card-check .jy-help ul{margin:0;padding-left:18px}
+#jy-card-check .jy-help li+li{margin-top:2px}
+#jy-card-check .jy-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+#jy-card-check button{font:inherit;cursor:pointer;border-radius:10px;transition:background .15s,border-color .15s,transform .05s}
+#jy-card-check button:active{transform:translateY(1px)}
+#jy-card-check button:focus-visible{outline:3px solid #9fd8e8;outline-offset:2px}
+#jy-card-check .jy-yes,#jy-card-check .jy-no{min-height:54px;font-size:17px;font-weight:800;border:2px solid var(--jy-main)}
+#jy-card-check .jy-yes{background:var(--jy-main);color:#fff}
+#jy-card-check .jy-yes:hover{background:var(--jy-deep);border-color:var(--jy-deep)}
+#jy-card-check .jy-no{background:#fff;color:var(--jy-deep)}
+#jy-card-check .jy-no:hover{background:var(--jy-soft)}
+#jy-card-check .jy-sub{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+#jy-card-check .jy-link{background:none;border:1px solid var(--jy-line);color:var(--jy-sub);font-size:14px;padding:7px 12px}
+#jy-card-check .jy-link:hover{border-color:var(--jy-main);color:var(--jy-deep)}
+#jy-card-check .jy-link[disabled]{opacity:.4;cursor:default}
+#jy-card-check .jy-res{border-radius:12px;padding:18px}
+#jy-card-check .jy-res.ok{background:var(--jy-ok-bg);border:1px solid #b9e3cc}
+#jy-card-check .jy-res.no{background:var(--jy-no-bg);border:1px solid #f3c4bd}
+#jy-card-check .jy-badge{display:inline-block;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;color:#fff}
+#jy-card-check .ok .jy-badge{background:var(--jy-ok)}
+#jy-card-check .no .jy-badge{background:var(--jy-no)}
+#jy-card-check .jy-res h3{margin-top:8px;font-size:clamp(20px,4vw,24px);font-weight:800}
+#jy-card-check .ok h3{color:var(--jy-ok)}
+#jy-card-check .no h3{color:var(--jy-no)}
+#jy-card-check .jy-res p{margin-top:8px;font-size:15px}
+#jy-card-check .jy-basis{margin-top:10px;font-size:13.5px;color:var(--jy-sub)}
+#jy-card-check .jy-path{margin-top:16px}
+#jy-card-check .jy-path h4{margin:0 0 8px;font-size:14px;color:var(--jy-sub)}
+#jy-card-check .jy-path ol{margin:0;padding-left:20px;font-size:14.5px}
+#jy-card-check .jy-path li{padding:3px 0}
+#jy-card-check .jy-path b{display:inline-block;min-width:38px;margin-left:6px;padding:0 6px;border-radius:5px;font-size:12.5px;text-align:center;white-space:nowrap}
+#jy-card-check .jy-path b.y{background:var(--jy-soft);color:var(--jy-deep)}
+#jy-card-check .jy-path b.n{background:#eef0f2;color:#55626a}
+#jy-card-check h3.jy-sec{font-size:19px;font-weight:800;margin-bottom:12px}
+#jy-card-check .jy-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#jy-card-check table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+#jy-card-check th,#jy-card-check td{border:1px solid var(--jy-line);padding:9px 10px;vertical-align:top;text-align:left}
+#jy-card-check thead th{background:var(--jy-soft);color:#16566a;font-weight:800;white-space:nowrap}
+#jy-card-check td.nw,#jy-card-check th.nw{white-space:nowrap}
+#jy-card-check tbody th{background:#f7fbfc;font-weight:700;white-space:nowrap}
+#jy-card-check details{margin-top:4px}
+#jy-card-check summary{cursor:pointer;font-weight:800;font-size:16px;color:var(--jy-deep);list-style:none;display:flex;align-items:center;gap:8px}
+#jy-card-check summary::-webkit-details-marker{display:none}
+#jy-card-check summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--jy-soft);font-weight:800}
+#jy-card-check details[open] summary::before{content:"−"}
+#jy-card-check .jy-flow{margin-top:14px;overflow-x:auto;border:1px solid var(--jy-line);border-radius:10px;background:#fff}
+#jy-card-check .jy-flow svg{display:block;width:100%;min-width:640px;height:auto}
+#jy-card-check .jy-notes{margin:0;padding-left:18px;font-size:14px;color:#3a4a52}
+#jy-card-check .jy-notes li+li{margin-top:6px}
+#jy-card-check .jy-notes a{color:var(--jy-deep)}
+#jy-card-check .jy-foot{margin-top:18px;font-size:12.5px;color:var(--jy-sub);text-align:center}
+#jy-card-check .jy-foot strong{color:var(--jy-ink)}
+@media (max-width:480px){#jy-card-check .jy-card{padding:18px 14px}}
+@media print{#jy-card-check .jy-btns,#jy-card-check .jy-sub{display:none}}
+
+#jy-card-check .jy-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+#jy-card-check .jy-opts button{min-height:64px;padding:10px;border:2px solid var(--jy-main);background:#fff;color:var(--jy-deep);font-weight:800;font-size:16.5px;line-height:1.35}
+#jy-card-check .jy-opts button small{display:block;font-size:12.5px;font-weight:600;color:var(--jy-sub);margin-top:2px}
+#jy-card-check .jy-opts button:hover{background:var(--jy-soft)}
+#jy-card-check .jy-tip{margin-top:10px;font-size:14px;color:#2b4a57;background:#eef8fb;border-radius:8px;padding:10px 12px}
+#jy-card-check .jy-res.info{background:#eef6fb;border:1px solid #c6e2ee}
+#jy-card-check .info .jy-badge{background:var(--jy-deep)}
+#jy-card-check .info h3{color:#16566a}
+#jy-card-check .jy-tbl-note{margin-top:10px;font-size:13px;color:var(--jy-sub)}
+#jy-card-check .jy-tbl-wrap+.jy-tbl-wrap{margin-top:14px}
+@media (max-width:600px){#jy-card-check table{min-width:0}#jy-card-check thead{display:none}
+#jy-card-check tbody tr{display:block;border:1px solid var(--jy-line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+#jy-card-check tbody th,#jy-card-check tbody td{display:block;border:0;padding:8px 12px;white-space:normal}
+#jy-card-check tbody th{background:var(--jy-soft);color:#16566a}
+#jy-card-check tbody td[data-l]::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:800;color:var(--jy-deep)}
+#jy-card-check tbody td+td{border-top:1px dashed var(--jy-line)}}
+</style>
+
+  <header class="jy-head">
+    <span class="jy-eyebrow">2026년 귀속 연말정산 · 소득공제</span>
+    <h2 id="jy-card-check-t">신용카드 소득공제 자가진단</h2>
+    <p class="jy-lead">질문에 답하면 신용카드·체크카드·현금영수증 사용액 소득공제를 받을 수 있는지 확인할 수 있습니다.</p>
+  </header>
+
+  <div class="jy-card jy-app" aria-live="polite">
+    <noscript><p>자바스크립트가 꺼져 있어 단계별 진단을 사용할 수 없습니다. 아래 「전체 흐름도 보기」로 확인해 주세요.</p></noscript>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">요건 한눈에 보기</h3>
+    <div class="jy-tbl-wrap"><table><thead><tr><th class="nw">총급여</th><th>기본한도</th><th>자녀 1명</th><th>자녀 2명 이상</th></tr></thead><tbody><tr><th>7천만원 이하</th><td data-l="기본한도">300만원</td><td data-l="자녀 1명">350만원</td><td data-l="자녀 2명 이상">400만원</td></tr><tr><th>7천만원 초과</th><td data-l="기본한도">250만원</td><td data-l="자녀 1명">275만원</td><td data-l="자녀 2명 이상">300만원</td></tr></tbody></table></div><div class="jy-tbl-wrap"><table><thead><tr><th class="nw">구분</th><th>공제율</th></tr></thead><tbody><tr><th>신용카드</th><td>15%</td></tr><tr><th>체크카드·현금영수증</th><td>30%</td></tr><tr><th>도서·공연·박물관·영화·체육시설(총급여 7천만원 이하)</th><td>30%</td></tr><tr><th>전통시장·대중교통</th><td>40%</td></tr></tbody></table></div>
+    <p class="jy-tbl-note">근거: 조세특례제한법 §126조의2</p>
+  </div>
+
+  <div class="jy-card">
+    <details>
+      <summary>전체 흐름도 보기</summary>
+      <div class="jy-flow"><svg viewBox="0 0 1110 706" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jyMcard" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="200" y="20" width="440" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="420.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">근로소득이 있습니까?</text><text x="420.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(일용근로소득 제외)</text><rect x="200" y="140" width="440" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="420.0" y="167.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">해당 과세연도에 신용카드 등</text><text x="420.0" y="188.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">사용자는 누구인가요?</text><rect x="20" y="260" width="110" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="75.0" y="298.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">본인</text><rect x="150" y="260" width="110" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="205.0" y="298.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">배우자</text><rect x="280" y="260" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="390.0" y="287.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속(배우자의</text><text x="390.0" y="308.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계존속 포함)</text><rect x="520" y="260" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="630.0" y="287.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">직계비속</text><text x="630.0" y="308.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(동거입양자 포함)</text><rect x="800" y="260" width="220" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="910.0" y="287.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제자매(배우자의</text><text x="910.0" y="308.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">형제자매 포함)</text><rect x="200" y="390" width="440" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="420.0" y="417.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">본인의 기본공제대상자인가요?</text><text x="420.0" y="438.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">(연령무시, 소득금액요건, 생계요건 충족)</text><rect x="200" y="510" width="440" height="56" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="420.0" y="544.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">신용카드사용액 ≥ 총급여액 × 25%</text><rect x="200" y="630" width="440" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="420.0" y="664.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">신용카드등 사용액 소득공제 가능</text><rect x="800" y="630" width="220" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="910.0" y="664.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">소득공제 불가</text><polyline points="420,84 420,140" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><text x="428" y="118" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="420,204 420,232" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="75,232 910,232" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="75,232 75,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="205,232 205,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="390,232 390,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="630,232 630,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="910,232 910,260" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="205,324 205,360" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="390,324 390,360" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="630,324 630,360" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="205,360 630,360" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><polyline points="420,360 420,390" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="75,324 75,538 200,538" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="420,454 420,510" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><text x="428" y="488" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="420,566 420,630" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><text x="428" y="604" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="910,324 910,630" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMcard)"/><polyline points="640,422 910,422" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="660" y="416" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="640,538 910,538" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="660" y="532" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="640,52 1080,52 1080,380 910,380" fill="none" stroke="#4FB8D3" stroke-width="1.6" /><text x="660" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text></svg></div>
+    </details>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">알아두면 좋은 점</h3>
+    <ul class="jy-notes">
+      <li>기본한도를 넘는 금액은 전통시장·대중교통·문화체육 사용분에 대해 추가한도(총급여 7천만원 이하 300만원, 초과 200만원)까지 더 공제됩니다.</li><li>적용기한은 2028.12.31. 사용분까지입니다.</li><li>정부가 2027년 사용분부터 대중교통 우대공제율을 폐지하는 세법개정안을 제출했으나, 2026년 사용분에는 현행 공제율이 적용됩니다.</li>
+      <li>법령 확인: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> (조세특례제한법 제126조의2) · 상담: <a href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청</a> 국세상담센터 126</li>
+    </ul>
+  </div>
+
+  <p class="jy-foot">이 자가진단은 일반적인 기준에 따른 참고용이며, 개별 사실관계에 따라 결과가 달라질 수 있습니다.<br><strong>세무법인 지율</strong> · taxin4u.com</p>
+
+<script>
+(function(){
+  var sec=document.getElementById('jy-card-check'); if(!sec) return;
+  var root=sec.querySelector('.jy-app'), C={"start": "q1", "depth": 4, "nodes": {"q1": {"t": "근로소득이 있습니까?", "h": ["일용근로소득만 있는 경우 <b>아니오</b>를 선택하세요."], "y": "q2", "n": "rNoWork"}, "q2": {"t": "해당 과세연도에 신용카드 등 사용자는 누구인가요?", "opts": [{"l": "본인", "to": "q4"}, {"l": "배우자", "to": "q3"}, {"l": "직계존속", "s": "배우자의 직계존속 포함", "to": "q3"}, {"l": "직계비속", "s": "동거입양자 포함", "to": "q3"}, {"l": "형제자매", "s": "배우자의 형제자매 포함", "to": "rSib"}]}, "q3": {"t": "본인의 기본공제대상자인가요?", "h": ["나이요건은 따지지 않고, 소득금액 요건(100만원 이하)과 생계요건은 충족해야 합니다.", "다른 사람의 기본공제를 받는 가족의 사용액은 포함하지 않습니다."], "y": "q4", "n": "rNo"}, "q4": {"t": "신용카드 등 사용액이 총급여액의 25%를 넘나요?", "h": ["총급여액의 25%(최저사용금액)를 넘는 금액부터 공제됩니다."], "y": "rOk", "n": "rNo"}}, "res": {"rNoWork": {"k": "no", "t": "공제를 받을 수 없습니다", "d": "근로소득(일용근로소득 제외)이 있는 근로자만 적용받을 수 있습니다."}, "rSib": {"k": "no", "t": "소득공제를 받을 수 없습니다", "d": "형제자매가 사용한 금액은 기본공제대상자이더라도 신용카드 등 소득공제 대상이 아닙니다."}, "rNo": {"k": "no", "t": "소득공제를 받을 수 없습니다", "d": "신용카드 등 사용금액 소득공제 요건을 충족하지 못합니다."}, "rOk": {"k": "ok", "t": "신용카드등 사용액 소득공제를 받을 수 있습니다", "d": "총급여의 25%를 넘는 사용액에 대해 결제수단별 공제율(신용카드 15%, 체크카드·현금영수증 30%, 전통시장·대중교통 40% 등)을 적용해 공제받습니다."}}, "basis": "조세특례제한법 §126조의2"}, hist=[];
+  function li(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+  function pathHtml(){
+    if(!hist.length) return '';
+    return '<div class="jy-path"><h4>내 답변</h4><ol>'+hist.map(function(s){
+      var q=C.nodes[s.id], lab=q.opts?q.opts[s.a].l:(s.a?'예':'아니오'), cls=(q.opts||s.a)?'y':'n';
+      return '<li>'+q.t+'<b class="'+cls+'">'+lab+'</b></li>';}).join('')+'</ol></div>';
+  }
+  function bar(done){
+    var step=hist.length+1, pct=done?100:Math.min(92,Math.round(hist.length/C.depth*100));
+    return '<div class="jy-prog"><span>'+(done?'진단 완료':'질문 '+step)+'</span><div class="jy-bar"><i style="width:'+pct+'%"></i></div></div>';
+  }
+  function sub(done){
+    return '<div class="jy-sub"><button type="button" class="jy-link" data-act="back"'+(hist.length?'':' disabled')+'>← 이전 질문</button>'+
+      (hist.length?'<button type="button" class="jy-link" data-act="reset">'+(done?'다시 진단하기':'처음부터')+'</button>':'')+'</div>';
+  }
+  function render(id){
+    var q=C.nodes[id];
+    if(q){
+      var btns=q.opts?'<div class="jy-opts">'+q.opts.map(function(o,i){return '<button type="button" data-o="'+i+'">'+o.l+(o.s?'<small>'+o.s+'</small>':'')+'</button>';}).join('')+'</div>'
+        :'<div class="jy-btns"><button type="button" class="jy-yes" data-o="1">예</button><button type="button" class="jy-no" data-o="0">아니오</button></div>';
+      root.innerHTML=bar(false)+'<p class="jy-qno">Q'+(hist.length+1)+'</p><p class="jy-q">'+q.t+'</p>'+(q.h&&q.h.length?'<div class="jy-help">'+li(q.h)+'</div>':'')+btns+sub(false)+pathHtml();
+      Array.prototype.forEach.call(root.querySelectorAll('[data-o]'),function(b){b.onclick=function(){
+        var a=+b.getAttribute('data-o'); hist.push({id:id,a:a}); render(q.opts?q.opts[a].to:(a?q.y:q.n));};});
+    }else{
+      var r=C.res[id], k=r.k, badge=r.badge||(k==='ok'?'공제 가능':k==='no'?'공제 불가':'안내');
+      root.innerHTML=bar(true)+'<div class="jy-res '+k+'"><span class="jy-badge">'+badge+'</span><h3>'+r.t+'</h3><p>'+r.d+'</p><p class="jy-basis">근거: '+(r.b||C.basis)+'</p></div>'+
+        (r.tip?'<div class="jy-tip">'+r.tip+'</div>':'')+pathHtml()+sub(true);
+    }
+    var b=root.querySelector('[data-act="back"]'); if(b) b.onclick=function(){if(hist.length){render(hist.pop().id);}};
+    var rs=root.querySelector('[data-act="reset"]'); if(rs) rs.onclick=function(){hist=[];render(C.start);};
+  }
+  render(C.start);
+})();
+</script>
+</section>

@@ -369,6 +369,7 @@ _STATIC_PAGE_LABELS = {
     "/media.html": "언론·강의",
     "/cardnews.html": "카드뉴스",
     "/calculator.html": "세금계산기",
+    "/yearend-check.html": "연말정산 자가진단",
 }
 
 # 옛 자동생성 slug → 정리된 slug. /column/<옛slug> 요청은 새 주소로 301 이동한다.
@@ -1580,6 +1581,47 @@ def _render_cardnews_html(set_slug):
     return html
 
 
+YEAREND_TEMPLATE_PATH = os.path.join(BASE_DIR, "yearend-check.html")
+YEAREND_ITEMS_PATH = os.path.join(BASE_DIR, "data", "yearend-check", "items.json")
+
+
+def load_yearend_items():
+    """연말정산 자가진단 항목 목록(data/yearend-check/items.json). 없으면 빈 목록."""
+    try:
+        with open(YEAREND_ITEMS_PATH, encoding="utf-8") as fp:
+            return json.load(fp)
+    except (OSError, ValueError):
+        return []
+
+
+def _render_yearend_html(slug):
+    """연말정산 자가진단 항목별 공유 주소(/yearend-check/<slug>).
+    메신저·SNS 미리보기가 그 항목의 제목·설명으로 나오도록 메타태그를 바꾸고,
+    페이지가 열리면 그 항목이 바로 보이도록 window.__YC_OPEN 을 심는다.
+    yearend-check.html 은 자원·링크를 모두 절대경로로 써서 경로 보정이 필요 없다."""
+    item = next((c for c in load_yearend_items() if c.get("slug") == slug), None)
+    if not item:
+        raise KeyError(slug)
+    html = _read_text(YEAREND_TEMPLATE_PATH)
+    canonical = SITE_ORIGIN + "/yearend-check/" + quote(slug, safe="")
+    title = item.get("title", "연말정산 자가진단")
+    desc = item.get("lead") or ""
+    for pat, new_ in (
+        (r"<title>[^<]*</title>", "<title>" + _esc_html(title) + " | 2026 연말정산 · 세무법인 지율</title>"),
+        (r'<meta name="description" content="[^"]*" />', '<meta name="description" content="' + _esc_html(desc) + '" />'),
+        (r'<link rel="canonical" href="[^"]*" />', '<link rel="canonical" href="' + _esc_html(canonical) + '" />'),
+        (r'<meta property="og:title" content="[^"]*" />', '<meta property="og:title" content="' + _esc_html(title) + ' | 세무법인 지율" />'),
+        (r'<meta property="og:description" content="[^"]*" />', '<meta property="og:description" content="' + _esc_html(desc) + '" />'),
+        (r'<meta property="og:url" content="[^"]*" />', '<meta property="og:url" content="' + _esc_html(canonical) + '" />'),
+        (r'<meta name="twitter:title" content="[^"]*" />', '<meta name="twitter:title" content="' + _esc_html(title) + '" />'),
+        (r'<meta name="twitter:description" content="[^"]*" />', '<meta name="twitter:description" content="' + _esc_html(desc) + '" />'),
+    ):
+        html = re.sub(pat, lambda _m, s=new_: s, html, count=1)
+    return html.replace(
+        "</head>",
+        "<script>window.__YC_OPEN=" + json.dumps(slug, ensure_ascii=False) + ";</script></head>", 1)
+
+
 def _render_sitemap_xml():
     """posts.json 기준으로 sitemap.xml 을 매번 생성(새 칼럼 자동 포함)."""
     o = SITE_ORIGIN
@@ -1597,10 +1639,15 @@ def _render_sitemap_xml():
         (o + "/media.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "media.html"))),
         (o + "/cardnews.html", "monthly", "0.6", _file_lastmod(os.path.join(BASE_DIR, "cardnews.html"))),
         (o + "/calculator.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "calculator.html"))),
+        (o + "/yearend-check.html", "monthly", "0.7", _file_lastmod(os.path.join(BASE_DIR, "yearend-check.html"))),
     ]
     # 세목별 허브(대표 페이지) — 홈 다음가는 우선순위
     for h in HUBS:
         entries.append((o + "/" + h["slug"], "weekly", "0.8", home_mod))
+    # 연말정산 자가진단 항목별 주소
+    _yc_mod = _file_lastmod(os.path.join(BASE_DIR, "yearend-check.html"))
+    for it in load_yearend_items():
+        entries.append((o + "/yearend-check/" + quote(it.get("slug", ""), safe=""), "monthly", "0.6", _yc_mod))
     # 카드뉴스 세트별 공유 주소
     for c in load_cardnews():
         entries.append((o + "/cardnews/" + quote(c.get("slug", ""), safe=""),
@@ -2095,6 +2142,30 @@ class Handler(SimpleHTTPRequestHandler):
                                             '<meta name="robots" content="noindex" />', 1)
                     except OSError:
                         page = "<!doctype html><meta charset=utf-8><a href='/cardnews.html'>카드뉴스 목록</a>"
+                    self._send_html(page, status=404)
+            return
+
+        # ---- 연말정산 자가진단 항목별 공유 주소 (공개) ----
+        # 없는 항목은 카드뉴스와 같은 규칙: 앞부분(4자 이상)이 맞으면 301, 아니면 404(미리보기 안 만듦)
+        m_yc = re.match(r"^/yearend-check/([A-Za-z0-9\-_]+)/?$", parsed.path)
+        if m_yc:
+            part = m_yc.group(1)
+            try:
+                self._send_html(_render_yearend_html(part))
+            except (KeyError, OSError):
+                hit = next((c for c in load_yearend_items()
+                            if len(part) >= 4 and c.get("slug", "").startswith(part)), None)
+                if hit:
+                    self.send_response(301)
+                    self.send_header("Location", "/yearend-check/" + quote(hit["slug"], safe=""))
+                    self.send_header("Content-Length", "0")
+                    self.end_headers()
+                else:
+                    try:
+                        page = _read_text(YEAREND_TEMPLATE_PATH).replace(
+                            "<head>", '<head>\n<meta name="robots" content="noindex" />', 1)
+                    except OSError:
+                        page = "<!doctype html><meta charset=utf-8><a href='/yearend-check.html'>연말정산 자가진단</a>"
                     self._send_html(page, status=404)
             return
 

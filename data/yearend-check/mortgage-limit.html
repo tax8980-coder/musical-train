@@ -1,0 +1,164 @@
+<section id="jy-limit-check" aria-labelledby="jy-limit-check-t">
+<style>
+#jy-limit-check{--jy-main:#4FB8D3;--jy-deep:#1d7f99;--jy-soft:#D9F1F7;--jy-ink:#1b2a33;--jy-sub:#5b6b74;--jy-line:#d7e6ec;--jy-ok:#1f8a5b;--jy-ok-bg:#e6f6ee;--jy-no:#c0392b;--jy-no-bg:#fdecea;
+  box-sizing:border-box;max-width:860px;margin:0 auto;padding:28px 16px 40px;color:var(--jy-ink);background:#f4f8fa;
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all}
+#jy-limit-check *,#jy-limit-check *::before,#jy-limit-check *::after{box-sizing:border-box}
+#jy-limit-check h2,#jy-limit-check h3,#jy-limit-check p{margin:0}
+#jy-limit-check .jy-head{margin-bottom:20px}
+#jy-limit-check .jy-eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--jy-deep);background:var(--jy-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+#jy-limit-check h2{font-size:clamp(22px,4.6vw,30px);line-height:1.3;font-weight:800;letter-spacing:-.02em}
+#jy-limit-check .jy-lead{margin-top:8px;color:var(--jy-sub);font-size:15px}
+#jy-limit-check .jy-card{background:#fff;border:1px solid var(--jy-line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(20,60,80,.04)}
+#jy-limit-check .jy-card+.jy-card{margin-top:16px}
+#jy-limit-check .jy-prog{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:13px;color:var(--jy-sub);font-weight:600}
+#jy-limit-check .jy-bar{flex:1;height:6px;background:#e8f1f4;border-radius:99px;overflow:hidden}
+#jy-limit-check .jy-bar i{display:block;height:100%;width:0;background:var(--jy-main);border-radius:99px;transition:width .3s ease}
+#jy-limit-check .jy-qno{font-size:13px;font-weight:800;color:var(--jy-deep);letter-spacing:.04em}
+#jy-limit-check .jy-q{margin-top:4px;font-size:clamp(18px,3.6vw,22px);font-weight:800;line-height:1.45}
+#jy-limit-check .jy-help{margin-top:12px;padding:12px 14px;background:#f6fafb;border-left:3px solid var(--jy-main);border-radius:0 8px 8px 0;font-size:14.5px;color:#34464f}
+#jy-limit-check .jy-help ul{margin:0;padding-left:18px}
+#jy-limit-check .jy-help li+li{margin-top:2px}
+#jy-limit-check .jy-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+#jy-limit-check button{font:inherit;cursor:pointer;border-radius:10px;transition:background .15s,border-color .15s,transform .05s}
+#jy-limit-check button:active{transform:translateY(1px)}
+#jy-limit-check button:focus-visible{outline:3px solid #9fd8e8;outline-offset:2px}
+#jy-limit-check .jy-yes,#jy-limit-check .jy-no{min-height:54px;font-size:17px;font-weight:800;border:2px solid var(--jy-main)}
+#jy-limit-check .jy-yes{background:var(--jy-main);color:#fff}
+#jy-limit-check .jy-yes:hover{background:var(--jy-deep);border-color:var(--jy-deep)}
+#jy-limit-check .jy-no{background:#fff;color:var(--jy-deep)}
+#jy-limit-check .jy-no:hover{background:var(--jy-soft)}
+#jy-limit-check .jy-sub{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+#jy-limit-check .jy-link{background:none;border:1px solid var(--jy-line);color:var(--jy-sub);font-size:14px;padding:7px 12px}
+#jy-limit-check .jy-link:hover{border-color:var(--jy-main);color:var(--jy-deep)}
+#jy-limit-check .jy-link[disabled]{opacity:.4;cursor:default}
+#jy-limit-check .jy-res{border-radius:12px;padding:18px}
+#jy-limit-check .jy-res.ok{background:var(--jy-ok-bg);border:1px solid #b9e3cc}
+#jy-limit-check .jy-res.no{background:var(--jy-no-bg);border:1px solid #f3c4bd}
+#jy-limit-check .jy-badge{display:inline-block;font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;color:#fff}
+#jy-limit-check .ok .jy-badge{background:var(--jy-ok)}
+#jy-limit-check .no .jy-badge{background:var(--jy-no)}
+#jy-limit-check .jy-res h3{margin-top:8px;font-size:clamp(20px,4vw,24px);font-weight:800}
+#jy-limit-check .ok h3{color:var(--jy-ok)}
+#jy-limit-check .no h3{color:var(--jy-no)}
+#jy-limit-check .jy-res p{margin-top:8px;font-size:15px}
+#jy-limit-check .jy-basis{margin-top:10px;font-size:13.5px;color:var(--jy-sub)}
+#jy-limit-check .jy-path{margin-top:16px}
+#jy-limit-check .jy-path h4{margin:0 0 8px;font-size:14px;color:var(--jy-sub)}
+#jy-limit-check .jy-path ol{margin:0;padding-left:20px;font-size:14.5px}
+#jy-limit-check .jy-path li{padding:3px 0}
+#jy-limit-check .jy-path b{display:inline-block;min-width:38px;margin-left:6px;padding:0 6px;border-radius:5px;font-size:12.5px;text-align:center;white-space:nowrap}
+#jy-limit-check .jy-path b.y{background:var(--jy-soft);color:var(--jy-deep)}
+#jy-limit-check .jy-path b.n{background:#eef0f2;color:#55626a}
+#jy-limit-check h3.jy-sec{font-size:19px;font-weight:800;margin-bottom:12px}
+#jy-limit-check .jy-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#jy-limit-check table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+#jy-limit-check th,#jy-limit-check td{border:1px solid var(--jy-line);padding:9px 10px;vertical-align:top;text-align:left}
+#jy-limit-check thead th{background:var(--jy-soft);color:#16566a;font-weight:800;white-space:nowrap}
+#jy-limit-check td.nw,#jy-limit-check th.nw{white-space:nowrap}
+#jy-limit-check tbody th{background:#f7fbfc;font-weight:700;white-space:nowrap}
+#jy-limit-check details{margin-top:4px}
+#jy-limit-check summary{cursor:pointer;font-weight:800;font-size:16px;color:var(--jy-deep);list-style:none;display:flex;align-items:center;gap:8px}
+#jy-limit-check summary::-webkit-details-marker{display:none}
+#jy-limit-check summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--jy-soft);font-weight:800}
+#jy-limit-check details[open] summary::before{content:"−"}
+#jy-limit-check .jy-flow{margin-top:14px;overflow-x:auto;border:1px solid var(--jy-line);border-radius:10px;background:#fff}
+#jy-limit-check .jy-flow svg{display:block;width:100%;min-width:640px;height:auto}
+#jy-limit-check .jy-notes{margin:0;padding-left:18px;font-size:14px;color:#3a4a52}
+#jy-limit-check .jy-notes li+li{margin-top:6px}
+#jy-limit-check .jy-notes a{color:var(--jy-deep)}
+#jy-limit-check .jy-foot{margin-top:18px;font-size:12.5px;color:var(--jy-sub);text-align:center}
+#jy-limit-check .jy-foot strong{color:var(--jy-ink)}
+@media (max-width:480px){#jy-limit-check .jy-card{padding:18px 14px}}
+@media print{#jy-limit-check .jy-btns,#jy-limit-check .jy-sub{display:none}}
+
+#jy-limit-check .jy-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+#jy-limit-check .jy-opts button{min-height:64px;padding:10px;border:2px solid var(--jy-main);background:#fff;color:var(--jy-deep);font-weight:800;font-size:16.5px;line-height:1.35}
+#jy-limit-check .jy-opts button small{display:block;font-size:12.5px;font-weight:600;color:var(--jy-sub);margin-top:2px}
+#jy-limit-check .jy-opts button:hover{background:var(--jy-soft)}
+#jy-limit-check .jy-tip{margin-top:10px;font-size:14px;color:#2b4a57;background:#eef8fb;border-radius:8px;padding:10px 12px}
+#jy-limit-check .jy-res.info{background:#eef6fb;border:1px solid #c6e2ee}
+#jy-limit-check .info .jy-badge{background:var(--jy-deep)}
+#jy-limit-check .info h3{color:#16566a}
+#jy-limit-check .jy-tbl-note{margin-top:10px;font-size:13px;color:var(--jy-sub)}
+#jy-limit-check .jy-tbl-wrap+.jy-tbl-wrap{margin-top:14px}
+@media (max-width:600px){#jy-limit-check table{min-width:0}#jy-limit-check thead{display:none}
+#jy-limit-check tbody tr{display:block;border:1px solid var(--jy-line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+#jy-limit-check tbody th,#jy-limit-check tbody td{display:block;border:0;padding:8px 12px;white-space:normal}
+#jy-limit-check tbody th{background:var(--jy-soft);color:#16566a}
+#jy-limit-check tbody td[data-l]::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:800;color:var(--jy-deep)}
+#jy-limit-check tbody td+td{border-top:1px dashed var(--jy-line)}}
+</style>
+
+  <header class="jy-head">
+    <span class="jy-eyebrow">2026년 귀속 연말정산 · 주택자금 소득공제</span>
+    <h2 id="jy-limit-check-t">장기주택저당차입금 한도 자가진단</h2>
+    <p class="jy-lead">질문에 「예 / 아니오」로 답하면 장기주택저당차입금 이자상환액의 연간 공제한도를 확인할 수 있습니다.</p>
+  </header>
+
+  <div class="jy-card jy-app" aria-live="polite">
+    <noscript><p>자바스크립트가 꺼져 있어 단계별 진단을 사용할 수 없습니다. 아래 「전체 흐름도 보기」로 확인해 주세요.</p></noscript>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">요건 한눈에 보기</h3>
+    <div class="jy-tbl-wrap"><table><thead><tr><th class="nw">상환기간</th><th>상환방식</th><th>공제한도</th></tr></thead><tbody><tr><th>15년 이상</th><td data-l="상환방식">고정금리 그리고 비거치식 분할상환</td><td data-l="공제한도">2,000만원</td></tr><tr><th>15년 이상</th><td data-l="상환방식">고정금리 또는 비거치식 분할상환</td><td data-l="공제한도">1,800만원</td></tr><tr><th>15년 이상</th><td data-l="상환방식">그 밖의 방식</td><td data-l="공제한도">800만원</td></tr><tr><th>10년 이상 15년 미만</th><td data-l="상환방식">고정금리 또는 비거치식 분할상환</td><td data-l="공제한도">600만원</td></tr></tbody></table></div>
+    <p class="jy-tbl-note">근거: 소득세법 §52⑤·⑥, 같은 법 시행령 §112⑨</p>
+  </div>
+
+  <div class="jy-card">
+    <details>
+      <summary>전체 흐름도 보기</summary>
+      <div class="jy-flow"><svg viewBox="0 0 1200 636" xmlns="http://www.w3.org/2000/svg"><defs><marker id="jyMlimit" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4FB8D3"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><rect x="20" y="20" width="640" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="340.0" y="47.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">장기주택저당차입금 이자상환액 소득공제 요건을 갖춘</text><text x="340.0" y="68.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">차입금인가요?(상환기간 및 상환방식 제외)</text><rect x="760" y="24" width="200" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="860.0" y="58.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">소득공제 불가</text><rect x="20" y="150" width="260" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="150.0" y="177.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상환기간이</text><text x="150.0" y="198.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">15년 이상인가?</text><rect x="360" y="150" width="300" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="510.0" y="177.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상환기간이 10년 이상</text><text x="510.0" y="198.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">15년 미만인가?</text><rect x="360" y="290" width="300" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="510.0" y="324.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">소득공제 불가</text><rect x="820" y="282" width="360" height="72" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="1000.0" y="313.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상환방식이 고정금리 또는</text><text x="1000.0" y="334.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">비거치식 분할상환방식인가?</text><rect x="20" y="420" width="260" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="150.0" y="447.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상환방식이 고정금리이고</text><text x="150.0" y="468.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">비거치식 분할상환방식인가?</text><rect x="360" y="420" width="300" height="64" rx="7" fill="#fff" stroke="#4FB8D3" stroke-width="1.6"/><text x="510.0" y="447.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">상환방식이 고정금리 또는</text><text x="510.0" y="468.5" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">비거치식 분할상환방식인가?</text><rect x="50" y="560" width="200" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="150.0" y="594.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">2,000만원</text><rect x="420" y="560" width="200" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="520.0" y="594.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">1,800만원</text><rect x="700" y="560" width="200" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="800.0" y="594.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">800만원</text><rect x="910" y="560" width="200" height="56" rx="7" fill="#D9F1F7" stroke="#4FB8D3" stroke-width="1.6"/><text x="1010.0" y="594.0" text-anchor="middle" font-size="16.5" font-weight="700" fill="#111">600만원</text><polyline points="660,52 760,52" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="676" y="46" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="150,84 150,150" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="158" y="122.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="150,214 150,420" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="158" y="322.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="280,182 360,182" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="296" y="176" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="660,182 1000,182 1000,282" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="680" y="176" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="510,214 510,290" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="518" y="257.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="820,318 660,318" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="720" y="312" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="1000,354 1000,560" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="1008" y="462.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="280,452 360,452" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="296" y="446" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text><polyline points="150,484 150,560" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="158" y="527.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="520,484 520,560" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="528" y="527.0" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">YES</text><polyline points="660,452 800,452 800,560" fill="none" stroke="#4FB8D3" stroke-width="1.6" marker-end="url(#jyMlimit)"/><text x="676" y="446" font-size="13" fill="#444" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="5">NO</text></svg></div>
+    </details>
+  </div>
+
+  <div class="jy-card">
+    <h3 class="jy-sec">알아두면 좋은 점</h3>
+    <ul class="jy-notes">
+      <li>공제한도는 주택임차차입금 원리금상환액 공제, 주택청약종합저축 소득공제와 합산해 적용합니다.</li><li>2015.1.1. 이후 차입분 기준입니다. 그 이전 차입분은 종전 한도가 적용될 수 있습니다.</li>
+      <li>법령 확인: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> (소득세법 제52조) · 상담: <a href="https://www.nts.go.kr" target="_blank" rel="noopener">국세청</a> 국세상담센터 126</li>
+    </ul>
+  </div>
+
+  <p class="jy-foot">이 자가진단은 일반적인 기준에 따른 참고용이며, 개별 사실관계에 따라 결과가 달라질 수 있습니다.<br><strong>세무법인 지율</strong> · taxin4u.com</p>
+
+<script>
+(function(){
+  var sec=document.getElementById('jy-limit-check'); if(!sec) return;
+  var root=sec.querySelector('.jy-app'), C={"start": "q1", "depth": 4, "nodes": {"q1": {"t": "장기주택저당차입금 이자상환액 소득공제 요건을 갖춘 차입금인가요?", "h": ["상환기간 및 상환방식 요건은 제외하고 판단합니다. 요건은 「장기주택저당차입금 공제 자가진단」으로 확인하세요."], "y": "q2", "n": "rNo"}, "q2": {"t": "상환기간이 15년 이상인가요?", "y": "q4", "n": "q3"}, "q3": {"t": "상환기간이 10년 이상 15년 미만인가요?", "y": "q5", "n": "rNo"}, "q4": {"t": "상환방식이 고정금리이고 비거치식 분할상환방식인가요?", "h": ["고정금리: 차입금의 70% 이상에 대해 상환기간 동안 고정금리(5년 이상 단위 변동 포함)로 이자를 지급", "비거치식 분할상환: 거치기간 1년 이내, 매년 일정액 이상 상환"], "y": "r2000", "n": "q6"}, "q5": {"t": "상환방식이 고정금리 또는 비거치식 분할상환방식인가요?", "y": "r600", "n": "rNo"}, "q6": {"t": "상환방식이 고정금리 또는 비거치식 분할상환방식인가요?", "y": "r1800", "n": "r800"}}, "res": {"rNo": {"k": "no", "t": "소득공제를 받을 수 없습니다", "d": "장기주택저당차입금 이자상환액 공제요건 또는 상환기간·상환방식 요건을 충족하지 못합니다."}, "r2000": {"k": "ok", "badge": "공제한도", "t": "연 2,000만원", "d": "상환기간 15년 이상, 고정금리이면서 비거치식 분할상환인 경우입니다."}, "r1800": {"k": "ok", "badge": "공제한도", "t": "연 1,800만원", "d": "상환기간 15년 이상, 고정금리 또는 비거치식 분할상환인 경우입니다."}, "r800": {"k": "ok", "badge": "공제한도", "t": "연 800만원", "d": "상환기간 15년 이상이지만 고정금리·비거치식 분할상환에 모두 해당하지 않는 경우입니다."}, "r600": {"k": "ok", "badge": "공제한도", "t": "연 600만원", "d": "상환기간 10년 이상 15년 미만, 고정금리 또는 비거치식 분할상환인 경우입니다."}}, "basis": "소득세법 §52⑤·⑥, 같은 법 시행령 §112⑨"}, hist=[];
+  function li(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+  function pathHtml(){
+    if(!hist.length) return '';
+    return '<div class="jy-path"><h4>내 답변</h4><ol>'+hist.map(function(s){
+      var q=C.nodes[s.id], lab=q.opts?q.opts[s.a].l:(s.a?'예':'아니오'), cls=(q.opts||s.a)?'y':'n';
+      return '<li>'+q.t+'<b class="'+cls+'">'+lab+'</b></li>';}).join('')+'</ol></div>';
+  }
+  function bar(done){
+    var step=hist.length+1, pct=done?100:Math.min(92,Math.round(hist.length/C.depth*100));
+    return '<div class="jy-prog"><span>'+(done?'진단 완료':'질문 '+step)+'</span><div class="jy-bar"><i style="width:'+pct+'%"></i></div></div>';
+  }
+  function sub(done){
+    return '<div class="jy-sub"><button type="button" class="jy-link" data-act="back"'+(hist.length?'':' disabled')+'>← 이전 질문</button>'+
+      (hist.length?'<button type="button" class="jy-link" data-act="reset">'+(done?'다시 진단하기':'처음부터')+'</button>':'')+'</div>';
+  }
+  function render(id){
+    var q=C.nodes[id];
+    if(q){
+      var btns=q.opts?'<div class="jy-opts">'+q.opts.map(function(o,i){return '<button type="button" data-o="'+i+'">'+o.l+(o.s?'<small>'+o.s+'</small>':'')+'</button>';}).join('')+'</div>'
+        :'<div class="jy-btns"><button type="button" class="jy-yes" data-o="1">예</button><button type="button" class="jy-no" data-o="0">아니오</button></div>';
+      root.innerHTML=bar(false)+'<p class="jy-qno">Q'+(hist.length+1)+'</p><p class="jy-q">'+q.t+'</p>'+(q.h&&q.h.length?'<div class="jy-help">'+li(q.h)+'</div>':'')+btns+sub(false)+pathHtml();
+      Array.prototype.forEach.call(root.querySelectorAll('[data-o]'),function(b){b.onclick=function(){
+        var a=+b.getAttribute('data-o'); hist.push({id:id,a:a}); render(q.opts?q.opts[a].to:(a?q.y:q.n));};});
+    }else{
+      var r=C.res[id], k=r.k, badge=r.badge||(k==='ok'?'공제 가능':k==='no'?'공제 불가':'안내');
+      root.innerHTML=bar(true)+'<div class="jy-res '+k+'"><span class="jy-badge">'+badge+'</span><h3>'+r.t+'</h3><p>'+r.d+'</p><p class="jy-basis">근거: '+(r.b||C.basis)+'</p></div>'+
+        (r.tip?'<div class="jy-tip">'+r.tip+'</div>':'')+pathHtml()+sub(true);
+    }
+    var b=root.querySelector('[data-act="back"]'); if(b) b.onclick=function(){if(hist.length){render(hist.pop().id);}};
+    var rs=root.querySelector('[data-act="reset"]'); if(rs) rs.onclick=function(){hist=[];render(C.start);};
+  }
+  render(C.start);
+})();
+</script>
+</section>
