@@ -31,10 +31,14 @@
   }
   var baseUrl = currentBase();
 
+  // 카드 이미지를 같은 파일명으로 고쳐 올렸을 때 옛 이미지가 캐시에서 나오지 않게
+  // 올려 주는 버전(2026-11-09: 머리글 '손창용세무사'로 교체 → 2).
+  var IMG_V = '?v=2';
+
   /* ---------- 목록 ---------- */
   function render(list) {
     grid.innerHTML = list.map(function (s, i) {
-      var cover = s.dir + '/' + (s.cards[0] && s.cards[0].file);
+      var cover = s.dir + '/' + (s.cards[0] && s.cards[0].file) + IMG_V;
       var links = (s.columns || []).map(function (c) {
         return '<a class="cn-card__link" href="/column/' + encodeURIComponent(c.slug) + '">' + esc(c.title) + '</a>';
       }).join('');
@@ -147,7 +151,7 @@
   function show() {
     var s = sets[cur.set];
     var card = s.cards[cur.idx];
-    img.src = s.dir + '/' + card.file;
+    img.src = s.dir + '/' + card.file + IMG_V;
     img.alt = card.alt || (s.title + ' ' + (cur.idx + 1) + '번째 카드');
     titleEl.textContent = s.title;
     counter.textContent = (cur.idx + 1) + ' / ' + s.cards.length;
@@ -162,7 +166,7 @@
     });
     // 다음 카드 미리 받아두기
     var nxt = s.cards[cur.idx + 1];
-    if (nxt) { new Image().src = s.dir + '/' + nxt.file; }
+    if (nxt) { new Image().src = s.dir + '/' + nxt.file + IMG_V; }
   }
 
   function open(si, ci) {
