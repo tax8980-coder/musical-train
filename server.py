@@ -2072,7 +2072,30 @@ class Handler(SimpleHTTPRequestHandler):
             try:
                 self._send_html(_render_cardnews_html(m_cn.group(1)))
             except (KeyError, OSError):
-                self._send_redirect("/cardnews.html")
+                # 없는 세트 주소. 예전엔 목록(/cardnews.html)으로 303 보냈는데, 페이스북 앱은
+                # 글 입력창에서 링크를 한 글자씩 지우는 동안 잘린 주소(/cardnews/dasedae-dag …)를
+                # 새 링크로 다시 읽어, 목록 페이지 미리보기('카드뉴스 | 세무법인 지율')가 하나 더
+                # 붙었다(2026-11-09 제보 — 링크가 두 번 복사된 것처럼 보임).
+                # → 앞부분이 맞는 세트가 있으면 그 세트로 301(같은 카드 미리보기),
+                #   없으면 404(미리보기를 만들지 않음). 사람에게는 목록을 그대로 보여 준다.
+                part = m_cn.group(1)
+                hit = next((c for c in load_cardnews()
+                            if len(part) >= 4 and c.get("slug", "").startswith(part)), None)
+                if hit:
+                    self.send_response(301)
+                    self.send_header("Location", "/cardnews/" + quote(hit["slug"], safe=""))
+                    self.send_header("Content-Length", "0")
+                    self.end_headers()
+                else:
+                    try:
+                        with open(os.path.join(BASE_DIR, "cardnews.html"), encoding="utf-8") as fp:
+                            page = fp.read()
+                        # 한 단계 아래 경로라 상대경로(assets/…, intro.html …)가 깨지므로 base 로 루트 기준
+                        page = page.replace("<head>", '<head>\n<base href="/" />\n'
+                                            '<meta name="robots" content="noindex" />', 1)
+                    except OSError:
+                        page = "<!doctype html><meta charset=utf-8><a href='/cardnews.html'>카드뉴스 목록</a>"
+                    self._send_html(page, status=404)
             return
 
         if parsed.path == "/admin/stats":
