@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""카드뉴스 세트별 메신저 미리보기 이미지(og-card.jpg) 생성.
+"""카드뉴스 세트별 메신저 미리보기 이미지(og-cover.jpg) 생성.
 
 카카오톡·페이스북 등은 미리보기 이미지를 가로로 잘라 보여준다.
 카드 원본(1080x1350, 4:5)을 그대로 쓰면 위쪽 로고만 보이고 제목이 잘리므로,
-1200x630(1.91:1)에 제목이 통째로 들어가는 전용 이미지를 따로 만든다.
+1200x630(1.91:1) 전용 이미지를 따로 만든다.
+
+'가운데 정사각형 안전' 배치(2026-11-09): 페이스북 모바일은 같은 이미지를
+가운데 정사각형으로 잘라 보여준다. 예전 배치(왼쪽 제목 + 오른쪽 표지)는
+제목 앞부분과 표지 오른쪽이 모두 잘렸다. 그래서 표지 카드(제목이 이미 들어 있음)를
+가운데 630x630 안에 크게 두고, 짧은 브랜드 문구만 양끝(잘려도 되는 자리)에 둔다.
+→ 1:1 로 잘려도, 1.91:1 로 다 보여도 모두 온전하다.
+
+파일명을 og-card.jpg → og-cover.jpg 로 바꾼 것은 카카오톡·페이스북이 같은
+주소의 이미지를 캐시해 새 이미지를 안 읽어 가기 때문이다. 다시 디자인을 바꾸면
+파일명도 다시 바꾸고 server.py 의 OG_COVER_FILE 을 같이 고친다.
 
 사용법:  python make_cardnews_og.py
          data/cardnews.json 의 모든 세트에 대해
-         assets/cardnews/<slug>/og-card.jpg 를 새로 만든다.
+         assets/cardnews/<slug>/og-cover.jpg 를 새로 만든다.
 """
 import io
 import json
@@ -102,49 +112,59 @@ def _rounded(img, radius):
     return out
 
 
+OG_FILE = "og-cover.jpg"
+SAFE = H                      # 가운데 정사각형 한 변(630)
+SAFE_X0 = (W - SAFE) // 2     # 285
+SAFE_X1 = SAFE_X0 + SAFE      # 915
+EDGE = 40                     # 양끝 문구 여백 — 문구는 SAFE_X0 - 24 안쪽까지만
+
+
+def _shadow(size, radius, blur=18, alpha=110):
+    from PIL import ImageFilter
+    w, h = size
+    pad = blur * 3
+    sh = Image.new("L", (w + pad * 2, h + pad * 2), 0)
+    ImageDraw.Draw(sh).rounded_rectangle([pad, pad, pad + w, pad + h], radius=radius, fill=alpha)
+    return sh.filter(ImageFilter.GaussianBlur(blur)), pad
+
+
+def _side_text(draw, lines, x, align):
+    """양끝 문구. 정사각형으로 잘릴 때 반쯤 걸리지 않도록 안전영역 밖에만 둔다."""
+    total = sum(int(f.size * 1.5) for _, f, _ in lines)
+    y = (H - total) // 2
+    for text, f, color in lines:
+        w = draw.textlength(text, font=f)
+        tx = x if align == "left" else x - w
+        draw.text((tx, y), text, font=f, fill=color)
+        y += int(f.size * 1.5)
+
+
 def make_og(item):
-    slug = item["slug"]
     d = item["dir"].lstrip("/")
     cover_path = os.path.join(BASE, d, item["cards"][0]["file"])
-    out_path = os.path.join(BASE, d, "og-card.jpg")
+    out_path = os.path.join(BASE, d, OG_FILE)
 
     img = _background()
     draw = ImageDraw.Draw(img)
 
-    # 오른쪽: 카드 표지 미리보기(세로 카드)
-    thumb_h = H - PAD * 2
+    # 가운데: 표지 카드(4:5) — 정사각형 안전영역 안에 크게
+    thumb_h = H - 56
     thumb_w = int(thumb_h * 1080 / 1350)
+    tx, ty = (W - thumb_w) // 2, (H - thumb_h) // 2
+    sh, pad = _shadow((thumb_w, thumb_h), 22)
+    img.paste((8, 20, 38), (tx - pad, ty - pad + 8), sh)
     cover = Image.open(cover_path).convert("RGB").resize((thumb_w, thumb_h), Image.LANCZOS)
-    cover = _rounded(cover, 18)
-    tx = W - PAD - thumb_w
-    img.paste(cover, (tx, PAD), cover)
+    cover = _rounded(cover, 22)
+    img.paste(cover, (tx, ty), cover)
 
-    text_w = tx - PAD - 44
-
-    # 눈썹줄
-    f_eyebrow = _font(FONT_BOLD, 24)
-    draw.text((PAD, PAD + 4), "카드뉴스 · 세무법인 지율", font=f_eyebrow, fill=SKY)
-
-    # 제목(최대 3줄, 전체가 들어가도록 글자크기 자동 조절)
-    f_title, title_lines = _fit_title(draw, item.get("title", ""), text_w, 3)
-    y = PAD + 62
-    for ln in title_lines:
-        draw.text((PAD, y), ln, font=f_title, fill=WHITE)
-        y += int(f_title.size * 1.34)
-
-    # 부제(최대 2줄)
-    sub = item.get("subtitle") or ""
-    if sub:
-        f_sub = _font(FONT_REG, 26)
-        y += 14
-        for ln in _wrap(draw, sub, f_sub, text_w)[:2]:
-            draw.text((PAD, y), ln, font=f_sub, fill=SUB)
-            y += int(f_sub.size * 1.45)
-
-    # 하단 정보
-    f_foot = _font(FONT_BOLD, 24)
-    foot = "카드 %d장 · taxin4u.com" % len(item.get("cards") or [])
-    draw.text((PAD, H - PAD - 24), foot, font=f_foot, fill=SKY)
+    # 양끝: 잘려도 되는 짧은 브랜드 문구
+    f_big = _font(FONT_BOLD, 34)
+    f_small = _font(FONT_BOLD, 22)
+    n = len(item.get("cards") or [])
+    _side_text(draw, [("카드뉴스", f_small, SKY), ("세무법인", f_big, WHITE), ("지율", f_big, WHITE)],
+               EDGE + 8, "left")
+    _side_text(draw, [("카드 %d장" % n, f_small, SKY), ("손창용세무사", f_big, WHITE),
+                      ("taxin4u.com", f_small, SUB)], W - EDGE - 8, "right")
 
     img.save(out_path, "JPEG", quality=88, optimize=True, progressive=True)
     return out_path, os.path.getsize(out_path)

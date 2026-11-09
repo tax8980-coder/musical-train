@@ -1536,8 +1536,10 @@ def _render_cardnews_html(set_slug):
     sub = item.get("subtitle") or ""
     desc = item.get("summary") or sub
     full_title = _esc_html(title) + " | 카드뉴스 · 세무법인 지율"
-    # 메신저 미리보기는 가로로 잘리므로 1200x630 전용 이미지를 쓴다(make_cardnews_og.py 생성).
-    og_img = SITE_ORIGIN + item.get("dir", "") + "/og-card.jpg"
+    # 메신저 미리보기는 잘려 보이므로 1200x630 전용 이미지를 쓴다(make_cardnews_og.py 생성).
+    # 페이스북 모바일의 정사각형 자르기까지 견디는 '가운데 표지' 배치. 파일명을 바꾸면
+    # 카카오톡·페이스북 캐시가 새로 읽어 간다(og-card.jpg → og-cover.jpg, 2026-11-09).
+    og_img = SITE_ORIGIN + item.get("dir", "") + "/og-cover.jpg"
     n = len(item.get("cards") or [])
 
     for old, new_ in (
