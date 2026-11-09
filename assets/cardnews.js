@@ -84,16 +84,25 @@
     var s = sets[si];
     return location.origin + '/cardnews/' + encodeURIComponent(s.slug);
   }
+  // 휴대폰(터치 기기)에서만 기본 공유창을 쓴다. PC 크롬·엣지에도 navigator.share 가
+  // 있어서 이걸 기준으로 삼으면 PC 에서 '링크 복사'가 윈도 공유창을 띄워 버린다.
+  var isMobile = (window.matchMedia && matchMedia('(pointer: coarse)').matches) ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
   function share(si) {
     var url = setUrl(si);
-    // 휴대폰: 기본 공유창(카카오톡·메시지 등) / PC: 링크 복사
     // 주소만 넘긴다 — 제목·설명을 함께 넘기면 카카오톡이 그 글자를 본문에 붙여버려
     // 미리보기 카드 위에 같은 제목이 한 번 더 나온다.
-    if (navigator.share) {
-      navigator.share({ url: url }).catch(function () {});
+    if (isMobile && navigator.share) {
+      navigator.share({ url: url }).catch(function (e) {
+        // 사용자가 공유창을 닫은 경우(AbortError)만 조용히 끝내고, 그 밖의 실패는 복사로
+        if (!e || e.name !== 'AbortError') copyUrl(url);
+      });
       return;
     }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    copyUrl(url);
+  }
+  function copyUrl(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
       navigator.clipboard.writeText(url).then(function () {
         showToast('링크를 복사했습니다');
       }).catch(function () { legacyCopy(url); });
@@ -106,12 +115,21 @@
     t.value = url;
     t.setAttribute('readonly', '');
     t.style.position = 'fixed';
+    t.style.top = '0';
+    t.style.left = '0';
     t.style.opacity = '0';
+    // 뷰어·body 의 user-select:none 때문에 선택이 막히지 않게
+    t.style.userSelect = 'text';
+    t.style.webkitUserSelect = 'text';
     document.body.appendChild(t);
+    t.focus();
     t.select();
-    try { document.execCommand('copy'); showToast('링크를 복사했습니다'); }
-    catch (e) { window.prompt('아래 주소를 복사하세요', url); }
+    t.setSelectionRange(0, url.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
     document.body.removeChild(t);
+    if (ok) showToast('링크를 복사했습니다');
+    else window.prompt('아래 주소를 복사하세요', url);
   }
 
   /* ---------- 뷰어 ---------- */
