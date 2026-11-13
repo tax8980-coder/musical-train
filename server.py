@@ -566,7 +566,15 @@ HUB_INLINE_CSS = (
 
 
 def _page_label(path, title_map):
-    """방문 통계 경로 → 사람이 읽는 한글 라벨."""
+    """방문 통계 경로 → 사람이 읽는 한글 라벨.
+/* 인기 칼럼 기준 전환 (최근 한 달 / 전체) */
+.hot-switch{display:flex;gap:6px;margin:0 0 10px}
+.hot-switch__btn{padding:5px 13px;border-radius:999px;border:1px solid #D3E0F0;background:#fff;
+  color:#5b6b7f;font-size:.82rem;font-weight:700;cursor:pointer;line-height:1.5}
+.hot-switch__btn:hover{background:#EAF1FA}
+.hot-switch__btn.is-on{background:#EAF1FA;border-color:#9DBCE2;color:#1E3A5F}
+@media(max-width:767px){.hot-switch__btn{padding:5px 11px;font-size:.79rem}}
+"""
     if path in _STATIC_PAGE_LABELS:
         return _STATIC_PAGE_LABELS[path]
     m = re.match(r"^/column/([A-Za-z0-9\-_]+)$", path)
@@ -1166,6 +1174,42 @@ def get_views_map():
         return {}
 
 
+def get_page_views_map(days=None):
+    """{slug: 사람 조회수}. stat_counts 의 category='page'(사람 방문만) 를 쓴다.
+
+    days 를 주면 그 일수만큼만, 없으면 집계 시작(2026-08-07)부터 전부 더한다.
+    **인기 칼럼의 두 기준은 반드시 이 한 함수에서 뽑는다** — 글 화면의 자체 카운터
+    (post_views)는 배포 때 초기화·스냅샷 복원을 거쳐 수치가 들쭉날쭉해서, 섞어 쓰면
+    '최근 한 달'이 '전체'보다 큰 칼럼이 생긴다(실제로 52편 중 16편이 그랬다).
+    DB 오류 시 빈 dict → 호출부가 알아서 물러선다.
+    """
+    try:
+        conn = get_conn()
+        try:
+            if days:
+                since = (datetime.now(KST) - timedelta(days=days)).strftime("%Y-%m-%d")
+                rows = conn.execute(
+                    "SELECT name, SUM(hits) AS s FROM stat_counts "
+                    "WHERE category='page' AND day>=? AND name LIKE '/column/%' GROUP BY name",
+                    (since,),
+                )
+            else:
+                rows = conn.execute(
+                    "SELECT name, SUM(hits) AS s FROM stat_counts "
+                    "WHERE category='page' AND name LIKE '/column/%' GROUP BY name"
+                )
+            out = {}
+            for r in rows:
+                slug = (r["name"] or "")[len("/column/"):].strip("/")
+                if slug and "/" not in slug:
+                    out[slug] = int(r["s"] or 0)
+            return out
+        finally:
+            conn.close()
+    except Exception:
+        return {}
+
+
 def get_post_views(slug):
     """slug 하나의 조회수. 없거나 오류면 0."""
     try:
@@ -1371,14 +1415,38 @@ def _render_index_html(tab="popular"):
     # 인기는 10편을 심고, 모바일에서는 CSS 가 6번째부터 숨겨 5편만 보인다
     # (blog.js 의 HOT_N 과 같은 값을 유지할 것)
     HOT_N, NEW_N = 10, 10
+    # 인기 칼럼 두 기준 — 같은 자(stat_counts 사람 조회수)로 재야 '한 달 ≤ 전체'가 성립한다
+    pv_all = get_page_views_map()
+    pv_30 = get_page_views_map(30)
     for p in posts:
         p.setdefault("views", int(views.get(p.get("slug"), 0)))
+        p["views_h"] = int(pv_all.get(p.get("slug"), 0))
+        p["views30"] = int(pv_30.get(p.get("slug"), 0))
     recent = sorted(posts, key=lambda p: str(p.get("date") or ""), reverse=True)
     # 조회수 내림차순, 같으면 최신순 — 날짜로 먼저 정렬한 뒤 안정정렬로 조회수를 얹는다
-    hot = sorted(recent, key=lambda p: int(p.get("views") or 0), reverse=True)[:HOT_N]
+    # 집계가 비어 있으면(기록 전) 예전처럼 글 화면 카운터로 물러선다
+    hot_key = "views_h" if pv_all else "views"
+    hot = sorted(recent, key=lambda p: int(p.get(hot_key) or 0), reverse=True)[:HOT_N]
+    hot30 = sorted(recent, key=lambda p: int(p.get("views30") or 0), reverse=True)[:HOT_N] \
+        if pv_30 else list(hot)
     recent = recent[:NEW_N]
+
+    def _as(plist, key):
+        """조회수 뱃지는 p['views'] 를 먼저 보므로, 목록마다 그 기준 수치로 갈아끼운 사본을 넘긴다
+        (blog.js 의 fillHot() 과 같은 처리)."""
+        if key == "views":
+            return plist
+        out = []
+        for p in plist:
+            q = dict(p)
+            q["views"] = int(p.get(key) or 0)
+            out.append(q)
+        return out
+
     for block in (
-        _render_post_cards(hot, views, "all", ranked=True, show_views=True),
+        _render_post_cards(_as(hot30, "views30" if pv_30 else "views"), None, "all",
+                           ranked=True, show_views=True),
+        _render_post_cards(_as(hot, hot_key), None, "all", ranked=True, show_views=True),
         _render_post_cards(recent, views, "all"),
         _render_post_cards(posts, views, "all"),
     ):
@@ -2222,8 +2290,12 @@ class Handler(SimpleHTTPRequestHandler):
             if limit > 0:
                 listed = listed[:limit]
             views = get_views_map()
+            pv_all = get_page_views_map()
+            pv_30 = get_page_views_map(30)
             for p in listed:
-                p["views"] = int(views.get(p.get("slug"), 0))
+                p["views"] = int(views.get(p.get("slug"), 0))      # 글 화면 카운터
+                p["views_h"] = int(pv_all.get(p.get("slug"), 0))   # 사람 조회수 누적
+                p["views30"] = int(pv_30.get(p.get("slug"), 0))    # 사람 조회수 30일
             self._send_json(200, {"ok": True, "count": len(listed), "posts": listed})
             return
 

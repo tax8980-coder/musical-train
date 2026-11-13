@@ -269,17 +269,55 @@
        인기는 10편을 그려 두고, 모바일에서는 CSS 가 6번째부터 숨겨 5편만 보인다
        (화면 폭에 따라 자바스크립트로 개수를 바꾸면 창 크기를 바꿀 때 어긋난다). */
     var HOT_N = 10, NEW_N = 10;
+    // 인기 칼럼 기준 전환. 'month' = 최근 30일 사람 조회수(views30), 'all' = 전체 누적(views).
+    var HOT_LEADS = {
+      month: '최근 한 달 동안 가장 많이 읽은 칼럼 <span class="only-pc">10편</span><span class="only-mo">5편</span>입니다. 실제 방문자만 세며 매일 바뀝니다.',
+      all: '지금까지 가장 많이 읽힌 칼럼 <span class="only-pc">10편</span><span class="only-mo">5편</span>입니다. 2026년 8월 집계를 시작한 뒤의 누적 조회수 기준입니다.'
+    };
+    function bindHotSwitch() {
+      var sw = $('#hotSwitch');
+      if (!sw || sw.dataset.bound) return;
+      sw.dataset.bound = '1';
+      sw.addEventListener('click', function (e) {
+        var b = e.target.closest ? e.target.closest('.hot-switch__btn') : null;
+        if (!b || !b.dataset.hot) return;
+        var mode = b.dataset.hot;
+        sw.querySelectorAll('.hot-switch__btn').forEach(function (x) {
+          var on = x === b;
+          x.classList.toggle('is-on', on);
+          x.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        var lead = $('#hotLead');
+        if (lead) lead.innerHTML = HOT_LEADS[mode] || HOT_LEADS.month;
+        // 보일 쪽을 먼저 켜고 나서 숨긴다 — 둘 다 숨은 순간이 생기면 스크롤이 위로 튄다
+        var show = $(mode === 'all' ? '#hotListAll' : '#hotList');
+        var hide = $(mode === 'all' ? '#hotList' : '#hotListAll');
+        if (show) show.hidden = false;
+        if (hide) hide.hidden = true;
+      });
+    }
     function renderHotNew() {
-      var hotEl = $('#hotList');
-      if (hotEl) {
-        var hot = allPosts.slice().sort(function (a, b) {
-          var d = (parseInt(b.views, 10) || 0) - (parseInt(a.views, 10) || 0);
+      bindHotSwitch();
+      // 인기 목록 두 벌. key 가 가리키는 조회수로 정렬하고, 뱃지도 그 수치를 보여 준다
+      // (서버 _render_index_html 과 같은 규칙으로 유지할 것).
+      function fillHot(sel, key) {
+        var el = $(sel);
+        if (!el) return;
+        var list = allPosts.slice().sort(function (a, b) {
+          var d = (parseInt(b[key], 10) || 0) - (parseInt(a[key], 10) || 0);
           return d !== 0 ? d : String(b.date || '').localeCompare(String(a.date || ''));
         }).slice(0, HOT_N);
-        hotEl.innerHTML = hot.map(function (p, i) {
-          return card(p, { rank: i + 1, views: true });
+        el.innerHTML = list.map(function (p, i) {
+          var q = p;
+          if (key !== 'views') { q = {}; for (var k in p) q[k] = p[k]; q.views = p[key] || 0; }
+          return card(q, { rank: i + 1, views: true });
         }).join('') || '<li class="post-grid__loading">아직 등록된 칼럼이 없습니다.</li>';
       }
+      // 두 기준 모두 사람 조회수(views_h / views30). 집계가 비어 있으면 글 화면 카운터로 물러선다.
+      var hasH = allPosts.some(function (p) { return (parseInt(p.views_h, 10) || 0) > 0; });
+      var has30 = allPosts.some(function (p) { return (parseInt(p.views30, 10) || 0) > 0; });
+      fillHot('#hotList', has30 ? 'views30' : (hasH ? 'views_h' : 'views'));
+      fillHot('#hotListAll', hasH ? 'views_h' : 'views');
       var newEl = $('#newList');
       if (newEl) {
         var recent = allPosts.slice().sort(function (a, b) {
