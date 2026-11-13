@@ -561,20 +561,20 @@ HUB_INLINE_CSS = (
     ".post-row__tags{color:#2A5A9A;font-weight:600}"
     ".post-row__date{color:#5b6b7f}"
     "@media (max-width:767px){.post-row__title{font-size:16px}.post-row__link{padding:14px 2px}}"
+    # 인기 칼럼 기준 전환(최근 한 달 / 전체). 고른 쪽은 위 탭(.col-tab.is-on)과 같은 남색으로 채워
+    # 한눈에 구분되게 한다 — 테두리만 바꾸면 두 버튼이 똑같아 보인다.
+    ".hot-switch{display:flex;gap:6px;margin:0 0 10px}"
+    ".hot-switch__btn{padding:6px 14px;border-radius:999px;border:1px solid #D3E0F0;"
+    "background:#EAF1FA;color:#1E3A5F;font-size:.84rem;font-weight:700;cursor:pointer;line-height:1.5}"
+    ".hot-switch__btn:hover{background:#D8E6F7}"
+    ".hot-switch__btn.is-on,.hot-switch__btn.is-on:hover{background:#1E3A5F;border-color:#1E3A5F;color:#fff}"
+    "@media (max-width:767px){.hot-switch__btn{padding:6px 12px;font-size:.8rem}}"
     "</style>"
 )
 
 
 def _page_label(path, title_map):
-    """방문 통계 경로 → 사람이 읽는 한글 라벨.
-/* 인기 칼럼 기준 전환 (최근 한 달 / 전체) */
-.hot-switch{display:flex;gap:6px;margin:0 0 10px}
-.hot-switch__btn{padding:5px 13px;border-radius:999px;border:1px solid #D3E0F0;background:#fff;
-  color:#5b6b7f;font-size:.82rem;font-weight:700;cursor:pointer;line-height:1.5}
-.hot-switch__btn:hover{background:#EAF1FA}
-.hot-switch__btn.is-on{background:#EAF1FA;border-color:#9DBCE2;color:#1E3A5F}
-@media(max-width:767px){.hot-switch__btn{padding:5px 11px;font-size:.79rem}}
-"""
+    """방문 통계 경로 → 사람이 읽는 한글 라벨."""
     if path in _STATIC_PAGE_LABELS:
         return _STATIC_PAGE_LABELS[path]
     m = re.match(r"^/column/([A-Za-z0-9\-_]+)$", path)
