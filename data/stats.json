@@ -79383,6 +79383,12 @@
     {
       "day": "2026-11-17",
       "category": "page",
+      "name": "/column/gyeolhon-chulsan-jageum-1eok-woneul-jeungyeose",
+      "hits": 1
+    },
+    {
+      "day": "2026-11-17",
+      "category": "page",
       "name": "/column/tonghapgoyongseaekgongje-sangsigeunroja",
       "hits": 1
     },
@@ -79402,7 +79408,7 @@
       "day": "2026-11-17",
       "category": "pv",
       "name": "total",
-      "hits": 44
+      "hits": 45
     },
     {
       "day": "2026-11-17",
@@ -79414,7 +79420,7 @@
       "day": "2026-11-17",
       "category": "refsite",
       "name": "직접 · 직접 유입/앱/북마크",
-      "hits": 34
+      "hits": 35
     },
     {
       "day": "2026-11-17",
@@ -79426,13 +79432,13 @@
       "day": "2026-11-17",
       "category": "reftype",
       "name": "직접",
-      "hits": 34
+      "hits": 35
     },
     {
       "day": "2026-11-17",
       "category": "search",
       "name": "Bingbot",
-      "hits": 6
+      "hits": 7
     },
     {
       "day": "2026-11-17",
@@ -79450,7 +79456,7 @@
       "day": "2026-11-17",
       "category": "search",
       "name": "__total__",
-      "hits": 23
+      "hits": 24
     },
     {
       "day": "2026-11-17",
@@ -79462,7 +79468,7 @@
       "day": "2026-11-17",
       "category": "visitor",
       "name": "unique",
-      "hits": 31
+      "hits": 32
     }
   ]
 }
