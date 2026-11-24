@@ -1,13 +1,18 @@
 name: 노션 세무칼럼 자동 동기화
 
-# 매일 05:37(KST) = 매일 20:37(UTC) 실행 + 수동 실행(Run workflow) 가능.
-#  · 정시(예: 20:00)는 GitHub Actions 부하로 지연·누락되기 쉬워 37분으로 오프피크 배치.
-#  · 매일 돌지만 sync_notion.py 는 add-only + 회당 최대 3편이라, 새 칼럼이 없으면 no-op.
-#  · 하루가 지연·누락돼도 다음 날 자동으로 이어받음(self-healing) → 주간 정시 크론의 누락 문제 해소.
-# GitHub 서버에서 돌기 때문에 홈페이지 서버의 절전 여부와 무관하게 항상 실행됩니다.
+# 하루 여러 번 실행한다(2026-11-24 변경. 이전: 하루 1번 05:37 KST).
+#  · GitHub 예약 실행은 시각을 지켜 주지 않는다. 하루 1번 예약의 지연이
+#    8월 약 1시간 → 10월 약 3시간 → 11월 4~8시간으로 커져 "칼럼이 안 올라온다"는 제보가 있었다.
+#  · 그래서 (1) 예약을 하루 8번으로 늘리고, (2) '조회수 스냅샷 백업'이 끝날 때마다 이어서 실행한다.
+#    workflow_run 은 예약이 아니라 완료 직후 바로 시작되므로 예약 지연을 따로 겪지 않는다.
+#  · 새 칼럼이 없으면 커밋도 재배포도 하지 않는다(아래 '재배포 필요한지 확인').
+#  · 급할 때는 Actions → Run workflow(main). 수동 실행은 '작성 중 보류'(30분) 없이 바로 올린다.
 on:
   schedule:
-    - cron: "37 20 * * *"
+    - cron: "17 */3 * * *"
+  workflow_run:
+    workflows: ["조회수 스냅샷 백업"]
+    types: [completed]
   workflow_dispatch: {}
 
 permissions:
@@ -23,6 +28,8 @@ jobs:
     steps:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
+        with:
+          ref: main          # 항상 최신 main(백업 커밋 직후 실행되므로)
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -32,6 +39,7 @@ jobs:
       - name: 노션 → content/*.md, data/posts.json 동기화
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_QUIET_MIN: ${{ github.event_name == 'workflow_dispatch' && '0' || '30' }}
         run: |
           if [ -z "$NOTION_TOKEN" ]; then
             echo "::error::NOTION_TOKEN 시크릿이 없습니다. Settings → Secrets and variables → Actions 에 추가하세요."
@@ -46,20 +54,33 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "노션 세무칼럼 자동 동기화 (GitHub Actions)"
-            git push
+            # 조회수 백업 봇이 그사이 커밋했으면 push 가 거절되므로 rebase 후 재시도
+            ok=""
+            for i in 1 2 3; do
+              if git push; then ok=1; break; fi
+              git pull --rebase origin main
+            done
+            [ -n "$ok" ] || { echo "::error::push 실패"; exit 1; }
             echo "새 칼럼을 반영했습니다. 이어서 Cloudtype 재배포로 홈페이지에 반영합니다."
           else
             echo "추가할 새 칼럼이 없습니다(변경 없음)."
           fi
 
+      # 라이브에 빠진 칼럼이 있을 때만 재배포한다. 지난번 배포가 실패했어도 여기서 다시 잡는다.
+      - name: 재배포 필요한지 확인(라이브와 대조)
+        id: live
+        run: python check_live_posts.py
+
       # 봇 커밋(GITHUB_TOKEN) 푸시는 deploy 워크플로를 자동 트리거하지 않으므로
       # 여기서 직접 Cloudtype 재배포를 호출한다.
       - name: Cloudtype 배포 키 연결
+        if: steps.live.outputs.need == 'true'
         uses: cloudtype-github-actions/connect@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           ghtoken: ${{ secrets.GHP_TOKEN }}
       - name: Cloudtype 재배포(새 칼럼 반영)
+        if: steps.live.outputs.need == 'true'
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
@@ -77,4 +98,9 @@ jobs:
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
-                ref: ${{ github.ref }}
+                ref: refs/heads/main
+
+      # 끝내 반영되지 않으면 실패로 끝나 GitHub 가 메일로 알려 준다
+      - name: 홈페이지 반영 확인
+        if: steps.live.outputs.need == 'true'
+        run: python check_live_posts.py --wait

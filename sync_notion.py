@@ -43,6 +43,7 @@ import os
 import re
 import sys
 import unicodedata
+from datetime import datetime, timedelta, timezone
 import urllib.request
 import urllib.error
 
@@ -57,6 +58,10 @@ API = "https://api.notion.com/v1"
 
 # 한 번에 발행하는 칼럼 최대 개수(최신순). 0 이하면 제한 없음.
 MAX_POSTS = int(os.environ.get("NOTION_MAX_POSTS", "3"))
+
+# 마지막 수정 뒤 이만큼(분) 조용해야 발행한다. 한번 올라간 글은 다시 덮어쓰지 않으므로(add-only),
+# 하루 여러 번 돌 때 작성 중인 글이 반쯤 쓰인 채 올라가는 것을 막는다. 0 이면 바로 발행.
+QUIET_MIN = int(os.environ.get("NOTION_QUIET_MIN", "30"))
 
 # 기존 글의 주소(slug)를 안정적으로 유지: 노션 page id(대시 제거·소문자) → slug
 # (매핑에 없는 새 글은 제목 기반 slug 자동 생성)
@@ -294,7 +299,8 @@ def derive_tags(title, blocks):
 def derive_summary(blocks, limit=140):
     for b in blocks:
         if b.get("type") == "paragraph":
-            txt = plain_text(b["paragraph"].get("rich_text")).strip()
+            # 문단 안 줄바꿈을 그대로 두면 frontmatter 의 summary 가 두 줄로 깨진다
+            txt = " ".join(plain_text(b["paragraph"].get("rich_text")).split())
             if len(txt) >= 20:
                 return (txt[:limit] + "…") if len(txt) > limit else txt
     return ""
@@ -365,6 +371,18 @@ def existing_keys():
     return slugs, nids
 
 
+def still_editing(page_id):
+    """방금까지 고치던 글이면 True. 확인하지 못하면 막지 않는다(False)."""
+    if QUIET_MIN <= 0:
+        return False
+    try:
+        edited = api("GET", "/pages/" + page_id).get("last_edited_time", "")
+        t = datetime.fromisoformat(edited.replace("Z", "+00:00"))
+    except (urllib.error.URLError, ValueError):
+        return False
+    return datetime.now(timezone.utc) - t < timedelta(minutes=QUIET_MIN)
+
+
 # ---------------- 동기화 (server.py에서도 import 하여 호출) ----------------
 def sync():
     """노션 세무칼럼 → content/*.md → posts.json. 성공 시 글 수(int) 반환.
@@ -410,8 +428,6 @@ def sync():
         candidates.append((b.get("created_time", "") or "", b, page_id, title, slug))
 
     candidates.sort(key=lambda x: x[0])                    # 작성 순 오름차순
-    if MAX_POSTS > 0:
-        candidates = candidates[:MAX_POSTS]
 
     if not candidates:
         print("추가할 새 칼럼이 없습니다(모두 발행됨). 기존 글은 그대로 유지합니다.")
@@ -419,10 +435,18 @@ def sync():
 
     written = 0
     for created, b, page_id, title, slug in candidates:
+        if MAX_POSTS > 0 and written >= MAX_POSTS:
+            break
+        if still_editing(page_id):
+            print("  · 보류(최근 %d분 안에 수정됨, 다음 실행 때 발행) %s" % (QUIET_MIN, title[:36]))
+            continue
         try:
             body_blocks = get_children(page_id)
         except urllib.error.HTTPError:
             print("  · 건너뜀(조회 실패) %s" % title[:36])
+            continue
+        if not body_blocks:
+            print("  · 보류(본문이 비어 있음) %s" % title[:36])
             continue
         md = blocks_to_md(body_blocks, slug=slug)
         if "참고용 일반정보" not in md:
